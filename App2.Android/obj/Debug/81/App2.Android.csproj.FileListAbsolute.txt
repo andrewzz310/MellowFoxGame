@@ -89,3 +89,5 @@ C:\test\App2\App2\App2.Android\obj\Debug\81\android\assets\FormsViewGroup.pdb
 C:\test\App2\App2\App2.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 C:\test\App2\App2\App2.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\test\App2\App2\App2.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
+C:\test\App2\App2\App2.Android\obj\Debug\81\Views\ScorePage.xaml.g.cs
+C:\test\App2\App2\App2.Android\obj\Debug\81\Views\CharacterPage.xaml.g.cs

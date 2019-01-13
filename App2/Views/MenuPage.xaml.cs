@@ -21,7 +21,9 @@ namespace App2.Views
                 //new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                  new HomeMenuItem {Id = MenuItemType.MellowFoxGame, Title="MellowFoxGame"},
-                  new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" }
+                  new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                  new HomeMenuItem {Id = MenuItemType.ScorePage, Title="ScorePage"},
+                  new HomeMenuItem {Id = MenuItemType.CharacterPage, Title="CharacterPage"}
 
             };
 

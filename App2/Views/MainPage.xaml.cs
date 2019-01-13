@@ -42,6 +42,16 @@ namespace App2.Views
                     case (int)MenuItemType.MellowFoxGame:
                         MenuPages.Add(id, new NavigationPage(new MellowFoxGame()));
                         break;
+
+                    //newly added for testing score page
+                    case (int)MenuItemType.ScorePage:
+                        MenuPages.Add(id, new NavigationPage(new ScorePage()));
+                        break;
+
+                    //newly added for testing Character Page
+                    case (int)MenuItemType.CharacterPage:
+                        MenuPages.Add(id, new NavigationPage(new CharacterPage()));
+                        break;
                 }
             }
 

@@ -304,3 +304,5 @@ C:\test\App2\App2\App2.UWP\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\test\App2\App2\App2.UWP\obj\x86\Debug\Xamarin.Forms.Platform.UAP.pri.xml
 C:\test\App2\App2\App2.UWP\obj\x86\Debug\ProjectArchitectures.txt
 C:\test\App2\App2\App2.UWP\obj\x86\Debug\Views\MellowFoxGame.xaml.g.cs
+C:\test\App2\App2\App2.UWP\obj\x86\Debug\Views\ScorePage.xaml.g.cs
+C:\test\App2\App2\App2.UWP\obj\x86\Debug\Views\CharacterPage.xaml.g.cs

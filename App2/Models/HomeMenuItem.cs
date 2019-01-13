@@ -9,7 +9,9 @@ namespace App2.Models
         //Browse, switched about and browse order
         About,
         Browse,
-        MellowFoxGame //added game page
+        MellowFoxGame, //added game page
+        ScorePage,
+        CharacterPage
     }
     public class HomeMenuItem
     {
