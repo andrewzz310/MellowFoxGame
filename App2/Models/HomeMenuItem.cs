@@ -7,7 +7,8 @@ namespace App2.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        Character //added chracter page
     }
     public class HomeMenuItem
     {

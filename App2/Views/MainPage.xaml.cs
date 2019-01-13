@@ -32,6 +32,11 @@ namespace App2.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    
+                        //newly added for testing chracter page
+                    case (int)MenuItemType.Character:
+                        MenuPages.Add(id, new NavigationPage(new CharacterPage()));
+                        break;
                 }
             }
 
