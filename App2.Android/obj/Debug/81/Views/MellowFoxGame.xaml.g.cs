@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("App2.UWP.Views.CharacterPage.xaml", "Views/CharacterPage.xaml", typeof(global::App2.Views.CharacterPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("App2.Droid.Views.MellowFoxGame.xaml", "Views/MellowFoxGame.xaml", typeof(global::App2.Views.CharacterPage))]
 
 namespace App2.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\test\\App2\\App2\\App2\\Views\\CharacterPage.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("C:\\test\\App2\\App2\\App2\\Views\\MellowFoxGame.xaml")]
     public partial class CharacterPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

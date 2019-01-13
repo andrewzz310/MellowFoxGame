@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace App2.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CharacterPage : ContentPage
+	public partial class MellowFoxGame : ContentPage
 	{
-		public CharacterPage ()
+		public MellowFoxGame ()
 		{
 			InitializeComponent ();
 		}

@@ -6,9 +6,10 @@ namespace App2.Models
 {
     public enum MenuItemType
     {
-        Browse,
+        //Browse, switched about and browse order
         About,
-        Character //added chracter page
+        Browse,
+        MellowFoxGame //added game page
     }
     public class HomeMenuItem
     {

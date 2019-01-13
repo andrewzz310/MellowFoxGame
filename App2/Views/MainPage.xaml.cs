@@ -17,7 +17,10 @@ namespace App2.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+
+            //this instantiates  as the main navigation page
+            MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -26,16 +29,18 @@ namespace App2.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
+
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
-                    
-                        //newly added for testing chracter page
-                    case (int)MenuItemType.Character:
-                        MenuPages.Add(id, new NavigationPage(new CharacterPage()));
+                    //switched order of about and browse
+                    case (int)MenuItemType.Browse:
+                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        break;
+
+                    //newly added for testing chracter page
+                    case (int)MenuItemType.MellowFoxGame:
+                        MenuPages.Add(id, new NavigationPage(new MellowFoxGame()));
                         break;
                 }
             }

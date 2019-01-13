@@ -16,8 +16,11 @@
                 </OnPlatform>
             </NavigationPage.Icon>
             <x:Arguments>
-                <views:ItemsPage />
+                <!-- put in views:ItemsPage originally-->
+                <views:AboutPage />
             </x:Arguments>
         </NavigationPage>
+
+
     </MasterDetailPage.Detail>
 </MasterDetailPage>
