@@ -5,6 +5,35 @@
              Title="{Binding Title}">
 
 
+
+    <StackLayout>
+        <Label Text="MellowFoxGame"
+               FontSize="40"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+               
+        <Image Source="mellowfoxgamelogo.PNG"
+               WidthRequest="300"
+               HeightRequest="300"
+               HorizontalOptions="Center" />
+        
+        <!--
+        <Label Text="Button"
+               FontSize="40"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/> -->
+
+        <Button Text="Click Me!"
+                Font="Larger"
+                HorizontalOptions="Center"/>
+
+
+    </StackLayout>
+
+    
+    
+<!--
+   
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
             <Label FontSize="32" Text="Welcome to MellowFoxGame!"
@@ -13,14 +42,11 @@
            
         </StackLayout>
         
-        <!-- VerticalOptions="CenterAndExpand" -->
-           
-
     </ContentPage.Content>
 
     <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
         <Image Source="mellowfoxgamelogo.PNG" VerticalOptions="Center" HeightRequest="64" />
-    </ContentView>
-
+    </ContentView> 
+-->
 
 </ContentPage>
