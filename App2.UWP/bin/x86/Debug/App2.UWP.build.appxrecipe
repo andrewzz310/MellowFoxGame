@@ -532,8 +532,8 @@
     <AppxPackagedFile Include="C:\Users\Administrator\.nuget\packages\xamarin.forms\3.4.0.1008975\lib\uap10.0\Xamarin.Forms.Xaml.dll">
       <PackagePath>Xamarin.Forms.Xaml.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\test\App2\App2\App2.UWP\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\test\App2\App2\App2.UWP\mellowfoxgamelogo.PNG">
+      <PackagePath>mellowfoxgamelogo.PNG</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\test\App2\App2\App2.UWP\Assets\LargeTile.scale-100.png">
       <PackagePath>Assets\LargeTile.scale-100.png</PackagePath>
@@ -654,6 +654,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\test\App2\App2\App2.UWP\cancel.png">
       <PackagePath>cancel.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\test\App2\App2\App2.UWP\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\test\App2\App2\App2.UWP\bin\x86\Debug\App2.UWP.xr.xml">
       <PackagePath>App2.UWP.xr.xml</PackagePath>

@@ -3,11 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App2.Views.MellowFoxGame"
              Title="{Binding Title}">
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label FontSize="32" Text="Welcome to MellowFoxGame!"
+               
                 HorizontalOptions="CenterAndExpand" />
+           
         </StackLayout>
+        
+        <!-- VerticalOptions="CenterAndExpand" -->
+           
+
     </ContentPage.Content>
+
+    <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+        <Image Source="mellowfoxgamelogo.PNG" VerticalOptions="Center" HeightRequest="64" />
+    </ContentView>
+
+
 </ContentPage>

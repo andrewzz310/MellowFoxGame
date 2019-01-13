@@ -1,3 +1,6 @@
+App2.Droid.MainActivity, App2.Android;md5ce51fed3f5ce2f508bfc10049c6540f6.MainActivity
+App2.Droid.MainActivity;md5ce51fed3f5ce2f508bfc10049c6540f6.MainActivity
+app2.droid.MainActivity;md5ce51fed3f5ce2f508bfc10049c6540f6.MainActivity
 Android.Support.V4.View.ActionProvider+ISubUiVisibilityListenerImplementor, Xamarin.Android.Support.Compat;mono.android.support.v4.view.ActionProvider_SubUiVisibilityListenerImplementor
 Android.Support.V4.View.ActionProvider.ISubUiVisibilityListenerImplementor;mono.android.support.v4.view.ActionProvider_SubUiVisibilityListenerImplementor
 mono.android.support.v4.view.ActionProvider_SubUiVisibilityListenerImplementor;mono.android.support.v4.view.ActionProvider_SubUiVisibilityListenerImplementor
