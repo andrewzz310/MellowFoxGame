@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App2.Views.MellowFoxGame"
+             xmlns:vm="clr-namespace:App2.ViewModels"
+             Title="{Binding Title}">
+
+
+
+    <StackLayout>
+        <Label Text="MellowFoxGame"
+               FontSize="40"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+               
+        <Image Source="mellowfoxgamelogo.PNG"
+               WidthRequest="300"
+               HeightRequest="300"
+               HorizontalOptions="Center" />
+        
+        <!--
+        <Label Text="Button"
+               FontSize="40"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/> -->
+
+        <Button Text="Score Page"
+                Font="Larger"
+                HorizontalOptions="Center"
+                Clicked="ButtonScore"/>
+        
+        <Button Text="Character Page"
+                Font="Larger"
+                HorizontalOptions="Center"
+                Clicked="ButtonCharacter"/>
+
+
+    </StackLayout>
+
+    
+    
+<!--
+   
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+            <Label FontSize="32" Text="Welcome to MellowFoxGame!"
+               
+                HorizontalOptions="CenterAndExpand" />
+           
+        </StackLayout>
+        
+    </ContentPage.Content>
+
+    <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+        <Image Source="mellowfoxgamelogo.PNG" VerticalOptions="Center" HeightRequest="64" />
+    </ContentView> 
+-->
+
+</ContentPage>
