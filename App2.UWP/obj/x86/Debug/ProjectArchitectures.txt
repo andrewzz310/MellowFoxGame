@@ -1,1 +1,0 @@
-C:\test\App2\App2\App2.UWP\App2.UWP.csproj;x86
