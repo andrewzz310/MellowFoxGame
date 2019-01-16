@@ -16,5 +16,35 @@ namespace App1.Views
 		{
 			InitializeComponent ();
 		}
-	}
+
+
+
+
+        //Button for ScorePage
+
+        async void ButtonScore(object sender, EventArgs e)
+
+        {
+
+            await Navigation.PushAsync(new ScorePage());
+
+        }
+
+
+
+
+
+        //Button for CharacterPage
+
+        async void ButtonCharacter(object sender, EventArgs e)
+
+        {
+
+            await Navigation.PushAsync(new CharacterPage());
+
+        }
+
+    }
+
 }
+	
