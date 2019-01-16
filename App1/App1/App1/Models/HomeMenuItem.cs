@@ -6,6 +6,7 @@ namespace App1.Models
 
 {
 
+
     public enum MenuItemType
 
     {
@@ -14,9 +15,13 @@ namespace App1.Models
 
         About,
 
-        Browse
+        Browse,
 
-        
+        MellowFoxGame, //added game page
+
+        ScorePage,
+
+        CharacterPage
 
     }
 
