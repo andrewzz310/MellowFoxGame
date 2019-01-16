@@ -17,7 +17,10 @@ namespace App1.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+
+            //this instantiates  as the main navigation page
+            MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
+            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
         }
 
         public async Task NavigateFromMenu(int id)
@@ -26,12 +29,13 @@ namespace App1.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Browse:
+                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        break;
+                   
                 }
             }
 

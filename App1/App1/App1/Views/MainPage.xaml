@@ -4,20 +4,43 @@
             xmlns:views="clr-namespace:App1.Views"
             x:Class="App1.Views.MainPage">
 
+
     <MasterDetailPage.Master>
+
         <views:MenuPage />
+
     </MasterDetailPage.Master>
 
+
+
     <MasterDetailPage.Detail>
+
         <NavigationPage>
+
             <NavigationPage.Icon>
+
                 <OnPlatform x:TypeArguments="FileImageSource">
+
                     <On Platform="iOS" Value="tab_feed.png"/>
+
                 </OnPlatform>
+
             </NavigationPage.Icon>
+
             <x:Arguments>
-                <views:ItemsPage />
+
+                <!-- put in views:ItemsPage originally-->
+
+                <views:AboutPage />
+
             </x:Arguments>
+
         </NavigationPage>
+
+
+
+
+
     </MasterDetailPage.Detail>
+
 </MasterDetailPage>
