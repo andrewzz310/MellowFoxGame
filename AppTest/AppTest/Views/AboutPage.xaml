@@ -47,7 +47,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <FormattedString.Spans>
-                                <Span Text="This app is written in C# and native APIs using the" />
+                                <Span Text="This app is written in C# dfasfsafasfasand native APIs using the" />
                                 <Span Text=" " />
                                 <Span Text="Xamarin Platform" FontAttributes="Bold" />
                                 <Span Text="." />
