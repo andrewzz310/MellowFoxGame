@@ -37,7 +37,7 @@ namespace App1.Views
 
                  new HomeMenuItem {Id = MenuItemType.MellowFoxGame, Title="MellowFoxGame"},
 
-                  new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                  new HomeMenuItem {Id = MenuItemType.Browse, Title="Items" },
 
                   new HomeMenuItem {Id = MenuItemType.ScorePage, Title="ScorePage"},
 
