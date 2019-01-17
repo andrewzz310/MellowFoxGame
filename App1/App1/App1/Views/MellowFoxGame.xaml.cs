@@ -44,6 +44,15 @@ namespace App1.Views
 
         }
 
+        //Button for ItemsPage
+        async void ButtonItems(object sender, EventArgs e)
+
+        {
+
+            await Navigation.PushAsync(new ItemsPage());
+
+        }
+
     }
 
 }

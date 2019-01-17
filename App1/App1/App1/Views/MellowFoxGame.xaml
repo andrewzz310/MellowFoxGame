@@ -69,6 +69,13 @@
                 Clicked="ButtonCharacter"/>
 
 
+        <Button Text="Items Page"
+
+                Font="Larger"
+
+                HorizontalOptions="Center"
+
+                Clicked="ButtonItems"/>
 
 
 
