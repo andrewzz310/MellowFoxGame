@@ -31,8 +31,8 @@
                                          HorizontalOptions="Start">
 
                                 <Image Source="{Binding ImageURI}"
-                                       WidthRequest="50"
-                                       HeightRequest="50" 
+                                       WidthRequest="150"
+                                       HeightRequest="150" 
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"/>
 
