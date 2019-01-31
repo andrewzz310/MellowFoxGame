@@ -52,7 +52,15 @@ namespace Crawl.Services
 
             // Implement Characters
 
-          //  _characterDataset.Add(new Character("Dragon", "This is a Dragon", "dragon1.png", 10, 5));
+            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png", 30, 1));
+            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png", 25, 1));
+            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png", 80, 1));
+            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png", 25, 1));
+            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png", 18, 1));
+            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png", 23, 1));
+
+
+            /*
             var mockCharacters = new List<Character>
             {
                 new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description="This is an Character description.", Age = 1 },
@@ -67,6 +75,7 @@ namespace Crawl.Services
             {
                 _characterDataset.Add(data);
             }
+            */
 
             // Implement Monsters
 
