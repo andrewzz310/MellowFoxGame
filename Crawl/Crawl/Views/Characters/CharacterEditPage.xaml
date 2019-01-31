@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<<<<<<< HEAD
              x:Class="Crawl.Views.CharacterEditPage"
              xmlns:local="using:Crawl.Models"
              Title="{Binding Title}">
@@ -164,6 +165,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
              x:Class="Crawl.Views.CharacterEditPage"		     
              Title="{Binding Title}">
     
@@ -177,5 +180,9 @@
         </StackLayout>
     </ContentPage.Content>
     
+<<<<<<< HEAD
 </ContentPage>
     -->
+=======
+</ContentPage>
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

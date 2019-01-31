@@ -25,8 +25,11 @@ namespace Crawl.Models
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;
 
+<<<<<<< HEAD
             // Adding Age
             Age = newData.Age;
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;

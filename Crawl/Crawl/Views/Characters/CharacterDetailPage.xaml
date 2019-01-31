@@ -4,6 +4,7 @@
              x:Class="Crawl.Views.CharacterDetailPage"
              Title="{Binding Title}">
 
+<<<<<<< HEAD
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
@@ -82,6 +83,9 @@
 
 
 <!--
+=======
+
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
     <ContentPage.ToolbarItems>
 
     </ContentPage.ToolbarItems>
@@ -89,5 +93,9 @@
     <StackLayout Spacing="20" Padding="15">
 
     </StackLayout>
+<<<<<<< HEAD
 </ContentPage>
     -->
+=======
+</ContentPage>
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

@@ -28,7 +28,10 @@ namespace Crawl.Controllers
 
         // Return the Default Image URI for the Local Image for an Item.
         public static string DefaultImageURI = "Item.png";
+<<<<<<< HEAD
         public static string DefaultImageURICharacter = "mellowfoxgamelogo1.PNG";
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
     }
 }

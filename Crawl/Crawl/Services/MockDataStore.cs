@@ -41,6 +41,7 @@ namespace Crawl.Services
             // Implement
 
             // Load Items.
+<<<<<<< HEAD
             _itemDataset.Add(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
 
             _itemDataset.Add(new Item("Shield", "This is a Shield Item",
@@ -68,6 +69,19 @@ namespace Crawl.Services
                 _characterDataset.Add(data);
             }
 
+=======
+            _itemDataset.Add(new Item("Gold Sword", "Sword made of Gold, really expensive looking",
+                "http://www.clker.com/cliparts/e/L/A/m/I/c/sword-md.png", 0, 10, 10, ItemLocationEnum.PrimaryHand, AttributeEnum.Defense));
+
+            _itemDataset.Add(new Item("Strong Shield", "Enough to hide behind",
+                "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png", 0, 10, 0, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+
+            _itemDataset.Add(new Item("Bunny Hat", "Pink hat with fluffy ears",
+                "http://www.clipartbest.com/cliparts/yik/e9k/yike9kMyT.png", 0, 10, -1, ItemLocationEnum.Head, AttributeEnum.Speed));
+
+            // Implement Characters
+
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
             // Implement Monsters
 
             // Implement Scores
@@ -175,6 +189,7 @@ namespace Crawl.Services
 
         #region Character
         // Character
+<<<<<<< HEAD
         public async Task<bool> InsertUpdateAsync_Character(Character data)
         {
 
@@ -204,10 +219,17 @@ namespace Crawl.Services
             _characterDataset.Add(data);
 
             return await Task.FromResult(true);
+=======
+        public async Task<bool> AddAsync_Character(Character data)
+        {
+            // Implement
+            return false;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public async Task<bool> UpdateAsync_Character(Character data)
         {
+<<<<<<< HEAD
             var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
             if (myData == null)
             {
@@ -217,24 +239,43 @@ namespace Crawl.Services
             myData.Update(data);
 
             return await Task.FromResult(true);
+=======
+            // Implement
+            return false;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public async Task<bool> DeleteAsync_Character(Character data)
         {
+<<<<<<< HEAD
             var myData = _characterDataset.FirstOrDefault(arg => arg.Id == data.Id);
             _characterDataset.Remove(myData);
 
             return await Task.FromResult(true);
+=======
+            // Implement
+            return false;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public async Task<Character> GetAsync_Character(string id)
         {
+<<<<<<< HEAD
             return await Task.FromResult(_characterDataset.FirstOrDefault(s => s.Id == id));
+=======
+            // Implement
+            return null;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public async Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false)
         {
+<<<<<<< HEAD
             return await Task.FromResult(_characterDataset);
+=======
+            // Implement
+            return null;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         #endregion Character

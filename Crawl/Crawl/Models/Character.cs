@@ -2,8 +2,11 @@
 using Crawl.ViewModels;
 using System;
 using System.Collections.Generic;
+<<<<<<< HEAD
 using Crawl.Controllers;
 using Crawl.GameEngine;
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
 namespace Crawl.Models
 {
@@ -13,6 +16,7 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
+<<<<<<< HEAD
 
 
         // Create a default Character for the instantiation
@@ -31,12 +35,17 @@ namespace Crawl.Models
 
 
 
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         // Make sure Attribute is instantiated in the constructor
         public Character()
         {
             Attribute = new AttributeBase();
             Alive = true;
+<<<<<<< HEAD
             CreateDefaultCharacter();
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         // Create a new character, based on a passed in BaseCharacter
@@ -47,18 +56,25 @@ namespace Crawl.Models
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
+<<<<<<< HEAD
             // Adding age
             Age = newData.Age;
             
           //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
          //   Alive = newData.Alive;
+=======
+            ExperienceTotal = newData.ExperienceTotal;
+            ImageURI = newData.ImageURI;
+            Alive = newData.Alive;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
 
             // Populate the Attributes
+<<<<<<< HEAD
       //      AttributeString = newData.AttributeString;
 
        //     Attribute = new AttributeBase(newData.AttributeString);
@@ -93,6 +109,25 @@ namespace Crawl.Models
 
             Age = age;
             Level = level;
+=======
+            AttributeString = newData.AttributeString;
+
+            Attribute = new AttributeBase(newData.AttributeString);
+
+            // Set the strings for the items
+            Head = newData.Head;
+            Feet = newData.Feet;
+            Necklass = newData.Necklass;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
+        }
+
+        // Create a new character, based on existing Character
+        public Character(Character newData)
+        {
+            // Implement
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         // Upgrades to a set level
@@ -107,6 +142,7 @@ namespace Crawl.Models
         {
 
             // Implement
+<<<<<<< HEAD
             // Base information
             Name = newData.Name;
             Description = newData.Description;
@@ -121,6 +157,9 @@ namespace Crawl.Models
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
+=======
+                return;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string

@@ -41,6 +41,7 @@ namespace Crawl.ViewModels
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
             // Implement 
+<<<<<<< HEAD
             #region Messages
             MessagingCenter.Subscribe<CharacterDeletePage, Character>(this, "DeleteData", async (obj, data) =>
             {
@@ -58,6 +59,8 @@ namespace Crawl.ViewModels
             });
 
             #endregion Messages
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
         }
 
@@ -65,6 +68,7 @@ namespace Crawl.ViewModels
         // It sets the refresh flag to false
         public bool NeedsRefresh()
         {
+<<<<<<< HEAD
 
             // Implement 
             if (_needsRefresh)
@@ -73,6 +77,9 @@ namespace Crawl.ViewModels
                 return true;
             }
 
+=======
+            // Implement 
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
             return false;
         }
 
@@ -80,11 +87,15 @@ namespace Crawl.ViewModels
         public void SetNeedsRefresh(bool value)
         {
             // Implement 
+<<<<<<< HEAD
             _needsRefresh = value;
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         private async Task ExecuteLoadDataCommand()
         {
+<<<<<<< HEAD
             if (IsBusy)
                 return;
 
@@ -120,37 +131,56 @@ namespace Crawl.ViewModels
             {
                 IsBusy = false;
             }
+=======
+            // Implement 
+            return;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public void ForceDataRefresh()
         {
             // Implement 
+<<<<<<< HEAD
             // Reset
             var canExecute = LoadDataCommand.CanExecute(null);
             LoadDataCommand.Execute(null);
         }
 
        
+=======
+        }
+
+        #region DataOperations
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
         public async Task<bool> AddAsync(Character data)
         {
             // Implement 
+<<<<<<< HEAD
             Dataset.Add(data);
             var myReturn = await DataStore.AddAsync_Character(data);
             return myReturn;
+=======
+            return false;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public async Task<bool> DeleteAsync(Character data)
         {
             // Implement 
+<<<<<<< HEAD
             Dataset.Remove(data);
             var myReturn = await DataStore.DeleteAsync_Character(data);
             return myReturn;
+=======
+            return false;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         public async Task<bool> UpdateAsync(Character data)
         {
             // Implement 
+<<<<<<< HEAD
             var myData = Dataset.FirstOrDefault(arg => arg.Id == data.Id);
             if (myData == null)
             {
@@ -163,12 +193,16 @@ namespace Crawl.ViewModels
             _needsRefresh = true;
 
             return true;
+=======
+            return false;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         }
 
         // Call to database to ensure most recent
         public async Task<Character> GetAsync(string id)
         {
             // Implement 
+<<<<<<< HEAD
             var myData = await DataStore.GetAsync_Character(id);
             return myData;
         }
@@ -207,6 +241,12 @@ namespace Crawl.ViewModels
 
 
 
+=======
+            return null;
+        }
+
+        #endregion DataOperations
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
     }
 }

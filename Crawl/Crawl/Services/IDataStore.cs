@@ -25,12 +25,15 @@ namespace Crawl.Services
 
         // Implement Monster
         // Implement Character
+<<<<<<< HEAD
         Task<bool> InsertUpdateAsync_Character(Character data);
         Task<bool> AddAsync_Character(Character data);
         Task<bool> UpdateAsync_Character(Character data);
         Task<bool> DeleteAsync_Character(Character data);
         Task<Character> GetAsync_Character(string id);
         Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false);
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         // Implement Score
 
     }

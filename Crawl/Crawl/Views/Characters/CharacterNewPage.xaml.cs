@@ -2,6 +2,7 @@
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+<<<<<<< HEAD
 using Crawl.Controllers;
 using Crawl.Models;
 
@@ -77,6 +78,8 @@ using System;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
 using Crawl.Models;
 
@@ -113,5 +116,9 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
     }
+<<<<<<< HEAD
 }
 */
+=======
+}
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

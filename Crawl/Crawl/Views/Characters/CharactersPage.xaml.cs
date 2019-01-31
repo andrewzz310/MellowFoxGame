@@ -11,6 +11,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharactersPage : ContentPage
     {
+<<<<<<< HEAD
         private CharactersViewModel _instance;
 
         public CharactersPage()
@@ -78,6 +79,8 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharactersPage : ContentPage
     {
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         private CharactersViewModel _viewModel;
 
         public CharactersPage()
@@ -86,5 +89,9 @@ namespace Crawl.Views
             BindingContext = _viewModel = CharactersViewModel.Instance;
         }
     }
+<<<<<<< HEAD
 }
 */
+=======
+}
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

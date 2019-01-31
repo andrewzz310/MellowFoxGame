@@ -34,7 +34,11 @@
 
                     <Label 
                 FontSize="Large"
+<<<<<<< HEAD
                 Text="Mellow Fox Game"
+=======
+                Text="Class Dungeon"
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
 
@@ -46,7 +50,11 @@
 
                     <Label 
                 FontSize="Small"
+<<<<<<< HEAD
                 Text="Andrew Yiyun Zhu"
+=======
+                Text="Mike Koenig"
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
 

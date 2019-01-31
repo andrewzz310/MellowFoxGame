@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using Crawl.Models;
 using Crawl.ViewModels;
+<<<<<<< HEAD
 
 namespace Crawl.Views
 {
@@ -59,6 +60,8 @@ using Xamarin.Forms.Xaml;
 
 using Crawl.Models;
 using Crawl.ViewModels;
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 // ReSharper disable FieldCanBeMadeReadOnly.Local
 // ReSharper disable RedundantExtendsListEntry
 
@@ -107,5 +110,9 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
     }
+<<<<<<< HEAD
 }
 */
+=======
+}
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

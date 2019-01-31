@@ -12,8 +12,11 @@
 
         // Location to the image for the item.  Will come from the server as a fully qualified URI example:  https://developer.android.com/images/robot-tiny.png
         public string ImageURI { get; set; }
+<<<<<<< HEAD
 
        // public int Age { get; set; }
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
     }
 }
 

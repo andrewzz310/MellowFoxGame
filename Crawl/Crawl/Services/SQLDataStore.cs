@@ -130,6 +130,7 @@ namespace Crawl.Services
         #region Character
         // Character
 
+<<<<<<< HEAD
         public async Task<bool> InsertUpdateAsync_Character(Character data)
         {
             // Implement
@@ -137,6 +138,8 @@ namespace Crawl.Services
             return false;
         }
 
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
         // Conver to BaseCharacter and then add it
         public async Task<bool> AddAsync_Character(Character data)
         {

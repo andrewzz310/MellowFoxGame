@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.CharacterDeletePage"
+<<<<<<< HEAD
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
@@ -84,6 +85,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.CharacterDeletePage"
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
             Title="{Binding Title}">
 
 
@@ -96,5 +99,9 @@
 
 
     </StackLayout>
+<<<<<<< HEAD
 </ContentPage>
     -->
+=======
+</ContentPage>
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

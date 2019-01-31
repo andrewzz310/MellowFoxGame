@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿
 using System;
 using Crawl.Models;
@@ -84,6 +85,9 @@ namespace Crawl.Views
 
 /*
 using System;
+=======
+﻿using System;
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
 
 using Crawl.Models;
 using Crawl.ViewModels;
@@ -132,5 +136,9 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
     }
+<<<<<<< HEAD
 }
 */
+=======
+}
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c

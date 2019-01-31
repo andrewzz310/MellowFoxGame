@@ -26,9 +26,13 @@ namespace Crawl.Services
                     _dataStoreEnum = DataStoreEnum.Mock;
                     ItemsViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
                     // Implement Monster
+<<<<<<< HEAD
 
                     // Implement Character
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
+=======
+                    // Implement Character
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
                     // Implement Score
 
                     break;
@@ -38,9 +42,13 @@ namespace Crawl.Services
                     _dataStoreEnum = DataStoreEnum.Sql;
                     ItemsViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
                     // Implement Monster
+<<<<<<< HEAD
 
                     // Implement Character
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
+=======
+                    // Implement Character
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
                     // Implement Score
                     break;
             }
@@ -49,7 +57,10 @@ namespace Crawl.Services
             ItemsViewModel.Instance.ForceDataRefresh();
             // Implement Monster
             // Implement Character
+<<<<<<< HEAD
             CharactersViewModel.Instance.ForceDataRefresh();
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
             // Implement Score
         }
 
@@ -59,7 +70,10 @@ namespace Crawl.Services
             ItemsViewModel.Instance.ForceDataRefresh();
             // Implement Monster
             // Implement Character
+<<<<<<< HEAD
            CharactersViewModel.Instance.ForceDataRefresh();
+=======
+>>>>>>> 20f9049006559ec397faf2d9a8b59e8d57f0849c
             // Implement Score
         }
     }
