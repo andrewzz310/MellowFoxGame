@@ -13,8 +13,6 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
-
-
         // Create a default Character for the instantiation
         private void CreateDefaultCharacter()
         {
@@ -28,8 +26,6 @@ namespace Crawl.Models
         
             //ImageURI = null;
         }
-
-
 
         // Make sure Attribute is instantiated in the constructor
         public Character()
