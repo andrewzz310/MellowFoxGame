@@ -12,7 +12,7 @@ namespace Crawl.Views
     {
         public Item Data { get; set; }
 
-        // Constructor for the page, will create a new black item that can tehn get updated
+        // Constructor for the page, will create a new black item that can then get updated
         public ItemNewPage()
         {
             InitializeComponent();

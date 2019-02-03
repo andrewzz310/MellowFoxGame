@@ -65,7 +65,6 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
-
                     <StackLayout Grid.Row="2" Grid.Column="0">
                         <Label 
                             Text="XP" 
@@ -80,31 +79,6 @@
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
                     </StackLayout>
-                    <!--
-                    <StackLayout Grid.Row="2" Grid.Column="0">
-                        <Label 
-                            Text="Age" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Age}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="AgeValue"
-                            VerticalOptions="Center"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Age, Mode=TwoWay}"
-                            Minimum="0"
-                            Maximum="95"
-                            Increment="1"
-                            ValueChanged="Age_OnStepperValueChanged"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    
-                    </StackLayout> -->
 
                     <StackLayout Grid.Row="3" Grid.Column="0">
                         <Label 
@@ -120,7 +94,6 @@
                             HorizontalOptions="Start"
                             x:Name="LevelValue"
                             VerticalOptions="Center"/>
-
                         <Stepper Value="{Binding Data.Level, Mode=TwoWay}"
                             Minimum="0"
                             Maximum="20"
@@ -129,13 +102,40 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                     </StackLayout>
-
-
-                    <StackLayout Grid.Row="6" Grid.Column="1">
+                    
+                    <StackLayout Grid.Row="4" Grid.Column="0">
+                        <Label 
+                            Text="Image URI"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.Column="1">
                         <Entry 
                             Text="{Binding Data.ImageURI}" 
                             FontSize="Small" 
                             HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                     <StackLayout Grid.Row="4" Grid.Column="0">
+                        <Label 
+                            Text="Image URI"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5" Grid.Column="0">
+                        <Label 
+                            Text="Preferred Item"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5" Grid.Column="1">
+                        <Picker 
+                            ItemsSource="{x:Static local:ItemLocationList.GetListItem}" 
+                            SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                            x:Name="LocationPicker" 
                             VerticalOptions="Center"/>
                     </StackLayout>
 
@@ -147,24 +147,3 @@
     </ContentPage.Content>
 
 </ContentPage>
-    
-    
-    
- <!--
- <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Crawl.Views.CharacterNewPage"
-		     Title="Add New Item">
-    
-    <ContentPage.ToolbarItems>
-
-    </ContentPage.ToolbarItems>
-
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-
-        </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
--->

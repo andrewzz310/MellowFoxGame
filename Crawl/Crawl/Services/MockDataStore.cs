@@ -38,9 +38,7 @@ namespace Crawl.Services
         private void InitilizeSeedData()
         {
 
-            // Implement
-
-            // Load Items.
+            // Load Items
             _itemDataset.Add(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
 
             _itemDataset.Add(new Item("Shield", "This is a Shield Item",
@@ -50,7 +48,7 @@ namespace Crawl.Services
             _itemDataset.Add(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
             _itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
 
-            // Implement Characters
+            // Characters
 
             _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  1, 100));
             _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  1, 100));
@@ -59,23 +57,6 @@ namespace Crawl.Services
             _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  1, 100));
             _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  1, 100));
 
-
-            /*
-            var mockCharacters = new List<Character>
-            {
-                new Character { Id = Guid.NewGuid().ToString(), Name = "First Character", Description="This is an Character description.", Age = 1 },
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Second Character", Description="This is an Character description." , Age = 1},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Third Character", Description="This is an Character description." , Age = 2},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Fourth Character", Description="This is an Character description." , Age = 2},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Fifth Character", Description="This is an Character description." , Age = 3},
-                new Character { Id = Guid.NewGuid().ToString(), Name = "Sixth Character", Description="This is an Character description." , Age = 3},
-            };
-
-            foreach (var data in mockCharacters)
-            {
-                _characterDataset.Add(data);
-            }
-            */
 
             // Implement Monsters
 
