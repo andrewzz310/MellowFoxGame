@@ -72,12 +72,15 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
+
+                    <!--
                     <StackLayout Grid.Row="2" Grid.Column="0">
                         <Label 
                             Text="Age" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"/>
                     </StackLayout>
+                    
                     <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
                         <Label 
                             Text="{Binding Data.Age}" 
@@ -94,7 +97,7 @@
                             ValueChanged="Age_OnStepperValueChanged"
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
-                    </StackLayout>
+                    </StackLayout> -->
 
                     <StackLayout Grid.Row="3" Grid.Column="0">
                         <Label 

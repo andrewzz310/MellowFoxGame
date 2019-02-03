@@ -22,7 +22,7 @@ namespace Crawl.Models
 
 
             // adding properties
-            Age = 0;
+          //  Age = 0;
             Level = 0;
             Alive = true;
             HealthPoints = 0;
@@ -52,7 +52,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             // Adding age
-            Age = newData.Age;
+           // Age = newData.Age;
             
           //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
@@ -95,15 +95,15 @@ namespace Crawl.Models
 
         //1/29 i did this based on constructor for item called if needd
         // needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int age, int level)
+        public Character(string name, string description, string imageuri, int level, int experiencetotal)
         {
             CreateDefaultCharacter();
 
             Name = name;
             Description = description;
             ImageURI = imageuri;
-
-            Age = age;
+            ExperienceTotal = experiencetotal;
+            //Age = age;
             Level = level;
         }
 
@@ -124,7 +124,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             // Adding age
-            Age = newData.Age;
+           // Age = newData.Age;
 
             //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;

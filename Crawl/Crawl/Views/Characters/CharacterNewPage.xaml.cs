@@ -55,11 +55,13 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
 
+        /*
         // The stepper function for Range
         void Age_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             AgeValue.Text = String.Format("{0}", e.NewValue);
         }
+        */
 
         // The stepper function for Value
         void LevelValue_OnStepperValueChanged(object sender, ValueChangedEventArgs e)

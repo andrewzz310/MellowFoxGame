@@ -52,12 +52,12 @@ namespace Crawl.Services
 
             // Implement Characters
 
-            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png", 30, 1));
-            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png", 25, 1));
-            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png", 80, 1));
-            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png", 25, 1));
-            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png", 18, 1));
-            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png", 23, 1));
+            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  1, 100));
+            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  1, 100));
+            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png",  1, 100));
+            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png",  1, 100));
+            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  1, 100));
+            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  1, 100));
 
 
             /*

@@ -24,6 +24,8 @@
                 HeightRequest="150" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
+            
+            <!--
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start" BackgroundColor="Red">
@@ -33,7 +35,7 @@
                 <Label Text="{Binding Data.Age}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
-            </StackLayout>
+            </StackLayout> -->
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start" BackgroundColor="HotPink">
