@@ -10,14 +10,14 @@
             Orientation="Vertical">
 
                 <Image 
-                Source="d20.png" 
+                Source="mellowfoxgamelogo1.png" 
                 VerticalOptions="Center" 
                 HeightRequest="150"
                 HorizontalOptions="Fill"/>
 
                 <Label 
                 FontSize="Large"
-                Text="Class Dungeon"
+                Text="MellowFoxGame"
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
 
