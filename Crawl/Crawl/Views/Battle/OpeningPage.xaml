@@ -36,6 +36,13 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="ManualBattleButton_Command"/>
+            
+            
+            <Button Text="Characters"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                    Clicked="Characters_Command"/>
+                    
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
