@@ -26,7 +26,7 @@
                 VerticalOptions="Center"/>
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start" BackgroundColor="Red">
                 <Label Text="Age : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -36,7 +36,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start" BackgroundColor="HotPink">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -47,7 +47,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start" BackgroundColor="Red">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -60,7 +60,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                HorizontalOptions="Start" BackgroundColor="HotPink">
                 <Label Text="Level : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>

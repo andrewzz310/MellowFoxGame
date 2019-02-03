@@ -46,7 +46,7 @@
 
                     <Label 
                 FontSize="Small"
-                Text="Andrew Yiyun Zhu"
+                Text="Andrew Yiyun Zhu / Harshal Vadnere / Maher Aboul Hosn"
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
 
