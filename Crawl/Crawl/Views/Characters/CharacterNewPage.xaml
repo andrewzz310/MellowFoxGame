@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.CharacterNewPage"
-		     Title="Add New Charater"
+		     Title="New Charater Page"
              xmlns:local="using:Crawl.Models">
 
     <ContentPage.ToolbarItems>
@@ -65,21 +65,6 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="2" Grid.Column="0">
-                        <Label 
-                            Text="XP" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="2" Grid.Column="1">
-                        <Entry 
-                            Text="{Binding Data.ExperienceTotal}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-
                     <StackLayout Grid.Row="3" Grid.Column="0">
                         <Label 
                             Text="LevelValue"
@@ -135,7 +120,7 @@
                         <Picker 
                             ItemsSource="{x:Static local:ItemLocationList.GetListItem}" 
                             SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="LocationPicker" 
+                            x:Name="ItemPicker" 
                             VerticalOptions="Center"/>
                     </StackLayout>
 

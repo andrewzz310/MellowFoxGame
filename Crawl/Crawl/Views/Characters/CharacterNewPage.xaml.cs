@@ -31,9 +31,7 @@ namespace Crawl.Views
             BindingContext = this;
             //Need to make the SelectedItem a string, so it can select the correct item.
 
-            // commented out from item
-        //    LocationPicker.SelectedItem = Data.Location.ToString();
-          //  AttributePicker.SelectedItem = Data.Attribute.ToString();
+            //ItemPicker.SelectedItem = Data.Attribute.ToString();
         }
 
         // Respond to the Save click
@@ -56,15 +54,6 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
 
-        /*
-        // The stepper function for Range
-        void Age_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            AgeValue.Text = String.Format("{0}", e.NewValue);
-        }
-        */
-
-        // The stepper function for Value
         void LevelValue_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
@@ -74,47 +63,3 @@ namespace Crawl.Views
 
     }
 }
-
-/*
-using System;
-
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-using Crawl.Models;
-
-namespace Crawl.Views
-{
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterNewPage : ContentPage
-    {
-        public Character Data { get; set; }
-
-        public CharacterNewPage()
-        {
-            InitializeComponent();
-
-            Data = new Character
-            {
-                Name = "Character Name",
-                Description = "This is a Character description.",
-                Level =1,
-                Id = Guid.NewGuid().ToString()
-            };
-
-            BindingContext = this;
-        }
-
-        public async void Save_Clicked(object sender, EventArgs e)
-        {
-            MessagingCenter.Send(this, "AddData", Data);
-            await Navigation.PopAsync();
-        }
-
-        private async void Cancel_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
-    }
-}
-*/
