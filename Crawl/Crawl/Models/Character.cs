@@ -20,11 +20,19 @@ namespace Crawl.Models
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
 
+
+            // adding properties
             Age = 0;
             Level = 0;
-      
+            Alive = true;
+            HealthPoints = 0;
+            MaxHealth = 0;
+            Attack = 0;
+            Defense = 0;
+            Speed = 0;
+            ExperienceTotal = 0;
         
-            //ImageURI = null;
+          
         }
 
         // Make sure Attribute is instantiated in the constructor
@@ -48,7 +56,15 @@ namespace Crawl.Models
             
           //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
-         //   Alive = newData.Alive;
+            Alive = newData.Alive;
+            HealthPoints = newData.HealthPoints;
+            MaxHealth = newData.MaxHealth;
+            Attack = newData.Attack;
+            Defense = newData.Defense;
+            Speed = newData.Speed;
+            ExperienceTotal = newData.ExperienceTotal;
+
+
 
             // Database information
             Guid = newData.Guid;
@@ -112,7 +128,15 @@ namespace Crawl.Models
 
             //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
-            //   Alive = newData.Alive;
+            Alive = newData.Alive;
+            HealthPoints = newData.HealthPoints;
+            MaxHealth = newData.MaxHealth;
+            Attack = newData.Attack;
+            Defense = newData.Defense;
+            Speed = newData.Speed;
+            ExperienceTotal = newData.ExperienceTotal;
+
+
 
             // Database information
             Guid = newData.Guid;
