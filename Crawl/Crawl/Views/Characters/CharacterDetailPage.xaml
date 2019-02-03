@@ -71,7 +71,16 @@
                     HorizontalOptions="Center"/>
             </StackLayout>
 
-
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start" BackgroundColor="HotPink">
+                <Label Text="XP : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.ExperienceTotal}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
 
 
 

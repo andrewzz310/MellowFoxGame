@@ -64,7 +64,22 @@
                             Margin="0" 
                             VerticalOptions="Center"/>
                     </StackLayout>
-                     
+
+
+                    <StackLayout Grid.Row="2" Grid.Column="0">
+                        <Label 
+                            Text="XP" 
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <Entry 
+                            Text="{Binding Data.ExperienceTotal}" 
+                            FontSize="Small" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
                     <!--
                     <StackLayout Grid.Row="2" Grid.Column="0">
                         <Label 

@@ -22,8 +22,9 @@ namespace Crawl.Views
                 Name = "Character name",
                 Description = "This is an Character description.",
                 Id = Guid.NewGuid().ToString(),
-                Age = 10,
+                //Age = 10,
                 Level = 1,
+                ExperienceTotal = 100,
                 ImageURI = ItemsController.DefaultImageURICharacter
             };
 
