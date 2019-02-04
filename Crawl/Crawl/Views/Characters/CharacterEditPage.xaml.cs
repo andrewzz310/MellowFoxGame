@@ -31,9 +31,9 @@ namespace Crawl.Views
             // Set the data binding for the page
             BindingContext = _viewModel = viewModel;
 
-            //Need to make the SelectedItem a string, so it can select the correct item.
-           // LocationPicker.SelectedItem = Data.Location.ToString();
-          //  AttributePicker.SelectedItem = Data.Attribute.ToString();
+            //Updating data
+
+            ItemPicker.SelectedItem = Data.Item;
 
         }
 

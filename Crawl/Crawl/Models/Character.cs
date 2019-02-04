@@ -82,7 +82,6 @@ namespace Crawl.Models
             Description = description;
             ImageURI = imageuri;
             ExperienceTotal = experiencetotal;
-            //Age = age;
             Level = level;
         }
 

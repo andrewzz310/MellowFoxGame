@@ -72,8 +72,6 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
-
-
                     <StackLayout Grid.Row="2" Grid.Column="0">
                         <Label 
                             Text="XP" 
@@ -88,33 +86,6 @@
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
                     </StackLayout>
-
-
-                    <!--
-                    <StackLayout Grid.Row="2" Grid.Column="0">
-                        <Label 
-                            Text="Age" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"/>
-                    </StackLayout>
-                    
-                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Age}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="AgeValue"
-                            VerticalOptions="Center"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Age, Mode=TwoWay}"
-                            Minimum="0"
-                            Maximum="95"
-                            Increment="1"
-                            ValueChanged="Age_OnStepperValueChanged"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout> -->
 
                     <StackLayout Grid.Row="3" Grid.Column="0">
                         <Label 
@@ -140,12 +111,32 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
-
-                    <StackLayout Grid.Row="6" Grid.Column="1">
+                    <StackLayout Grid.Row="4" Grid.Column="0">
+                        <Label 
+                            Text="Image URI"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.Column="1">
                         <Entry 
                             Text="{Binding Data.ImageURI}" 
                             FontSize="Small" 
                             HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5" Grid.Column="0">
+                        <Label 
+                            Text="Preferred Item"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5" Grid.Column="1">
+                        <Picker 
+                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
+                            SelectedItem="{Binding Data.Item, Mode=TwoWay}" 
+                            x:Name="ItemPicker" 
                             VerticalOptions="Center"/>
                     </StackLayout>
 
