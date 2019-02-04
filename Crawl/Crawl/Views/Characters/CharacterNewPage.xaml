@@ -124,17 +124,18 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
                 </Grid>
-
-                <Button Text="Save"
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Save_Clicked"/>
 
 
-                <Button Text="Cancel_clicked"
+                    <Button Text="Cancel"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Cancel_Clicked"/>
+                </StackLayout>
 
             </StackLayout>
         </ScrollView>
