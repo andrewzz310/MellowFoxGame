@@ -30,7 +30,7 @@ namespace Crawl.Views
 
             BindingContext = this;
             //Need to make the SelectedItem a string, so it can select the correct item.
-
+            //needs fix  
             //ItemPicker.SelectedItem = Data.Attribute.ToString();
         }
 

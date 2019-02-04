@@ -118,7 +118,7 @@
                     </StackLayout>
                     <StackLayout Grid.Row="5" Grid.Column="1">
                         <Picker 
-                            ItemsSource="{x:Static local:ItemLocationList.GetListItem}" 
+                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
                             SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                             x:Name="ItemPicker" 
                             VerticalOptions="Center"/>
