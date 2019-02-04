@@ -30,16 +30,11 @@ namespace Crawl.Models
         // Current experience gained, or to give
         public int ExperienceTotal { get; set; }
 
-
-        //Adding Age
-        public int Age { get; set; }
-
         public bool Alive { get; set; }
 
         // The AttributeString will be unpacked and stored in the top level of Character as actual attributes, 
         // but it needs to go here as a string so it can be saved to the database.
         public string AttributeString { get; set; }
-
 
         // Death
         // Alive turns to False

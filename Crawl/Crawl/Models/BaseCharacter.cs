@@ -23,6 +23,7 @@ namespace Crawl.Models
             Level = newData.Level;
             ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
+            Item = newData.Item;
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;
@@ -30,9 +31,6 @@ namespace Crawl.Models
             Defense = newData.Defense;
             Speed = newData.Speed;
 
-
-            // Adding Age
-            Age = newData.Age;
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;

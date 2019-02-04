@@ -3,7 +3,6 @@
     // Items, Monsters, and Characters all share these items
     public class Entity<T> : BaseEntity<T>
     {
-
         // The name of the item/character/monster to show to the user.  Example: Mike the Cleric, or Bunny Ears, or Super Sized Slime
         public string Name { get; set; }
 
@@ -13,7 +12,8 @@
         // Location to the image for the item.  Will come from the server as a fully qualified URI example:  https://developer.android.com/images/robot-tiny.png
         public string ImageURI { get; set; }
 
-       // public int Age { get; set; }
+        //Preferred Item cause 2x damage
+        public string Item { get; set; }
     }
 }
 

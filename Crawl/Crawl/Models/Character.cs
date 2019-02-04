@@ -1,9 +1,6 @@
-﻿using Crawl.GameEngine;
-using Crawl.ViewModels;
-using System;
+﻿using Crawl.ViewModels;
 using System.Collections.Generic;
 using Crawl.Controllers;
-using Crawl.GameEngine;
 
 namespace Crawl.Models
 {
@@ -19,10 +16,11 @@ namespace Crawl.Models
             Name = "Unknown";
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
+            Item = "Unknown";
 
 
             // adding properties
-          //  Age = 0;
+
             Level = 0;
             Alive = true;
             HealthPoints = 0;
@@ -31,8 +29,6 @@ namespace Crawl.Models
             Defense = 0;
             Speed = 0;
             ExperienceTotal = 0;
-        
-          
         }
 
         // Make sure Attribute is instantiated in the constructor
@@ -51,9 +47,7 @@ namespace Crawl.Models
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
-            // Adding age
-           // Age = newData.Age;
-            
+                      
           //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;

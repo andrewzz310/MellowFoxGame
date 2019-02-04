@@ -100,7 +100,6 @@ namespace Crawl.ViewModels
                 dataset = dataset
                     .OrderBy(a => a.Name)
                     .ThenBy(a => a.Description)
-                    .ThenBy(a => a.Age)
                     .ThenByDescending(a => a.Level)
                     .ToList();
 
