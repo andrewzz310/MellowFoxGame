@@ -16,6 +16,7 @@ namespace Crawl.Services
 
     public interface IDataStore
     {
+        List<Item> GetAllItems();
         Task<bool> InsertUpdateAsync_Item(Item data); 
         Task<bool> AddAsync_Item(Item data);
         Task<bool> UpdateAsync_Item(Item data);

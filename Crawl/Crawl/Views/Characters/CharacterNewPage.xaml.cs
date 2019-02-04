@@ -22,7 +22,6 @@ namespace Crawl.Views
                 Name = "Character name",
                 Description = "This is an Character description.",
                 Id = Guid.NewGuid().ToString(),
-                //Age = 10,
                 Level = 1,
                 ExperienceTotal = 100,
                 ImageURI = ItemsController.DefaultImageURICharacter
@@ -31,7 +30,7 @@ namespace Crawl.Views
             BindingContext = this;
             //Need to make the SelectedItem a string, so it can select the correct item.
             //needs fix  
-            //ItemPicker.SelectedItem = Data.Attribute.ToString();
+            ItemPicker.SelectedItem = Data.Attribute.ToString();
         }
 
         // Respond to the Save click
@@ -58,8 +57,5 @@ namespace Crawl.Views
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }
-
-       
-
     }
 }

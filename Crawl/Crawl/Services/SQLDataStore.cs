@@ -243,6 +243,11 @@ namespace Crawl.Services
 
         }
 
-#endregion Score
+        public List<Item> GetAllItems()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion Score
     }
 }

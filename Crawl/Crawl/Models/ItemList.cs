@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Crawl.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 
 namespace Crawl.Models
 {
@@ -17,11 +17,17 @@ namespace Crawl.Models
         {
             get
             {
-                List<string> myList = new List<string>();
-                string myName = "empty";
+                List<string> myList = new List<string>
+                {
+                    "Staff",
+                    "Sword",
+                    "Two-Sided Hammer",
+                    "Bow and Arrow",
+                    "Ring of Power",
+                    "Armor",
+                    "Shuriken"
+                };
 
-                myList.Add(myName);
-               
                 return myList;
             }
         }

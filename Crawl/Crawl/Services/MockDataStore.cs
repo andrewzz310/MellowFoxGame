@@ -101,6 +101,12 @@ namespace Crawl.Services
 
         #region Item
         // Item
+
+        public List<Item> GetAllItems()
+        {
+            List<Item> myList = _itemDataset;
+            return myList;
+        }
         public async Task<bool> InsertUpdateAsync_Item(Item data)
         {
 

@@ -58,24 +58,9 @@ namespace Crawl.Models
             Speed = newData.Speed;
             ExperienceTotal = newData.ExperienceTotal;
 
-
-
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
-
-            // Populate the Attributes
-      //      AttributeString = newData.AttributeString;
-
-       //     Attribute = new AttributeBase(newData.AttributeString);
-
-            // Set the strings for the items
-        //    Head = newData.Head;
-       //     Feet = newData.Feet;
-        //    Necklass = newData.Necklass;
-       //     RightFinger = newData.RightFinger;
-       //     LeftFinger = newData.LeftFinger;
-        //    Feet = newData.Feet;
         }
 
         // Create a new character, based on existing Character
