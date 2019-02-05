@@ -15,15 +15,13 @@
             x:Name="DetailsRoot"
             Orientation="Vertical"
             Spacing="20"
-            Padding="15" BackgroundColor="MediumVioletRed">
+            Padding="15" BackgroundColor="Red">
 
-            <Label Text="Character Detail Page" FontSize="Medium" />
+            <!--<Label Text="Character Detail Page" FontSize="Medium" />-->
 
             <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="200"
-                HeightRequest="200" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"/>
             
             <StackLayout
                 Orientation="Horizontal"
