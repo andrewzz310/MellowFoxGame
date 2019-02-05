@@ -9,15 +9,15 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="15">
+                <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
 
                     <Label Text="Character Edit Page" FontSize="Small" />
 
                     <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="400"
-                HeightRequest="400" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
+                WidthRequest="200"
+                HeightRequest="200" 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"/>
 
                     <Grid
                     RowSpacing="1"
