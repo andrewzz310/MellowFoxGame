@@ -9,12 +9,6 @@
         <ToolbarItem Text="Save" Clicked="Save_Clicked" />
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems> -->
-<!--
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:StringEnumConverter x:Key="StringEnum"/>
-        </ResourceDictionary>
-    </ContentPage.Resources> -->
 
     <ContentPage.Content>
         <StackLayout>
@@ -117,42 +111,6 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-<!--
-                        <StackLayout Grid.Row="4" Grid.Column="0">
-                            <Label 
-                            Text="Picture URI"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="4" Grid.Column="1">
-                            <Entry 
-                            Text="{Binding Data.ImageURI}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="4" Grid.Column="0">
-                            <Label 
-                            Text="Image URI"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="5" Grid.Column="0">
-                            <Label 
-                            Text="Preferred Item"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="5" Grid.Column="1">
-                            <Picker 
-                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
-                            SelectedItem="{Binding Data.Item, Mode=TwoWay}" 
-                            x:Name="ItemPicker" 
-                            VerticalOptions="Center"/>
-                        </StackLayout> -->
                     </Grid>
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"

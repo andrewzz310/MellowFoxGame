@@ -3,28 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.CharacterEditPage"
              xmlns:local="using:Crawl.Models"
-             Title="{Binding Title}">
-<!--
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-    </ContentPage.ToolbarItems> -->
-    <!--
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:StringEnumConverter x:Key="StringEnum"/>
-        </ResourceDictionary>
-    </ContentPage.Resources> -->
+             Title="{Binding Title}"
+             Icon="edit.png">
 
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
+                <StackLayout Spacing="20" Padding="15">
 
-                <Label Text="Character Edit Page" FontSize="Small" />
+                    <Label Text="Character Edit Page" FontSize="Small" />
 
-
-                <Image Source="{Binding Data.ImageURI}"
+                    <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="400"
                 HeightRequest="400" 
                 HorizontalOptions="Center"
@@ -126,64 +115,21 @@
                         </StackLayout>
                     </Grid>
                     <StackLayout Orientation="Horizontal">
-                    <Button Text="Save"
+                        <Button Text="Save"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Save_Clicked"/>
 
 
-                    <Button Text="Cancel"
+                        <Button Text="Cancel"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Cancel_Clicked"/>
+                    </StackLayout>
+
+
                 </StackLayout>
-
-
-            </StackLayout>
-        </ScrollView>
-        </StackLayout>
-    </ContentPage.Content>
-
-</ContentPage>
-
-
-
-<!--
- <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Crawl.Views.CharacterNewPage"
-		     Title="Add New Item">
-    
-    <ContentPage.ToolbarItems>
-
-    </ContentPage.ToolbarItems>
-
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
--->
-
-
-<!--    
-<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Crawl.Views.CharacterEditPage"		     
-             Title="{Binding Title}">
-    
-    <ContentPage.ToolbarItems>
-
-    </ContentPage.ToolbarItems>
-
-    <ContentPage.Content>
-        <StackLayout Spacing="20" Padding="15">
-
-        </StackLayout>
-    </ContentPage.Content>
-    
-</ContentPage>
-    -->

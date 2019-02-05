@@ -110,6 +110,7 @@
     <Content Include="d20.png" />
     <Content Include="dragon1.png" />
     <Content Include="Dwarf.png" />
+    <Content Include="edit.png" />
     <Content Include="elf.png" />
     <Content Include="Fox.png" />
     <Content Include="hammer1.png" />
