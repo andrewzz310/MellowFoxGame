@@ -30,6 +30,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="1"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -64,15 +65,44 @@
                             Margin="0" 
                             VerticalOptions="Center"/>
                         </StackLayout>
-
                         <StackLayout Grid.Row="3" Grid.Column="0">
+                            <Label 
+                            Text="Picture URI"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="3" Grid.Column="1">
+                            <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            FontSize="Small" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="4" Grid.Column="0">
+                            <Label 
+                            Text="Preferred Item"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="4" Grid.Column="1">
+                            <Picker 
+                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
+                            SelectedItem="{Binding Data.Item, Mode=TwoWay}" 
+                            x:Name="ItemPicker" 
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="5" Grid.Column="0">
                             <Label 
                             Text="Level"
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <StackLayout Grid.Row="5" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
                             <Label 
                             Text="{Binding Data.Level}" 
                             FontSize="Medium" 
@@ -87,10 +117,10 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-
+<!--
                         <StackLayout Grid.Row="4" Grid.Column="0">
                             <Label 
-                            Text="Image URI"
+                            Text="Picture URI"
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
@@ -122,7 +152,7 @@
                             SelectedItem="{Binding Data.Item, Mode=TwoWay}" 
                             x:Name="ItemPicker" 
                             VerticalOptions="Center"/>
-                        </StackLayout>
+                        </StackLayout> -->
                     </Grid>
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
@@ -135,7 +165,7 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Cancel_Clicked"/>
-                    </StackLayout>
+                  </StackLayout>
 
                 </StackLayout>
             </ScrollView>
