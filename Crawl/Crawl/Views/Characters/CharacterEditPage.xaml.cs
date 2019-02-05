@@ -23,7 +23,7 @@ namespace Crawl.Views
             // Save off the item
             Data = viewModel.Data;
 
-            viewModel.Title = "Edit " + viewModel.Title;
+            viewModel.Title = viewModel.Title; 
 
             InitializeComponent();
 
