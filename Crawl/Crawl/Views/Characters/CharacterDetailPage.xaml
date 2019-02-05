@@ -15,19 +15,19 @@
             x:Name="DetailsRoot"
             Orientation="Vertical"
             Spacing="20"
-            Padding="15">
+            Padding="15" BackgroundColor="MediumVioletRed">
 
             <Label Text="Character Detail Page" FontSize="Medium" />
 
             <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="150"
-                HeightRequest="150" 
+                WidthRequest="200"
+                HeightRequest="200" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
             
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start" BackgroundColor="HotPink">
+                BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -35,10 +35,30 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
+                <Label Text="Preferred Item: " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Item}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="MediumVioletRed" Grid.Row="2" Grid.Column="0">
+                <Label Text="XP : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.ExperienceTotal}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start" BackgroundColor="Red">
+                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -54,28 +74,6 @@
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
                 <Label Text="{Binding Data.Level}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start" BackgroundColor="HotPink">
-                <Label Text="XP : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.ExperienceTotal}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Preferred Item: " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Item}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
