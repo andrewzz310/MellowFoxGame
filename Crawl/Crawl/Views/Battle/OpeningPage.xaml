@@ -9,12 +9,6 @@
             VerticalOptions="Start"
             Orientation="Vertical">
 
-            <Image 
-                Source="mellowfoxgamelogo1.png" 
-                VerticalOptions="Center" 
-                HeightRequest="150"
-                HorizontalOptions="Fill"/>
-
             <Label 
                 FontSize="Large"
                 Text="Mellow Fox Game"
@@ -22,7 +16,14 @@
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
 
-        <StackLayout>
+            <Image 
+                Source="mellowfoxgamelogo1.png" 
+                VerticalOptions="Center" 
+                HeightRequest="150"
+                HorizontalOptions="Fill"/>
+
+
+            <StackLayout>
             <Label Text="Battle Begins Here"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
