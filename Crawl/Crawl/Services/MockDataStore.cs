@@ -48,14 +48,13 @@ namespace Crawl.Services
             _itemDataset.Add(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
             _itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
 
-            // Characters
-
-            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  1, 100));
-            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  1, 100));
-            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png",  1, 100));
-            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png",  1, 100));
-            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  1, 100));
-            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  1, 100));
+            // Characters initialized with level 2, xp 300, etc based on ppt deck
+            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  2, 100, 1,2,1));
+            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  2, 100,1,2,1));
+            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png",  2, 100,1,2,1));
+            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png",  2, 100,1,2,1));
+            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  2, 100,1,2,1));
+            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  1, 100,1,2,1));
 
 
             // Implement Monsters

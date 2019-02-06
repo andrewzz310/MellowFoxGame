@@ -17,10 +17,7 @@ namespace Crawl.Models
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
             Item = "Unknown";
-
-
             // adding properties
-
             Level = 0;
             Alive = true;
             HealthPoints = 0;
@@ -47,8 +44,6 @@ namespace Crawl.Models
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
-                      
-          //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
@@ -64,7 +59,6 @@ namespace Crawl.Models
         }
 
         // Create a new character, based on existing Character
-
         public Character(Character newData)
         {
             // Implement
@@ -74,15 +68,18 @@ namespace Crawl.Models
 
         //1/29 i did this based on constructor for item called if needd
         // needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int level, int experiencetotal)
+        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed)
         {
             CreateDefaultCharacter();
-
             Name = name;
             Description = description;
             ImageURI = imageuri;
             ExperienceTotal = experiencetotal;
             Level = level;
+            Attack = attack;
+            Defense = defense;
+            Speed = speed;
+
         }
 
         // Upgrades to a set level
@@ -95,16 +92,11 @@ namespace Crawl.Models
         // Updates the attribute string
         public void Update(Character newData)
         {
-
             // Implement
             // Base information
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
-            // Adding age
-           // Age = newData.Age;
-
-            //  ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;

@@ -120,9 +120,6 @@
     <AndroidResource Include="Resources\drawable\ninja.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\magician.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Dwarf.png" />
   </ItemGroup>
   <ItemGroup>
