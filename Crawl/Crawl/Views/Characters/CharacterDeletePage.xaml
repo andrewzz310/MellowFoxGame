@@ -14,19 +14,20 @@
             x:Name="DetailsRoot"
             Orientation="Vertical"
             Spacing="20"
-            Padding="15">
+            Padding="15"
+            BackgroundColor="Red">
 
             <Label Text="Character Delete Page" FontSize="Medium" />
 
             <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="150"
-                HeightRequest="150" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
+                WidthRequest="200"
+                HeightRequest="200" 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"/>
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -37,7 +38,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -48,7 +49,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                BackgroundColor="MediumVioletRed" Grid.Row="2" Grid.Column="0">
                 <Label Text="Level : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -59,7 +60,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                BackgroundColor="Red" Grid.Row="3" Grid.Column="0">
                 <Label Text="XP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -70,7 +71,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                HorizontalOptions="Start">
+                BackgroundColor="MediumVioletRed" Grid.Row="4" Grid.Column="0">
                 <Label Text="Preferred Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -83,12 +84,13 @@
                 <Button Text="Confirm Delete"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
+                BackgroundColor="LightGray"
                     Clicked="Delete_Clicked"/>
-
 
                 <Button Text="Cancel"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="LightGray"
                     Clicked="Cancel_Clicked"/>
             </StackLayout>
 
