@@ -32,5 +32,11 @@ namespace Crawl.Views
         {
             await Navigation.PushAsync(new CharactersPage());
         }
+
+        // go to Monsters page
+        private async void Monsters_Command(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MonstersPage());
+        }
     }
 }

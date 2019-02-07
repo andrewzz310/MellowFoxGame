@@ -9,7 +9,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-
+            <Label Text="
+                   Monsters List Page" FontSize="Small" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

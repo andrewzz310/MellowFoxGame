@@ -43,7 +43,10 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Characters_Command"/>
-                    
+                <Button Text="Monsters"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                    Clicked="Monsters_Command"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
