@@ -27,7 +27,6 @@ namespace Crawl.Models
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
-
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;

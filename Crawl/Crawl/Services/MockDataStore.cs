@@ -58,6 +58,8 @@ namespace Crawl.Services
 
 
             // Implement Monsters
+            _monsterDataset.Add(new Monster("ogre", "This is a ogre monster", "elf.png", 1));
+            _monsterDataset.Add(new Monster("ogre", "This is a ogre monster", "elf.png", 1));
 
             // Implement Scores
         }
@@ -236,34 +238,70 @@ namespace Crawl.Services
 
         #region Monster
         //Monster
+
+        public async Task<bool> InsertUpdateAsync_Monster(Monster data)
+        {
+
+            // Check to see if the item exist
+            var oldData = await GetAsync_Monster(data.Id);
+            if (oldData == null)
+            {
+                _monsterDataset.Add(data);
+                return true;
+            }
+
+            // Compare it, if different update in the DB
+            var UpdateResult = await UpdateAsync_Monster(data);
+            if (UpdateResult)
+            {
+                await AddAsync_Monster(data);
+                return true;
+            }
+
+            return false;
+        }
         public async Task<bool> AddAsync_Monster(Monster data)
         {
             // Implement
-            return false;
+            // Implement
+            _monsterDataset.Add(data);
+
+            return await Task.FromResult(true);
         }
 
         public async Task<bool> UpdateAsync_Monster(Monster data)
         {
             // Implement
-            return false;
+            var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+            if (myData == null)
+            {
+                return false;
+            }
+
+            myData.Update(data);
+
+            return await Task.FromResult(true);
         }
 
         public async Task<bool> DeleteAsync_Monster(Monster data)
         {
             // Implement
-            return false;
+            var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
+            _monsterDataset.Remove(myData);
+
+            return await Task.FromResult(true);
         }
 
         public async Task<Monster> GetAsync_Monster(string id)
         {
             // Implement
-            return null;
+            return await Task.FromResult(_monsterDataset.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false)
         {
             // Implement
-            return null;
+            return await Task.FromResult(_monsterDataset);
         }
 
         #endregion Monster
