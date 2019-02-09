@@ -27,7 +27,7 @@ namespace Crawl.Views
             await Navigation.PushAsync(new AutoBattlePage());
         }
 
-        /*
+        
         // go to characters page
         private async void Characters_Command(object sender, EventArgs e)
         {
@@ -39,6 +39,11 @@ namespace Crawl.Views
         {
             await Navigation.PushAsync(new MonstersPage());
         }
-        */
+        //go to items page
+        private async void Items_Command (object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ItemsPage());
+        }
+        
     }
 }
