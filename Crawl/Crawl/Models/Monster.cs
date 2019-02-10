@@ -21,7 +21,7 @@ namespace Crawl.Models
             Name = "unknown";
             Description = "unknown";
             ImageURI = ItemsController.DefaultImageURIMonster;
-            Item = "Unknown"; //Adding preferred item
+            Item = PreferredItemEnum.Unknown; //Adding preferred item
 
         }
 
@@ -54,13 +54,13 @@ namespace Crawl.Models
         }
 
         //contructor that takes in params
-        public Monster(string name, string description, string imageuri)
+        public Monster(string name, string description, string imageuri, PreferredItemEnum item)
         {
             CreateDefaultMonster();
             Name = name;
             Description = description;
             ImageURI = imageuri;
-           
+            Item = item;
         }
 
         // Upgrades a monster to a set level

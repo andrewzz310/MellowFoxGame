@@ -16,7 +16,7 @@ namespace Crawl.Models
             Name = "Unknown";
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
-            Item = "Unknown";
+            Item = PreferredItemEnum.Unknown;
             // adding properties
             Level = 0;
             Alive = true;

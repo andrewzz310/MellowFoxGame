@@ -13,7 +13,7 @@
         public string ImageURI { get; set; }
 
         //Preferred Item cause 2x damage
-        public string Item { get; set; }
+        public PreferredItemEnum Item { get; set; }
     }
 }
 

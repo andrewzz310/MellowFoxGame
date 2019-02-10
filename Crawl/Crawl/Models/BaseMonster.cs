@@ -7,7 +7,7 @@ namespace Crawl.Models
 {
     public class BaseMonster : BasePlayer<BaseMonster>
     {
-        // Unique Item for Monster
+        // <HV> need to remove this as it does not apply mellofox game specs
         public string UniqueItem { get; set; }
 
         // Damage the Monster can do.

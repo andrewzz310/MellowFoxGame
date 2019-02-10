@@ -57,13 +57,13 @@ namespace Crawl.Services
             _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  2, 300,1,2,1));
 
 
-            // Implement Monsters
-            _monsterDataset.Add(new Monster("Dragon", "This is a Dragon monster", "dragon1.png"));
-            _monsterDataset.Add(new Monster("Ork", "This is a Ork monster", "ork.png"));
-            _monsterDataset.Add(new Monster("Ogre", "This is a Ogre monster", "ogre.png"));
-            _monsterDataset.Add(new Monster("100 Handed Giant", "This is a 100 handed giant monster", "100giant.png"));
-            _monsterDataset.Add(new Monster("Zombie", "This is a Zombie monster", "zombie.png"));
-            _monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png"));
+            // Monsters initialized 
+            _monsterDataset.Add(new Monster("Dragon", "This is a Dragon monster", "dragon1.png", PreferredItemEnum.Armor));
+            _monsterDataset.Add(new Monster("Ork", "This is a Ork monster", "ork.png",PreferredItemEnum.BowArrow));
+            _monsterDataset.Add(new Monster("Ogre", "This is a Ogre monster", "ogre.png", PreferredItemEnum.RingOfPower));
+            _monsterDataset.Add(new Monster("100 Handed Giant", "This is a 100 handed giant monster", "100giant.png", PreferredItemEnum.Shuriken));
+            _monsterDataset.Add(new Monster("Zombie", "This is a Zombie monster", "zombie.png", PreferredItemEnum.Staff));
+            _monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", PreferredItemEnum.Sword));
 
             // Implement Scores
         }
