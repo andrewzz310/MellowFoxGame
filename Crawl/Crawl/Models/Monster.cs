@@ -21,7 +21,7 @@ namespace Crawl.Models
             Name = "unknown";
             Description = "unknown";
             ImageURI = ItemsController.DefaultImageURIMonster;
-            Level = 1;
+           
         }
 
         // Make sure Attribute is instantiated in the constructor
@@ -31,7 +31,7 @@ namespace Crawl.Models
             Attribute = new AttributeBase();
             Alive = true;
             CreateDefaultMonster();
-            //Level = 1;
+            
 
             // Scale up to the level
             // // Implement ScaleLevel(Level);
@@ -53,13 +53,13 @@ namespace Crawl.Models
         }
 
         //Making a Monster populated with sample data 2/8/2019
-        public Monster(string name, string description, string imageuri, int level)
+        public Monster(string name, string description, string imageuri)
         {
             CreateDefaultMonster();
             Name = name;
             Description = description;
             ImageURI = imageuri;
-            Level = level;
+           
         }
 
         // Upgrades a monster to a set level
@@ -74,7 +74,7 @@ namespace Crawl.Models
             // Implement
             Name = newData.Name;
             Description = newData.Description;
-            Level = newData.Level;
+           
             ImageURI = newData.ImageURI;
             return;
         }

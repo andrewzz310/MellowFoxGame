@@ -58,12 +58,12 @@ namespace Crawl.Services
 
 
             // Implement Monsters
-            _monsterDataset.Add(new Monster("Dragon", "This is a Dragon monster", "dragon1.png", 1));
-            _monsterDataset.Add(new Monster("Ork", "This is a Ork monster", "ork.png", 1));
-            _monsterDataset.Add(new Monster("Ogre", "This is a Ogre monster", "ogre.png", 1));
-            _monsterDataset.Add(new Monster("100 Handed Giant", "This is a 100 handed giant monster", "100giant.png", 1));
-            _monsterDataset.Add(new Monster("Zombie", "This is a Zombie monster", "zombie.png", 1));
-            _monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", 1));
+            _monsterDataset.Add(new Monster("Dragon", "This is a Dragon monster", "dragon1.png"));
+            _monsterDataset.Add(new Monster("Ork", "This is a Ork monster", "ork.png"));
+            _monsterDataset.Add(new Monster("Ogre", "This is a Ogre monster", "ogre.png"));
+            _monsterDataset.Add(new Monster("100 Handed Giant", "This is a 100 handed giant monster", "100giant.png"));
+            _monsterDataset.Add(new Monster("Zombie", "This is a Zombie monster", "zombie.png"));
+            _monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png"));
 
             // Implement Scores
         }

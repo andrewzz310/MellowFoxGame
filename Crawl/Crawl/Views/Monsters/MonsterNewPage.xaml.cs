@@ -22,7 +22,6 @@ namespace Crawl.Views
                 Name = "Monster name",
                 Description = "This is an Monster description.",
                 Id = Guid.NewGuid().ToString(),
-                Level = 1,
                 ExperienceTotal = 100,
                 ImageURI = ItemsController.DefaultImageURIMonster
             };
@@ -50,9 +49,5 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
 
-        void LevelValue_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            LevelValue.Text = String.Format("{0}", e.NewValue);
-        }
     }
 }
