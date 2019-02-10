@@ -9,10 +9,9 @@ using Crawl.ViewModels;
 namespace Crawl.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    // ReSharper disable once RedundantExtendsListEntry
     public partial class MonsterDetailPage : ContentPage
     {
-        // ReSharper disable once FieldCanBeMadeReadOnly.Local
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private MonsterDetailViewModel _viewModel;
 
         public MonsterDetailPage(MonsterDetailViewModel viewModel)
@@ -26,11 +25,8 @@ namespace Crawl.Views
         {
             InitializeComponent();
 
-            var data = new Monster
-            {
-                Name = "Item 1",
-                Description = "This is an item description."
-            };
+            var data = new Monster();
+
 
             _viewModel = new MonsterDetailViewModel(data);
             BindingContext = _viewModel;

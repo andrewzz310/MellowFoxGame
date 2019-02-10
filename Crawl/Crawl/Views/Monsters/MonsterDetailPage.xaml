@@ -4,12 +4,96 @@
              x:Class="Crawl.Views.MonsterDetailPage"
              Title="{Binding Title}">
 
-
     <ContentPage.ToolbarItems>
-
+        <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
+        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
 
-    <StackLayout Spacing="20" Padding="15">
+    <ScrollView>
+        <StackLayout 
+            x:Name="DetailsRoot"
+            Orientation="Vertical"
+            Spacing="20"
+            Padding="15" BackgroundColor="Red">
 
-    </StackLayout>
+            <!--<Label Text="Character Detail Page" FontSize="Medium" />-->
+
+            <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="200"
+                HeightRequest="200" 
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"/>
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">
+                <Label Text="Name : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Name}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+    
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="3" Grid.Column="0">
+                <Label Text="HP : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.HealthPoints}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+      
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="5" Grid.Column="0">
+                <Label Text="Speed : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Speed}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="MediumVioletRed" Grid.Row="6" Grid.Column="0">
+                <Label Text="Attack : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Attack}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="7" Grid.Column="0">
+                <Label Text="Defense : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Defense}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="MediumVioletRed" Grid.Row="9" Grid.Column="0">
+                <Label Text="Description : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Description}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
