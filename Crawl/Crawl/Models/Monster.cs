@@ -21,13 +21,14 @@ namespace Crawl.Models
             Name = "unknown";
             Description = "unknown";
             ImageURI = ItemsController.DefaultImageURIMonster;
-           
+            Item = "Unknown"; //Adding preferred item
+
         }
 
         // Make sure Attribute is instantiated in the constructor
         public Monster()
         {
-            //Name = "Monster";
+            
             Attribute = new AttributeBase();
             Alive = true;
             CreateDefaultMonster();
@@ -52,7 +53,7 @@ namespace Crawl.Models
 
         }
 
-        //Making a Monster populated with sample data 2/8/2019
+        //contructor that takes in params
         public Monster(string name, string description, string imageuri)
         {
             CreateDefaultMonster();

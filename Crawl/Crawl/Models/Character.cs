@@ -45,6 +45,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
+            //Item?
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;
@@ -61,7 +62,6 @@ namespace Crawl.Models
         // Create a new character, based on existing Character
         public Character(Character newData)
         {
-            // Implement
             CreateDefaultCharacter();
         }
 
@@ -74,6 +74,7 @@ namespace Crawl.Models
             Name = name;
             Description = description;
             ImageURI = imageuri;
+            //Item?
             ExperienceTotal = experiencetotal;
             Level = level;
             Attack = attack;
