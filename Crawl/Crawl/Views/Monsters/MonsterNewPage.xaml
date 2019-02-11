@@ -4,7 +4,13 @@
              x:Class="Crawl.Views.MonsterNewPage"
 		     Title="New Monster Page"
              xmlns:local="using:Crawl.Models">
-
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+        
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
@@ -68,7 +74,20 @@
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
                         </StackLayout>
-
+                        <StackLayout Grid.Row="4" Grid.Column="0">
+                            <Label 
+                            Text="Preferred Item"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout Grid.Row="4" Grid.Column="1">
+                            <Picker 
+                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
+                            SelectedItem="{Binding Data.Item, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                            x:Name="ItemPicker" 
+                            VerticalOptions="Center"/>
+                        </StackLayout>
                     </Grid>
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"

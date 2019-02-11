@@ -30,10 +30,8 @@ namespace Crawl.Views
             // Set the data binding for the page
             BindingContext = _viewModel = viewModel;
 
-            //Updating data
+            //converts to string to show current selecion
             ItemPicker.SelectedItem = Data.Item.ToString();
-           
-
         }
 
         // Save on the Tool bar

@@ -94,10 +94,6 @@
                             x:Name="ItemPicker" 
                             VerticalOptions="Center"/>
                         </StackLayout>
-
-
-
-
                     </Grid>
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"

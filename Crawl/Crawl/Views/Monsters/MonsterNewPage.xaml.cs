@@ -23,10 +23,13 @@ namespace Crawl.Views
                 Description = "This is an Monster description.",
                 Id = Guid.NewGuid().ToString(),
                 ExperienceTotal = 100,
-                ImageURI = ItemsController.DefaultImageURIMonster
+                ImageURI = ItemsController.DefaultImageURIMonster,
+                Item = PreferredItemEnum.Unknown
             };
-
             BindingContext = this;
+
+            //converts current Item enum to string
+            ItemPicker.SelectedItem = Data.Item.ToString();
         }
 
         // Respond to the Save click
