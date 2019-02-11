@@ -11,6 +11,7 @@
             <local:StringEnumConverter x:Key="StringEnum"/>
         </ResourceDictionary>
     </ContentPage.Resources>
+    
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
