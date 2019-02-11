@@ -15,14 +15,11 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
-
                     <Label Text="New Monster Page" FontSize="Small" />
-
                     <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
                     VerticalOptions="Center">
-
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                             <RowDefinition Height="1"/>
@@ -30,7 +27,6 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
                             Text="Name" 
@@ -90,20 +86,17 @@
                     </Grid>
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Save_Clicked"/>
-
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Clicked="Save_Clicked"/>
 
                         <Button Text="Cancel"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Cancel_Clicked"/>
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Clicked="Cancel_Clicked"/>
                     </StackLayout>
-
                 </StackLayout>
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>
-
 </ContentPage>

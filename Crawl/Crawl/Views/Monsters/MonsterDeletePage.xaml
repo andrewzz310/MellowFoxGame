@@ -11,15 +11,12 @@
             Spacing="20"
             Padding="15"
             BackgroundColor="Red">
-
             <Label Text="Monster Delete Page" FontSize="Medium" />
-
             <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="200"
                 HeightRequest="200" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
-
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">
@@ -30,7 +27,6 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
@@ -41,9 +37,6 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-
-     
-
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="Red" Grid.Row="3" Grid.Column="0">
@@ -64,7 +57,6 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-       
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="Confirm Delete"
@@ -79,8 +71,6 @@
                 BackgroundColor="LightGray"
                     Clicked="Cancel_Clicked"/>
             </StackLayout>
-
-
         </StackLayout>
     </ScrollView>
 </ContentPage>
