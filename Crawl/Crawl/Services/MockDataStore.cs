@@ -25,25 +25,24 @@ namespace Crawl.Services
             }
         }
 
-        private List<Item> _itemDataset = new List<Item>();
-        private List<Character> _characterDataset = new List<Character>();
-        private List<Monster> _monsterDataset = new List<Monster>();
-        private List<Score> _scoreDataset = new List<Score>();
+        private List<Item> _itemDataset = new List<Item>(); //Holds mock data for Items
+        private List<Character> _characterDataset = new List<Character>(); //Holds mock data for Characters
+        private List<Monster> _monsterDataset = new List<Monster>(); //Holds mock data for Monsters
+        private List<Score> _scoreDataset = new List<Score>(); //Holds mock data for Score
 
         private MockDataStore()
         {
             InitilizeSeedData();
         }
 
+        //loads mock data
         private void InitilizeSeedData()
         {
 
             // Load Items
             _itemDataset.Add(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-
             _itemDataset.Add(new Item("Shield", "This is a Shield Item",
                 "http://www.clipartbest.com/cliparts/4T9/LaR/4T9LaReTE.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-
             _itemDataset.Add(new Item("Two-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
             _itemDataset.Add(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
             _itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
@@ -82,11 +81,13 @@ namespace Crawl.Services
         // Tells the View Models to update themselves.
         private void NotifyViewModelsOfDataChange()
         {
+            //Items
             ItemsViewModel.Instance.SetNeedsRefresh(true);
-            // Implement Monsters
-
-            // Implement Characters 
-
+            //Monster
+            MonstersViewModel.Instance.SetNeedsRefresh(true);
+            //Character
+            CharactersViewModel.Instance.SetNeedsRefresh(true);
+           
             // Implement Scores
         }
 

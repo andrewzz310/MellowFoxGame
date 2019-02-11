@@ -24,19 +24,15 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
                             <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"
                                          HorizontalOptions="Start">
-
                                 <Image Source="{Binding ImageURI}"
                                        WidthRequest="75"
                                        HeightRequest="75" 
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"/>
-
-
                                 <StackLayout>
                                     <StackLayout Orientation="Horizontal">
                                         <Label Text="Name:" 
@@ -47,16 +43,7 @@
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
-                                        
-                                     <!--    <Label Text="  Age:" 
-                                           LineBreakMode="NoWrap" 
-                                           Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
-                                       <Label Text="{Binding Age}" 
-                                           LineBreakMode="NoWrap" 
-                                           Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" /> -->
-                                        
+
                                         <Label Text=" Level:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 

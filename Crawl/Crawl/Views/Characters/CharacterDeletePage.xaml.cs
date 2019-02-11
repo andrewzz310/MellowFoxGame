@@ -14,6 +14,7 @@ namespace Crawl.Views
         // ReSharper disable once NotAccessedField.Local
         private CharacterDetailViewModel _viewModel;
 
+        //used to pass character data
         public Character Data { get; set; }
 
         public CharacterDeletePage(CharacterDetailViewModel viewModel)
@@ -28,6 +29,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        //handles delete event. Caught by mock data store
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteData", Data);
@@ -38,6 +40,7 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
 
+        //handles cancel event
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

@@ -32,16 +32,19 @@ namespace Crawl.Views
             BindingContext = _viewModel;
         }
 
+        //handles edit event. caught by data store
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CharacterEditPage(_viewModel));
         }
 
+        //handles delete event. caught by data store 
         private async void Delete_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CharacterDeletePage(_viewModel));
         }
 
+        //handles cancel
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
