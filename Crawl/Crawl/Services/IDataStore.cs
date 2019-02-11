@@ -4,16 +4,6 @@ using Crawl.Models;
 
 namespace Crawl.Services
 {
-    //public interface IDataStore<T> where T : class
-    //{
-    //    Task<bool> AddAsync(T item);
-    //    Task<bool> UpdateAsync(T item);
-    //    Task<bool> DeleteAsync(T item);
-    //    Task<T> GetAsync(string id);
-    //    Task<IEnumerable<T>> GetAllAsync(bool forceRefresh = false);
-
-    //}
-
     public interface IDataStore
     {
         List<Item> GetAllItems();
@@ -24,7 +14,6 @@ namespace Crawl.Services
         Task<Item> GetAsync_Item(string id);
         Task<IEnumerable<Item>> GetAllAsync_Item(bool forceRefresh = false);
 
-        // Implement Monster
         Task<bool> InsertUpdateAsync_Monster(Monster data);
         Task<bool> AddAsync_Monster(Monster data);
         Task<bool> UpdateAsync_Monster(Monster data);
@@ -32,7 +21,6 @@ namespace Crawl.Services
         Task<Monster> GetAsync_Monster(string id);
         Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false);
 
-        // Implement Character
         Task<bool> InsertUpdateAsync_Character(Character data);
         Task<bool> AddAsync_Character(Character data);
         Task<bool> UpdateAsync_Character(Character data);

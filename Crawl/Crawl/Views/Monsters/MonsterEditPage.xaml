@@ -5,7 +5,12 @@
              xmlns:local="using:Crawl.Models"
              Title="{Binding Title}"
              Icon="edit.png">
-
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
@@ -85,7 +90,7 @@
                         <StackLayout Grid.Row="4" Grid.Column="1">
                             <Picker 
                             ItemsSource="{x:Static local:ItemList.GetListItem}" 
-                            SelectedItem="{Binding Data.Item, Mode=TwoWay}" 
+                            SelectedItem="{Binding Data.Item, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                             x:Name="ItemPicker" 
                             VerticalOptions="Center"/>
                         </StackLayout>
