@@ -16,7 +16,7 @@ namespace Crawl.Models
             Name = "Unknown";
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
-            Item = PreferredItemEnum.Unknown;
+            Item = PreferredItemEnum.Unknown; //adding pref item
             // adding properties
             Level = 0;
             Alive = true;
@@ -45,7 +45,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
-            Item = newData.Item;
+            Item = newData.Item; //added pref item
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;
