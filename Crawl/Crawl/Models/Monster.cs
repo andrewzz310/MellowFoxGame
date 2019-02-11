@@ -72,11 +72,10 @@ namespace Crawl.Models
         // Update the values passed in
         public new void Update(Monster newData)
         {
-            // Implement
             Name = newData.Name;
             Description = newData.Description;
-           
             ImageURI = newData.ImageURI;
+            Item = newData.Item;
             return;
         }
 

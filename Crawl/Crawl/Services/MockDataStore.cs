@@ -201,7 +201,6 @@ namespace Crawl.Services
 
         public async Task<bool> AddAsync_Character(Character data)
         {
-            // Implement
             _characterDataset.Add(data);
 
             return await Task.FromResult(true);
@@ -214,7 +213,6 @@ namespace Crawl.Services
             {
                 return false;
             }
-
             myData.Update(data);
 
             return await Task.FromResult(true);
@@ -266,8 +264,6 @@ namespace Crawl.Services
         }
         public async Task<bool> AddAsync_Monster(Monster data)
         {
-            // Implement
-            // Implement
             _monsterDataset.Add(data);
 
             return await Task.FromResult(true);
@@ -275,7 +271,6 @@ namespace Crawl.Services
 
         public async Task<bool> UpdateAsync_Monster(Monster data)
         {
-            // Implement
             var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
             if (myData == null)
             {
@@ -289,7 +284,6 @@ namespace Crawl.Services
 
         public async Task<bool> DeleteAsync_Monster(Monster data)
         {
-            // Implement
             var myData = _monsterDataset.FirstOrDefault(arg => arg.Id == data.Id);
             _monsterDataset.Remove(myData);
 
@@ -298,13 +292,11 @@ namespace Crawl.Services
 
         public async Task<Monster> GetAsync_Monster(string id)
         {
-            // Implement
             return await Task.FromResult(_monsterDataset.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false)
         {
-            // Implement
             return await Task.FromResult(_monsterDataset);
         }
 

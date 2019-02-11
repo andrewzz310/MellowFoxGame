@@ -31,7 +31,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
 
             //Updating data
-            ItemPicker.SelectedItem = Data.Item;
+            ItemPicker.SelectedItem = Data.Item.ToString();
            
 
         }
