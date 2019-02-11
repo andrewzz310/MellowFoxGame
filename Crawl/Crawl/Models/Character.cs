@@ -45,7 +45,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
-            //Item?
+            Item = newData.Item;
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;
@@ -66,15 +66,14 @@ namespace Crawl.Models
         }
 
 
-        //1/29 i did this based on constructor for item called if needd
-        // needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed)
+        //Constructor that takes params. needed to create a new item with set values
+        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
         {
             CreateDefaultCharacter();
             Name = name;
             Description = description;
             ImageURI = imageuri;
-            //Item?
+            Item = item; //added pref item
             ExperienceTotal = experiencetotal;
             Level = level;
             Attack = attack;
