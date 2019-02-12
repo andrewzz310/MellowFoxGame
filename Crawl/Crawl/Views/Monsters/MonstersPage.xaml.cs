@@ -12,12 +12,55 @@ namespace Crawl.Views
     public partial class MonstersPage : ContentPage
     {
         // ReSharper disable once NotAccessedField.Local
-        private MonstersViewModel _viewModel;
+        private MonstersViewModel _instancem;
 
         public MonstersPage()
         {
             InitializeComponent();
-            BindingContext = _viewModel = MonstersViewModel.Instance;
+            BindingContext = _instancem = MonstersViewModel.Instance;
+        }
+
+
+        private async void OnItemSelectedm(object sender, SelectedItemChangedEventArgs args)
+        {
+            var data = args.SelectedItem as Monster;
+            if (data == null)
+                return;
+
+            await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
+
+            // Manually deselect item.
+            MonstersListView.SelectedItem = null;
+        }
+
+        private async void AddItem_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MonsterNewPage());
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            BindingContext = null;
+
+            if (ToolbarItems.Count > 0)
+            {
+                ToolbarItems.RemoveAt(0);
+            }
+
+            InitializeComponent();
+
+            if (_instancem.Dataset.Count == 0)
+            {
+                _instancem.LoadDataCommand.Execute(null);
+            }
+            else if (_instancem.NeedsRefresh())
+            {
+                _instancem.LoadDataCommand.Execute(null);
+            }
+
+            BindingContext = _instancem;
         }
 
     }

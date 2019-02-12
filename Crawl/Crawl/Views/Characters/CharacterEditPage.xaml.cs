@@ -30,10 +30,8 @@ namespace Crawl.Views
             // Set the data binding for the page
             BindingContext = _viewModel = viewModel;
 
-            //Updating data
-
-            ItemPicker.SelectedItem = Data.Item;
-
+            //Converts current pref item enum to string
+            ItemPicker.SelectedItem = Data.Item.ToString();
         }
 
         // Save on the Tool bar

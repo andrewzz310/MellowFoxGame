@@ -15,14 +15,24 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
+        //Create a default Monster for Instatiation
+        private void CreateDefaultMonster()
+        {
+            Name = "unknown";
+            Description = "unknown";
+            ImageURI = ItemsController.DefaultImageURIMonster;
+            Item = PreferredItemEnum.Unknown; //Adding preferred item
+
+        }
+
         // Make sure Attribute is instantiated in the constructor
         public Monster()
         {
-            Name = "Monster";
+            
             Attribute = new AttributeBase();
-
             Alive = true;
-            Level = 1;
+            CreateDefaultMonster();
+            
 
             // Scale up to the level
             // // Implement ScaleLevel(Level);
@@ -33,6 +43,7 @@ namespace Crawl.Models
         {
             // Implement
 
+
         }
 
         // For making a new one for lists etc..
@@ -40,6 +51,16 @@ namespace Crawl.Models
         {
             // Implement
 
+        }
+
+        //contructor that takes in params
+        public Monster(string name, string description, string imageuri, PreferredItemEnum item)
+        {
+            CreateDefaultMonster();
+            Name = name;
+            Description = description;
+            ImageURI = imageuri;
+            Item = item;
         }
 
         // Upgrades a monster to a set level
@@ -51,8 +72,10 @@ namespace Crawl.Models
         // Update the values passed in
         public new void Update(Monster newData)
         {
-            // Implement
-
+            Name = newData.Name;
+            Description = newData.Description;
+            ImageURI = newData.ImageURI;
+            Item = newData.Item;
             return;
         }
 

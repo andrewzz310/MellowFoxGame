@@ -16,7 +16,7 @@ namespace Crawl.Models
             Name = "Unknown";
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
-            Item = "Unknown";
+            Item = PreferredItemEnum.Unknown; //adding pref item
             // adding properties
             Level = 0;
             Alive = true;
@@ -45,6 +45,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
+            Item = newData.Item; //added pref item
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;
@@ -61,19 +62,18 @@ namespace Crawl.Models
         // Create a new character, based on existing Character
         public Character(Character newData)
         {
-            // Implement
             CreateDefaultCharacter();
         }
 
 
-        //1/29 i did this based on constructor for item called if needd
-        // needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed)
+        //Constructor that takes params. needed to create a new item with set values
+        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
         {
             CreateDefaultCharacter();
             Name = name;
             Description = description;
             ImageURI = imageuri;
+            Item = item; //added pref item
             ExperienceTotal = experiencetotal;
             Level = level;
             Attack = attack;

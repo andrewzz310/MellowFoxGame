@@ -28,9 +28,11 @@ namespace Crawl.ViewModels
             }
         }
 
+        //List of characters displayed to user
         public ObservableCollection<Character> Dataset { get; set; }
+        //Gets character data from data store
         public Command LoadDataCommand { get; set; }
-
+        //new char added/deleted require refresh
         private bool _needsRefresh;
 
         public CharactersViewModel()
@@ -40,8 +42,9 @@ namespace Crawl.ViewModels
             Dataset = new ObservableCollection<Character>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
-            // Implement 
+            //listening to user events
             #region Messages
+
             MessagingCenter.Subscribe<CharacterDeletePage, Character>(this, "DeleteData", async (obj, data) =>
             {
                 await DeleteAsync(data);
@@ -66,7 +69,6 @@ namespace Crawl.ViewModels
         public bool NeedsRefresh()
         {
 
-            // Implement 
             if (_needsRefresh)
             {
                 _needsRefresh = false;
@@ -79,7 +81,6 @@ namespace Crawl.ViewModels
         // Sets the need to refresh
         public void SetNeedsRefresh(bool value)
         {
-            // Implement 
             _needsRefresh = value;
         }
 
@@ -129,27 +130,26 @@ namespace Crawl.ViewModels
             LoadDataCommand.Execute(null);
         }
 
-       
-
+        //adds new character
         public async Task<bool> AddAsync(Character data)
         {
-            // Implement 
             Dataset.Add(data);
             var myReturn = await DataStore.AddAsync_Character(data);
             return myReturn;
         }
 
+        //deletes character
         public async Task<bool> DeleteAsync(Character data)
         {
-            // Implement 
             Dataset.Remove(data);
             var myReturn = await DataStore.DeleteAsync_Character(data);
             return myReturn;
         }
 
+        //updates character
         public async Task<bool> UpdateAsync(Character data)
         {
-            // Implement 
+
             var myData = Dataset.FirstOrDefault(arg => arg.Id == data.Id);
             if (myData == null)
             {
@@ -167,7 +167,7 @@ namespace Crawl.ViewModels
         // Call to database to ensure most recent
         public async Task<Character> GetAsync(string id)
         {
-            // Implement 
+ 
             var myData = await DataStore.GetAsync_Character(id);
             return myData;
         }
@@ -178,34 +178,5 @@ namespace Crawl.ViewModels
             var myReturn = await DataStore.InsertUpdateAsync_Character(data);
             return myReturn;
         }
-        /*
-        public Item CheckIfItemExists(Character data)
-        {
-            // This will walk the items and find if there is one that is the same.
-            // If so, it returns the item...
-
-            var myList = Dataset.Where(a =>
-                                        
-                                        a.Name == data.Name &&
-                                        a.Description == data.Description &&
-                                        a.Age == data.Age &&
-                                       
-                                        a.Level == data.Level)
-                                        .FirstOrDefault();
-
-            if (myList == null)
-            {
-                // it's not a match, return false;
-                return null;
-            }
-
-            return myList;
-        }
-        #endregion DataOperations
-        */
-
-
-
-
     }
 }

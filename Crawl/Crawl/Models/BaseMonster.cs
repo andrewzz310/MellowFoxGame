@@ -7,7 +7,7 @@ namespace Crawl.Models
 {
     public class BaseMonster : BasePlayer<BaseMonster>
     {
-        // Unique Item for Monster
+        // <HV> need to remove this as it does not apply mellofox game specs
         public string UniqueItem { get; set; }
 
         // Damage the Monster can do.
@@ -21,20 +21,20 @@ namespace Crawl.Models
 
         }
 
-        // Creaste a base from a monster, this reuses the guid and id
+        // Create a base from a monster, this reuses the guid and id
         public BaseMonster(Monster newData)
         {
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
-
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
             ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
+            Item = newData.Item; //adding preferred item
             Alive = newData.Alive;
-
+        
             // Populate the Attributes
             AttributeString = newData.AttributeString;
 
