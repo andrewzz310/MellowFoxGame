@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
+                <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
                     <Label Text="New Monster Page" FontSize="Small" />
                     <Grid
                     RowSpacing="1"
