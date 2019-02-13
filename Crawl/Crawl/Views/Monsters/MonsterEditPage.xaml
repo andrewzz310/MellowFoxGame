@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
+                <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
                     <Label Text="Monster Edit Page" FontSize="Small" />
                     <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="200"
