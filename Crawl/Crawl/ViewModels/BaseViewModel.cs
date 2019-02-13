@@ -14,23 +14,23 @@ namespace Crawl.ViewModels
     {
         #region RefactorLater
 
-        private IDataStore DataStoreMock => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
+       // private IDataStore DataStoreMock => DependencyService.Get<IDataStore>() ?? MockDataStore.Instance;
         private IDataStore DataStoreSql => DependencyService.Get<IDataStore>() ?? SQLDataStore.Instance;
 
         public IDataStore DataStore;
 
         public BaseViewModel()
         {
-            SetDataStore(DataStoreEnum.Mock);
+            SetDataStore(DataStoreEnum.Sql);
         }
 
         public void SetDataStore(DataStoreEnum data)
         {
             switch (data)
             {
-                case DataStoreEnum.Mock:
-                    DataStore = DataStoreMock;
-                    break;
+            //    case DataStoreEnum.Mock:
+            //        DataStore = DataStoreMock;
+             //       break;
 
                 case DataStoreEnum.Sql:
                 case DataStoreEnum.Unknown:
