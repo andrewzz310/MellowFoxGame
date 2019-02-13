@@ -34,7 +34,7 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="1">
+                        <StackLayout BackgroundColor="MediumSpringGreen" Grid.Row="0" Grid.Column="1">
                             <Entry 
                             Text="{Binding Data.Name}" 
                             FontSize="Small" 
