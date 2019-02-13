@@ -30,10 +30,10 @@
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
-                <Label Text="Description : " 
+                <Label Text="Preferred Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Description}" 
+                <Label Text="{Binding Data.Item}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
@@ -49,15 +49,54 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
-                <Label Text="Preferred Item: " 
+                BackgroundColor="Red" Grid.Row="3" Grid.Column="0">
+                <Label Text="HP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Item}" 
+                <Label Text="{Binding Data.HealthPoints}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="5" Grid.Column="0">
+                <Label Text="Speed : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Speed}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="MediumVioletRed" Grid.Row="6" Grid.Column="0">
+                <Label Text="Attack : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Attack}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="7" Grid.Column="0">
+                <Label Text="Defense : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Defense}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
+                <Label Text="Description : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Description}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Confirm Delete"
                 VerticalOptions="CenterAndExpand" 
