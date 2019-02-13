@@ -10,11 +10,12 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
     </ContentPage.ToolbarItems>
 
+    <!--
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:StringEnumConverter x:Key="StringEnum"/>
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </ContentPage.Resources> -->
 
     <ContentPage.Content>
 
