@@ -44,6 +44,16 @@
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="MediumSpringGreen" Grid.Row="3" Grid.Column="0">
+                <Label Text="XP : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.ExperienceTotal}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="MediumSpringGreen" Grid.Row="3" Grid.Column="0">
                 <Label Text="HP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
