@@ -83,6 +83,10 @@
       <DependentUpon>AutoBattlePage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleBeginPage.xaml.cs">
+      <DependentUpon>BattleBeginPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\OpeningPage.xaml.cs">
       <DependentUpon>OpeningPage.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -240,6 +244,12 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\AutoBattlePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleBeginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
   <!--#if (CreateBackendProject)
