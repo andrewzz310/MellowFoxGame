@@ -5,11 +5,6 @@
              xmlns:local="using:Crawl.Models"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked" />
-        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" />
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Resources>
         <ResourceDictionary>
             <local:StringEnumConverter x:Key="StringEnum"/>
@@ -19,7 +14,7 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
+            <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
 
                 <Label Text="Item Edit Page" FontSize="Small" />
 
@@ -71,14 +66,77 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
+
+
                     <StackLayout Grid.Row="2" Grid.Column="0">
+                        <Label 
+                            Text="Image" 
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                        <Image Source="{Binding Data.ImageURI}"
+                            WidthRequest="25"
+                            HeightRequest="25" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                        <Entry 
+                            Text="{Binding Data.ImageURI}" 
+                            FontSize="Small" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="3" Grid.Column="0">
+                        <Label 
+                            Text="Attribute" 
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.Column="1">
+                        <Picker 
+                            ItemsSource="{x:Static local:AttributeList.GetListItem}" 
+                            SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                            x:Name="AttributePicker"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+
+
+                    <StackLayout Grid.Row="4" Grid.Column="0">
+                        <Label 
+                            Text="Value"
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <Label 
+                            Text="{Binding Data.Value}" 
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            x:Name="ValueValue"
+                            VerticalOptions="Center"/>
+
+                        <Stepper Value="{Binding Data.Value, Mode=TwoWay}"
+                            Minimum="0"
+                            Maximum="20"
+                            Increment="1"
+                            ValueChanged="Value_OnStepperValueChanged"
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5" Grid.Column="0">
                         <Label 
                             Text="Range" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"/>
                     </StackLayout>
                     
-                    <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
+                    <StackLayout Grid.Row="5" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
                         <Label 
                             Text="{Binding Data.Range}" 
                             FontSize="Medium" 
@@ -96,38 +154,15 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="3" Grid.Column="0">
-                        <Label 
-                            Text="Value"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Value}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="ValueValue"
-                            VerticalOptions="Center"/>
 
-                        <Stepper Value="{Binding Data.Value, Mode=TwoWay}"
-                            Minimum="0"
-                            Maximum="20"
-                            Increment="1"
-                            ValueChanged="Value_OnStepperValueChanged"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="4" Grid.Column="0">
+                    <StackLayout Grid.Row="6" Grid.Column="0">
                         <Label 
                             Text="Location" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                     </StackLayout>
-                    <StackLayout Grid.Row="4" Grid.Column="1">
+                    <StackLayout Grid.Row="6" Grid.Column="1">
                         <Picker 
                             ItemsSource="{x:Static local:ItemLocationList.GetListItem}" 
                             SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
@@ -135,66 +170,19 @@
                             VerticalOptions="Center"/>
                     </StackLayout>
 
-                    <StackLayout Grid.Row="5" Grid.Column="0">
-                        <Label 
-                            Text="Attribute" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="5" Grid.Column="1">
-                        <Picker 
-                            ItemsSource="{x:Static local:AttributeList.GetListItem}" 
-                            SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="AttributePicker"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="6" Grid.Column="0">
-                        <Label 
-                            Text="Image" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-                    <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                        <Image Source="{Binding Data.ImageURI}"
-                            WidthRequest="25"
-                            HeightRequest="25" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        <Entry 
-                            Text="{Binding Data.ImageURI}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="7" Grid.Column="0">
-                        <Label 
-                            Text="Damage" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"/>
-                    </StackLayout>
-
-                    <StackLayout Grid.Row="7" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                        <Label 
-                            Text="{Binding Data.Damage}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="DamageValue"
-                            VerticalOptions="Center"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Damage, Mode=TwoWay}"
-                            Minimum="0"
-                            Maximum="20"
-                            Increment="1"
-                            ValueChanged="Damage_OnStepperValueChanged"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                    </StackLayout>                    
+            
                 </Grid>
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Save"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Clicked="Save_Clicked"/>
+
+                    <Button Text="Cancel"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Clicked="Cancel_Clicked"/>
+                </StackLayout>
 
             </StackLayout>
         </ScrollView>

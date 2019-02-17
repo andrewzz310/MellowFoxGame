@@ -75,10 +75,6 @@ namespace Crawl.Views
             ValueValue.Text = String.Format("{0}", e.NewValue);
         }
 
-        // The stepper function for Damage
-        void Damage_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            DamageValue.Text = String.Format("{0}", e.NewValue);
-        }
+  
     }
 }
