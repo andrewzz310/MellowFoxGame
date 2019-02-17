@@ -24,7 +24,7 @@ namespace Crawl.Views
 
         private async void ManualBattleButton_Command(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BattleBeginPage());
+            await Navigation.PushAsync(new SelectCharacters());
         }
 
         
