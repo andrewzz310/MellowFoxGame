@@ -16,7 +16,7 @@
             x:Name="DetailsRoot"
             Orientation="Vertical"
             Spacing="20"
-            Padding="15">
+            Padding="15" BackgroundColor="Green">
 
             <Label Text="Items Detail Page" FontSize="Medium" />
 
@@ -37,13 +37,35 @@
                     HorizontalOptions="Center"/>
             </StackLayout>
 
+            <StackLayout 
+                Orientation="Horizontal" 
+                HorizontalOptions="Start">
+                <Label Text="Attribute : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Attribute}" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center"/>
+            </StackLayout>
+
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Description : " 
+                <Label Text="Value : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Description}" 
+                <Label Text="{Binding Data.Value}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Location : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Location}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
@@ -62,46 +84,14 @@
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
-                <Label Text="Damage : " 
+                <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Damage}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Value : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Value}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Location : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Location}" 
+                <Label Text="{Binding Data.Description}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
 
-            <StackLayout 
-                Orientation="Horizontal" 
-                HorizontalOptions="Start">
-            <Label Text="Attribute : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-            <Label Text="{Binding Data.Attribute}" 
-                   FontSize="Medium" 
-                   HorizontalOptions="Center"/>
-            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>
