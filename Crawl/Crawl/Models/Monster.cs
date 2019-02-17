@@ -21,7 +21,7 @@ namespace Crawl.Models
             Name = "unknown";
             Description = "unknown";
             ImageURI = ItemsController.DefaultImageURIMonster;
-            Item = PreferredItemEnum.Unknown; //Adding preferred item
+            //Item = PreferredItemEnum.Unknown; //Adding preferred item
 
         }
 
@@ -60,7 +60,7 @@ namespace Crawl.Models
             Name = name;
             Description = description;
             ImageURI = imageuri;
-            Item = item;
+            //Item = item;
         }
 
         // Upgrades a monster to a set level
@@ -75,7 +75,7 @@ namespace Crawl.Models
             Name = newData.Name;
             Description = newData.Description;
             ImageURI = newData.ImageURI;
-            Item = newData.Item;
+            //Item = newData.Item;
             return;
         }
 

@@ -29,7 +29,7 @@ namespace Crawl.Views
 
             BindingContext = this;
             //converst current enum selection to string
-            ItemPicker.SelectedItem = Data.Item.ToString();
+            //ItemPicker.SelectedItem = Data.Item.ToString();
         }
 
         // Respond to the Save click

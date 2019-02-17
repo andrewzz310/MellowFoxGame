@@ -36,7 +36,7 @@ namespace Crawl.Services
         }
 
         //loads mock data
-        private void InitilizeSeedData()
+        private async void InitilizeSeedData()
         {
 
             // Load Items
@@ -48,12 +48,12 @@ namespace Crawl.Services
             _itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
 
             // Characters initialized with level 2, xp 300, etc based on ppt deck
-            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  2, 300, 1,2,1, PreferredItemEnum.Armor));
-            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  2, 300,1,2,1, PreferredItemEnum.BowArrow));
-            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png",  2, 300,1,2,1, PreferredItemEnum.RingOfPower));
-            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png",  2, 300,1,2,1, PreferredItemEnum.Shuriken));
-            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  2, 300,1,2,1, PreferredItemEnum.Staff));
-            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  2, 300,1,2,1, PreferredItemEnum.Sword));
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock First Character", Description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Second Character", Description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Third Character", Description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Fourth Character", Description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Fifth Character", Description = "This is an Character description.", Level = 3 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Sixth Character", Description = "This is an Character description.", Level = 3 });
 
 
             // Monsters initialized 

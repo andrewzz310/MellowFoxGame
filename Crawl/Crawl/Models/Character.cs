@@ -16,7 +16,7 @@ namespace Crawl.Models
             Name = "Unknown";
             Description = "Unknown";
             ImageURI = ItemsController.DefaultImageURICharacter;
-            Item = PreferredItemEnum.Unknown; //adding pref item
+            //Item = PreferredItemEnum.Unknown; //adding pref item
             // adding properties
             Level = 0;
             Alive = true;
@@ -45,7 +45,7 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
-            Item = newData.Item; //added pref item
+            //Item = newData.Item; //added pref item
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;
@@ -67,13 +67,13 @@ namespace Crawl.Models
 
 
         //Constructor that takes params. needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
+        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed)
         {
             CreateDefaultCharacter();
             Name = name;
             Description = description;
             ImageURI = imageuri;
-            Item = item; //added pref item
+            //Item = item; //added pref item
             ExperienceTotal = experiencetotal;
             Level = level;
             Attack = attack;

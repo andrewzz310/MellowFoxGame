@@ -23,7 +23,7 @@ namespace Crawl.Models
             Level = newData.Level;
             ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
-            Item = newData.Item;
+            //Item = newData.Item;
             Alive = newData.Alive;
             HealthPoints = newData.HealthPoints;
             MaxHealth = newData.MaxHealth;

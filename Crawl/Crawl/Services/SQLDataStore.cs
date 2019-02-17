@@ -26,45 +26,49 @@ namespace Crawl.Services
 
         private SQLDataStore()
         {
-            // Implement
-            // CreateTables();
+            CreateTables();
         }
 
         // Create the Database Tables
         private void CreateTables()
         {
-            // Implement
+            App.Database.CreateTableAsync<BaseCharacter>().Wait();
         }
 
         // Delete the Datbase Tables by dropping them
         private void DeleteTables()
         {
-            // Implement
+            App.Database.DropTableAsync<BaseCharacter>().Wait();
         }
 
             // Tells the View Models to update themselves.
-            private void NotifyViewModelsOfDataChange()
-        {
-            // Implement
+        private void NotifyViewModelsOfDataChange()
+        {   
+            CharactersViewModel.Instance.SetNeedsRefresh(true);
         }
 
             public void InitializeDatabaseNewTables()
         {
-            // Implement
-            
-            // Delete the tables
-
-            // make them again
+            DeleteTables();
+            CreateTables();
 
             // Populate them
+            InitilizeSeedData();
 
             // Tell View Models they need to refresh
+            NotifyViewModelsOfDataChange();
 
         }
 
         private async void InitilizeSeedData()
         {
-            // Implement
+            // Dummy data Characters
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQL First Character", Description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQL Second Character", Description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQL Third Character", Description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQL Fourth Character", Description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQL Fifth Character", Description = "This is an Character description.", Level = 3 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQL Sixth Character", Description = "This is an Character description.", Level = 3 });
 
         }
 
@@ -132,7 +136,21 @@ namespace Crawl.Services
 
         public async Task<bool> InsertUpdateAsync_Character(Character data)
         {
-            // Implement
+            // Check to see if the item exist
+            var oldData = await GetAsync_Character(data.Id);
+            if (oldData == null)
+            {
+                await AddAsync_Character(data);
+                return true;
+            }
+
+            // Compare it, if different update in the DB
+            var UpdateResult = await UpdateAsync_Character(data);
+            if (UpdateResult)
+            {
+                await AddAsync_Character(data);
+                return true;
+            }
 
             return false;
         }
@@ -140,7 +158,13 @@ namespace Crawl.Services
         // Conver to BaseCharacter and then add it
         public async Task<bool> AddAsync_Character(Character data)
         {
-            // Implement
+            var dataBase = new BaseCharacter(data);
+
+            var result = await App.Database.InsertAsync(dataBase);
+            if (result == 1)
+            {
+                return true;
+            }
 
             return false;
         }
@@ -148,30 +172,55 @@ namespace Crawl.Services
         // Convert to BaseCharacter and then update it
         public async Task<bool> UpdateAsync_Character(Character data)
         {
-            // Implement
+            // Convert Character to CharacterBase before saving to Database
+            var dataBase = new BaseCharacter(data);
+
+            var result = await App.Database.UpdateAsync(dataBase);
+            if (result == 1)
+            {
+                return true;
+            }
+
             return false;
         }
 
         // Pass in the character and convert to Character to then delete it
         public async Task<bool> DeleteAsync_Character(Character data)
         {
-            // Implement
+            var dataBase = new BaseCharacter(data);
+
+            var result = await App.Database.DeleteAsync(dataBase);
+            if (result == 1)
+            {
+                return true;
+            }
+
             return false;
         }
 
         // Get the Character Base, and Load it back as Character
         public async Task<Character> GetAsync_Character(string id)
         {
-            // Implement
-            return null;
+            var tempResult = await App.Database.GetAsync<BaseCharacter>(id);
+
+            var result = new Character(tempResult);
+
+            return result;
         }
 
         // Load each character as the base character, 
         // Then then convert the list to characters to push up to the view model
         public async Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false)
         {
-            // Implement
-            return null;
+            var tempResult = await App.Database.Table<BaseCharacter>().ToListAsync();
+
+            var result = new List<Character>();
+            foreach (var item in tempResult)
+            {
+                result.Add(new Character(item));
+            }
+
+            return result;
         }
 
         #endregion Character

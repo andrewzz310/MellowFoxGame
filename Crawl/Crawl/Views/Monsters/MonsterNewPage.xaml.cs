@@ -24,12 +24,12 @@ namespace Crawl.Views
                 Id = Guid.NewGuid().ToString(),
                 ExperienceTotal = 100,
                 ImageURI = ItemsController.DefaultImageURIMonster,
-                Item = PreferredItemEnum.Unknown
+                //Item = PreferredItemEnum.Unknown
             };
             BindingContext = this;
 
             //converts current Item enum to string
-            ItemPicker.SelectedItem = Data.Item.ToString();
+            //ItemPicker.SelectedItem = Data.Item.ToString();
         }
 
         // Respond to the Save click
