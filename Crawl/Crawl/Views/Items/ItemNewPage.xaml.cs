@@ -53,11 +53,13 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
 
+        
         // The stepper function for Range
         void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             RangeValue.Text = String.Format("{0}", e.NewValue);
         }
+        
 
         // The stepper function for Value
         void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
@@ -65,11 +67,8 @@ namespace Crawl.Views
             ValueValue.Text = String.Format("{0}", e.NewValue);
         }
 
-        // The stepper function for Damage
-        void Damage_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
-        {
-            DamageValue.Text = String.Format("{0}", e.NewValue);
-        }
+        
 
+        
     }
 }

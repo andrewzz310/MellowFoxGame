@@ -42,6 +42,7 @@
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
                         </StackLayout>
+                        
                         <StackLayout Grid.Row="1" Grid.Column="0">
                             <Label 
                             Text="Description" 
