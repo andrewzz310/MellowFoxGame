@@ -1,4 +1,5 @@
 ﻿using Crawl.GameEngine;
+using SQLite;
 
 namespace Crawl.Models
 {

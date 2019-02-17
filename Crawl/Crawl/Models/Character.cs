@@ -92,7 +92,6 @@ namespace Crawl.Models
         // Updates the attribute string
         public void Update(Character newData)
         {
-            // Implement
             // Base information
             Name = newData.Name;
             Description = newData.Description;
@@ -105,8 +104,6 @@ namespace Crawl.Models
             Defense = newData.Defense;
             Speed = newData.Speed;
             ExperienceTotal = newData.ExperienceTotal;
-
-
 
             // Database information
             Guid = newData.Guid;
