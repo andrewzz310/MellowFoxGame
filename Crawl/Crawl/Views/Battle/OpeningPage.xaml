@@ -52,6 +52,11 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Items_Command"/>
+
+              <Button Text="Scores"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand"
+              Clicked="Scores_Command"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

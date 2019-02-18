@@ -44,6 +44,10 @@ namespace Crawl.Views
         {
             await Navigation.PushAsync(new ItemsPage());
         }
-        
+
+        private async void Scores_Command(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ScoresPage());
+        }
     }
 }
