@@ -40,20 +40,34 @@
 
                                 <StackLayout>
                                     <StackLayout Orientation="Horizontal">
+                                        <Label Text=" Name:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="12" />
                                         <Label Text="{Binding Name}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
-                                        <Label Text="{Binding Attribute}" 
+
+                                        <Label Text=" XP:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="12" />
+                                        <Label Text="{Binding ExperienceGainedTotal}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
-                                        <Label Text="{Binding Value}" 
+
+                                        <Label Text=" Total_Score:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="12" />
+                                        <Label Text="{Binding ScoreTotal}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
                                     </StackLayout>
-                                    <Label Text="{Binding Description}" 
+                                    <Label Text="{Binding GameDate}" 
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" />

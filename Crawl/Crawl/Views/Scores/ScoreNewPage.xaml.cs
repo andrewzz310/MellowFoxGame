@@ -20,7 +20,11 @@ namespace Crawl.Views
             {
                 Name = "Score name",
                 ScoreTotal = 0,
-                Id = Guid.NewGuid().ToString()
+                Id = Guid.NewGuid().ToString(),
+                BattleNumber = 1,
+                TurnCount = 0,
+                MonsterSlainNumber = 2,
+                ExperienceGainedTotal = 55
             };
 
             BindingContext = this;

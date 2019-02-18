@@ -42,7 +42,23 @@ namespace Crawl.Models
         public Monster(BaseMonster newData)
         {
             // Implement
+            // Base information
+            Name = newData.Name;
+            Description = newData.Description;
+            Level = newData.Level;
+            ExperienceTotal = newData.ExperienceTotal;
+            ImageURI = newData.ImageURI;
+            Item = newData.Item;
+            Alive = newData.Alive;
+            HealthPoints = newData.HealthPoints;
+            MaxHealth = newData.MaxHealth;
+            Attack = newData.Attack;
+            Defense = newData.Defense;
+            Speed = newData.Speed;
 
+            // Database information
+            Guid = newData.Guid;
+            Id = newData.Id;
 
         }
 
@@ -50,6 +66,7 @@ namespace Crawl.Models
         public Monster(Monster newData)
         {
             // Implement
+            CreateDefaultMonster();
 
         }
 

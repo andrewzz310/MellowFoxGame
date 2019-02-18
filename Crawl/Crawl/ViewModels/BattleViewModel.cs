@@ -35,16 +35,10 @@ namespace Crawl.ViewModels
         //new char added/deleted require refresh
         private bool _needsRefresh;
 
-
-        // List of monsters to display to user
-        public ObservableCollection<Monster> DatasetM { get; set; }
-        public Command LoadDataCommandM { get; set; }
-        private bool _needsRefreshM;
-
         public BattleViewModel()
         {
 
-            Title = "Character List";
+          /*  Title = "Character List";
             Dataset = new ObservableCollection<Character>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
@@ -66,31 +60,7 @@ namespace Crawl.ViewModels
                 await UpdateAsync(data);
             });
 
-
-
-            Title = "Monster List";
-            DatasetM = new ObservableCollection<Monster>();
-            LoadDataCommandM = new Command(async () => await ExecuteLoadDataCommandM());
-
-            
-            #region Messages
-            MessagingCenter.Subscribe<MonsterDeletePage, Monster>(this, "DeleteData", async (obj, data) =>
-            {
-                await DeleteAsyncM(data);
-            });
-
-            MessagingCenter.Subscribe<MonsterNewPage, Monster>(this, "AddData", async (obj, data) =>
-            {
-                await AddAsyncM(data);
-            });
-
-            MessagingCenter.Subscribe<MonsterEditPage, Monster>(this, "EditData", async (obj, data) =>
-            {
-                await UpdateAsyncM(data);
-            });
-
-
-            #endregion Messages
+            #endregion Messages*/
 
         }
 
@@ -113,26 +83,6 @@ namespace Crawl.ViewModels
         {
             _needsRefresh = value;
         }
-
-        public bool NeedsRefreshM()
-        {
-            // Implement 
-            if (_needsRefreshM)
-            {
-                _needsRefreshM = false;
-                return true;
-            }
-            return false;
-        }
-
-        // Sets the need to refresh
-        public void SetNeedsRefreshM(bool value)
-        {
-            // Implement 
-            _needsRefreshM = value;
-
-        }
-
 
         private async Task ExecuteLoadDataCommand()
         {
@@ -172,67 +122,12 @@ namespace Crawl.ViewModels
             }
         }
 
-
-
-        private async Task ExecuteLoadDataCommandM()
-        {
-            // Implement 
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
-            try
-            {
-                DatasetM.Clear();
-                var dataset = await DataStore.GetAllAsync_Monster(true);
-
-                // Example of how to sort the database output using a linq query.
-                //Sort the list
-                dataset = dataset
-                    .OrderBy(a => a.Name)
-                    .ThenBy(a => a.Description)
-                    .ThenByDescending(a => a.Level)
-                    .ToList();
-
-                // Then load the data structure
-                foreach (var data in dataset)
-                {
-                    DatasetM.Add(data);
-                }
-            }
-
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex);
-            }
-
-            finally
-            {
-                IsBusy = false;
-            }
-            return;
-
-        }
-
-
-
         public void ForceDataRefresh()
         {
             // Implement 
             // Reset
-            var canExecute = LoadDataCommand.CanExecute(null);
-            LoadDataCommand.Execute(null);
-        }
-
-
-
-        public void ForceDataRefreshM()
-        {
-            // Implement 
-            // Reset
-            var canExecute = LoadDataCommandM.CanExecute(null);
-            LoadDataCommandM.Execute(null);
+          //  var canExecute = LoadDataCommand.CanExecute(null);
+            //LoadDataCommand.Execute(null);
         }
 
         //adds new character
@@ -269,48 +164,6 @@ namespace Crawl.ViewModels
             return true;
         }
 
-
-
-
-        public async Task<bool> AddAsyncM(Monster data)
-        {
-            // Implement
-            // Implement 
-            DatasetM.Add(data);
-            var myReturn = await DataStore.AddAsync_Monster(data);
-            return myReturn;
-            //return false;
-        }
-
-        public async Task<bool> DeleteAsyncM(Monster data)
-        {
-            // Implement 
-            // Implement 
-            DatasetM.Remove(data);
-            var myReturn = await DataStore.DeleteAsync_Monster(data);
-            return myReturn;
-        }
-
-        public async Task<bool> UpdateAsyncM(Monster data)
-        {
-            // Implement 
-            var myData = DatasetM.FirstOrDefault(arg => arg.Id == data.Id);
-            if (myData == null)
-            {
-                return false;
-            }
-
-            myData.Update(data);
-            await DataStore.UpdateAsync_Monster(myData);
-
-            _needsRefresh = true;
-
-            return true;
-
-        }
-
-
-
         // Call to database to ensure most recent
         public async Task<Character> GetAsync(string id)
         {
@@ -325,24 +178,5 @@ namespace Crawl.ViewModels
             var myReturn = await DataStore.InsertUpdateAsync_Character(data);
             return myReturn;
         }
-
-
-        // Call to database to ensure most recent
-        public async Task<Monster> GetAsyncM(string id)
-        {
-            // Implement 
-            var myData = await DataStore.GetAsync_Monster(id);
-            return myData;
-
-        }
-
-        // Having this at the ViewModel, because it has the DataStore
-        // That allows the feature to work for both SQL and the MOCk datastores...
-        public async Task<bool> InsertUpdateAsyncM(Monster data)
-        {
-            var myReturn = await DataStore.InsertUpdateAsync_Monster(data);
-            return myReturn;
-        }
-        #endregion DataOperations
     }
 }
