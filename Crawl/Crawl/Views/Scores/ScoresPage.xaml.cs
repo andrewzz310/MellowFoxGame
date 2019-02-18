@@ -28,7 +28,7 @@ namespace Crawl.Views
             await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(data)));
 
             // Manually deselect item.
-//            ScoresListView.SelectedItem = null;
+            ScoresListView.SelectedItem = null;
         }
 
         private async void AddScores_Clicked(object sender, EventArgs e)

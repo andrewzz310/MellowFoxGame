@@ -30,9 +30,10 @@ namespace Crawl.Services
                     // Implement Character
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
                     // Implement Score
+                    ScoresViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
 
 
-                    BattleViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
+                   // BattleViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
 
                     break;
 
@@ -45,8 +46,9 @@ namespace Crawl.Services
                     // Implement Character
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
                     // Implement Score
+                    ScoresViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
 
-                    BattleViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
+                   // BattleViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
                     break;
             }
 

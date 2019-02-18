@@ -45,37 +45,84 @@ namespace Crawl.Models
         public Score()
         {
             // Implement
+            CreateDefaultScore();
 
+        }
+
+        private void CreateDefaultScore()
+        {
+            BattleNumber = 1;
+            ScoreTotal = 0;
+            GameDate = DateTime.Now;
+            AutoBattle = true;
+            TurnCount = 0;
+            RoundCount = 0;
+            MonsterSlainNumber = 0;
+            ExperienceGainedTotal = 0;
+            CharacterAtDeathList = null;
+            MonstersKilledList = null;
+            ItemsDroppedList = null;
         }
 
         // Update the score based on the passed in values.
         public void Update(Score newData)
         {
             // Implement
-
+            if (newData == null)
+            {
                 return;
-            
+            }
+
+            BattleNumber = newData.BattleNumber;
+            ScoreTotal = newData.ScoreTotal;
+            GameDate = newData.GameDate;
+            AutoBattle = newData.AutoBattle;
+            TurnCount = newData.TurnCount;
+            RoundCount = newData.RoundCount;
+            MonsterSlainNumber = newData.MonsterSlainNumber;
+            ExperienceGainedTotal = newData.ExperienceGainedTotal;
+            CharacterAtDeathList = newData.CharacterAtDeathList;
+            MonstersKilledList = newData.MonstersKilledList;
+            ItemsDroppedList = newData.ItemsDroppedList;
+
+        }
+        public Score(int battleNumber, int scoreTotal, DateTime gameDate, bool autoBattle, int turnCount, int roundCount, int monsterSlainNumber, int experienceGainedTotal, string characterAtDeathList, string monstersKilledList, string itemsDroppedList)
+        {
+            // Create default, and then override...
+            CreateDefaultScore();
+
+            BattleNumber = battleNumber;
+            ScoreTotal = scoreTotal;
+            GameDate = gameDate;
+            AutoBattle = autoBattle;
+            TurnCount = turnCount;
+            RoundCount = roundCount;
+            MonsterSlainNumber = monsterSlainNumber;
+            ExperienceGainedTotal = experienceGainedTotal;
+            CharacterAtDeathList = characterAtDeathList;
+            MonstersKilledList = monstersKilledList;
+            ItemsDroppedList = itemsDroppedList;
         }
 
         #region ScoreItems
 
         // Adding a character to the score output as a text string
-        public bool AddCharacterToList( Character data)
+        public bool AddCharacterToList(Character data)
         {
             // Implement
             return false;
         }
 
         // All a monster to the list of monsters and their stats
-        public bool AddMonsterToList( Monster data)
+        public bool AddMonsterToList(Monster data)
         {
             // Implement
             return false;
-           
+
         }
 
         // All an item to the list of items for score and their stats
-        public bool AddItemToList( Item data)
+        public bool AddItemToList(Item data)
         {
             // Implement
             return false;
