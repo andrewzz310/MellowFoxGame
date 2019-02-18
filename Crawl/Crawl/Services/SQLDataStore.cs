@@ -105,7 +105,7 @@ namespace Crawl.Services
             await AddAsync_Monster(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", PreferredItemEnum.Sword));
 
             // Add Default SQL DB Score
-            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLFirst Score", ScoreTotal = 111 });
+            await AddAsync_Score(new Score(battleNumber: 1, scoreTotal: 2, gameDate: DateTime.Now, autoBattle: true, turnCount: 3, roundCount: 4, monsterSlainNumber: 5, experienceGainedTotal: 6, characterAtDeathList: "Elf", monstersKilledList: "Dragon", itemsDroppedList: "Bow and Arrow"));
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLSecond Score", ScoreTotal = 222 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLThird Score", ScoreTotal = 333 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLFourth Score", ScoreTotal = 444 });
@@ -384,6 +384,7 @@ namespace Crawl.Services
             }
 
             return false;
+
         }
 
         public async Task<bool> UpdateAsync_Score(Score data)

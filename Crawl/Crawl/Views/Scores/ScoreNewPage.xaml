@@ -32,14 +32,14 @@
 
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
-                            Text="Battle Number" 
+                            Text="Name" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
                         <StackLayout  Grid.Row="0" Grid.Column="1">
                             <Entry 
-                            Text="{Binding Data.BattleNumber}" 
+                            Text="{Binding Data.Name}" 
                             FontSize="Small" 
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
@@ -47,12 +47,27 @@
 
                         <StackLayout Grid.Row="1" Grid.Column="0">
                             <Label 
+                            Text="Battle Number" 
+                            FontSize="Medium" 
+                            HorizontalOptions="Start"
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout  Grid.Row="1" Grid.Column="1">
+                            <Entry 
+                            Text="{Binding Data.BattleNumber}" 
+                            FontSize="Small" 
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="0">
+                            <Label 
                             Text="Score Total" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="1" Grid.Column="1">
+                        <StackLayout Grid.Row="2" Grid.Column="1">
                             <Entry 
                             Text="{Binding Data.ScoreTotal}" 
                             FontSize="Small" 
@@ -60,14 +75,14 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="2" Grid.Column="0">
+                        <StackLayout Grid.Row="3" Grid.Column="0">
                             <Label 
                             Text="Picture URI"
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="2" Grid.Column="1">
+                        <StackLayout Grid.Row="3" Grid.Column="1">
                             <Entry 
                             Text="{Binding Data.ImageURI}" 
                             FontSize="Small" 
@@ -75,14 +90,14 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="3" Grid.Column="0">
+                        <StackLayout Grid.Row="4" Grid.Column="0">
                             <Label 
                             Text="Turn Count" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="3" Grid.Column="1">
+                        <StackLayout Grid.Row="4" Grid.Column="1">
                             <Entry 
                             Text="{Binding Data.TurnCount}" 
                             FontSize="Small" 
@@ -90,13 +105,13 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="4" Grid.Column="0">
+                        <StackLayout Grid.Row="5" Grid.Column="0">
                             <Label 
                             Text="Game Date" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <StackLayout Grid.Row="5" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
                             <Label 
                             Text="{Binding Data.GameDate}" 
                             FontSize="Medium" 
@@ -104,14 +119,14 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="5" Grid.Column="0">
+                        <StackLayout Grid.Row="6" Grid.Column="0">
                             <Label 
                             Text="Total XP Gained"
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="5" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
+                        <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
                             <Label 
                             Text="{Binding Data.ExperienceGainedTotal}" 
                             FontSize="Medium" 
@@ -130,7 +145,6 @@
                         HorizontalOptions="CenterAndExpand" 
                         Clicked="Cancel_Clicked"/>
                     </StackLayout>
-
                 </StackLayout>
             </ScrollView>
         </StackLayout>

@@ -68,6 +68,8 @@ namespace Crawl.Services
             _monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", PreferredItemEnum.Sword));
 
             // Implement Scores
+            _scoreDataset.Add(new Score(1, 2, DateTime.Now, true, 3, 4, 5, 6, "Elf", "Dragon", "Bow and Arrow"));
+
         }
 
         private void CreateTables()
@@ -93,7 +95,7 @@ namespace Crawl.Services
 
             // Implement Scores
 
-            BattleViewModel.Instance.SetNeedsRefresh(true);
+          //  BattleViewModel.Instance.SetNeedsRefresh(true);
         }
 
         public void InitializeDatabaseNewTables()
@@ -336,31 +338,44 @@ namespace Crawl.Services
         public async Task<bool> AddAsync_Score(Score data)
         {
             // Implement
-            return false;
+            _scoreDataset.Add(data);
+
+            return await Task.FromResult(true);
         }
 
         public async Task<bool> UpdateAsync_Score(Score data)
         {
             // Implement
-            return false;
+            var myData = _scoreDataset.FirstOrDefault(arg => arg.Id == data.Id);
+            if (myData == null)
+            {
+                return false;
+            }
+
+            myData.Update(data);
+
+            return await Task.FromResult(true);
         }
 
         public async Task<bool> DeleteAsync_Score(Score data)
         {
             // Implement
-            return false;
+            var myData = _scoreDataset.FirstOrDefault(arg => arg.Id == data.Id);
+            _scoreDataset.Remove(myData);
+
+            return await Task.FromResult(true);
         }
 
             public async Task<Score> GetAsync_Score(string id)
         {
             // Implement
-            return null;
+            return await Task.FromResult(_scoreDataset.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false)
         {
             // Implement
-            return null;
+            return await Task.FromResult(_scoreDataset);
         }
         #endregion Score
     }

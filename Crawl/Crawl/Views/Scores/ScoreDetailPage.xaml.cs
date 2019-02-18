@@ -25,11 +25,7 @@ namespace Crawl.Views
         {
             InitializeComponent();
 
-            var data = new Score
-            {
-                Name = "Score name",
-                ScoreTotal = 0
-            };
+            var data = new Score();
 
             _viewModel = new ScoreDetailViewModel(data);
             BindingContext = _viewModel;
