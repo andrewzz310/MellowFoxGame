@@ -59,6 +59,7 @@ namespace Crawl.Services
             // Implement Score
 
             BattleViewModel.Instance.ForceDataRefresh();
+            BattleViewModel.Instance.ForceDataRefreshM();
         }
 
         // Force all modes to load data...
@@ -72,6 +73,7 @@ namespace Crawl.Services
             // Implement Score
 
             BattleViewModel.Instance.ForceDataRefresh();
+            BattleViewModel.Instance.ForceDataRefreshM();
         }
     }
 }
