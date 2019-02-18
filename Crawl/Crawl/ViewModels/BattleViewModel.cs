@@ -38,7 +38,7 @@ namespace Crawl.ViewModels
         public BattleViewModel()
         {
 
-            Title = "Character List";
+          /*  Title = "Character List";
             Dataset = new ObservableCollection<Character>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
@@ -60,7 +60,7 @@ namespace Crawl.ViewModels
                 await UpdateAsync(data);
             });
 
-            #endregion Messages
+            #endregion Messages*/
 
         }
 
@@ -126,8 +126,8 @@ namespace Crawl.ViewModels
         {
             // Implement 
             // Reset
-            var canExecute = LoadDataCommand.CanExecute(null);
-            LoadDataCommand.Execute(null);
+          //  var canExecute = LoadDataCommand.CanExecute(null);
+            //LoadDataCommand.Execute(null);
         }
 
         //adds new character

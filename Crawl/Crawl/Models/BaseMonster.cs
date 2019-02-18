@@ -24,9 +24,7 @@ namespace Crawl.Models
         // Create a base from a monster, this reuses the guid and id
         public BaseMonster(Monster newData)
         {
-            // Database information
-            Guid = newData.Guid;
-            Id = newData.Id;
+            // Base information
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
@@ -34,7 +32,11 @@ namespace Crawl.Models
             ImageURI = newData.ImageURI;
             Item = newData.Item; //adding preferred item
             Alive = newData.Alive;
-        
+
+            // Database information
+            Guid = newData.Guid;
+            Id = newData.Id;
+
             // Populate the Attributes
             AttributeString = newData.AttributeString;
 
