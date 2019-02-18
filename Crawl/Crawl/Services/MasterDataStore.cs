@@ -60,8 +60,8 @@ namespace Crawl.Services
             CharactersViewModel.Instance.ForceDataRefresh();
             // Implement Score
 
-            BattleViewModel.Instance.ForceDataRefresh();
-            BattleViewModel.Instance.ForceDataRefreshM();
+         //   BattleViewModel.Instance.ForceDataRefresh();
+         //   BattleViewModel.Instance.ForceDataRefreshM();
         }
 
         // Force all modes to load data...
@@ -74,8 +74,8 @@ namespace Crawl.Services
            CharactersViewModel.Instance.ForceDataRefresh();
             // Implement Score
 
-            BattleViewModel.Instance.ForceDataRefresh();
-            BattleViewModel.Instance.ForceDataRefreshM();
+          //  BattleViewModel.Instance.ForceDataRefresh();
+          //  BattleViewModel.Instance.ForceDataRefreshM();
         }
     }
 }
