@@ -68,9 +68,40 @@ namespace Crawl.Models
         public void Update(Score newData)
         {
             // Implement
+            if (newData == null)
+            {
+                return;
+            }
 
-            return;
+            BattleNumber = newData.BattleNumber;
+            ScoreTotal = newData.ScoreTotal;
+            GameDate = newData.GameDate;
+            AutoBattle = newData.AutoBattle;
+            TurnCount = newData.TurnCount;
+            RoundCount = newData.RoundCount;
+            MonsterSlainNumber = newData.MonsterSlainNumber;
+            ExperienceGainedTotal = newData.ExperienceGainedTotal;
+            CharacterAtDeathList = newData.CharacterAtDeathList;
+            MonstersKilledList = newData.MonstersKilledList;
+            ItemsDroppedList = newData.ItemsDroppedList;
 
+        }
+        public Score(int battleNumber, int scoreTotal, DateTime gameDate, bool autoBattle, int turnCount, int roundCount, int monsterSlainNumber, int experienceGainedTotal, string characterAtDeathList, string monstersKilledList, string itemsDroppedList)
+        {
+            // Create default, and then override...
+            CreateDefaultScore();
+
+            BattleNumber = battleNumber;
+            ScoreTotal = scoreTotal;
+            GameDate = gameDate;
+            AutoBattle = autoBattle;
+            TurnCount = turnCount;
+            RoundCount = roundCount;
+            MonsterSlainNumber = monsterSlainNumber;
+            ExperienceGainedTotal = experienceGainedTotal;
+            CharacterAtDeathList = characterAtDeathList;
+            MonstersKilledList = monstersKilledList;
+            ItemsDroppedList = itemsDroppedList;
         }
 
         #region ScoreItems
