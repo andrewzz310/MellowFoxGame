@@ -79,21 +79,24 @@ namespace Crawl.Services
 
         private async void InitializeSeedData()
         {
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "SQLFirst item", Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "SQLSecond item", Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "SQLThird item", Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "SQLFourth item", Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "SQLFifth item", Description = "This is an item description." });
-            await AddAsync_Item(new Item { Id = Guid.NewGuid().ToString(), Name = "SQLSixth item", Description = "This is an item description." });
+            // Add Default SQL DB Items
+            await AddAsync_Item(new Item("Shuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("Ring of Power", "This is a Ring of Power Item", "ringofpower.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("Two-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Turbo", "This is a Turbo Item", "turbo.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Speed));
+            await AddAsync_Item(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Potion", "This is a Potion Item", "potion.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.CurrentHealth));
 
-            // Default SQL Characters
+            // Add Default SQL DB Characters
             await AddAsync_Character(new Character("Elf", "Special power is bow and arrow item", "elf.png", 2, 300, 1, 2, 1, PreferredItemEnum.Armor));
             await AddAsync_Character(new Character("Magician", "Special power is staff item", "magician.png", 2, 300, 1, 2, 1, PreferredItemEnum.RingOfPower));
             await AddAsync_Character(new Character("Knight", "Special power is sword item", "Knight.png", 2, 300, 1, 2, 1, PreferredItemEnum.Shuriken));
             await AddAsync_Character(new Character("Ninja", "Special power is damage without any items", "ninja.png", 2, 300, 1, 2, 1, PreferredItemEnum.Staff));
             await AddAsync_Character(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png", 2, 300, 1, 2, 1, PreferredItemEnum.Sword));
 
-            // Default SQL Monsters
+            // Add Default Default SQL Monsters
             await AddAsync_Monster(new Monster("Dragon", "This is a Dragon monster", "dragon1.png", PreferredItemEnum.Armor));
             await AddAsync_Monster(new Monster("Ork", "This is a Ork monster", "ork.png", PreferredItemEnum.BowArrow));
             await AddAsync_Monster(new Monster("Ogre", "This is a Ogre monster", "ogre.png", PreferredItemEnum.RingOfPower));
@@ -101,6 +104,7 @@ namespace Crawl.Services
             await AddAsync_Monster(new Monster("Zombie", "This is a Zombie monster", "zombie.png", PreferredItemEnum.Staff));
             await AddAsync_Monster(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", PreferredItemEnum.Sword));
 
+            // Add Default SQL DB Score
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLFirst Score", ScoreTotal = 111 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLSecond Score", ScoreTotal = 222 });
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLThird Score", ScoreTotal = 333 });
