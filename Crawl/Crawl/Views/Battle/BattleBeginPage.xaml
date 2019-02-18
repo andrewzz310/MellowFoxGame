@@ -2,7 +2,92 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.Battle.BattleBeginPage">
+    
     <ContentPage.Content>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Welcome to Battle Page!" FontSize="Small" />
+            <Label Text="Character" FontSize="Small" BackgroundColor="Red" />
+            <ListView x:Name="CharactersListView" 
+                ItemsSource="{Binding Dataset}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadItemsCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnCharacterSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
+                            <StackLayout Padding="10"
+                                         Orientation="Vertical"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="Start">
+                                <Image Source="{Binding ImageURI}"
+                                       WidthRequest="75"
+                                       HeightRequest="75" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                <StackLayout Orientation="Horizontal">
+                                <Label Text="Name:" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                <Label Text="{Binding Name}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" />
+            <ListView x:Name="MonstersListView" 
+                ItemsSource="{Binding Dataset}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadItemsCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnCharacterSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
+                            <StackLayout Padding="10"
+                                         Orientation="Vertical"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="Start">
+                                <Image Source="{Binding ImageURI}"
+                                       WidthRequest="75"
+                                       HeightRequest="75" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Name:" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    <Label Text="{Binding Name}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+<!--<ContentPage.Content>
         <StackLayout Orientation="Vertical" Spacing="10">
             <Label Text="Welcome to Battle Page!" FontSize="Small" HorizontalTextAlignment="Start"
                    VerticalOptions="Start" />
@@ -31,7 +116,7 @@
                         </Grid.ColumnDefinitions>
                         
                         
-                    <!-- CHARACTESR HERE-->
+                    --><!-- CHARACTESR HERE--><!--
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
                             Text="Name" 
@@ -131,7 +216,7 @@
                         </StackLayout>
 
 
-                        <!---MONSTERS HERE-->
+                        --><!---MONSTERS HERE--><!--
                         <StackLayout Grid.Row="0" Grid.Column="4">
                             <Label 
                             Text="Name" 
@@ -238,8 +323,8 @@
                 </StackLayout>
             </ScrollView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentPage.Content>-->
+
 
 <!--
 fasdfsdfasdfasfasdfa
