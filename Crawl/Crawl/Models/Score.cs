@@ -45,7 +45,23 @@ namespace Crawl.Models
         public Score()
         {
             // Implement
+            CreateDefaultScore();
 
+        }
+
+        private void CreateDefaultScore()
+        {
+            BattleNumber = 1;
+            ScoreTotal = 0;
+            GameDate = DateTime.Now;
+            AutoBattle = true;
+            TurnCount = 0;
+            RoundCount = 0;
+            MonsterSlainNumber = 0;
+            ExperienceGainedTotal = 0;
+            CharacterAtDeathList = null;
+            MonstersKilledList = null;
+            ItemsDroppedList = null;
         }
 
         // Update the score based on the passed in values.
@@ -53,29 +69,29 @@ namespace Crawl.Models
         {
             // Implement
 
-                return;
-            
+            return;
+
         }
 
         #region ScoreItems
 
         // Adding a character to the score output as a text string
-        public bool AddCharacterToList( Character data)
+        public bool AddCharacterToList(Character data)
         {
             // Implement
             return false;
         }
 
         // All a monster to the list of monsters and their stats
-        public bool AddMonsterToList( Monster data)
+        public bool AddMonsterToList(Monster data)
         {
             // Implement
             return false;
-           
+
         }
 
         // All an item to the list of items for score and their stats
-        public bool AddItemToList( Item data)
+        public bool AddItemToList(Item data)
         {
             // Implement
             return false;

@@ -367,6 +367,14 @@ namespace Crawl.Services
 
         #region Score
         // Score
+
+        public async Task<bool> InsertUpdateAsync_Score(Score data)
+        {
+            // Implement
+
+            return false;
+        }
+
         public async Task<bool> AddAsync_Score(Score data)
         {
             var result = await App.Database.InsertAsync(data);
