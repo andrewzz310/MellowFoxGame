@@ -90,8 +90,10 @@ namespace Crawl.Services
             MonstersViewModel.Instance.SetNeedsRefresh(true);
             //Character
             CharactersViewModel.Instance.SetNeedsRefresh(true);
-           
+
             // Implement Scores
+
+            BattleViewModel.Instance.SetNeedsRefresh(true);
         }
 
         public void InitializeDatabaseNewTables()

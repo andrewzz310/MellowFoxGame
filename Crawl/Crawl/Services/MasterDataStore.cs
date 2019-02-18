@@ -31,6 +31,9 @@ namespace Crawl.Services
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
                     // Implement Score
 
+
+                    BattleViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
+
                     break;
 
                 case DataStoreEnum.Sql:
@@ -42,6 +45,8 @@ namespace Crawl.Services
                     // Implement Character
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
                     // Implement Score
+
+                    BattleViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
                     break;
             }
 
@@ -52,6 +57,8 @@ namespace Crawl.Services
             // Implement Character
             CharactersViewModel.Instance.ForceDataRefresh();
             // Implement Score
+
+            BattleViewModel.Instance.ForceDataRefresh();
         }
 
         // Force all modes to load data...
@@ -63,6 +70,8 @@ namespace Crawl.Services
             // Implement Character
            CharactersViewModel.Instance.ForceDataRefresh();
             // Implement Score
+
+            BattleViewModel.Instance.ForceDataRefresh();
         }
     }
 }
