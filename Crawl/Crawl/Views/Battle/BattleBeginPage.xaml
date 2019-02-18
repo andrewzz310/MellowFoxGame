@@ -41,7 +41,7 @@
                         </StackLayout>
                         <StackLayout Grid.Row="0" Grid.Column="1">
                             <Entry 
-                            Text="{Binding Dataset[0].Name}" 
+                            Text="{Binding DataC[0].Name}" 
                             FontSize="Small" 
                             HorizontalOptions="Start"
                             VerticalOptions="Start"/>
