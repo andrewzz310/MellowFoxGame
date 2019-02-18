@@ -60,6 +60,14 @@ namespace Crawl.Views.Battle
             // Manually deselect item.
            // MonstersListView.SelectedItem = null;
         }
-            
+
+
+        //RoundOver
+        private async void RoundOver_Command(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RoundOver());
+        }
+
+
     }
 }
