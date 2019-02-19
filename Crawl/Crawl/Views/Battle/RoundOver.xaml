@@ -2,11 +2,93 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.Battle.RoundOver">
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Round is Over"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical">
+            <Label Text="The Round is Over!" FontSize="Small" />
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Character" FontSize="Small" BackgroundColor="Red" />
+                    <ListView x:Name="CharactersBattle"
+            ItemsSource="{Binding Dataset}"
+            VerticalOptions="FillAndExpand"
+             HasUnevenRows="true"
+             RefreshCommand="{Binding LoadItemsCommand}"
+             IsPullToRefreshEnabled="true"
+             IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+             CachingStrategy="RecycleElement"
+             ItemSelected="OnCharacterSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
+                                    <StackLayout Padding="10"
+                               Orientation="Vertical"
+                               VerticalOptions="Start"
+                               HorizontalOptions="Start">
+                                        <Image Source="{Binding ImageURI}"
+                           WidthRequest="45"
+                           HeightRequest="45"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"
+                      LineBreakMode="NoWrap"
+                      Style="{DynamicResource ListItemTextStyle}"
+                      FontSize="12" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+
+                    <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" />
+                    <ListView x:Name="MonstersBattle"
+              ItemsSource="{Binding DatasetMons}"
+              VerticalOptions="FillAndExpand"
+               HasUnevenRows="true"
+               RefreshCommand="{Binding LoadItemsCommand}"
+               IsPullToRefreshEnabled="true"
+               IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+               CachingStrategy="RecycleElement"
+               ItemSelected="OnMonsterSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
+                                    <StackLayout Padding="10"
+                           Orientation="Vertical"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Start">
+                                        <Image Source="{Binding ImageURI}"
+                       WidthRequest="45"
+                       HeightRequest="45"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}"
+                  FontSize="12" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            <Label Text="Messages" FontSize="Small" BackgroundColor="Green" />
+            <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" />
+            <Button Text="NextRound"
+      VerticalOptions="CenterAndExpand"
+      HorizontalOptions="CenterAndExpand"
+      Clicked="NextRound_Command"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
