@@ -14,6 +14,7 @@ namespace Crawl.Services
         Task<Item> GetAsync_Item(string id);
         Task<IEnumerable<Item>> GetAllAsync_Item(bool forceRefresh = false);
 
+        //Score
         Task<bool> InsertUpdateAsync_Score(Score data);
         Task<bool> AddAsync_Score(Score data);
         Task<bool> UpdateAsync_Score(Score data);
@@ -21,6 +22,7 @@ namespace Crawl.Services
         Task<Score> GetAsync_Score(string id);
         Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false);
 
+        //Moster
         Task<bool> InsertUpdateAsync_Monster(Monster data);
         Task<bool> AddAsync_Monster(Monster data);
         Task<bool> UpdateAsync_Monster(Monster data);
@@ -34,7 +36,5 @@ namespace Crawl.Services
         Task<bool> DeleteAsync_Character(Character data);
         Task<Character> GetAsync_Character(string id);
         Task<IEnumerable<Character>> GetAllAsync_Character(bool forceRefresh = false);
-        // Implement Score
-
     }
 }

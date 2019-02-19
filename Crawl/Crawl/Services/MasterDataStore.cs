@@ -41,11 +41,11 @@ namespace Crawl.Services
                 default:
                     _dataStoreEnum = DataStoreEnum.Sql;
                     ItemsViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
-                    // Implement Monster
+                    //Monster
                     MonstersViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
-                    // Implement Character
+                    //Character
                     CharactersViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
-                    // Implement Score
+                    //Score
                     ScoresViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
 
                     BattleViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
@@ -54,11 +54,12 @@ namespace Crawl.Services
 
             // Load the Data
             ItemsViewModel.Instance.ForceDataRefresh();
-            // Implement Monster
+            // Monster
             MonstersViewModel.Instance.ForceDataRefresh();
-            // Implement Character
+            //Character
             CharactersViewModel.Instance.ForceDataRefresh();
-            // Implement Score
+            //Score
+            ScoresViewModel.Instance.ForceDataRefresh();
 
             BattleViewModel.Instance.ForceDataRefresh();
          //   BattleViewModel.Instance.ForceDataRefreshM();
@@ -68,13 +69,14 @@ namespace Crawl.Services
         public static void ForceDataRestoreAll()
         {
             ItemsViewModel.Instance.ForceDataRefresh();
-            // Implement Monster
+            //Monster
             MonstersViewModel.Instance.ForceDataRefresh();
-            // Implement Character
-           CharactersViewModel.Instance.ForceDataRefresh();
-            // Implement Score
-
-          BattleViewModel.Instance.ForceDataRefresh();
+            //Character
+            CharactersViewModel.Instance.ForceDataRefresh();
+            //Battle
+            BattleViewModel.Instance.ForceDataRefresh();
+            //Score
+            ScoresViewModel.Instance.ForceDataRefresh();
           //  BattleViewModel.Instance.ForceDataRefreshM();
         }
     }

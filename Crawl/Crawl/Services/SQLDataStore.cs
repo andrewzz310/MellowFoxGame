@@ -365,12 +365,23 @@ namespace Crawl.Services
 
         #endregion Monster
 
-        #region Score
-        // Score
 
         public async Task<bool> InsertUpdateAsync_Score(Score data)
         {
-            // Implement
+            var oldData = await GetAsync_Score(data.Id);
+            if (oldData == null)
+            {
+                await AddAsync_Score(data);
+                return true;
+            }
+
+            // Compare it, if different update in the DB
+            var UpdateResult = await UpdateAsync_Score(data);
+            if (UpdateResult)
+            {
+                await AddAsync_Score(data);
+                return true;
+            }
 
             return false;
         }
@@ -421,7 +432,5 @@ namespace Crawl.Services
             return result;
 
         }
-
-        #endregion Score
     }
 }
