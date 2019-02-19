@@ -66,6 +66,7 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new GameOver());
         }
 
+        bool hasAppearedOnce = false;
         protected override void OnAppearing()
         {
             base.OnAppearing();
@@ -79,7 +80,8 @@ namespace Crawl.Views.Battle
 
             InitializeComponent();
 
-            if (_instance.DatasetChars.Count == 0)
+            if (_instance.DatasetChars.Count == 0 || _instance.DatasetMons.Count == 0 ||
+                _instance.DatasetItems.Count == 0)
             {
                 _instance.LoadDataCommand.Execute(null);
             }
