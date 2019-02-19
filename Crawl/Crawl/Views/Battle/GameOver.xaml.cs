@@ -36,7 +36,12 @@ namespace Crawl.Views.Battle
             BindingContext = _viewModel;
         }
 
+        // go back home page
+        private async void HomeButton_Command(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new OpeningPage());
+        }
 
 
-	}
+    }
 }
