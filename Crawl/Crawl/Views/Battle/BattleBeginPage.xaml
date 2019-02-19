@@ -8,8 +8,8 @@
       <Label Text="Welcome to Battle Page!" FontSize="Small" />
 
       <StackLayout Orientation="Horizontal">
-        <StackLayout Orientation="Vertical">
-          <Label Text="Character" FontSize="Small" BackgroundColor="Red" />
+        <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
+          <Label Text="Character" FontSize="Small" BackgroundColor="Red" HorizontalTextAlignment="Center" />
           <ListView x:Name="CharactersBattle"
             ItemsSource="{Binding Dataset}"
             VerticalOptions="FillAndExpand"
@@ -44,9 +44,13 @@
             </ListView.ItemTemplate>
           </ListView>
         </StackLayout>
-        <StackLayout Orientation="Vertical">
+        <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
+        <Label Text="Messages" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
+        <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
+          </StackLayout>
+        <StackLayout Orientation="Vertical"  HorizontalOptions="End">
 
-          <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" />
+          <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" HorizontalOptions="Center"/>
           <ListView x:Name="MonstersBattle"
               ItemsSource="{Binding DatasetMons}"
               VerticalOptions="FillAndExpand"
@@ -82,8 +86,6 @@
           </ListView>
         </StackLayout>
       </StackLayout>
-          <Label Text="Messages" FontSize="Small" BackgroundColor="Green" />
-        <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
       <Button Text="RoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
