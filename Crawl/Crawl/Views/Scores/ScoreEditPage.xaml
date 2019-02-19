@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Crawl.Views.ScoreEditPage"
-		     Title="Add New Item"
+		     Title="Edit Score"
              xmlns:local="using:Crawl.Models"
              xmlns:local1="clr-namespace:Crawl.Models">
 
@@ -32,14 +32,14 @@
 
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
-                            Text="Name" 
+                            Text="Monster Slain" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
                         <StackLayout  Grid.Row="0" Grid.Column="1">
                             <Entry 
-                            Text="{Binding Data.Name}" 
+                            Text="{Binding Data.MonsterSlainNumber}" 
                             FontSize="Small" 
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
@@ -77,14 +77,14 @@
 
                         <StackLayout Grid.Row="3" Grid.Column="0">
                             <Label 
-                            Text="Picture URI"
+                            Text="Round Count"
                             FontSize="Medium" 
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
                         <StackLayout Grid.Row="3" Grid.Column="1">
                             <Entry 
-                            Text="{Binding Data.ImageURI}" 
+                            Text="{Binding Data.RoundCount}" 
                             FontSize="Small" 
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="Center"/>
@@ -127,10 +127,10 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
                         <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center">
-                            <Label 
+                            <Entry 
                             Text="{Binding Data.ExperienceGainedTotal}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
+                            FontSize="Small" 
+                            Margin="0" 
                             VerticalOptions="Center"/>
                         </StackLayout>
                     </Grid>

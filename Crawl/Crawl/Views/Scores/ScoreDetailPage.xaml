@@ -20,12 +20,17 @@
 
             <Label Text="Scores Detail Page" FontSize="Medium" />
 
-            <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="150"
-                HeightRequest="150" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-<!-- dont need name
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Monster Slain : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.MonsterSlainNumber}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <!-- dont need name
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
@@ -66,6 +71,38 @@
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
                 <Label Text="{Binding Data.ScoreTotal}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Round Count : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.RoundCount}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Turn Count : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.TurnCount}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Game Date : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.GameDate}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>

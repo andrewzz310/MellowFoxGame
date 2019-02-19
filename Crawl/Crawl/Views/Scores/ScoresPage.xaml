@@ -40,6 +40,7 @@
 
                                 <StackLayout>
                                     <StackLayout Orientation="Horizontal">
+                                        <!--
                                         <Label Text=" Name:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
@@ -47,9 +48,9 @@
                                         <Label Text="{Binding Name}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="16" /> -->
 
-                                        <Label Text=" XP:" 
+                                        <Label Text=" XP Gained:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="12" />
@@ -63,6 +64,32 @@
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="12" />
                                         <Label Text="{Binding ScoreTotal}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+
+
+                                        <Label Text=" Turn Count:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="12" />
+                                        <Label Text="{Binding TurnCount}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        <Label Text=" Round Count:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="12" />
+                                        <Label Text="{Binding RoundCount}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                        <Label Text=" Monsters Slain:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="12" />
+                                        <Label Text="{Binding MonsterSlainNumber}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
