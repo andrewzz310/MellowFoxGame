@@ -90,7 +90,8 @@
           </ListView>
         </StackLayout>
       </StackLayout>
-
+          <Label Text="Messages" FontSize="Small" BackgroundColor="Green" />
+        <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
       <Button Text="RoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
