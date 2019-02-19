@@ -29,9 +29,11 @@ namespace Crawl.ViewModels
         }
 
         //List of characters displayed to user
-        public ObservableCollection<Character> Dataset { get; set; }
+        public ObservableCollection<Character> DatasetChars { get; set; }
         public ObservableCollection<Monster> DatasetMons { get; set; }
-        //Gets character data from data store
+        public ObservableCollection<Item> DatasetItems { get; set; }
+
+        //Gets data all ListViews (3x) from data store
         public Command LoadDataCommand { get; set; }
 
         //new char added/deleted require refresh
@@ -41,8 +43,9 @@ namespace Crawl.ViewModels
         {
 
             Title = "Characters"; //Not showing up on the screen
-            Dataset = new ObservableCollection<Character>();
+            DatasetChars = new ObservableCollection<Character>();
             DatasetMons = new ObservableCollection<Monster>();
+            DatasetItems = new ObservableCollection<Item>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
         }
@@ -77,7 +80,7 @@ namespace Crawl.ViewModels
             try
             {
                 //Character
-                Dataset.Clear();
+                DatasetChars.Clear();
                 var dataset = await DataStore.GetAllAsync_Character(true);
 
                 //Sort the list
@@ -90,7 +93,7 @@ namespace Crawl.ViewModels
                 // Then load the data structure
                 foreach (var data_char in dataset)
                 {
-                    Dataset.Add(data_char);
+                    DatasetChars.Add(data_char);
                 }
               
                 //Monsters
@@ -108,6 +111,23 @@ namespace Crawl.ViewModels
                 foreach (var data_mons in dataset_mons)
                 {
                     DatasetMons.Add(data_mons);
+                }
+
+                //Items
+                DatasetItems.Clear();
+                var dataset_items = await DataStore.GetAllAsync_Item(true);
+
+                //Sort the list
+                dataset_items = dataset_items
+                    .OrderBy(a => a.Name)
+                    .ThenBy(a => a.Description)
+                    .ThenByDescending(a => a.Value)
+                    .ToList();
+
+                // Then load the data structure
+                foreach (var data_items in dataset_items)
+                {
+                    DatasetItems.Add(data_items);
                 }
             }
 

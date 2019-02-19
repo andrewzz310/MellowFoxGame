@@ -4,14 +4,14 @@
              x:Class="Crawl.Views.Battle.BattleBeginPage">
 
   <ContentPage.Content>
-    <StackLayout Orientation="Vertical">
+    <StackLayout x:Name="BattleScene" Orientation="Vertical">
       <Label Text="Welcome to Battle Page!" FontSize="Small" />
 
       <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
           <Label Text="Character" FontSize="Small" BackgroundColor="Red" HorizontalTextAlignment="Center" />
           <ListView x:Name="CharactersBattle"
-            ItemsSource="{Binding Dataset}"
+            ItemsSource="{Binding DatasetChars}"
             VerticalOptions="FillAndExpand"
              HasUnevenRows="true"
              RefreshCommand="{Binding LoadItemsCommand}"
@@ -86,6 +86,31 @@
           </ListView>
         </StackLayout>
       </StackLayout>
+      <Label Text="Items" FontSize="Small" BackgroundColor="Aqua" HorizontalOptions="Start"/>
+      <AbsoluteLayout x:Name="ItemsTray" Padding="0" HorizontalOptions="FillAndExpand" 
+                      AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All">
+  <ContentView x:Name="ItemsTrayInner"  Padding="0"  HorizontalOptions="FillAndExpand">
+    <ListView x:Name="ItemTrayListView"
+              ItemsSource="{Binding DatasetItems}"
+              RowHeight="120"
+              VerticalOptions="Start"
+              HeightRequest="120"
+              WidthRequest="120"
+              SeparatorVisibility="None"
+              Rotation="270"
+              HorizontalOptions="Center">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ContentView Rotation="90" Padding="12">
+              <Image Source="{Binding ImageURI}" Aspect="AspectFill" />
+            </ContentView>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </ContentView>
+</AbsoluteLayout>
       <Button Text="RoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"

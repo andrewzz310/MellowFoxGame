@@ -318,7 +318,7 @@ namespace Crawl.Services
         public async Task<bool> InsertUpdateAsync_Score(Score data)
         {
 
-            // Check to see if the item exist
+            // Check to see if the score exists
             var oldData = await GetAsync_Score(data.Id);
             if (oldData == null)
             {
@@ -338,7 +338,6 @@ namespace Crawl.Services
         }
         public async Task<bool> AddAsync_Score(Score data)
         {
-            // Implement
             _scoreDataset.Add(data);
 
             return await Task.FromResult(true);
@@ -346,7 +345,6 @@ namespace Crawl.Services
 
         public async Task<bool> UpdateAsync_Score(Score data)
         {
-            // Implement
             var myData = _scoreDataset.FirstOrDefault(arg => arg.Id == data.Id);
             if (myData == null)
             {
@@ -360,7 +358,6 @@ namespace Crawl.Services
 
         public async Task<bool> DeleteAsync_Score(Score data)
         {
-            // Implement
             var myData = _scoreDataset.FirstOrDefault(arg => arg.Id == data.Id);
             _scoreDataset.Remove(myData);
 
@@ -369,13 +366,11 @@ namespace Crawl.Services
 
             public async Task<Score> GetAsync_Score(string id)
         {
-            // Implement
             return await Task.FromResult(_scoreDataset.FirstOrDefault(s => s.Id == id));
         }
 
         public async Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false)
         {
-            // Implement
             return await Task.FromResult(_scoreDataset);
         }
         #endregion Score

@@ -6,7 +6,7 @@ namespace Crawl.Services
 {
     public interface IDataStore
     {
-       // List<Item> GetAllItems();
+       // Items
        Task<bool> InsertUpdateAsync_Item(Item data); 
         Task<bool> AddAsync_Item(Item data);
         Task<bool> UpdateAsync_Item(Item data);
@@ -30,6 +30,7 @@ namespace Crawl.Services
         Task<Monster> GetAsync_Monster(string id);
         Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false);
 
+        //Character
         Task<bool> InsertUpdateAsync_Character(Character data);
         Task<bool> AddAsync_Character(Character data);
         Task<bool> UpdateAsync_Character(Character data);

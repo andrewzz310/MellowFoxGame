@@ -24,6 +24,7 @@ namespace Crawl.Services
 
                 case DataStoreEnum.Mock:
                     _dataStoreEnum = DataStoreEnum.Mock;
+                    //Item
                     ItemsViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
                     // Implement Monster
                     MonstersViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
@@ -40,6 +41,7 @@ namespace Crawl.Services
                 case DataStoreEnum.Sql:
                 default:
                     _dataStoreEnum = DataStoreEnum.Sql;
+                    //Item
                     ItemsViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
                     //Monster
                     MonstersViewModel.Instance.SetDataStore(DataStoreEnum.Sql);
@@ -53,6 +55,7 @@ namespace Crawl.Services
             }
 
             // Load the Data
+            //Items
             ItemsViewModel.Instance.ForceDataRefresh();
             // Monster
             MonstersViewModel.Instance.ForceDataRefresh();
@@ -68,6 +71,7 @@ namespace Crawl.Services
         // Force all modes to load data...
         public static void ForceDataRestoreAll()
         {
+            //Items
             ItemsViewModel.Instance.ForceDataRefresh();
             //Monster
             MonstersViewModel.Instance.ForceDataRefresh();

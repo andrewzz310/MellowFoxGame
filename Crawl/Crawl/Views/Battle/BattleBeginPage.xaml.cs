@@ -60,11 +60,30 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new RoundOver());
         }
 
+
+        bool hasAppearedOnce = false;
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
             BindingContext = null;
+
+            //#region HorizontalListView
+            //if (!hasAppearedOnce)
+            //{
+
+            //    hasAppearedOnce = true;
+            //    var padding = (BattleScene.Width - MessagesListView.Height) / 2;
+
+            //    MessagesListView.HeightRequest = MessagesLayoutFrame.Width;
+            //    MessagesLayoutFrameInner.WidthRequest = MessagesLayoutFrame.Width;
+            //    MessagesLayoutFrameInner.Padding = new Thickness(0);
+            //    MessagesLayoutFrame.Padding = new Thickness(0);
+            //    MessagesLayoutFrame.IsClippedToBounds = true;
+            //    Xamarin.Forms.AbsoluteLayout.SetLayoutBounds(MessagesLayoutFrameInner, new Rectangle(0, 0 - padding, AbsoluteLayout.AutoSize, MessagesListView.Height - padding));
+            //    MessagesLayoutFrameInner.IsClippedToBounds = true;
+            //    #endregion
+
 
             if (ToolbarItems.Count > 0)
             {
@@ -73,7 +92,8 @@ namespace Crawl.Views.Battle
 
             InitializeComponent();
 
-            if (_instance.Dataset.Count == 0)
+            if (_instance.DatasetChars.Count == 0 || _instance.DatasetMons.Count == 0 || 
+                _instance.DatasetItems.Count == 0)
             {
                 _instance.LoadDataCommand.Execute(null);
             }
