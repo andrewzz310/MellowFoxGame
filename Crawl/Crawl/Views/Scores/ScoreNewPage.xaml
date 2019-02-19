@@ -16,7 +16,7 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
-                    <Label Text="New Items Page" FontSize="Small" />
+                    <Label Text="New Score Page" FontSize="Small" />
 
                     <Grid
                     RowSpacing="1"

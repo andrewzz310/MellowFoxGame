@@ -2,17 +2,79 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.ScoreDeletePage"
-            Title="{Binding Title}">
-
-
-    <ContentPage.ToolbarItems>
-
-    </ContentPage.ToolbarItems>
+             Title="{Binding Title}">
 
     <ScrollView>
+        <StackLayout 
+            x:Name="DetailsRoot"
+            Orientation="Vertical"
+            Spacing="20"
+            Padding="15" BackgroundColor="Green">
 
-        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Scores Delete Page" FontSize="Medium" />
 
+            <Image Source="{Binding Data.ImageURI}"
+                WidthRequest="150"
+                HeightRequest="150" 
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Name : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Name}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Total XP Gained : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.ExperienceGainedTotal}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                HorizontalOptions="Start">
+                <Label Text="Battle Number : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.BattleNumber}" 
+                   FontSize="Medium" 
+                   HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="Start">
+                <Label Text="Score Total : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.ScoreTotal}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Delete"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Clicked="Delete_Clicked"/>
+
+                <Button Text="Cancel"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand" 
+                        Clicked="Cancel_Clicked"/>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
+
 </ContentPage>

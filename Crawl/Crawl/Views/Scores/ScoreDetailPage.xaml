@@ -18,7 +18,7 @@
             Spacing="20"
             Padding="15" BackgroundColor="Green">
 
-            <Label Text="Items Detail Page" FontSize="Medium" />
+            <Label Text="Scores Detail Page" FontSize="Medium" />
 
             <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="150"
