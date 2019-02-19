@@ -7,46 +7,7 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Welcome to Battle Page!" FontSize="Small" />
             <Label Text="Character" FontSize="Small" BackgroundColor="Red" />
-            <ListView x:Name="CharactersListView" 
-                ItemsSource="{Binding Dataset}"
-                VerticalOptions="FillAndExpand"
-                 HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadItemsCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                 CachingStrategy="RecycleElement"
-                 ItemSelected="OnCharacterSelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
-                            <StackLayout Padding="10"
-                                         Orientation="Vertical"
-                                         VerticalOptions="Start"
-                                         HorizontalOptions="Start">
-                                <Image Source="{Binding ImageURI}"
-                                       WidthRequest="75"
-                                       HeightRequest="75" 
-                                       HorizontalOptions="Center"
-                                       VerticalOptions="Center"/>
-                                <StackLayout Orientation="Horizontal">
-                                <Label Text="Name:" 
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" />
-                                <Label Text="{Binding Name}" 
-                                    LineBreakMode="NoWrap" 
-                                    Style="{DynamicResource ListItemTextStyle}" 
-                                    FontSize="16" />
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
-            <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" />
-            <ListView x:Name="MonstersListView" 
+            <ListView x:Name="CharactersBattle" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
@@ -83,6 +44,52 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+            <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" />
+            <ListView x:Name="MonstersBattle" 
+                ItemsSource="{Binding DatasetMons}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadItemsCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnMonsterSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
+                                <StackLayout Padding="10"
+                                         Orientation="Vertical"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="Start">
+                                    <Image Source="{Binding ImageURI}"
+                                       WidthRequest="75"
+                                       HeightRequest="75" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name:" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                        <Label Text="{Binding Name}" 
+                                    LineBreakMode="NoWrap" 
+                                    Style="{DynamicResource ListItemTextStyle}" 
+                                    FontSize="16" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout>
+                <Button Text="RoundOver"
+              VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand"
+              Clicked="RoundOver_Command"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

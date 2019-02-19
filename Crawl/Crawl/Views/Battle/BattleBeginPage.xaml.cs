@@ -18,20 +18,13 @@ namespace Crawl.Views.Battle
 	public partial class BattleBeginPage : ContentPage
 	{
         //viewmodel of battle with character and monster
-        private BattleViewModel _instanceB;
-       public ObservableCollection<Character> DataC { get; set; }
-
+       private BattleViewModel _instance;
 
         public BattleBeginPage ()
 		{
-          
-            BindingContext = _instanceB = BattleViewModel.Instance;
-            
-            InitializeComponent();
-            DataC = _instanceB.Dataset;
 
-            // BindingContext = _cinstance = CharactersViewModel.Instance;
-            //BindingContext = _instancem = MonstersViewModel.Instance;
+            InitializeComponent();
+            BindingContext = _instance = BattleViewModel.Instance;
 
         }
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
@@ -44,9 +37,8 @@ namespace Crawl.Views.Battle
            await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
 
             // Manually deselect item.
-            //CharactersListView.SelectedItem = null;
+            CharactersBattle.SelectedItem = null;
         }
-
 
         private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
@@ -57,8 +49,8 @@ namespace Crawl.Views.Battle
             //do something for click like attack or something
             await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
 
-            // Manually deselect item.
-           // MonstersListView.SelectedItem = null;
+            //Manually deselect item.
+            MonstersBattle.SelectedItem = null;
         }
 
 
@@ -68,6 +60,29 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new RoundOver());
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            BindingContext = null;
+
+            if (ToolbarItems.Count > 0)
+            {
+                ToolbarItems.RemoveAt(0);
+            }
+
+            InitializeComponent();
+
+            if (_instance.Dataset.Count == 0)
+            {
+                _instance.LoadDataCommand.Execute(null);
+            }
+            else if (_instance.NeedsRefresh())
+            {
+                _instance.LoadDataCommand.Execute(null);
+            }
+
+            BindingContext = _instance;
+        }
     }
 }
