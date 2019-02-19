@@ -28,19 +28,15 @@
                                VerticalOptions="Start"
                                HorizontalOptions="Start">
                     <Image Source="{Binding ImageURI}"
-                           WidthRequest="75"
-                           HeightRequest="75"
+                           WidthRequest="45"
+                           HeightRequest="45"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
                     <StackLayout Orientation="Horizontal">
-                      <Label Text="Name:"
+                    <Label Text="{Binding Name}"
                       LineBreakMode="NoWrap"
                       Style="{DynamicResource ListItemTextStyle}"
-                      FontSize="16" />
-                      <Label Text="{Binding Name}"
-                      LineBreakMode="NoWrap"
-                      Style="{DynamicResource ListItemTextStyle}"
-                      FontSize="16" />
+                      FontSize="12" />
                     </StackLayout>
                   </StackLayout>
                 </ViewCell>
@@ -69,19 +65,15 @@
                            VerticalOptions="Start"
                            HorizontalOptions="Start">
                     <Image Source="{Binding ImageURI}"
-                       WidthRequest="75"
-                       HeightRequest="75"
+                       WidthRequest="45"
+                       HeightRequest="45"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
                     <StackLayout Orientation="Horizontal">
-                      <Label Text="Name:"
-                  LineBreakMode="NoWrap"
-                  Style="{DynamicResource ListItemTextStyle}"
-                  FontSize="16" />
                       <Label Text="{Binding Name}"
                   LineBreakMode="NoWrap"
                   Style="{DynamicResource ListItemTextStyle}"
-                  FontSize="16" />
+                  FontSize="12" />
                     </StackLayout>
                   </StackLayout>
                 </ViewCell>
