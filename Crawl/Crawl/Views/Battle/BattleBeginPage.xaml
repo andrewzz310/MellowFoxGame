@@ -4,8 +4,12 @@
              x:Class="Crawl.Views.Battle.BattleBeginPage">
     
     <ContentPage.Content>
+      
+        
+      
         <StackLayout Orientation="Horizontal">
-            <Label Text="Welcome to Battle Page!" FontSize="Small" />
+          <!--<Label Text="Welcome to Battle Page!" FontSize="Small" />-->
+            <StackLayout Orientation="Vertical">
             <Label Text="Character" FontSize="Small" BackgroundColor="Red" />
             <ListView x:Name="CharactersBattle" 
                 ItemsSource="{Binding Dataset}"
@@ -44,7 +48,8 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
+            </StackLayout>
+          <StackLayout Orientation="Vertical">
             <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" />
             <ListView x:Name="MonstersBattle" 
                 ItemsSource="{Binding DatasetMons}"
@@ -84,6 +89,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            </StackLayout>
             <StackLayout>
                 <Button Text="RoundOver"
               VerticalOptions="CenterAndExpand"
