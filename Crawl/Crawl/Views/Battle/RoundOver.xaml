@@ -88,6 +88,10 @@
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="NextRound_Command"/>
+            <Button Text="GameOver"
+      VerticalOptions="CenterAndExpand"
+      HorizontalOptions="CenterAndExpand"
+      Clicked="GameOver_Command"/>
 
         </StackLayout>
     </ContentPage.Content>

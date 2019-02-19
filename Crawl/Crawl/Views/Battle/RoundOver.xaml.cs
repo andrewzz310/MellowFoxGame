@@ -60,6 +60,12 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new BattleBeginPage());
         }
 
+        //GameOver
+        private async void GameOver_Command(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GameOver());
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
