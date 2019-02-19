@@ -25,7 +25,7 @@
                 HeightRequest="150" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
-
+<!-- dont need name
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
@@ -35,7 +35,7 @@
                 <Label Text="{Binding Data.Name}" 
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
-            </StackLayout>
+            </StackLayout> -->
 
             <StackLayout
                 Orientation="Horizontal"
