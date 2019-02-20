@@ -17,7 +17,7 @@ namespace Crawl.Views.Battle
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattleBeginPage : ContentPage
 	{
-        //viewmodel of battle with character and monster
+        //viewmodel of battle with character and monster data for binding
        private BattleViewModel _instance;
 
         public BattleBeginPage ()
@@ -54,7 +54,7 @@ namespace Crawl.Views.Battle
         }
 
 
-        //RoundOver
+        //When message says round is over, display round over page
         private async void RoundOver_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RoundOver());

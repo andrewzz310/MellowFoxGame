@@ -54,13 +54,13 @@ namespace Crawl.Views.Battle
         }
 
 
-        //RoundOver
+        //Move to the next round by going back to the battle page
         private async void NextRound_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new BattleBeginPage());
         }
 
-        //GameOver
+        //If the game is over after this round, go to game over page
         private async void GameOver_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GameOver());

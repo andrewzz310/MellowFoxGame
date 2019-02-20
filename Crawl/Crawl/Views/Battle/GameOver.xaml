@@ -14,6 +14,8 @@
         
                 <Label Text="Game Over" FontSize="Medium" HorizontalOptions="Center" />
                 <Label Text="Game Stats" FontSize="Small" HorizontalOptions="Start" />
+            
+            <!-- Display game stats after game is Over-->
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
@@ -89,6 +91,7 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
+            <!-- Button to go back to the home page after game over stats displayed-->
             <Button Text="Home"
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand" 

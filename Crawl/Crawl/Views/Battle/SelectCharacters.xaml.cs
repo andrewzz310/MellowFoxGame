@@ -15,6 +15,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SelectCharacters : ContentPage
     {
+        // charactersviewmodel for binding
         private CharactersViewModel _instancea;
 
         public SelectCharacters()
@@ -29,21 +30,26 @@ namespace Crawl.Views
             if (data == null)
                 return;
 
+            // show details of the character
             await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
 
             // Manually deselect item.
             SelectCharactersListView.SelectedItem = null;
         }
 
+        // Create a character
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CharacterNewPage());
         }
+
+        // Once characters selected, go to the battle page
         private async void Battle_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new BattleBeginPage());
         }
 
+        // cancel the selected characters by refreshing a new select characters page
         private async void Cancel_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SelectCharacters());

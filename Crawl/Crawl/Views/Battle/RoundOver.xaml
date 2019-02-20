@@ -5,7 +5,7 @@
 
     <ContentPage.Content>
         <StackLayout x:Name="BattleScene" Orientation="Vertical">
-            <Label Text="RoundOver!" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Round Over!" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
 
             <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
@@ -111,7 +111,8 @@
                     </ListView>
                 </ContentView>
             </AbsoluteLayout>
-            <Button Text="NextRound"
+            <!-- Buttons for next round and game over-->
+            <Button Text="MoveToNextRound"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="NextRound_Command"/>

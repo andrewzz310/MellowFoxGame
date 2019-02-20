@@ -17,11 +17,13 @@ namespace Crawl.Views
 			InitializeComponent ();
 		}
 
+        // auto battle page
         private async void AutoBattleButton_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AutoBattlePage());
         }
 
+        // This is the Battle button that is selected which starts by player choosing characters
         private async void ManualBattleButton_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new SelectCharacters());

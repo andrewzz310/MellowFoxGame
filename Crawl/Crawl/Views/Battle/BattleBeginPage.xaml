@@ -5,11 +5,12 @@
 
   <ContentPage.Content>
     <StackLayout x:Name="BattleScene" Orientation="Vertical">
-      <Label Text="Welcome to Battle Page!" FontSize="Small" />
+      <Label Text="Welcome to Battle Page!" FontSize="Small" HorizontalOptions="Center" />
 
       <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
           <Label Text="Character" FontSize="Small" BackgroundColor="Red" HorizontalTextAlignment="Center" />
+            <!-- Listview of character dataset to display on left screen-->
           <ListView x:Name="CharactersBattle"
             ItemsSource="{Binding DatasetChars}"
             VerticalOptions="FillAndExpand"
@@ -51,6 +52,7 @@
         <StackLayout Orientation="Vertical"  HorizontalOptions="End">
 
           <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" HorizontalOptions="Center"/>
+          <!-- Listview of Monster dataset to display on right screen-->
           <ListView x:Name="MonstersBattle"
               ItemsSource="{Binding DatasetMons}"
               VerticalOptions="FillAndExpand"
@@ -90,6 +92,7 @@
       <AbsoluteLayout x:Name="ItemsTray" Padding="0" HorizontalOptions="FillAndExpand" 
                       AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All">
   <ContentView x:Name="ItemsTrayInner"  Padding="0"  HorizontalOptions="FillAndExpand">
+      <!-- Listview of Itemsdataset to display as items tray-->
     <ListView x:Name="ItemTrayListView"
               ItemsSource="{Binding DatasetItems}"
               RowHeight="120"
@@ -110,8 +113,9 @@
       </ListView.ItemTemplate>
     </ListView>
   </ContentView>
-</AbsoluteLayout>
-      <Button Text="RoundOver"
+     <!-- Buttons for next round if the round is over-->
+     </AbsoluteLayout>
+      <Button Text="ClickIfRoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="RoundOver_Command"/>

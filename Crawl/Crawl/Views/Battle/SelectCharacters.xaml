@@ -11,7 +11,7 @@
         <StackLayout>
 
             <Label Text="Select Characters for Battle" FontSize="Small" />
-
+            
             <ListView x:Name="SelectCharactersListView" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"
@@ -75,6 +75,7 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout>
+                <!-- Once characters are selected, buttons for the battle page or cancel to reselect-->
                 <Button Text="Next for Battle"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
