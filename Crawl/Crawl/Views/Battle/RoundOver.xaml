@@ -111,15 +111,11 @@
                     </ListView>
                 </ContentView>
             </AbsoluteLayout>
-            <!-- Buttons for next round and game over-->
+            <!-- Buttons for next round -->
             <Button Text="MoveToNextRound"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="NextRound_Command"/>
-            <Button Text="GameOver"
-      VerticalOptions="CenterAndExpand"
-      HorizontalOptions="CenterAndExpand"
-      Clicked="GameOver_Command"/>
 
         </StackLayout>
     </ContentPage.Content>

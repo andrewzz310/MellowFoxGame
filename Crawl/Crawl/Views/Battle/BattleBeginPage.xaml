@@ -113,13 +113,18 @@
       </ListView.ItemTemplate>
     </ListView>
   </ContentView>
-     <!-- Buttons for next round if the round is over-->
+     <!-- Buttons for next round if the round is over or game over-->
      </AbsoluteLayout>
       <Button Text="ClickIfRoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="RoundOver_Command"/>
+      <Button Text="ClickIfGameOver"
+      VerticalOptions="CenterAndExpand"
+      HorizontalOptions="CenterAndExpand"
+      Clicked="GameOver_Command"/>
 
-    </StackLayout>
+
+        </StackLayout>
   </ContentPage.Content>
 </ContentPage>

@@ -60,11 +60,7 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new BattleBeginPage());
         }
 
-        //If the game is over after this round, go to game over page
-        private async void GameOver_Command(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new GameOver());
-        }
+   
 
         bool hasAppearedOnce = false;
         protected override void OnAppearing()
