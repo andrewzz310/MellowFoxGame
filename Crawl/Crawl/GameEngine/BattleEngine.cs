@@ -47,6 +47,14 @@ namespace Crawl.GameEngine
         // Update Battle State, Log Score to Database
         public void EndBattle()
         {
+            // Set Score
+            BattleScore.ScoreTotal = BattleScore.ExperienceGainedTotal;
+
+            // Set off state
+            isBattleRunning = false;
+
+            // Save the Score to the DataStore
+            ScoresViewModel.Instance.AddAsync(BattleScore).GetAwaiter().GetResult();
         }
 
         // Initializes the Battle to begin
