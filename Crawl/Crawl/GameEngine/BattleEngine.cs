@@ -92,7 +92,7 @@ namespace Crawl.GameEngine
                 return false;
             }
 
-            // Get exactly 6 characters
+            // Get exactly 6 charactersrounds
             do
             {
                 var myData = GetRandomCharacter(ScaleLevelMin, ScaleLevelMax);
