@@ -488,6 +488,65 @@ namespace Crawl.Services
 
         #endregion Monster
 
+        public async Task<bool> AddAsync_Score(Score data)
+        {
+            var result = await App.Database.InsertAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+
+        }
+
+
+        public async Task<bool> UpdateAsync_Score(Score data)
+        {
+            var result = await App.Database.UpdateAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<bool> DeleteAsync_Score(Score data)
+        {
+            var result = await App.Database.DeleteAsync(data);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<Score> GetAsync_Score(string id)
+        {
+            var tempResult = await App.Database.GetAsync<Score>(id);
+
+            var result = new Score(tempResult);
+
+            return result;
+        }
+
+        public async Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false)
+        {
+            var tempResult = await App.Database.Table<Score>().ToListAsync();
+
+            var result = new List<Score>();
+            foreach (var Score in tempResult)
+            {
+                result.Add(new Score(Score));
+            }
+
+            return result;
+
+        }
 
         public async Task<bool> InsertUpdateAsync_Score(Score data)
         {
@@ -509,51 +568,7 @@ namespace Crawl.Services
             return false;
         }
 
-        public async Task<bool> AddAsync_Score(Score data)
-        {
-            var result = await App.Database.InsertAsync(data);
-            if (result == 1)
-            {
-                return true;
-            }
 
-            return false;
 
-        }
-
-        public async Task<bool> UpdateAsync_Score(Score data)
-        {
-            var result = await App.Database.UpdateAsync(data);
-            if (result == 1)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public async Task<bool> DeleteAsync_Score(Score data)
-        {
-            var result = await App.Database.DeleteAsync(data);
-            if (result == 1)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public async Task<Score> GetAsync_Score(string id)
-        {
-            var result = await App.Database.GetAsync<Score>(id);
-            return result;
-        }
-
-        public async Task<IEnumerable<Score>> GetAllAsync_Score(bool forceRefresh = false)
-        {
-            var result = await App.Database.Table<Score>().ToListAsync();
-            return result;
-
-        }
     }
 }
