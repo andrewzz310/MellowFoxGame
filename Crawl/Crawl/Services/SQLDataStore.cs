@@ -384,6 +384,21 @@ namespace Crawl.Services
         #region Monster
         //Monster
 
+
+        public async Task<bool> AddAsync_Monster(Monster data)
+        {
+            // Convert Monster to MonsterBase before saving to Database
+            var dataBase = new BaseMonster(data);
+
+            var result = await App.Database.InsertAsync(dataBase);
+            if (result == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
         public async Task<bool> InsertUpdateAsync_Monster(Monster data)
         {
 
@@ -422,35 +437,13 @@ namespace Crawl.Services
             return false;
         }
 
-        public async Task<bool> AddAsync_Monster(Monster data)
-        {
-            // Update Monster Data
-            data.Update(data);
-
-            // Convert Monster to BaseMonster
-            var castData = new BaseMonster(data);
-
-            // Add Monster to DB
-            var result = await App.Database.InsertAsync(castData);
-
-            // If insertion was successful, return true;
-            if (result == 1)
-                return true;
-            return false;
-        }
 
         public async Task<bool> UpdateAsync_Monster(Monster data)
         {
-            // Update Monster Data
-            data.Update(data);
+            // Convert Monster to MonsterBase before saving to Database
+            var dataBase = new BaseMonster(data);
 
-            // Convert Monster data to BaseMonster data
-            var castData = new BaseMonster(data);
-
-            // Update BaseMonster data in DB
-            var result = await App.Database.UpdateAsync(castData);
-
-            // If update was successful, return true
+            var result = await App.Database.UpdateAsync(dataBase);
             if (result == 1)
             {
                 return true;
@@ -461,13 +454,10 @@ namespace Crawl.Services
 
         public async Task<bool> DeleteAsync_Monster(Monster data)
         {
-            // Convert Monster data to BaseMonster data
-            var castData = new BaseMonster(data);
+            // Convert Monster to MonsterBase before saving to Database
+            var dataBase = new BaseMonster(data);
 
-            // Delete BaseMonster from DB
-            var result = await App.Database.DeleteAsync(castData);
-
-            // If deletion is successful, return true
+            var result = await App.Database.DeleteAsync(dataBase);
             if (result == 1)
             {
                 return true;

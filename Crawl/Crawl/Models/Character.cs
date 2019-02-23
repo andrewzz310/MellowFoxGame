@@ -10,6 +10,9 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
+       
+  
+
         // Create a default Character for the instantiation
         private void CreateDefaultCharacter()
         {
@@ -28,13 +31,14 @@ namespace Crawl.Models
             ExperienceTotal = 0;
         }
 
-        // Make sure Attribute is instantiated in the constructor
         public Character()
         {
             Attribute = new AttributeBase();
             Alive = true;
             CreateDefaultCharacter();
         }
+
+
 
         // Create a new character, based on a passed in BaseCharacter
         // Used for converting from database format to character
