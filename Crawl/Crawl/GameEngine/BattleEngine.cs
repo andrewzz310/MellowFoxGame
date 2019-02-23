@@ -10,7 +10,6 @@ namespace Crawl.GameEngine
 {
     // Battle is the top structure
 
-    // A battle has
 
     class BattleEngine : RoundEngine
     {

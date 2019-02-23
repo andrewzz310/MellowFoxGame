@@ -49,8 +49,16 @@ namespace Crawl.Models
             get
             {
                 var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
-                var myReturn = myList; // Implement
+              // Implement
+                var myReturn = myList.Where(a =>
+                            a.ToString() != ItemLocationEnum.Unknown.ToString() &&
+                            a.ToString() != ItemLocationEnum.LeftFinger.ToString() &&
+                            a.ToString() != ItemLocationEnum.RightFinger.ToString()
+                            )
+                            .OrderBy(a => a)
+                            .ToList();
                 return myReturn;
+              
             }
         }
 
@@ -61,7 +69,13 @@ namespace Crawl.Models
             get
             {
                 var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
-                var myReturn = myList; // Implement
+                // Implement
+                var myReturn = myList.Where(a =>
+                           a.ToString() != ItemLocationEnum.Unknown.ToString() &&
+                            a.ToString() != ItemLocationEnum.Finger.ToString()
+                            )
+                            .OrderBy(a => a)
+                            .ToList();
 
                 return myReturn;
             }
@@ -72,6 +86,38 @@ namespace Crawl.Models
         {
             return (ItemLocationEnum)Enum.Parse(typeof(ItemLocationEnum), value);
         }
+
+        // If asked for a position number, return a location.  Head as 1 etc. 
+        // This compsenstates for the enum #s not being sequential, but allows for calls to the postion for random allocation etc (roll 1-7 dice and pick a item to equipt), etc...
+        public static ItemLocationEnum GetLocationByPosition(int position)
+        {
+            switch (position)
+            {
+                case 1:
+                    return ItemLocationEnum.Head;
+
+                case 2:
+                    return ItemLocationEnum.Necklass;
+
+                case 3:
+                    return ItemLocationEnum.PrimaryHand;
+
+                case 4:
+                    return ItemLocationEnum.OffHand;
+
+                case 5:
+                    return ItemLocationEnum.RightFinger;
+
+                case 6:
+                    return ItemLocationEnum.LeftFinger;
+
+                case 7:
+                default:
+                    return ItemLocationEnum.Feet;
+            }
+        }
+
+
 
     }
 
