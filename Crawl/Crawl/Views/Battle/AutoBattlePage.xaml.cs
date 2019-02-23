@@ -22,31 +22,30 @@ namespace Crawl.Views.Battle
         private async void AutoBattleButton_Command(object sender, EventArgs e)
         {
             // Can create a new battle engine...
-            var myBattleEngine = new BattleEngine();
+            var myBattleEngine = new AutoBattleEngine();
 
-            var result = myBattleEngine.AutoBattle();
+            var result = myBattleEngine.RunAutoBattle();
 
             if (result == false)
             {
-                var answer = await DisplayAlert("Error", "No Characters to battle with", "OK","Cancel");
-                if (answer)
-                {
-                    var a = 1;
-                    // Can't run auto battle, no characters...
-                }
+                await DisplayAlert("Error", "No Characters Avaialbe", "OK");
+                return;
             }
 
-            if (myBattleEngine.BattleScore.RoundCount < 1)
+            /*
+            if (myBattleEngine.GetRoundsValue() < 1)
             {
-                var answer = await DisplayAlert("Error", "No Rounds Fought", "OK", "Cancel");
-                if (answer)
-                {
-                    var a = 1;
-                    // Can't run auto battle, no characters...
-                }
+                await DisplayAlert("Error", "No Rounds Fought", "OK");
+                return;
             }
+          
 
-            var outputString = "Battle Over! Score " + myBattleEngine.BattleScore.ScoreTotal;
+            var myResult = myBattleEngine.GetResultsOutput();
+            var myScore = myBattleEngine.GetScoreValue();
+            
+
+            var outputString = "Battle Over! Score " + myScore.ToString();
+            
             var action = await DisplayActionSheet(outputString, 
                 "Cancel", 
                 null, 
@@ -55,6 +54,7 @@ namespace Crawl.Views.Battle
             {
                 await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myBattleEngine.BattleScore)));
             }
+            */
         }
     }
 }
