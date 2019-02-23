@@ -80,6 +80,8 @@ namespace Crawl.Models
             Defense = defense;
             Speed = speed;
 
+
+
         }
 
         // Upgrades to a set level

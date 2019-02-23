@@ -36,39 +36,75 @@ namespace Crawl.Services
         }
 
         //loads mock data
-        private void InitilizeSeedData()
+        private async void InitilizeSeedData()
         {
 
             // Load Items
-            _itemDataset.Add(new Item("Shuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-            _itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-            _itemDataset.Add(new Item("Ring of Power", "This is a Ring of Power Item", "ringofpower.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-            _itemDataset.Add(new Item("Two-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
-            _itemDataset.Add(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
-            _itemDataset.Add(new Item("Turbo", "This is a Turbo Item", "turbo.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Speed));
-            _itemDataset.Add(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-            _itemDataset.Add(new Item("Potion", "This is a Potion Item", "potion.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.CurrentHealth));
+            //_itemDataset.Add(new Item("Shuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            //_itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            //_itemDataset.Add(new Item("Ring of Power", "This is a Ring of Power Item", "ringofpower.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            //_itemDataset.Add(new Item("Two-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
+            //_itemDataset.Add(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            //_itemDataset.Add(new Item("Turbo", "This is a Turbo Item", "turbo.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Speed));
+            //_itemDataset.Add(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            //_itemDataset.Add(new Item("Potion", "This is a Potion Item", "potion.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.CurrentHealth));
+
+
+            //items
+            await AddAsync_Item(new Item("Shuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("Ring of Power", "This is a Ring of Power Item", "ringofpower.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("Two-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Turbo", "This is a Turbo Item", "turbo.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Speed));
+            await AddAsync_Item(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Potion", "This is a Potion Item", "potion.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.CurrentHealth));
+
+
+            //characters
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock First Character", Description = "This is an Character description.", Level = 1, ImageURI = "ninja.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Second Character", Description = "This is an Character description.", Level = 1 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Third Character", Description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Fourth Character", Description = "This is an Character description.", Level = 2 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Fifth Character", Description = "This is an Character description.", Level = 3 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock Sixth Character", Description = "This is an Character description.", Level = 3 });
+
+            // Monsters
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock First Monster", Description = "This is an Monster description." });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock Second Monster", Description = "This is an Monster description.", ImageURI = "100giant.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock Third Monster", Description = "This is an Monster description." });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock Fourth Monster", Description = "This is an Monster description." });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock Fifth Monster", Description = "This is an Monster description." });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock Sixth Monster", Description = "This is an Monster description." });
+
+            //scores
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  First Score", ScoreTotal = 111 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  Second Score", ScoreTotal = 222 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  Third Score", ScoreTotal = 333 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  Fourth Score", ScoreTotal = 444 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  Fifth Score", ScoreTotal = 555 });
+            await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  Sixth Score", ScoreTotal = 666 });
 
 
             // Characters initialized with level 2, xp 300, etc based on ppt deck
-            _characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  2, 300, 1,2,1, PreferredItemEnum.Armor));
-            _characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  2, 300,1,2,1, PreferredItemEnum.BowArrow));
-            _characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png",  2, 300,1,2,1, PreferredItemEnum.RingOfPower));
-            _characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png",  2, 300,1,2,1, PreferredItemEnum.Shuriken));
-            _characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  2, 300,1,2,1, PreferredItemEnum.Staff));
-            _characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  2, 300,1,2,1, PreferredItemEnum.Sword));
+            //_characterDataset.Add(new Character("Elf", "Special power is bow and arrow item", "elf.png",  2, 300, 1,2,1, PreferredItemEnum.Armor));
+            //_characterDataset.Add(new Character("Dwarf", "Special power is hammer item", "Dwarf.png",  2, 300,1,2,1, PreferredItemEnum.BowArrow));
+            //_characterDataset.Add(new Character("Magician", "Special power is staff item", "magician.png",  2, 300,1,2,1, PreferredItemEnum.RingOfPower));
+            //_characterDataset.Add(new Character("Knight", "Special power is sword item", "Knight.png",  2, 300,1,2,1, PreferredItemEnum.Shuriken));
+            //_characterDataset.Add(new Character("Ninja", "Special power is damage without any items", "ninja.png",  2, 300,1,2,1, PreferredItemEnum.Staff));
+            //_characterDataset.Add(new Character("Mellow Fox", "Special power is automatically skips level ", "fox.png",  2, 300,1,2,1, PreferredItemEnum.Sword));
 
 
-            // Monsters initialized 
-            _monsterDataset.Add(new Monster("Dragon", "This is a Dragon monster", "dragon1.png", PreferredItemEnum.Armor));
-            _monsterDataset.Add(new Monster("Ork", "This is a Ork monster", "ork.png",PreferredItemEnum.BowArrow));
-            _monsterDataset.Add(new Monster("Ogre", "This is a Ogre monster", "ogre.png", PreferredItemEnum.RingOfPower));
-            _monsterDataset.Add(new Monster("100 Handed Giant", "This is a 100 handed giant monster", "100giant.png", PreferredItemEnum.Shuriken));
-            _monsterDataset.Add(new Monster("Zombie", "This is a Zombie monster", "zombie.png", PreferredItemEnum.Staff));
-            _monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", PreferredItemEnum.Sword));
+            //// Monsters initialized 
+            //_monsterDataset.Add(new Monster("Dragon", "This is a Dragon monster", "dragon1.png", PreferredItemEnum.Armor));
+            //_monsterDataset.Add(new Monster("Ork", "This is a Ork monster", "ork.png",PreferredItemEnum.BowArrow));
+            //_monsterDataset.Add(new Monster("Ogre", "This is a Ogre monster", "ogre.png", PreferredItemEnum.RingOfPower));
+            //_monsterDataset.Add(new Monster("100 Handed Giant", "This is a 100 handed giant monster", "100giant.png", PreferredItemEnum.Shuriken));
+            //_monsterDataset.Add(new Monster("Zombie", "This is a Zombie monster", "zombie.png", PreferredItemEnum.Staff));
+            //_monsterDataset.Add(new Monster("Hellraiser", "This is a Hellraiser monster", "hellraiser.png", PreferredItemEnum.Sword));
 
             // Implement Scores
-            _scoreDataset.Add(new Score(1, 2, DateTime.Now, true, 3, 4, 5, 6, "Elf", "Dragon", "Bow and Arrow"));
+            //_scoreDataset.Add(new Score(1, 2, DateTime.Now, true, 3, 4, 5, 6, "Elf", "Dragon", "Bow and Arrow"));
 
         }
 
@@ -81,6 +117,9 @@ namespace Crawl.Services
         public void DeleteTables()
         {
             // Implement
+            _characterDataset.Clear();
+            _itemDataset.Clear();
+            _monsterDataset.Clear();
         }
 
         // Tells the View Models to update themselves.
