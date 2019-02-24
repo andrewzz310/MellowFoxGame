@@ -24,40 +24,58 @@ namespace Crawl.GameEngine
             // Begin the battle here
             BattleEngine.StartBattle(true);
 
-            //init console message
-            Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Characters :" + BattleEngine.CharacterList.Count);
-            Debug.WriteLine("Character Name :");
+            //init console message and characters
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Total Characters :" + BattleEngine.CharacterList.Count);
+            Debug.WriteLine("Characters are Below :");
             for (var i = 0; i < 6; i++)
             { 
                 Debug.WriteLine(BattleEngine.CharacterList[i].FormatOutput());
             }
-            // Initialize the Rounds
-            RoundEnum RoundResult;
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+
+
+            // Initialize the Rounds and populates new monsters with addmonsterstoround()
             BattleEngine.StartRound();
-            Debug.WriteLine("Round Started" + "Monsters :" + BattleEngine.MonsterList.Count);
+            RoundEnum RoundResult;
+
+            //Message with Monsters
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine("Round Started" + " Monsters :" + BattleEngine.MonsterList.Count);
             Debug.WriteLine("Monster Name :");
             for (var i = 0; i < 6; i++)
             {
                 Debug.WriteLine(BattleEngine.MonsterList[i].FormatOutput());
             }
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+
+
+       
+
+      
             //do while looped discussed in class about fighting until the game is over
             do
             {
                 //Each Turn
-                RoundResult = BattleEngine.RoundNextTurn();
+                RoundResult = BattleEngine.RoundNextTurn(); 
 
                 // If the round is over start a new one...
                 if (RoundResult == RoundEnum.NewRound)
                 {
                     BattleEngine.NewRound();
-                    Debug.WriteLine("New Round :" + BattleEngine.BattleScore.RoundCount);
+                    Debug.WriteLine("New Round#:" + BattleEngine.BattleScore.RoundCount);
                 }
 
             } while (RoundResult != RoundEnum.GameOver);
 
+            // battle ended and update the scoredetail view model
             BattleEngine.EndBattle();
 
-            //algorithm described in class here
+            
             return true;
 
         }
@@ -99,7 +117,7 @@ namespace Crawl.GameEngine
             string myResult = 
                 " ##################################### " + Environment.NewLine + Environment.NewLine + 
             "MellowFoxBattle Ended! Score total is: " + BattleEngine.BattleScore.ScoreTotal +
-            "  Total Experience : :" + BattleEngine.BattleScore.ExperienceGainedTotal +
+            "  Total Experience  :" + BattleEngine.BattleScore.ExperienceGainedTotal +
             " Total Rounds :" + BattleEngine.BattleScore.RoundCount +
             " Total Turns :" + BattleEngine.BattleScore.TurnCount +
             " Total Monster Kills :" + BattleEngine.BattleScore.MonstersKilledList;

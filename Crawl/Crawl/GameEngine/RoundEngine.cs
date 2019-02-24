@@ -22,6 +22,7 @@ namespace Crawl.GameEngine
             ClearLists();
         }
 
+        // don't clear characters here because eventually they all get defeated by monsters
         private void ClearLists()
         {
             ItemPool = new List<Item>();
@@ -69,8 +70,8 @@ namespace Crawl.GameEngine
 
             // TODO, determine the character strength
             // add monsters up to that strength...
-            var ScaleLevelMax = 2;
-            var ScaleLevelMin = 1;
+            var ScaleLevelMax = 4;
+            var ScaleLevelMin = 2;
 
             // Make Sure Monster List exists and is loaded...
             var myMonsterViewModel = MonstersViewModel.Instance;
@@ -171,6 +172,7 @@ namespace Crawl.GameEngine
             return RoundEnum.NextTurn;
         }
 
+        // get the next monster/characters turn
         public PlayerInfo GetNextPlayerTurn()
         {
             // Recalculate Order
@@ -206,7 +208,7 @@ namespace Crawl.GameEngine
                 .ToList();
         }
     
-
+        // The list for the order between characters and players
         private void MakePlayerList()
         {
             PlayerList = new List<PlayerInfo>();
