@@ -32,14 +32,14 @@ namespace Crawl.Views.Battle
                 return;
             }
 
-            /*
+            
             if (myBattleEngine.GetRoundsValue() < 1)
             {
                 await DisplayAlert("Error", "No Rounds Fought", "OK");
                 return;
             }
           
-
+            /*
             var myResult = myBattleEngine.GetResultsOutput();
             var myScore = myBattleEngine.GetScoreValue();
             
