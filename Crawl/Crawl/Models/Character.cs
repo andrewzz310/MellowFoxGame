@@ -279,11 +279,11 @@ namespace Crawl.Models
             // Base Attack
             var myReturn = Attribute.Attack;
 
-            // Implement
-
             // Attack Bonus from Level
+            myReturn += LevelTable.Instance.LevelDetailsList[Level].Attack;
 
             // Get Attack bonus from Items
+            myReturn += GetItemBonus(AttributeEnum.Attack);
 
             return myReturn;
         }
@@ -295,7 +295,6 @@ namespace Crawl.Models
             var myReturn = Attribute.Speed;
 
             // Get Bonus from Level
-
             myReturn += LevelTable.Instance.LevelDetailsList[Level].Speed;
 
             // Get bonus from Items
@@ -341,7 +340,6 @@ namespace Crawl.Models
             myReturn += GetItemBonus(AttributeEnum.CurrentHealth);
 
             return myReturn;
-
         }
 
         // Returns the Dice for the item
@@ -373,7 +371,6 @@ namespace Crawl.Models
                 myReturn += HelperEngine.RollDice(1, myItem.Damage);
             }
 
-
             return myReturn;
         }
 
@@ -386,10 +383,51 @@ namespace Crawl.Models
         {
             var myReturn = new List<Item>();
 
-            // Implement
-
             // Drop all Items
-            
+            Item myItem;
+
+            myItem = RemoveItem(ItemLocationEnum.Head);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.Necklass);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.PrimaryHand);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.OffHand);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.RightFinger);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.LeftFinger);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
+            myItem = RemoveItem(ItemLocationEnum.Feet);
+            if (myItem != null)
+            {
+                myReturn.Add(myItem);
+            }
+
             return myReturn;
         }
 
@@ -415,7 +453,29 @@ namespace Crawl.Models
         // Get the Item at a known string location (head, foot etc.)
         public Item GetItemByLocation(ItemLocationEnum itemLocation)
         {
-            // Implement
+            switch (itemLocation)
+            {
+                case ItemLocationEnum.Head:
+                    return GetItem(Head);
+
+                case ItemLocationEnum.Necklass:
+                    return GetItem(Necklass);
+
+                case ItemLocationEnum.PrimaryHand:
+                    return GetItem(PrimaryHand);
+
+                case ItemLocationEnum.OffHand:
+                    return GetItem(OffHand);
+
+                case ItemLocationEnum.RightFinger:
+                    return GetItem(RightFinger);
+
+                case ItemLocationEnum.LeftFinger:
+                    return GetItem(LeftFinger);
+
+                case ItemLocationEnum.Feet:
+                    return GetItem(Feet);
+            }
 
             return null;
         }
@@ -427,9 +487,49 @@ namespace Crawl.Models
         // Returns the item that was in the location
         public Item AddItem(ItemLocationEnum itemlocation, string itemID)
         {
-            Item myReturn = new Item();
+            Item myReturn;
 
-            // Implement
+            switch (itemlocation)
+            {
+                case ItemLocationEnum.Feet:
+                    myReturn = GetItem(Feet);
+                    Feet = itemID;
+                    break;
+
+                case ItemLocationEnum.Head:
+                    myReturn = GetItem(Head);
+                    Head = itemID;
+                    break;
+
+                case ItemLocationEnum.Necklass:
+                    myReturn = GetItem(Necklass);
+                    Necklass = itemID;
+                    break;
+
+                case ItemLocationEnum.PrimaryHand:
+                    myReturn = GetItem(PrimaryHand);
+                    PrimaryHand = itemID;
+                    break;
+
+                case ItemLocationEnum.OffHand:
+                    myReturn = GetItem(OffHand);
+                    OffHand = itemID;
+                    break;
+
+                case ItemLocationEnum.RightFinger:
+                    myReturn = GetItem(RightFinger);
+                    RightFinger = itemID;
+                    break;
+
+                case ItemLocationEnum.LeftFinger:
+                    myReturn = GetItem(LeftFinger);
+                    LeftFinger = itemID;
+                    break;
+
+                default:
+                    myReturn = null;
+                    break;
+            }
 
             return myReturn;
         }
@@ -441,10 +541,73 @@ namespace Crawl.Models
         {
             var myReturn = 0;
             Item myItem;
-            // Implement
+
+            myItem = ItemsViewModel.Instance.GetItem(Head);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = ItemsViewModel.Instance.GetItem(Necklass);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = ItemsViewModel.Instance.GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = ItemsViewModel.Instance.GetItem(OffHand);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = ItemsViewModel.Instance.GetItem(RightFinger);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = ItemsViewModel.Instance.GetItem(LeftFinger);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
+
+            myItem = ItemsViewModel.Instance.GetItem(Feet);
+            if (myItem != null)
+            {
+                if (myItem.Attribute == attributeEnum)
+                {
+                    myReturn += myItem.Value;
+                }
+            }
 
             return myReturn;
         }
+
 
         #endregion Items
 
