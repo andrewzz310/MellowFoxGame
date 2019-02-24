@@ -152,9 +152,30 @@ namespace Crawl.Models
         // Needs to be called before applying damage
         public int CalculateExperienceEarned(int damage)
         {
-            // Implement
-            return 0;
+            if (damage < 1)
+            {
+                return 0;
+            }
 
+            int remainingHealth = Math.Max(Attribute.CurrentHealth - damage, 0); // Go to 0 is OK...
+            double rawPercent = (double)remainingHealth / (double)Attribute.CurrentHealth;
+            double deltaPercent = 1 - rawPercent;
+            var pointsAllocate = (int)Math.Floor(ExperienceRemaining * deltaPercent);
+
+            // Catch rounding of low values, and force to 1.
+            if (pointsAllocate < 1)
+            {
+                pointsAllocate = 1;
+            }
+
+            // Take away the points from remaining experience
+            ExperienceRemaining -= pointsAllocate;
+            if (ExperienceRemaining < 0)
+            {
+                pointsAllocate = 0;
+            }
+
+            return pointsAllocate;
         }
 
         #region GetAttributes
@@ -209,7 +230,7 @@ namespace Crawl.Models
         // Then add in the monster damage
         public int GetDamage()
         {
-            var myReturn = 0;
+            var myReturn = 0; // = GetLevelBasedDamage();  BaseDamage Already calculated in
             myReturn += Damage;
 
             return myReturn;
@@ -221,6 +242,7 @@ namespace Crawl.Models
         {
             return GetDamage();
         }
+
 
         #endregion GetAttributes
 
