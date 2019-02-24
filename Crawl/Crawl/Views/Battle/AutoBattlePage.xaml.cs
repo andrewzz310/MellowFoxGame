@@ -46,11 +46,12 @@ namespace Crawl.Views.Battle
             
             
             var outputString = "Battle Over! Score " + myScore.ToString();
-            /*
+            
             var action = await DisplayActionSheet(outputString, 
                 "Cancel", 
                 null, 
                 "View Score");
+            /*
             if (action == "View Score")
             {
                 await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myBattleEngine.BattleScore)));
