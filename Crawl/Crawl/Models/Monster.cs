@@ -16,14 +16,14 @@ namespace Crawl.Models
         public AttributeBase Attribute { get; set; }
 
         //Create a default Monster for Instatiation
-        private void CreateDefaultMonster()
-        {
-            Name = "unknown";
-            Description = "unknown";
-            ImageURI = ItemsController.DefaultImageURIMonster;
+        //private void CreateDefaultMonster()
+        //{
+        //    Name = "unknown";
+        //    Description = "unknown";
+        //    ImageURI = ItemsController.DefaultImageURIMonster;
  
 
-        }
+        //}
 
         // Make sure Attribute is instantiated in the constructor
         public Monster()
@@ -79,14 +79,14 @@ namespace Crawl.Models
         }
 
         //contructor that takes in params
-        public Monster(string name, string description, string imageuri, PreferredItemEnum item)
-        {
-            CreateDefaultMonster();
-            Name = name;
-            Description = description;
-            ImageURI = imageuri;
+        //public Monster(string name, string description, string imageuri, PreferredItemEnum item)
+        //{
+  
+        //    Name = name;
+        //    Description = description;
+        //    ImageURI = imageuri;
      
-        }
+        //}
 
         // Upgrades a monster to a set level
         public void ScaleLevel(int level)

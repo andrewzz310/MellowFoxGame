@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Crawl.Models;
 using Crawl.ViewModels;
 using Crawl.Services;
+using System.Diagnostics;
 
 namespace Crawl.Services
 {
@@ -226,7 +227,7 @@ namespace Crawl.Services
             {
                 return true;
             }
-
+            Debug.WriteLine("data base updated" + result ); //for debugging
             return false;
         }
 
