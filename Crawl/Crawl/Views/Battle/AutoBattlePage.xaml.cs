@@ -19,16 +19,18 @@ namespace Crawl.Views.Battle
 			InitializeComponent ();
 		}
 
+        // Auto Battle Starts here when this button is clicked
         private async void AutoBattleButton_Command(object sender, EventArgs e)
         {
             // Can create a new battle engine...
             var myBattleEngine = new AutoBattleEngine();
 
+            // run auto battle
             var result = myBattleEngine.RunAutoBattle();
 
             if (result == false)
             {
-                await DisplayAlert("Error", "No Characters Avaialbe", "OK");
+                await DisplayAlert("Error", "No Characters Available", "OK");
                 return;
             }
 
@@ -47,16 +49,19 @@ namespace Crawl.Views.Battle
             
             var outputString = "Battle Over! Score " + myScore.ToString();
             
+            // the pop up for either cancel or see the score details
             var action = await DisplayActionSheet(outputString, 
                 "Cancel", 
                 null, 
                 "View Score");
-            /*
+            
             if (action == "View Score")
             {
-                await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myBattleEngine.BattleScore)));
+                var myScoreObject = myBattleEngine.GetScoreObject();
+                await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
             }
-            */
+            
+            
         }
     }
 }
