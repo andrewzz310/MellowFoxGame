@@ -97,15 +97,17 @@ namespace Crawl.GameEngine
         public string GetResultsOutput()
         {
             string myResult = 
-            "Battle Ended" + BattleEngine.BattleScore.ScoreTotal +
-            " Total Score :" + BattleEngine.BattleScore.ExperienceGainedTotal +
-            " Total Experience :" + BattleEngine.BattleScore.ExperienceGainedTotal +
-            " Rounds :" + BattleEngine.BattleScore.RoundCount +
-            " Turns :" + BattleEngine.BattleScore.TurnCount +
-            " Monster Kills :" + BattleEngine.BattleScore.MonstersKilledList;
+                " ##################################### " + Environment.NewLine + Environment.NewLine + 
+            "MellowFoxBattle Ended! Score total is: " + BattleEngine.BattleScore.ScoreTotal +
+            "  Total Experience : :" + BattleEngine.BattleScore.ExperienceGainedTotal +
+            " Total Rounds :" + BattleEngine.BattleScore.RoundCount +
+            " Total Turns :" + BattleEngine.BattleScore.TurnCount +
+            " Total Monster Kills :" + BattleEngine.BattleScore.MonstersKilledList;
 
             Debug.WriteLine(myResult);
-
+            
+            Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine(" ##################################### ");
             return myResult;
         }
 

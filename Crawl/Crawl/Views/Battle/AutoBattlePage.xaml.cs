@@ -44,9 +44,9 @@ namespace Crawl.Views.Battle
             var myScore = myBattleEngine.GetScoreValue();
 
             
-            /*
-            var outputString = "Battle Over! Score " + myScore.ToString();
             
+            var outputString = "Battle Over! Score " + myScore.ToString();
+            /*
             var action = await DisplayActionSheet(outputString, 
                 "Cancel", 
                 null, 
