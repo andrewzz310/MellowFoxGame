@@ -223,11 +223,12 @@ namespace Crawl.Services
         public async Task<bool> UpdateAsync_Item(Item data)
         {
             var result = await App.Database.UpdateAsync(data);
+            Debug.WriteLine("data base updated" + result); //for debugging
             if (result == 1)
             {
                 return true;
             }
-            Debug.WriteLine("data base updated" + result ); //for debugging
+            
             return false;
         }
 
