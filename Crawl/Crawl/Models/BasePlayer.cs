@@ -6,26 +6,10 @@ namespace Crawl.Models
 
     public class BasePlayer<T> : BasePlayerItemSlots<T>
     {
-        // Where is the Item Slots, it is in the baseclass...
-
-        // HealthPoints of character and monster
-        public int HealthPoints { get; set; }
-
-        //Max Health
-        public int MaxHealth { get; set; }
-
-        //Attack
-        public int Attack { get; set; }
-
-        //Defense
-        public int Defense { get; set; }
-
-
-        //Speed
-        public int Speed { get; set; }
-
         // Level of the character, or difficulty level of the monster
         public int Level { get; set; }
+
+        public int HealthDice { get; set; } = 10;
 
         // Current experience gained, or to give
         public int ExperienceTotal { get; set; }

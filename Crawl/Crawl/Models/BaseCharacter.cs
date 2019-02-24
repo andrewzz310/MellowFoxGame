@@ -25,11 +25,11 @@ namespace Crawl.Models
             ImageURI = newData.ImageURI;
             Item = newData.Item;
             Alive = newData.Alive;
-            HealthPoints = newData.HealthPoints;
-            MaxHealth = newData.MaxHealth;
-            Attack = newData.Attack;
-            Defense = newData.Defense;
-            Speed = newData.Speed;
+            //HealthPoints = newData.HealthPoints;
+            //MaxHealth = newData.MaxHealth;
+            //Attack = newData.Attack;
+            //Defense = newData.Defense;
+            //Speed = newData.Speed;
 
             // Database information
             Guid = newData.Guid;
