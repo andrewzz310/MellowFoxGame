@@ -55,6 +55,8 @@ namespace Crawl.GameEngine
 
             } while (RoundResult != RoundEnum.GameOver);
 
+            BattleEngine.EndBattle();
+
             //algorithm described in class here
             return true;
 

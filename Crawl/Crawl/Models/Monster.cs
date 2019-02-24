@@ -15,16 +15,6 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
-        //Create a default Monster for Instatiation
-        //private void CreateDefaultMonster()
-        //{
-        //    Name = "unknown";
-        //    Description = "unknown";
-        //    ImageURI = ItemsController.DefaultImageURIMonster;
- 
-
-        //}
-
         // Make sure Attribute is instantiated in the constructor
         public Monster()
         {
@@ -77,16 +67,6 @@ namespace Crawl.Models
             ScaleLevel(Level);
 
         }
-
-        //contructor that takes in params
-        //public Monster(string name, string description, string imageuri, PreferredItemEnum item)
-        //{
-  
-        //    Name = name;
-        //    Description = description;
-        //    ImageURI = imageuri;
-     
-        //}
 
         // Upgrades a monster to a set level
         public void ScaleLevel(int level)
@@ -274,10 +254,18 @@ namespace Crawl.Models
         // monsters give experience to characters.  Characters don't accept expereince from monsters
         public void TakeDamage(int damage)
         {
-            // Implement
-            return;
+            if (damage <= 0)
+            {
+                return;
+            }
 
-            // Implement   CauseDeath();
+            Attribute.CurrentHealth = Attribute.CurrentHealth - damage;
+            if (Attribute.CurrentHealth <= 0)
+            {
+                Attribute.CurrentHealth = 0;
+                // Death...
+                CauseDeath();
+            }
         }
     }
 }

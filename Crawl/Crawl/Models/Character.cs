@@ -220,11 +220,12 @@ namespace Crawl.Models
             // Base value
             var myReturn = Attribute.Speed;
 
-            // Implement
-
             // Get Bonus from Level
 
+            myReturn += LevelTable.Instance.LevelDetailsList[Level].Speed;
+
             // Get bonus from Items
+            myReturn += GetItemBonus(AttributeEnum.Speed);
 
             return myReturn;
         }
@@ -235,11 +236,11 @@ namespace Crawl.Models
             // Base value
             var myReturn = Attribute.Defense;
 
-            // Implement
-
             // Get Bonus from Level
+            myReturn += LevelTable.Instance.LevelDetailsList[Level].Defense;
 
             // Get bonus from Items
+            myReturn += GetItemBonus(AttributeEnum.Defense);
 
             return myReturn;
         }
@@ -250,10 +251,9 @@ namespace Crawl.Models
             // Base value
             var myReturn = Attribute.MaxHealth;
 
-            // Implement
-
             // Get bonus from Items
-            
+            myReturn += GetItemBonus(AttributeEnum.MaxHealth);
+
             return myReturn;
         }
 
@@ -263,11 +263,11 @@ namespace Crawl.Models
             // Base value
             var myReturn = Attribute.CurrentHealth;
 
-            // Implement
-
             // Get bonus from Items
+            myReturn += GetItemBonus(AttributeEnum.CurrentHealth);
 
             return myReturn;
+
         }
 
         // Returns the Dice for the item
@@ -276,9 +276,13 @@ namespace Crawl.Models
         {
             var myReturn = 0;
 
-            // Implement
+            var myItem = ItemsViewModel.Instance.GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                // Damage is base damage plus dice of the weapon.  So sword of Damage 10 is d10
+                myReturn += myItem.Damage;
+            }
 
-            
             return myReturn;
         }
 
@@ -288,9 +292,14 @@ namespace Crawl.Models
         {
             var myReturn = GetLevelBasedDamage();
 
-            // Implement
+            var myItem = ItemsViewModel.Instance.GetItem(PrimaryHand);
+            if (myItem != null)
+            {
+                // Damage is base damage plus dice of the weapon.  So sword of Damage 10 is d10
+                myReturn += HelperEngine.RollDice(1, myItem.Damage);
+            }
 
-            
+
             return myReturn;
         }
 
@@ -371,7 +380,17 @@ namespace Crawl.Models
         // monsters give experience to characters.  Characters don't accept expereince from monsters
         public void TakeDamage(int damage)
         {
-            // Implement
+            if (damage < 1)
+            {
+                return;
+            }
+
+            Attribute.CurrentHealth -= damage;
+            if (GetHealthCurrent() <= 0)
+            {
+                // Death...
+                CauseDeath();
+            }
         }
     }
 }
