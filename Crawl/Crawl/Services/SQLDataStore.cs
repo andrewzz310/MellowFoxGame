@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Crawl.Models;
 using Crawl.ViewModels;
 using Crawl.Services;
+using System.Diagnostics;
 
 namespace Crawl.Services
 {
@@ -222,6 +223,7 @@ namespace Crawl.Services
         public async Task<bool> UpdateAsync_Item(Item data)
         {
             var result = await App.Database.UpdateAsync(data);
+            Debug.WriteLine("data base updated: " + result); //for debugging
             if (result == 1)
             {
                 return true;
