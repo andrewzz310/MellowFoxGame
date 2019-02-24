@@ -124,37 +124,34 @@ namespace Crawl.Models
             {
                 return;
             }
+
+            // Update all the fields in the Data, except for the Id
+
             // Base information
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
+            ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;
-            
-            ExperienceTotal = newData.ExperienceTotal;
 
-            //HealthPoints = newData.HealthPoints;
-            //MaxHealth = newData.MaxHealth;
-            //Attack = newData.Attack;
-            //Defense = newData.Defense;
-            //Speed = newData.Speed;
-            
+            // Database information
+            Guid = newData.Guid;
+            Id = newData.Id;
 
-            //Attributes
+            // Populate the Attributes
             Attribute = newData.Attribute;
+
+            // set the attribute string, for the Attribute
             AttributeString = AttributeBase.GetAttributeString(Attribute);
 
-            //Item locations
+            // Set the strings for the items
             Head = newData.Head;
             Feet = newData.Feet;
             Necklass = newData.Necklass;
             RightFinger = newData.RightFinger;
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
-
-            // Database information
-            Guid = newData.Guid;
-            Id = newData.Id;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string
@@ -176,23 +173,100 @@ namespace Crawl.Models
         // Level Up
         public bool LevelUp()
         {
-            // Implement
+            // Walk the Level Table descending order
+            // Stop when experience is >= experience in the table
+            for (var i = LevelTable.Instance.LevelDetailsList.Count - 1; i > 0; i--)
+            {
+                // Check the Level
+                // If the Level is > Experience for the Index, increment the Level.
+                if (LevelTable.Instance.LevelDetailsList[i].Experience <= ExperienceTotal)
+                {
+                    var NewLevel = LevelTable.Instance.LevelDetailsList[i].Level;
+
+                    // When leveling up, the current health is adjusted up by an offset of the MaxHealth, rather than full restore
+                    var OldCurrentHealth = Attribute.CurrentHealth;
+                    var OldMaxHealth = Attribute.MaxHealth;
+
+                    // Set new Health
+                    // New health, is d10 of the new level.  So leveling up 1 level is 1 d10, leveling up 2 levels is 2 d10.
+                    var NewHealthAddition = HelperEngine.RollDice(NewLevel - Level, 10);
+
+                    // Increment the Max health
+                    Attribute.MaxHealth += NewHealthAddition;
+
+                    // Calculate new current health
+                    // old max was 10, current health 8, new max is 15 so (15-(10-8)) = current health
+                    Attribute.CurrentHealth = (Attribute.MaxHealth - (OldMaxHealth - OldCurrentHealth));
+
+                    // Refresh the Attriburte String
+                    AttributeString = AttributeBase.GetAttributeString(this.Attribute);
+
+                    // Set the new level
+                    Level = NewLevel;
+
+                    // Done, exit
+                    return true;
+                }
+            }
+
             return false;
         }
 
         // Level up to a number, say Level 3
         public int LevelUpToValue(int Value)
         {
-            // Implement
+            // Adjust the experience to the min for that level.
+            // That will trigger level up to happen
+
+            if (Value < 0)
+            {
+                // Skip, and return old level
+                return Level;
+            }
+
+            if (Value <= Level)
+            {
+                // Skip, and return old level
+                return Level;
+            }
+
+            if (Value > LevelTable.MaxLevel)
+            {
+                Value = LevelTable.MaxLevel;
+            }
+
+            AddExperience(LevelTable.Instance.LevelDetailsList[Value].Experience + 1);
+
             return Level;
         }
 
         // Add experience
         public bool AddExperience(int newExperience)
         {
-            // Implement
+            // Don't allow going lower in experience
+            if (newExperience < 0)
+            {
+                return false;
+            }
+
+            // Increment the Experience
+            ExperienceTotal += newExperience;
+
+            // Can't level UP if at max.
+            if (Level == LevelTable.MaxLevel)
+            {
+                return false;
+            }
+
+            // Then check for Level UP
+            // If experience is higher than the experience at the next level, level up is OK.
+            if (ExperienceTotal >= LevelTable.Instance.LevelDetailsList[Level + 1].Experience)
+            {
+                return LevelUp();
+            }
             return false;
         }
+
 
         #endregion Basics
 
