@@ -11,31 +11,24 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
-       
-  
-
-        // Create a default Character for the instantiation
-        private void CreateDefaultCharacter()
-        {
-            Name = "Unknown";
-            Description = "Unknown";
-            ImageURI = ItemsController.DefaultImageURICharacter;
-            Item = PreferredItemEnum.Unknown; //adding pref item
-            // adding properties
-            Level = 0;
-            Alive = true;
-
-            ExperienceTotal = 0;
-        }
-
         public Character()
         {
             Attribute = new AttributeBase();
             Alive = true;
-            CreateDefaultCharacter();
         }
+        // Create a default Character for the instantiation
+        //private void CreateDefaultCharacter()
+        //{
+        //    Name = "Unknown";
+        //    Description = "Unknown";
+        //    ImageURI = ItemsController.DefaultImageURICharacter;
+     
+        //    // adding properties
+        //    Level = 0;
+        //    Alive = true;
 
-
+        //    ExperienceTotal = 0;
+        //}
 
         // Create a new character, based on a passed in BaseCharacter
         // Used for converting from database format to character
@@ -46,13 +39,26 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
-            Item = newData.Item; //added pref item
+            
             Alive = newData.Alive;
             ExperienceTotal = newData.ExperienceTotal;
 
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
+
+            // Populate the Attributes
+            AttributeString = newData.AttributeString;
+
+            Attribute = new AttributeBase(newData.AttributeString);
+
+            // Set the strings for the items
+            Head = newData.Head;
+            Feet = newData.Feet;
+            Necklass = newData.Necklass;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
         }
 
         // Create a new character, based on existing Character
@@ -63,17 +69,17 @@ namespace Crawl.Models
 
 
         //Constructor that takes params. needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
-        {
-            CreateDefaultCharacter();
-            Name = name;
-            Description = description;
-            ImageURI = imageuri;
-            Item = item; //added pref item
-            ExperienceTotal = experiencetotal;
-            Level = level;
+        //public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
+        //{
+        //    CreateDefaultCharacter();
+        //    Name = name;
+        //    Description = description;
+        //    ImageURI = imageuri;
+           
+        //    ExperienceTotal = experiencetotal;
+        //    Level = level;
 
-        }
+        //}
 
         // Upgrades to a set level
         public bool ScaleLevel(int level)
@@ -124,7 +130,7 @@ namespace Crawl.Models
             Level = newData.Level;
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;
-            Item = newData.Item;
+            
             ExperienceTotal = newData.ExperienceTotal;
 
             //HealthPoints = newData.HealthPoints;
@@ -145,7 +151,6 @@ namespace Crawl.Models
             RightFinger = newData.RightFinger;
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
-
 
             // Database information
             Guid = newData.Guid;

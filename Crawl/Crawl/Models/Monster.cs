@@ -21,52 +21,60 @@ namespace Crawl.Models
             Name = "unknown";
             Description = "unknown";
             ImageURI = ItemsController.DefaultImageURIMonster;
-            Item = PreferredItemEnum.Unknown; //Adding preferred item
+ 
 
         }
 
         // Make sure Attribute is instantiated in the constructor
         public Monster()
         {
-            
+            Name = "Monster";
             Attribute = new AttributeBase();
+
             Alive = true;
-            CreateDefaultMonster();
-            
+            Level = 1;
 
             // Scale up to the level
-            // // Implement ScaleLevel(Level);
+            ScaleLevel(Level);
         }
 
         // Passed in from creating via the Database, so use the guid passed in...
         public Monster(BaseMonster newData)
         {
-            // Implement
-            // Base information
-            Name = newData.Name;
-            Description = newData.Description;
-            Level = newData.Level;
-            ExperienceTotal = newData.ExperienceTotal;
-            ImageURI = newData.ImageURI;
-            Item = newData.Item;
-            Alive = newData.Alive;
-            //HealthPoints = newData.HealthPoints;
-            //MaxHealth = newData.MaxHealth;
-            //Attack = newData.Attack;
-            //Defense = newData.Defense;
-            //Speed = newData.Speed;
-
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
+
+            // Set the strings for the items
+            Head = newData.Head;
+            Feet = newData.Feet;
+            Necklass = newData.Necklass;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
+
+            Name = newData.Name;
+            Description = newData.Description;
+            ImageURI = newData.ImageURI;
+            Alive = newData.Alive;
+
+            Level = newData.Level;
+
+            // Populate the Attributes
+            Attribute = new AttributeBase(newData.AttributeString);
+
+            // Scale up to the level
+            ScaleLevel(Level);
 
         }
 
         // For making a new one for lists etc..
         public Monster(Monster newData)
         {
-            // Implement
-            CreateDefaultMonster();
+            Update(newData);
+
+            // Scale up to the level
+            ScaleLevel(Level);
 
         }
 
@@ -77,34 +85,83 @@ namespace Crawl.Models
             Name = name;
             Description = description;
             ImageURI = imageuri;
-            Item = item;
+     
         }
 
         // Upgrades a monster to a set level
         public void ScaleLevel(int level)
         {
-            // Implement
+            // Calculate Experience Remaining based on Lookup...
+            Level = level;
+
+            // Get the number of points at the next level, and set it for Experience Total...
+            ExperienceTotal = LevelTable.Instance.LevelDetailsList[Level + 1].Experience;
+            ExperienceRemaining = ExperienceTotal;
+
+            Damage = GetLevelBasedDamage() + LevelTable.Instance.LevelDetailsList[Level].Attack;
+            Attribute.Attack = LevelTable.Instance.LevelDetailsList[Level].Attack;
+            Attribute.Defense = LevelTable.Instance.LevelDetailsList[Level].Defense;
+            Attribute.Speed = LevelTable.Instance.LevelDetailsList[Level].Speed;
+            Attribute.MaxHealth = 5 * Level;    // 1/2 of what Characters can get per level.. 
+            Attribute.CurrentHealth = Attribute.MaxHealth;
+
+            AttributeString = AttributeBase.GetAttributeString(Attribute);
         }
 
         // Update the values passed in
         public new void Update(Monster newData)
         {
+            if (newData == null)
+            {
+                return;
+            }
+
+            // Update all the fields in the Data, except for the Id
             Name = newData.Name;
             Description = newData.Description;
+            Level = newData.Level;
+            ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
-            Item = newData.Item;
-            return;
+            Alive = newData.Alive;
+
+            // Database information
+            Guid = newData.Guid;
+            Id = newData.Id;
+
+            // Populate the Attributes
+            AttributeString = newData.AttributeString;
+            Attribute = new AttributeBase(newData.AttributeString);
+
+            // Set the strings for the items
+            Head = newData.Head;
+            Feet = newData.Feet;
+            Necklass = newData.Necklass;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
+            UniqueItem = newData.UniqueItem;
+
+            // Calculate Experience Remaining based on Lookup...
+            ExperienceTotal = newData.ExperienceTotal;
+            ExperienceRemaining = newData.ExperienceRemaining;
+
+            Damage = newData.Damage;
         }
 
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string
         public string FormatOutput()
         {
-            var UniqueOutput = "Implement";
+            var UniqueOutput = "None";
+            var myUnique = ItemsViewModel.Instance.GetItem(UniqueItem);
+            if (myUnique != null)
+            {
+                UniqueOutput = myUnique.FormatOutput();
+            }
 
-            var myReturn = "Implement";
-
-            // Implement
-
+            var myReturn = Name;
+            myReturn += " , " + Description;
+            myReturn += " , Level : " + Level.ToString();
+            myReturn += " , Total Experience : " + ExperienceTotal;
             myReturn += " , Unique Item : " + UniqueOutput;
 
             return myReturn;

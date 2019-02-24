@@ -30,7 +30,7 @@ namespace Crawl.Models
             Level = newData.Level;
             ExperienceTotal = newData.ExperienceTotal;
             ImageURI = newData.ImageURI;
-            Item = newData.Item; //adding preferred item
+           
             Alive = newData.Alive;
 
             // Database information

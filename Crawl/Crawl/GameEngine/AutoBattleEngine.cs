@@ -26,15 +26,20 @@ namespace Crawl.GameEngine
 
             //init console message
             Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Characters :" + BattleEngine.CharacterList.Count);
-            Debug.WriteLine("Character Names :");
+            Debug.WriteLine("Character Name :");
             for (var i = 0; i < 6; i++)
             { 
-                Debug.WriteLine(+ BattleEngine.CharacterList[i].FormatOutput());
+                Debug.WriteLine(BattleEngine.CharacterList[i].FormatOutput());
             }
             // Initialize the Rounds
             RoundEnum RoundResult;
             BattleEngine.StartRound();
-
+            Debug.WriteLine("Round Started" + "Monsters :" + BattleEngine.MonsterList.Count);
+            Debug.WriteLine("Monster Name :");
+            for (var i = 0; i < 6; i++)
+            {
+                Debug.WriteLine(BattleEngine.MonsterList[i].FormatOutput());
+            }
             //do while looped discussed in class about fighting until the game is over
             do
             {

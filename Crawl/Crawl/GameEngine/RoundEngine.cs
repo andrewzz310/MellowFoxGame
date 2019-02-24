@@ -103,6 +103,7 @@ namespace Crawl.GameEngine
                     var item = new Monster();
                     // Help identify which monster it is...
                     item.Name += " " + MonsterList.Count() + 1;
+
                     MonsterList.Add(item);
                 }
             }
