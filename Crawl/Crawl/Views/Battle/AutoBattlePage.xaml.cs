@@ -39,11 +39,12 @@ namespace Crawl.Views.Battle
                 return;
             }
           
-            /*
+            // output results of the game after battle is over
             var myResult = myBattleEngine.GetResultsOutput();
             var myScore = myBattleEngine.GetScoreValue();
-            
 
+            
+            /*
             var outputString = "Battle Over! Score " + myScore.ToString();
             
             var action = await DisplayActionSheet(outputString, 
