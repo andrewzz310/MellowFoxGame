@@ -1,6 +1,7 @@
 ﻿using Crawl.ViewModels;
 using System.Collections.Generic;
 using Crawl.Controllers;
+using Crawl.GameEngine;
 
 namespace Crawl.Models
 {
@@ -10,35 +11,24 @@ namespace Crawl.Models
         // Add in the actual attribute class
         public AttributeBase Attribute { get; set; }
 
-       
-  
-
-        // Create a default Character for the instantiation
-        private void CreateDefaultCharacter()
-        {
-            Name = "Unknown";
-            Description = "Unknown";
-            ImageURI = ItemsController.DefaultImageURICharacter;
-            Item = PreferredItemEnum.Unknown; //adding pref item
-            // adding properties
-            Level = 0;
-            Alive = true;
-            HealthPoints = 0;
-            MaxHealth = 0;
-            Attack = 0;
-            Defense = 0;
-            Speed = 0;
-            ExperienceTotal = 0;
-        }
-
         public Character()
         {
             Attribute = new AttributeBase();
             Alive = true;
-            CreateDefaultCharacter();
         }
+        // Create a default Character for the instantiation
+        //private void CreateDefaultCharacter()
+        //{
+        //    Name = "Unknown";
+        //    Description = "Unknown";
+        //    ImageURI = ItemsController.DefaultImageURICharacter;
+     
+        //    // adding properties
+        //    Level = 0;
+        //    Alive = true;
 
-
+        //    ExperienceTotal = 0;
+        //}
 
         // Create a new character, based on a passed in BaseCharacter
         // Used for converting from database format to character
@@ -49,70 +39,118 @@ namespace Crawl.Models
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
-            Item = newData.Item; //added pref item
+            
             Alive = newData.Alive;
-            HealthPoints = newData.HealthPoints;
-            MaxHealth = newData.MaxHealth;
-            Attack = newData.Attack;
-            Defense = newData.Defense;
-            Speed = newData.Speed;
             ExperienceTotal = newData.ExperienceTotal;
 
             // Database information
             Guid = newData.Guid;
             Id = newData.Id;
+
+            // Populate the Attributes
+            AttributeString = newData.AttributeString;
+
+            Attribute = new AttributeBase(newData.AttributeString);
+
+            // Set the strings for the items
+            Head = newData.Head;
+            Feet = newData.Feet;
+            Necklass = newData.Necklass;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
         }
 
         // Create a new character, based on existing Character
         public Character(Character newData)
         {
-            CreateDefaultCharacter();
+            Update(newData);
         }
 
 
         //Constructor that takes params. needed to create a new item with set values
-        public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
-        {
-            CreateDefaultCharacter();
-            Name = name;
-            Description = description;
-            ImageURI = imageuri;
-            Item = item; //added pref item
-            ExperienceTotal = experiencetotal;
-            Level = level;
-            Attack = attack;
-            Defense = defense;
-            Speed = speed;
+        //public Character(string name, string description, string imageuri, int level, int experiencetotal, int attack, int defense, int speed, PreferredItemEnum item)
+        //{
+        //    CreateDefaultCharacter();
+        //    Name = name;
+        //    Description = description;
+        //    ImageURI = imageuri;
+           
+        //    ExperienceTotal = experiencetotal;
+        //    Level = level;
 
-
-
-        }
+        //}
 
         // Upgrades to a set level
-        public void ScaleLevel(int level)
+        public bool ScaleLevel(int level)
         {
-            // Implement
+            // Level of < 1 does not need changing
+            if (level < 1)
+            {
+                return false;
+            }
+
+            // Same level does not need changing
+            if (level == this.Level)
+            {
+                return false;
+            }
+
+            // Don't go down in level...
+            if (level < this.Level)
+            {
+                return false;
+            }
+
+            // Level > Max Level
+            if (level > LevelTable.MaxLevel)
+            {
+                return false;
+            }
+
+            // Calculate Experience Remaining based on Lookup...
+            Level = level;
+
+            Attribute.MaxHealth = HelperEngine.RollDice(Level, HealthDice);
+
+            return true;
         }
 
         // Update the character information
         // Updates the attribute string
         public void Update(Character newData)
         {
-            // Implement
+            if (newData == null)
+            {
+                return;
+            }
             // Base information
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
             ImageURI = newData.ImageURI;
             Alive = newData.Alive;
-            HealthPoints = newData.HealthPoints;
-            MaxHealth = newData.MaxHealth;
-            Attack = newData.Attack;
-            Defense = newData.Defense;
-            Speed = newData.Speed;
+            
             ExperienceTotal = newData.ExperienceTotal;
 
+            //HealthPoints = newData.HealthPoints;
+            //MaxHealth = newData.MaxHealth;
+            //Attack = newData.Attack;
+            //Defense = newData.Defense;
+            //Speed = newData.Speed;
+            
 
+            //Attributes
+            Attribute = newData.Attribute;
+            AttributeString = AttributeBase.GetAttributeString(Attribute);
+
+            //Item locations
+            Head = newData.Head;
+            Feet = newData.Feet;
+            Necklass = newData.Necklass;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
 
             // Database information
             Guid = newData.Guid;
@@ -122,7 +160,15 @@ namespace Crawl.Models
         // Helper to combine the attributes into a single line, to make it easier to display the item as a string
         public string FormatOutput()
         {
-            var myReturn = " Implement";
+            var myReturn = string.Empty;
+            myReturn += Name;
+            myReturn += " , " + Description;
+            myReturn += " , Level : " + Level.ToString();
+            myReturn += " , Total Experience : " + ExperienceTotal;
+            myReturn += " , " + Attribute.FormatOutput();
+            myReturn += " , Items : " + ItemSlotsFormatOutput();
+            myReturn += " Damage : " + GetDamageDice();
+
             return myReturn;
         }
 
