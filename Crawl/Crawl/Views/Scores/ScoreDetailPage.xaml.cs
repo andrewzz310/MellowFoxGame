@@ -21,6 +21,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        // Score Detail View model initialized
         public ScoreDetailPage()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace Crawl.Views
             BindingContext = _viewModel;
         }
 
-
+        // Buttons for edit, cancel, delete
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ScoreEditPage(_viewModel));

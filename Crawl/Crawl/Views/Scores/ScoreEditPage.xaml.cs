@@ -15,6 +15,7 @@ namespace Crawl.Views
 
         public Score Data { get; set; }
 
+        // Edit page based on score detailview model saved to data 
         public ScoreEditPage(ScoreDetailViewModel viewModel)
         {
             // Save off the item
@@ -27,6 +28,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        // button for save the edited score page
         private async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "EditData", Data);
@@ -41,6 +43,7 @@ namespace Crawl.Views
             Navigation.RemovePage(this);
         }
 
+        // button for cancel
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

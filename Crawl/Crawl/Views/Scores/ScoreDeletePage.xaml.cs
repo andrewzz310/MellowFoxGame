@@ -27,6 +27,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        // delete button
 	    private async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteData", Data);
@@ -37,6 +38,7 @@ namespace Crawl.Views
             await Navigation.PopAsync();
         }
 
+        // cancel button
 	    private async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();

@@ -16,6 +16,8 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
+                    
+                    <!-- Score edit page title-->
                     <Label Text="Edit Score Page" FontSize="Small" />
 
                     <Grid
@@ -29,7 +31,9 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-
+                        
+                        
+                        <!-- Grid Attributes-->
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
                             Text="Monster Slain" 
@@ -134,6 +138,8 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
                     </Grid>
+                    
+                    <!-- Buttons for Score Edit Page-->
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
                         VerticalOptions="CenterAndExpand" 

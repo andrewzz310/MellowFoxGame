@@ -12,6 +12,7 @@ namespace Crawl.Views
     {
         public Score Data { get; set; }
 
+        // New Score page populates the Data
         public ScoreNewPage()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace Crawl.Views
 
             BindingContext = this;
         }
-
+        // Buttons for save and cancel for the new score page
         private async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddData", Data);

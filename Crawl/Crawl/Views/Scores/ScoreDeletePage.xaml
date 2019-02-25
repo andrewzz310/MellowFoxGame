@@ -11,8 +11,11 @@
             Spacing="20"
             Padding="15" BackgroundColor="Green">
 
+            <!-- Delete Score Page Title-->
+            
             <Label Text="Delete Score Page" FontSize="Medium" />
 
+            <!-- Attributes for Scores-->
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
@@ -23,17 +26,7 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-            <!-- dont need name
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Name : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Name}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout> -->
+
 
             <StackLayout
                 Orientation="Horizontal"
@@ -100,7 +93,7 @@
                     HorizontalOptions="Center"/>
             </StackLayout>
 
-
+                <!-- Buttons for delete and cancel-->
             <StackLayout Orientation="Horizontal">
                 <Button Text="Delete"
                         VerticalOptions="CenterAndExpand" 

@@ -11,14 +11,17 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ScoresPage : ContentPage
     {
-        private ScoresViewModel _viewModel;
+        private ScoresViewModel _viewModel; //scoreviewmodel
 
+
+        // The score page that displays the scores
         public ScoresPage()
         {
             InitializeComponent();
             BindingContext = _viewModel = ScoresViewModel.Instance;
         }
 
+        // select the specific score
         private async void OnItemSelecteds(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Score;
@@ -31,6 +34,7 @@ namespace Crawl.Views
             ScoresListView.SelectedItem = null;
         }
 
+        // New score page if clicked
         private async void AddScores_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ScoreNewPage());

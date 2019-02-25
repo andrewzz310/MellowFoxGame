@@ -10,9 +10,11 @@
     
       <ContentPage.Content>
         <StackLayout>
-
+                <!-- Page title for the score page-->
             <Label Text="Scores List Page" FontSize="Small" />
 
+            
+            <!-- Listview of Scores Page that is binding the detaset from the list of scores-->
             <ListView x:Name="ScoresListView" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"
@@ -25,7 +27,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-
+                                <!-- Attributes that are from each score from the scorelistview-->
                             <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"
@@ -40,15 +42,7 @@
 
                                 <StackLayout>
                                     <StackLayout Orientation="Horizontal">
-                                        <!--
-                                        <Label Text=" Name:" 
-                                           LineBreakMode="NoWrap" 
-                                           Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="12" />
-                                        <Label Text="{Binding Name}" 
-                                           LineBreakMode="NoWrap" 
-                                           Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" /> -->
+                             
 
                                         <Label Text=" XP Gained:" 
                                            LineBreakMode="NoWrap" 

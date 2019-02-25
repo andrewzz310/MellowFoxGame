@@ -4,7 +4,7 @@
              x:Class="Crawl.Views.ScoreDetailPage"
              Title="{Binding Title}">
 
-
+<!-- tool bar items for edit delete and cancel-->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
@@ -18,8 +18,11 @@
             Spacing="20"
             Padding="15" BackgroundColor="Green">
 
+            <!-- Score detail page title-->
+
             <Label Text="Scores Detail Page" FontSize="Medium" />
 
+            <!--  attributes for score details-->
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
@@ -30,18 +33,7 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-            <!-- dont need name
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Name : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Name}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout> -->
-
+  
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
