@@ -4,7 +4,7 @@
              x:Class="Crawl.Views.ItemDetailPage"
              Title="{Binding Title}">
 
-
+   <!-- Toolbar edit, delete, and cancel for the specific item-->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
@@ -17,7 +17,7 @@
             Orientation="Vertical"
             Spacing="20"
             Padding="15" BackgroundColor="Green">
-
+            <!-- Title for the item details page-->
             <Label Text="Items Detail Page" FontSize="Medium" />
 
             <Image Source="{Binding Data.ImageURI}"
@@ -25,7 +25,7 @@
                 HeightRequest="150" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
-
+        <!-- Attributes for that specific item-->
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">

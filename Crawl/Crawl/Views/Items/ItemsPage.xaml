@@ -4,14 +4,16 @@
              x:Class="Crawl.Views.ItemsPage"
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
+    <!-- Add a item in the toolbar to the dataset of items -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-
+                <!-- Title for Items list page-->
             <Label Text="Items List Page" FontSize="Small" />
-
+                
+            <!-- Dataset of Items that is binded with a listview-->
             <ListView x:Name="ItemsListView" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"

@@ -13,12 +13,14 @@ namespace Crawl.Views
     {
         private ItemsViewModel _viewModel;
 
+        // Items list page
         public ItemsPage()
         {
             InitializeComponent();
             BindingContext = _viewModel = ItemsViewModel.Instance;
         }
 
+        // Display the item that is selected
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Item;
@@ -31,6 +33,7 @@ namespace Crawl.Views
             ItemsListView.SelectedItem = null;
         }
 
+        // add a new item 
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ItemNewPage());

@@ -6,11 +6,11 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Crawl.Views
-{
+{   //Editing an Item
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ItemEditPage : ContentPage
 	{
-	    // ReSharper disable once NotAccessedField.Local
+	    //ItemDetail View Model
 	    private ItemDetailViewModel _viewModel;
 
         // The data returned from the edit.

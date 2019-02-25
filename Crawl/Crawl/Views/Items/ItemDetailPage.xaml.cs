@@ -11,7 +11,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
     {
-        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        // Item Detail ViewModel
         private ItemDetailViewModel _viewModel;
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
@@ -21,6 +21,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        // The detail page of the item
         public ItemDetailPage()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace Crawl.Views
             BindingContext = _viewModel;
         }
 
-
+        // Edit, delete or cancel buttons for the item detail page
         private async void Edit_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ItemEditPage(_viewModel));

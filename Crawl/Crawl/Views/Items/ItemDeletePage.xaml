@@ -13,7 +13,7 @@
             Spacing="20"
             Padding="15"
             BackgroundColor="Green">
-
+            <!-- Items delete page title-->
             <Label Text="Items Delete Page" FontSize="Medium" />
 
             <Image Source="{Binding Data.ImageURI}"
@@ -21,7 +21,7 @@
                 HeightRequest="150" 
                 HorizontalOptions="Center"
                 VerticalOptions="Center"/>
-
+            <!-- Item delete page attributes-->
             <StackLayout
                 Orientation="Horizontal"
                 HorizontalOptions="Start">
@@ -86,7 +86,7 @@
                     HorizontalOptions="Center"/>
             </StackLayout>
 
-
+            <!-- Buttons for confirmation of deletion or cancel the delete-->
             <StackLayout Orientation="Horizontal">
                 <Button Text="Confirm Delete"
                 VerticalOptions="CenterAndExpand" 

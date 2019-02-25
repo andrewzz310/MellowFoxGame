@@ -15,7 +15,7 @@
 
         <ScrollView>
             <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
-
+                <!-- Item Edit Page Title-->
                 <Label Text="Item Edit Page" FontSize="Small" />
 
                 <Image Source="{Binding Data.ImageURI}"
@@ -35,7 +35,8 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-
+                
+                    <!-- Item attributes to edit inside of the grid-->
                     <StackLayout Grid.Row="0" Grid.Column="0">
                         <Label 
                             Text="Name" 
@@ -172,6 +173,8 @@
 
             
                 </Grid>
+                
+                <!-- Buttons for save and cancel-->
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Save"
                         VerticalOptions="CenterAndExpand" 

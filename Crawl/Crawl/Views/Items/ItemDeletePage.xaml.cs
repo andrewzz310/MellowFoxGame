@@ -10,11 +10,12 @@ namespace Crawl.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ItemDeletePage : ContentPage
 	{
-	    // ReSharper disable once NotAccessedField.Local
+	    //Items view model
 	    private ItemDetailViewModel _viewModel;
 
         public Item Data { get; set; }
 
+        // Get data for the item to delete
         public ItemDeletePage (ItemDetailViewModel viewModel)
         {
             // Save off the item
@@ -27,6 +28,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        // Buttons for deleting and canceling of item deletion
 	    private async void Delete_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "DeleteData", Data);
