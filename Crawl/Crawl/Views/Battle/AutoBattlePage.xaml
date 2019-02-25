@@ -8,7 +8,7 @@
             HorizontalOptions="Center" 
             VerticalOptions="Start"
             Orientation="Vertical">
-
+        <!-- Image for Auto Battle Page-->
                 <Image 
                 Source="mellowfoxgamelogo1.png" 
                 VerticalOptions="Center" 
@@ -20,7 +20,7 @@
                 Text="MellowFoxGame"
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
-
+            <!-- Auto Battle Button that runs the auto battle-->
                 <Label Text="Auto Battle Below!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
