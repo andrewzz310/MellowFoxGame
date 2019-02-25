@@ -57,22 +57,24 @@ namespace Crawl.GameEngine
        
 
       
-            //do while looped discussed in class about fighting until the game is over
+            //do while looped fighting until the game is over
             do
             {
-                //Each Turn
+                //Each Turn we need to check if it's next turn, new round, or game over for roundEnum
                 RoundResult = BattleEngine.RoundNextTurn(); 
 
                 // If the round is over start a new one...
                 if (RoundResult == RoundEnum.NewRound)
                 {
                     BattleEngine.NewRound();
+                    Debug.WriteLine("####################################");
                     Debug.WriteLine("New Round#:" + BattleEngine.BattleScore.RoundCount);
+                    Debug.WriteLine("####################################");
                 }
 
             } while (RoundResult != RoundEnum.GameOver);
 
-            // battle ended and update the scoredetail view model
+            // battle ended and update the scoredetail view model and show console output of results
             BattleEngine.EndBattle();
 
             
@@ -119,7 +121,8 @@ namespace Crawl.GameEngine
             "MellowFoxBattle Ended! Score total is: " + BattleEngine.BattleScore.ScoreTotal +
             "  Total Experience  :" + BattleEngine.BattleScore.ExperienceGainedTotal +
             " Total Rounds :" + BattleEngine.BattleScore.RoundCount +
-            " Total Turns :" + BattleEngine.BattleScore.TurnCount;
+            " Total Turns :" + BattleEngine.BattleScore.TurnCount +
+            " Total Monsters Defeated: " + BattleEngine.BattleScore.MonsterSlainNumber;
            // " Total Monster Kills :" + BattleEngine.BattleScore.MonstersKilledList;
 
             Debug.WriteLine(myResult);

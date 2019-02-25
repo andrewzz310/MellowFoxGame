@@ -67,11 +67,42 @@ namespace Crawl.GameEngine
             {
                 return;
             }
-
             // TODO, determine the character strength
-            // add monsters up to that strength...
-            var ScaleLevelMax = 3;
-            var ScaleLevelMin = 1;
+            
+            // init monster scaling
+            var ScaleLevelMax = 0;
+            var ScaleLevelMin = 0;
+
+
+            // Scale monsters based on round count.. higher round higher and stronger monsters
+            if (BattleScore.RoundCount <= 10)
+            {
+                ScaleLevelMax = 1;
+                ScaleLevelMin = 1;
+            }
+
+            if (BattleScore.RoundCount > 10 && BattleScore.RoundCount <= 30 )
+            {
+                ScaleLevelMax = 2;
+                ScaleLevelMin = 1;
+            }
+
+            if (BattleScore.RoundCount > 30 && BattleScore.RoundCount <= 50)
+            {
+                ScaleLevelMax = 4;
+                ScaleLevelMin = 2;
+            }
+            if (BattleScore.RoundCount > 50 && BattleScore.RoundCount <= 100)
+            {
+                ScaleLevelMax = 8;
+                ScaleLevelMin = 4;
+            }
+            if (BattleScore.RoundCount > 100)
+            {
+                ScaleLevelMax = 10;
+                ScaleLevelMin = 5;
+            }
+
 
             // Make Sure Monster List exists and is loaded...
             var myMonsterViewModel = MonstersViewModel.Instance;
@@ -128,20 +159,21 @@ namespace Crawl.GameEngine
 
         // Rember Who's Turn
 
-        // RoundNextTurn
+
+        // RoundNextTurn which uses PlayerCurrent as tracking which player
         public RoundEnum RoundNextTurn()
         {
             // No characters, game is over because game ends when characters die
             if (CharacterList.Count < 1)
             {
-                // Game Over
+                // Game Over and exit do while loop from auto battle engine
                 return RoundEnum.GameOver;
             }
 
-            // Check if round is over
+            // Check if round is over when monsters are killed
             if (MonsterList.Count < 1)
             {
-                // If over, New Round
+                // If over, New Round which loops back to main auto battle engine
                 return RoundEnum.NewRound;
             }
 
@@ -172,10 +204,10 @@ namespace Crawl.GameEngine
             return RoundEnum.NextTurn;
         }
 
-        // get the next monster/characters turn
+        // get the next monster/characters turn b
         public PlayerInfo GetNextPlayerTurn()
         {
-            // Recalculate Order
+            // Recalculate Order based on speed first
             OrderPlayerListByTurnOrder();
 
             var PlayerCurrent = GetNextPlayerInList();
@@ -185,6 +217,7 @@ namespace Crawl.GameEngine
             return PlayerCurrent;
         }
 
+        // initialize and then order the player list
         public void OrderPlayerListByTurnOrder()
         {
             var myReturn = new List<PlayerInfo>();
@@ -197,8 +230,10 @@ namespace Crawl.GameEngine
             // Then by Alphabetic on Name (Assending)
             // Then by First in list order (Assending
 
+            // initialize list
             MakePlayerList();
 
+            // organize list based on speed, level,etc,etc
             PlayerList = PlayerList.OrderByDescending(a => a.Speed)
                 .ThenByDescending(a => a.Level)
                 .ThenByDescending(a => a.ExperiencePoints)
@@ -208,7 +243,7 @@ namespace Crawl.GameEngine
                 .ToList();
         }
     
-        // The list for the order between characters and players
+        // initializing list
         private void MakePlayerList()
         {
             PlayerList = new List<PlayerInfo>();
@@ -248,7 +283,7 @@ namespace Crawl.GameEngine
             }
         }
 
-
+        // Traverse through the already organized player list based on speed,etc,etc
         public PlayerInfo GetNextPlayerInList()
         {
             // Walk the list from top to bottom
