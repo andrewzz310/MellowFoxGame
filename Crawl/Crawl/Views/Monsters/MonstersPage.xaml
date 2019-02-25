@@ -4,14 +4,15 @@
              x:Class="Crawl.Views.MonstersPage"
               Title="{Binding Title}"
              x:Name="BrowseMonstersPage">
+    <!-- Add a new monster-->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-
+                <!-- Title for Monsters List Page-->
             <Label Text="Monsters List Page" FontSize="Small" />
-
+                <!-- Listview that binds the data of the list of monsters -->
             <ListView x:Name="MonstersListView" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"

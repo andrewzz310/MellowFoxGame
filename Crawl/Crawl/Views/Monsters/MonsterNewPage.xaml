@@ -15,6 +15,7 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Spacing="20" Padding="16" BackgroundColor="Green">
+                    <!-- Monster New Page Title -->
                     <Label Text="New Monster Page" FontSize="Small" />
                     <Grid
                     RowSpacing="1"
@@ -27,6 +28,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
+                        <!-- Monster New Page Attributes inside of grid -->
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
                             Text="Name" 
@@ -84,6 +86,7 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
                     </Grid>
+                    <!-- buttons for save and cancel-->
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
                         VerticalOptions="CenterAndExpand" 

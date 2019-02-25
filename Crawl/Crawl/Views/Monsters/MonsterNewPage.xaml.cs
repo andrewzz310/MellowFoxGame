@@ -36,7 +36,7 @@ namespace Crawl.Views
         // Send the add message to so it gets added...
         private async void Save_Clicked(object sender, EventArgs e)
         {
-            // If the image in teh data box is empty, use the default one..
+            // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(Data.ImageURI))
             {
                 Data.ImageURI = ItemsController.DefaultImageURIMonster;

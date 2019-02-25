@@ -11,12 +11,14 @@
             Spacing="20"
             Padding="15"
             BackgroundColor="Green">
+            <!-- Monster Delete Page Title -->
             <Label Text="Monster Delete Page" FontSize="Medium" />
             <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="200"
                 HeightRequest="200" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
+            <!-- Monster Delete page attributes-->
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="MediumSpringGreen" Grid.Row="0" Grid.Column="0">
@@ -108,6 +110,8 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
+            
+            <!-- Monster Delete Page Buttons-->
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="Confirm Delete"

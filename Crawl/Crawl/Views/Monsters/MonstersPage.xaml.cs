@@ -11,7 +11,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonstersPage : ContentPage
     {
-        // ReSharper disable once NotAccessedField.Local
+        // Monster View Model
         private MonstersViewModel _instancem;
 
         public MonstersPage()
@@ -20,7 +20,7 @@ namespace Crawl.Views
             BindingContext = _instancem = MonstersViewModel.Instance;
         }
 
-
+        // Display the monster that is selected
         private async void OnItemSelectedm(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Monster;
@@ -33,6 +33,7 @@ namespace Crawl.Views
             MonstersListView.SelectedItem = null;
         }
 
+        // Add a new monster
         private async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new MonsterNewPage());

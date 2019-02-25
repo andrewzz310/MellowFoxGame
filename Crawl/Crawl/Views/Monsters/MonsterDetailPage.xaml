@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.MonsterDetailPage"
              Title="{Binding Title}">
-
+<!-- Tool bar buttons for edit delete and cancel -->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
@@ -21,6 +21,7 @@
                 HeightRequest="200" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
+            <!-- Monster Detail Page Attributes-->
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="MediumSpringGreen" Grid.Row="0" Grid.Column="0">

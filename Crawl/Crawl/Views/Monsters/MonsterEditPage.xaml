@@ -16,6 +16,7 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
+                    <!-- Monster Edit Page Title -->
                     <Label Text="Monster Edit Page" FontSize="Small" />
                     <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="200"
@@ -33,6 +34,8 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
+                        
+                        <!-- Grid Attributes for Monster Edit Page-->
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
                             Text="Name" 
@@ -90,6 +93,7 @@
                             VerticalOptions="Center"/>
                         </StackLayout>
                     </Grid>
+                    <!-- Buttons for monster edit page-->
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
                 VerticalOptions="CenterAndExpand" 
