@@ -39,8 +39,7 @@ namespace Crawl.ViewModels
             Dataset = new ObservableCollection<Monster>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
-            // Implement 
-            // Implement 
+             
             #region Messages
             MessagingCenter.Subscribe<MonsterDeletePage, Monster>(this, "DeleteData", async (obj, data) =>
             {
@@ -124,7 +123,7 @@ namespace Crawl.ViewModels
         
         public void ForceDataRefresh()
         {
-            // Implement 
+            
             // Reset
             var canExecute = LoadDataCommand.CanExecute(null);
             LoadDataCommand.Execute(null);
@@ -134,18 +133,16 @@ namespace Crawl.ViewModels
 
         public async Task<bool> AddAsync(Monster data)
         {
-            // Implement
-            // Implement 
+          
             Dataset.Add(data);
             var myReturn = await DataStore.AddAsync_Monster(data);
             return myReturn;
-            //return false;
+            
         }
 
         public async Task<bool> DeleteAsync(Monster data)
         {
-            // Implement 
-            // Implement 
+            
             Dataset.Remove(data);
             var myReturn = await DataStore.DeleteAsync_Monster(data);
             return myReturn;
@@ -172,7 +169,7 @@ namespace Crawl.ViewModels
         // Call to database to ensure most recent
         public async Task<Monster> GetAsync(string id)
         {
-            // Implement 
+        
             var myData = await DataStore.GetAsync_Monster(id);
             return myData;
            

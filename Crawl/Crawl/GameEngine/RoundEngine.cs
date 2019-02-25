@@ -89,13 +89,13 @@ namespace Crawl.GameEngine
 
             if (BattleScore.RoundCount > 30 && BattleScore.RoundCount <= 50)
             {
-                ScaleLevelMax = 4;
+                ScaleLevelMax = 3;
                 ScaleLevelMin = 2;
             }
             if (BattleScore.RoundCount > 50 && BattleScore.RoundCount <= 100)
             {
-                ScaleLevelMax = 8;
-                ScaleLevelMin = 4;
+                ScaleLevelMax = 4;
+                ScaleLevelMin = 2;
             }
             if (BattleScore.RoundCount > 100)
             {
@@ -104,13 +104,13 @@ namespace Crawl.GameEngine
             }
 
 
-            // Make Sure Monster List exists and is loaded...
+            // Make Sure Monster List exists and is loaded... (item is monster in this case not the actual items)
             var myMonsterViewModel = MonstersViewModel.Instance;
             myMonsterViewModel.ForceDataRefresh();
 
             if (myMonsterViewModel.Dataset.Count() > 0)
             {
-                // Get 6 monsters
+                // Get 6 monsters based on the scaling that was set earlier and add items to monster
                 do
                 {
                     var rnd = HelperEngine.RollDice(1, myMonsterViewModel.Dataset.Count);
@@ -144,11 +144,13 @@ namespace Crawl.GameEngine
         // At the end of the round
         // Clear the Item List
         // Clear the Monster List
+        // pick up items from pool
         public void EndRound()
         {
             // Have each character pickup items...
             foreach (var character in CharacterList)
             {
+                // pick up items from the pool for each character (items go there if monster or character dies for item they were holding) 
                 PickupItemsFromPool(character);
             }
 
@@ -317,6 +319,7 @@ namespace Crawl.GameEngine
         }
 
 
+        // pick up items from pool
         public void PickupItemsFromPool(Character character)
         {
             // Have the character, walk the items in the pool, and decide if any are better than current one.
@@ -336,6 +339,7 @@ namespace Crawl.GameEngine
             GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
         }
 
+        // Pick up items if better than current item
         public void GetItemFromPoolIfBetter(Character character, ItemLocationEnum setLocation)
         {
             var myList = ItemPool.Where(a => a.Location == setLocation)
