@@ -47,15 +47,16 @@ namespace Crawl.Views.Battle
 
             
             
-            var outputString = "Battle Over! Score " + myScore.ToString();
+            var outputString = "Mellow Fox Battle Over!";
             
             // the pop up for either cancel or see the score details
             var action = await DisplayActionSheet(outputString, 
                 "Cancel", 
                 null, 
-                "View Score");
+                "View Score Results");
             
-            if (action == "View Score")
+            // Show the results
+            if (action == "View Score Results")
             {
                 var myScoreObject = myBattleEngine.GetScoreObject();
                 await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));

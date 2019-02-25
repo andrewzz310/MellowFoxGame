@@ -98,7 +98,6 @@ namespace Crawl.GameEngine
             BattleScore.TurnCount++;
 
             // Choose who to attack
-
             TargetName = Target.Name;
             AttackerName = Attacker.Name;
 
@@ -113,7 +112,7 @@ namespace Crawl.GameEngine
 
             if (HitStatus == HitStatusEnum.CriticalMiss)
             {
-                TurnMessage = Attacker.Name + " swings and really misses " + Target.Name;
+                TurnMessage = Attacker.Name + " swings and critically misses " + Target.Name;
                 Debug.WriteLine(TurnMessage);
                 return true;
             }
@@ -192,7 +191,6 @@ namespace Crawl.GameEngine
             BattleScore.TurnCount++;
 
             // Choose who to attack
-
             TargetName = Target.Name;
             AttackerName = Attacker.Name;
 
@@ -208,7 +206,7 @@ namespace Crawl.GameEngine
 
             if (HitStatus == HitStatusEnum.CriticalMiss)
             {
-                TurnMessage = Attacker.Name + " swings and really misses " + Target.Name;
+                TurnMessage = Attacker.Name + " swings and critically misses " + Target.Name;
                 Debug.WriteLine(TurnMessage);
 
                 if (GameGlobals.EnableCriticalMissProblems)

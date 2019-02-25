@@ -179,12 +179,13 @@ namespace Crawl.GameEngine
                 return RoundEnum.NewRound;
             }
 
-            // Decide Who gets next turn
-            // Remember who just went...
+           
+            // Player current is the next players turn which is decided by recalculating the order 
+            // through making a list based on attributes starting with speed, level, etc
+            // Then parse through the list to get the next players turn
             PlayerCurrent = GetNextPlayerTurn();
 
-            // Decide Who to Attack
-            // Do the Turn         
+            // Decide Who to Attack      
             if (PlayerCurrent.PlayerType == PlayerTypeEnum.Character)
             {
                 // Get the player

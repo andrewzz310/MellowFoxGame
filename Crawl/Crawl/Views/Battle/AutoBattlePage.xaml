@@ -21,7 +21,7 @@
                 VerticalOptions="Center" 
                 HorizontalOptions="CenterAndExpand" />
 
-                <Label Text="Battle Modes"
+                <Label Text="Auto Battle Below!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
                 
