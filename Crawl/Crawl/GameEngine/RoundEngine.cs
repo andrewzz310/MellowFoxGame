@@ -41,7 +41,7 @@ namespace Crawl.GameEngine
             Debug.WriteLine("Starting the Round # :" + BattleScore.RoundCount);
         }
 
-        // Call to make a new set of monsters...
+        // Call to make a new set of monsters and initialize for roundnextturn()
         public void NewRound()
         {
             // End the existing round
@@ -191,7 +191,7 @@ namespace Crawl.GameEngine
                 // Get the player
                 var myPlayer = CharacterList.Where(a => a.Guid == PlayerCurrent.Guid).FirstOrDefault();
 
-                // Do the turn....
+                // Do the turn by going to the turn engine and either having monster or character attack
                 TakeTurn(myPlayer);
             }
             // Add Monster turn here...

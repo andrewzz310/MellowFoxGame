@@ -55,7 +55,7 @@ namespace Crawl.GameEngine
         {
             //use passed in character to attack from the round engine
           
-            // For Attack, choose who to attack
+            // For Attack, choose the first monster in list to attack
             var Target = AttackChoice(Attacker);
 
             // Do Attack
@@ -63,6 +63,7 @@ namespace Crawl.GameEngine
             var AttackScore = Attacker.Level + Attacker.GetAttack();
             //monsters defence score
             var DefenseScore = Target.GetDefense() + Target.Level;
+            //attack the monster or  miss
             TurnAsAttack(Attacker, AttackScore, Target, DefenseScore);
             return true;
         }
@@ -70,12 +71,15 @@ namespace Crawl.GameEngine
         // Monster Attacks...
         public bool TakeTurn(Monster Attacker)
         {
-            // For Attack, Choose Who to attack
+            // For Attack choose the first character in list to attack
             var Target = AttackChoice(Attacker);
 
             // Do Attack
+            //monster attack level and attack amount based on level and bonus from items
             var AttackScore = Attacker.Level + Attacker.GetAttack();
+            //character defence score
             var DefenseScore = Target.GetDefense() + Target.Level;
+            //attack the character or miss
             TurnAsAttack(Attacker, AttackScore, Target, DefenseScore);
             return true;
         }
@@ -113,15 +117,17 @@ namespace Crawl.GameEngine
                 return true;
             }
 
-            //Force a miss
+            //Force a miss if it's a critical miss rolls a 1 or 2
             if (HitStatus == HitStatusEnum.CriticalMiss)
             {
-                TurnMessage = Attacker.Name + " swings and critically misses " + Target.Name;
+                Debug.WriteLine("#########################");
+                Debug.WriteLine("Great Luck, Monster rolled 1 or 2 so the monster critically MISSED!!!");
+                TurnMessage = Attacker.Name + " bad roll of 1 or 2 so the monster  critically misses " + Target.Name;
                 Debug.WriteLine(TurnMessage);
                 return true;
             }
 
-            // It's a Hit or a Critical Hit
+            // It's a Hit or a Critical Hit (rolls 20 or 19)
             //Calculate Damage
             DamageAmount = Attacker.GetDamageRollValue();
 
@@ -138,9 +144,10 @@ namespace Crawl.GameEngine
             {
                 //2x damage
                 DamageAmount += DamageAmount;
-
+                Debug.WriteLine("#########################");
+                Debug.WriteLine("Unfortunately Monster rolled a 19 or 20 so it critically HIT your character!!!");
                 Target.TakeDamage(DamageAmount);
-                AttackStatus = string.Format(" hits really hard for {0} damage on ", DamageAmount);
+                AttackStatus = string.Format(" hits critically hard for {0} damage on ", DamageAmount);
             }
 
             //Display if character is still alive
@@ -215,10 +222,12 @@ namespace Crawl.GameEngine
                 return true;
             }
 
-            // force a miss if you roll a 1 no matter what the attack is
+            // force a miss if you roll a 1 or 2 no matter what the attack is
             if (HitStatus == HitStatusEnum.CriticalMiss)
             {
-                TurnMessage = Attacker.Name + " swings and critically misses " + Target.Name;
+                Debug.WriteLine("#########################");
+                Debug.WriteLine("Unfortunately Character rolled 1 or 2 so you critically MISSED!!!");
+                TurnMessage = Attacker.Name + " rolls 1 or 2 and the character critically misses " + Target.Name;
                 Debug.WriteLine(TurnMessage);
 
                 return true;
@@ -235,14 +244,16 @@ namespace Crawl.GameEngine
                 AttackStatus = string.Format(" hits for {0} damage on ", DamageAmount);
 
 
-                // double the damage if critical hit and rolls 20
+                // double the damage if critical hit and character rolls 20 or 19
                 if (GameGlobals.EnableCriticalHitDamage)
                 {
                     if (HitStatus == HitStatusEnum.CriticalHit)
                     {
+                        Debug.WriteLine("#########################");
+                        Debug.WriteLine("Amazing Roll, Character rolled 19 or 20 so critically HIT!!!");
                         //2x damage
                         DamageAmount += DamageAmount;
-                        AttackStatus = string.Format(" hits really hard for {0} damage on ", DamageAmount);
+                        AttackStatus = string.Format(" hits critically hard for {0} damage on ", DamageAmount);
                     }
                 }
 
@@ -320,26 +331,29 @@ namespace Crawl.GameEngine
                     GameGlobals.ForceToHitValue = 1;
                 }
 
+                // result of the dice roll between 1 to 20
                 d20 = GameGlobals.ForceToHitValue;
             }
 
-            //critical miss
-            if (d20 == 1)
+            //critical miss then force a miss if 1 or 2 is rolled
+            if (d20 == 1 || d20 == 2)
             {
                 // Force Miss
                 HitStatus = HitStatusEnum.CriticalMiss;
                 return HitStatus;
             }
 
-            //critical hit
-            if (d20 == 20)
+            //critical hit if 20 or 19 is rolled then force a hit
+            if (d20 == 20 || d20 ==19)
             {
                 // Force Hit
                 HitStatus = HitStatusEnum.CriticalHit;
                 return HitStatus;
             }
 
+            //total hitscore is based on attack and the dice.
             var ToHitScore = d20 + AttackScore;
+
             // if the attack with the dice roll is less than defence score then its a miss
             if (ToHitScore < DefenseScore)
             {

@@ -63,7 +63,7 @@ namespace Crawl.GameEngine
                 //Each Turn we need to check if it's next turn, new round, or game over for roundEnum
                 RoundResult = BattleEngine.RoundNextTurn(); 
 
-                // If the round is over start a new one...
+                // If the round is over start a new one
                 if (RoundResult == RoundEnum.NewRound)
                 {
                     BattleEngine.NewRound();
@@ -130,6 +130,7 @@ namespace Crawl.GameEngine
             Debug.WriteLine(Environment.NewLine);
             Debug.WriteLine(" Thank you for playing MellowFoxGame, see score detail page for info and play again!");
             Debug.WriteLine(" ##################################### ");
+            Debug.WriteLine(Environment.NewLine);
             return myResult;
         }
 
