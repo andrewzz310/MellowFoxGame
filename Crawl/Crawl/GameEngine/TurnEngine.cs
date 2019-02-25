@@ -53,13 +53,15 @@ namespace Crawl.GameEngine
         // Character Attacks...
         public bool TakeTurn(Character Attacker)
         {
-           
-
+            //use passed in character to attack from the round engine
+          
             // For Attack, choose who to attack
             var Target = AttackChoice(Attacker);
 
             // Do Attack
+            //characters attack level and attack amount based on level and bonus from items
             var AttackScore = Attacker.Level + Attacker.GetAttack();
+            //monsters defence score
             var DefenseScore = Target.GetDefense() + Target.Level;
             TurnAsAttack(Attacker, AttackScore, Target, DefenseScore);
             return true;
@@ -78,7 +80,7 @@ namespace Crawl.GameEngine
             return true;
         }
 
-        // Monster Attacks Character
+        // Monster Attacks Character (monsters don't get xp earned and their level is scaled based on instantiation)
         public bool TurnAsAttack(Monster Attacker, int AttackScore, Character Target, int DefenseScore)
         {
             TurnMessage = string.Empty;
@@ -97,12 +99,13 @@ namespace Crawl.GameEngine
 
             BattleScore.TurnCount++;
 
-            // Choose who to attack
+            //Names for attacker and target
             TargetName = Target.Name;
             AttackerName = Attacker.Name;
 
             var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
 
+            // Miss
             if (HitStatus == HitStatusEnum.Miss)
             {
                 TurnMessage = Attacker.Name + " misses " + Target.Name;
@@ -110,6 +113,7 @@ namespace Crawl.GameEngine
                 return true;
             }
 
+            //Force a miss
             if (HitStatus == HitStatusEnum.CriticalMiss)
             {
                 TurnMessage = Attacker.Name + " swings and critically misses " + Target.Name;
@@ -129,6 +133,7 @@ namespace Crawl.GameEngine
                 AttackStatus = string.Format(" hits for {0} damage on ", DamageAmount);
             }
 
+            // double damage
             if (HitStatus == HitStatusEnum.CriticalHit)
             {
                 //2x damage
@@ -138,7 +143,11 @@ namespace Crawl.GameEngine
                 AttackStatus = string.Format(" hits really hard for {0} damage on ", DamageAmount);
             }
 
-            TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
+            //Display if character is still alive
+            if (Target.Attribute.CurrentHealth > 0)
+            {
+                TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
+            }
 
             // Check for alive
             if (Target.Alive == false)
@@ -190,12 +199,14 @@ namespace Crawl.GameEngine
 
             BattleScore.TurnCount++;
 
-            // Choose who to attack
+            //Names for attacker and target
             TargetName = Target.Name;
             AttackerName = Attacker.Name;
 
+            // Determine whether hit or miss based on character attack total and monster defense total
             var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
 
+            //miss based on attack and roll being less than defence
             if (HitStatus == HitStatusEnum.Miss)
             {
                 TurnMessage = Attacker.Name + " misses " + Target.Name;
@@ -204,19 +215,16 @@ namespace Crawl.GameEngine
                 return true;
             }
 
+            // force a miss if you roll a 1 no matter what the attack is
             if (HitStatus == HitStatusEnum.CriticalMiss)
             {
                 TurnMessage = Attacker.Name + " swings and critically misses " + Target.Name;
                 Debug.WriteLine(TurnMessage);
 
-                if (GameGlobals.EnableCriticalMissProblems)
-                {
-                    TurnMessage += DetermineCriticalMissProblem(Attacker);
-                }
                 return true;
             }
 
-            // It's a Hit or a Critical Hit
+            // It's a Hit if your attack and roll is greater than the defence
             if (HitStatus == HitStatusEnum.Hit || HitStatus == HitStatusEnum.CriticalHit)
             {
                 //Calculate Damage
@@ -226,6 +234,8 @@ namespace Crawl.GameEngine
 
                 AttackStatus = string.Format(" hits for {0} damage on ", DamageAmount);
 
+
+                // double the damage if critical hit and rolls 20
                 if (GameGlobals.EnableCriticalHitDamage)
                 {
                     if (HitStatus == HitStatusEnum.CriticalHit)
@@ -236,12 +246,14 @@ namespace Crawl.GameEngine
                     }
                 }
 
+                //the monster takes the damage
                 Target.TakeDamage(DamageAmount);
 
+                // calculate experience earned
                 var experienceEarned = Target.CalculateExperienceEarned(DamageAmount);
 
-                Target.TakeDamage(DamageAmount);
-
+                
+                // check whether enough xp is given to level up
                 var LevelUp = Attacker.AddExperience(experienceEarned);
                 if (LevelUp)
                 {
@@ -252,7 +264,11 @@ namespace Crawl.GameEngine
                 BattleScore.ExperienceGainedTotal += experienceEarned;
             }
 
-            TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
+            //display health of Monster if still alive
+            if (Target.Attribute.CurrentHealth > 0)
+            {
+                TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
+            }
 
             // Check for alive
             if (Target.Alive == false)
@@ -307,6 +323,7 @@ namespace Crawl.GameEngine
                 d20 = GameGlobals.ForceToHitValue;
             }
 
+            //critical miss
             if (d20 == 1)
             {
                 // Force Miss
@@ -314,6 +331,7 @@ namespace Crawl.GameEngine
                 return HitStatus;
             }
 
+            //critical hit
             if (d20 == 20)
             {
                 // Force Hit
@@ -322,6 +340,7 @@ namespace Crawl.GameEngine
             }
 
             var ToHitScore = d20 + AttackScore;
+            // if the attack with the dice roll is less than defence score then its a miss
             if (ToHitScore < DefenseScore)
             {
                 AttackStatus = " misses ";
@@ -329,7 +348,7 @@ namespace Crawl.GameEngine
                 HitStatus = HitStatusEnum.Miss;
                 DamageAmount = 0;
             }
-            else
+            else // if attack and dice is more than defence then its a hit
             {
                 // Hit
                 HitStatus = HitStatusEnum.Hit;
@@ -338,7 +357,7 @@ namespace Crawl.GameEngine
             return HitStatus;
         }
 
-        // Decide which to attack
+        //For now choose first monster in list to get attacked
         public Monster AttackChoice(Character data)
         {
             if (MonsterList == null)
@@ -353,7 +372,6 @@ namespace Crawl.GameEngine
 
             // For now, just use a simple selection of the first in the list.
             // Later consider, strongest, closest, with most Health etc...
-
             foreach (var Defender in MonsterList)
             {
                 if (Defender.Alive)
@@ -365,9 +383,10 @@ namespace Crawl.GameEngine
             return null;
         }
 
-        // Decide which to attack
+        //For now have first character in list to be the one who gets attacked
         public Character AttackChoice(Monster data)
         {
+            //needs to have a character to return
             if (CharacterList == null)
             {
                 return null;
@@ -380,7 +399,6 @@ namespace Crawl.GameEngine
 
             // For now, just use a simple selection of the first in the list.
             // Later consider, strongest, closest, with most Health etc...
-
             foreach (var Defender in CharacterList)
             {
                 if (Defender.Alive)
@@ -438,70 +456,7 @@ namespace Crawl.GameEngine
             return myList;
         }
 
-        public string DetermineCriticalMissProblem(Character attacker)
-        {
-            if (attacker == null)
-            {
-                return " Invalid Character ";
-            }
-
-            var myReturn = " Nothing Bad Happened ";
-            Item droppedItem;
-
-            // It may be a critical miss, roll again and find out...
-            var rnd = HelperEngine.RollDice(1, 10);
-            /*
-                1. Primary Hand Item breaks, and is lost forever
-                2-4, Character Drops the Primary Hand Item back into the item pool
-                5-6, Character drops a random equipped item back into the item pool
-                7-10, Nothing bad happens, luck was with the attacker
-             */
-
-            switch (rnd)
-            {
-                case 1:
-                    myReturn = " Luckly, nothing to drop from " + ItemLocationEnum.PrimaryHand;
-                    var myItem = ItemsViewModel.Instance.GetItem(attacker.PrimaryHand);
-                    if (myItem != null)
-                    {
-                        myReturn = " Item " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand + " Broke, and lost forever";
-                    }
-
-                    attacker.PrimaryHand = null;
-                    break;
-
-                case 2:
-                case 3:
-                case 4:
-                    // Put on the new item, which drops the one back to the pool
-                    myReturn = " Luckly, nothing to drop from " + ItemLocationEnum.PrimaryHand;
-                    droppedItem = attacker.AddItem(ItemLocationEnum.PrimaryHand, null);
-                    if (droppedItem != null)
-                    {
-                        // Add the dropped item to the pool
-                        ItemPool.Add(droppedItem);
-                        myReturn = " Dropped " + droppedItem.Name + " from " + ItemLocationEnum.PrimaryHand;
-                    }
-                    break;
-
-                case 5:
-                case 6:
-                    var LocationRnd = HelperEngine.RollDice(1, ItemLocationList.GetListCharacter.Count);
-                    var myLocationEnum = ItemLocationList.GetLocationByPosition(LocationRnd);
-                    myReturn = " Luckly, nothing to drop from " + myLocationEnum;
-
-                    // Put on the new item, which drops the one back to the pool
-                    droppedItem = attacker.AddItem(myLocationEnum, null);
-                    if (droppedItem != null)
-                    {
-                        // Add the dropped item to the pool
-                        ItemPool.Add(droppedItem);
-                        myReturn = " Dropped " + droppedItem.Name + " from " + myLocationEnum;
-                    }
-                    break;
-            }
-
-            return myReturn;
-        }
+        
+   
     }
 }

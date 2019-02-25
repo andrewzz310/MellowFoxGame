@@ -198,11 +198,6 @@
                             Style="{DynamicResource DebugSwitchLabel}"
                             />
 
-                            <Switch 
-                            x:Name="EnableCriticalMissProblems"
-                            HorizontalOptions="EndAndExpand"
-                            Toggled="EnableCriticalMissProblems_OnToggled"
-                            IsToggled="False"/>
                         </StackLayout>
                     </StackLayout>
                 </StackLayout>

@@ -65,7 +65,6 @@ namespace Crawl.Models
         }
 
         // Debug Settings
-        public static bool EnableCriticalMissProblems = true;
         public static bool EnableCriticalHitDamage = true;
     }
 }
