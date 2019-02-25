@@ -44,8 +44,8 @@ namespace Crawl.GameEngine
             //Message with Monsters
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
-            Debug.WriteLine("Round Started" + " Monsters :" + BattleEngine.MonsterList.Count);
-            Debug.WriteLine("Monster Name :");
+            Debug.WriteLine("Round has Started" + " Total Monsters # are :" + BattleEngine.MonsterList.Count);
+            Debug.WriteLine("Monsters are below :");
             for (var i = 0; i < 6; i++)
             {
                 Debug.WriteLine(BattleEngine.MonsterList[i].FormatOutput());
@@ -114,17 +114,18 @@ namespace Crawl.GameEngine
         /// <returns></returns>
         public string GetResultsOutput()
         {
-            string myResult = 
-                " ##################################### " + Environment.NewLine + Environment.NewLine + 
+            string myResult =
+                " ##################################### " + Environment.NewLine + Environment.NewLine +
             "MellowFoxBattle Ended! Score total is: " + BattleEngine.BattleScore.ScoreTotal +
             "  Total Experience  :" + BattleEngine.BattleScore.ExperienceGainedTotal +
             " Total Rounds :" + BattleEngine.BattleScore.RoundCount +
-            " Total Turns :" + BattleEngine.BattleScore.TurnCount +
-            " Total Monster Kills :" + BattleEngine.BattleScore.MonstersKilledList;
+            " Total Turns :" + BattleEngine.BattleScore.TurnCount;
+           // " Total Monster Kills :" + BattleEngine.BattleScore.MonstersKilledList;
 
             Debug.WriteLine(myResult);
             
             Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine(" Thank you for playing MellowFoxGame, see score detail page for info and play again!");
             Debug.WriteLine(" ##################################### ");
             return myResult;
         }
