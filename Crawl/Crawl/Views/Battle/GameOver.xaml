@@ -8,7 +8,7 @@
         <StackLayout VerticalOptions="Start"
             x:Name="DetailsRoot"
             Orientation="Vertical"
-            Spacing="20"
+            Spacing="10"
             Padding="10" >
 
         

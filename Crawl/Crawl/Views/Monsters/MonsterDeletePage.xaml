@@ -8,20 +8,25 @@
         <StackLayout 
             x:Name="DetailsRoot"
             Orientation="Vertical"
-            Spacing="20"
-            Padding="15"
-            BackgroundColor="Green">
+            Spacing="12"
+            Padding="10"
+            BackgroundColor="DarkGreen">
             <!-- Monster Delete Page Title -->
-            <Label Text="Monster Delete Page" FontSize="Medium" />
+            <Label Text="Monster Delete Page" FontSize="Large" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
+            
             <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="200"
-                HeightRequest="200" 
+                WidthRequest="140"
+                HeightRequest="140" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
             <!-- Monster Delete page attributes-->
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="0" Grid.Column="0">
+                BackgroundColor="DarkGreen" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -32,7 +37,7 @@
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="Green" Grid.Row="1" Grid.Column="0">
-                <Label Text="PreferGreen Item: " 
+                <Label Text="Prefered Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
                 <Label Text="{Binding Data.Item}" 
@@ -41,7 +46,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="3" Grid.Column="0">
+                BackgroundColor="DarkGreen" Grid.Row="3" Grid.Column="0">
                 <Label Text="XP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -51,7 +56,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="3" Grid.Column="0">
+                BackgroundColor="Green" Grid.Row="3" Grid.Column="0">
                 <Label Text="HP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -61,7 +66,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="5" Grid.Column="0">
+                BackgroundColor="DarkGreen" Grid.Row="5" Grid.Column="0">
                 <Label Text="Speed : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -71,7 +76,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="6" Grid.Column="0">
+                BackgroundColor="Green" Grid.Row="6" Grid.Column="0">
                 <Label Text="Attack : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -81,7 +86,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="7" Grid.Column="0">
+                BackgroundColor="DarkGreen" Grid.Row="7" Grid.Column="0">
                 <Label Text="Defense : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -102,7 +107,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="1" Grid.Column="0">
+                BackgroundColor="DarkGreen" Grid.Row="1" Grid.Column="0">
                 <Label Text="PreferGreen Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>

@@ -8,12 +8,16 @@
         <StackLayout 
             x:Name="DetailsRoot"
             Orientation="Vertical"
-            Spacing="20"
-            Padding="15" BackgroundColor="Green">
+            Spacing="10"
+            Padding="10" BackgroundColor="RoyalBlue">
 
             <!-- Delete Score Page Title-->
             
-            <Label Text="Delete Score Page" FontSize="Medium" />
+            <Label Text="Delete Score Page" FontSize="Large" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
 
             <!-- Attributes for Scores-->
             <StackLayout

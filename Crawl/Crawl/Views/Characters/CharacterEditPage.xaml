@@ -15,12 +15,16 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
+                <StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">
                     <!-- Title for character edit page -->
-                    <Label Text="Character Edit Page" FontSize="Small" />
+                    <Label Text="Character Edit Page" FontSize="Large" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
                     <Image Source="{Binding Data.ImageURI}"
-                    WidthRequest="200"
-                    HeightRequest="200" 
+                    WidthRequest="170"
+                    HeightRequest="170" 
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand"/>   
                     <Grid
@@ -119,12 +123,14 @@
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
                         VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"
+                        BackgroundColor="LightGray"
                         Clicked="Save_Clicked"/>
 
                         <Button Text="Cancel"
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand" 
+                        BackgroundColor="LightGray"
                         Clicked="Cancel_Clicked"/>
                     </StackLayout>
                 </StackLayout>

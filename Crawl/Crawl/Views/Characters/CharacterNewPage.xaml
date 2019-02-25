@@ -14,9 +14,13 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
+                <StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">
                     <!-- Title for the new character page-->
-                    <Label Text="New Character Page" FontSize="Small" />
+                    <Label Text="New Character Page" FontSize="Large" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
                     <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
@@ -36,7 +40,7 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="1">
+                        <StackLayout BackgroundColor="IndianRed" Grid.Row="0" Grid.Column="1">
                             <Entry 
                             Text="{Binding Data.Name}" 
                             FontSize="Small" 
@@ -113,12 +117,14 @@
                     <StackLayout Orientation="Horizontal">
                         <Button Text="Save"
                         VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"
+                        BackgroundColor="LightGray"
                         Clicked="Save_Clicked"/>
 
                         <Button Text="Cancel"
                         VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"
+                        BackgroundColor="LightGray"
                         Clicked="Cancel_Clicked"/>
                     </StackLayout>
                 </StackLayout>

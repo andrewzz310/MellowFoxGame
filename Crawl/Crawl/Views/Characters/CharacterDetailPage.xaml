@@ -14,18 +14,18 @@
         <StackLayout 
             x:Name="DetailsRoot"
             Orientation="Vertical"
-            Spacing="20"
-            Padding="15" BackgroundColor="Red">
+            Spacing="10"
+            Padding="10" BackgroundColor="DarkRed">
 
             <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="200"
-                HeightRequest="200" 
+                WidthRequest="170"
+                HeightRequest="170" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
             <!-- Attributes for the character-->
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -35,7 +35,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
+                BackgroundColor="DarkRed" Grid.Row="1" Grid.Column="0">
                 <Label Text="Preferred Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -45,7 +45,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="2" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="2" Grid.Column="0">
                 <Label Text="XP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -55,7 +55,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="3" Grid.Column="0">
+                BackgroundColor="DarkRed" Grid.Row="3" Grid.Column="0">
                 <Label Text="HP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -65,7 +65,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="4" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="4" Grid.Column="0">
                 <Label Text="Level : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -75,7 +75,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="5" Grid.Column="0">
+                BackgroundColor="DarkRed" Grid.Row="5" Grid.Column="0">
                 <Label Text="Speed : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -85,7 +85,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="6" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="6" Grid.Column="0">
                 <Label Text="Attack : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -95,7 +95,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="7" Grid.Column="0">
+                BackgroundColor="DarkRed" Grid.Row="7" Grid.Column="0">
                 <Label Text="Defense : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -105,7 +105,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="8" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="8" Grid.Column="0">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>

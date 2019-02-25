@@ -9,7 +9,7 @@
 
       <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-          <Label Text="Character" FontSize="Small" BackgroundColor="Red" HorizontalTextAlignment="Center" />
+          <Label Text="Character" FontSize="Small" BackgroundColor="DarkRed" HorizontalTextAlignment="Center" />
             <!-- Listview of character dataset to display on left screen-->
           <ListView x:Name="CharactersBattle"
             ItemsSource="{Binding DatasetChars}"
@@ -23,7 +23,7 @@
             <ListView.ItemTemplate>
               <DataTemplate>
                 <ViewCell>
-                  <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
+                  <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">-->
                   <StackLayout Padding="10"
                                Orientation="Vertical"
                                VerticalOptions="Start"
@@ -65,7 +65,7 @@
             <ListView.ItemTemplate>
               <DataTemplate>
                 <ViewCell>
-                  <!--<StackLayout Spacing="20" Padding="15" BackgroundColor="Red">-->
+                  <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">-->
                   <StackLayout Padding="10"
                            Orientation="Vertical"
                            VerticalOptions="Start"

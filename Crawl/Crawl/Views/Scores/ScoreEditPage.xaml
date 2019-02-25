@@ -15,10 +15,14 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="15" BackgroundColor="Green">
+                <StackLayout Spacing="10" Padding="10" BackgroundColor="RoyalBlue">
                     
                     <!-- Score edit page title-->
-                    <Label Text="Edit Score Page" FontSize="Small" />
+                    <Label Text="Edit Score Page" FontSize="Large" 
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
 
                     <Grid
                     RowSpacing="1"

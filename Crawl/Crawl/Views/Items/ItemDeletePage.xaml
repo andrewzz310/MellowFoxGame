@@ -7,99 +7,104 @@
 
 
     <ScrollView>
-        <StackLayout 
-            x:Name="DetailsRoot"
-            Orientation="Vertical"
-            Spacing="20"
-            Padding="15"
-            BackgroundColor="Green">
-            <!-- Items delete page title-->
-            <Label Text="Items Delete Page" FontSize="Medium" />
+      <StackLayout
+          x:Name="DetailsRoot"
+          Orientation="Vertical"
+          Spacing="10"
+          Padding="10"
+          BackgroundColor="Green">
 
-            <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="150"
-                HeightRequest="150" 
-                HorizontalOptions="Center"
-                VerticalOptions="Center"/>
-            <!-- Item delete page attributes-->
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Name : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Name}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout 
-                Orientation="Horizontal" 
-                HorizontalOptions="Start">
-                <Label Text="Attribute : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Attribute}" 
-                   FontSize="Medium" 
-                   HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Value : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Value}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
+        <!-- Items delete page title-->
+        <Label Text="Items Delete Page" FontSize="Large" 
+               HorizontalTextAlignment="Center"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
 
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Range : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Range}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Location : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Location}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="Start">
-                <Label Text="Description : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Description}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-
-            <!-- Buttons for confirmation of deletion or cancel the delete-->
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Confirm Delete"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                BackgroundColor="LightGray"
-                    Clicked="Delete_Clicked"/>
-
-                <Button Text="Cancel"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"
-                BackgroundColor="LightGray"
-                    Clicked="Cancel_Clicked"/>
-            </StackLayout>
+        <Image Source="{Binding Data.ImageURI}"
+            WidthRequest="150"
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+        <!-- Item delete page attributes-->
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Start">
+          <Label Text="Name : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Name}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
         </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Start">
+          <Label Text="Attribute : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Attribute}"
+             FontSize="Medium"
+             HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Start">
+          <Label Text="Value : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Value}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Start">
+          <Label Text="Range : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Range}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Start">
+          <Label Text="Location : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Location}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout
+            Orientation="Horizontal"
+            HorizontalOptions="Start">
+          <Label Text="Description : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Description}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Buttons for confirmation of deletion or cancel the delete-->
+        <StackLayout Orientation="Horizontal">
+          <Button Text="Confirm Delete"
+          VerticalOptions="CenterAndExpand"
+          HorizontalOptions="CenterAndExpand"
+          BackgroundColor="LightGray"
+              Clicked="Delete_Clicked"/>
+
+          <Button Text="Cancel"
+          VerticalOptions="CenterAndExpand"
+          HorizontalOptions="CenterAndExpand"
+          BackgroundColor="LightGray"
+              Clicked="Cancel_Clicked"/>
+        </StackLayout>
+      </StackLayout>
     </ScrollView>
 </ContentPage>

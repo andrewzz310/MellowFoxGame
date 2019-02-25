@@ -11,7 +11,11 @@
     <ContentPage.Content>
         <StackLayout>
                 <!-- Title for Items list page-->
-            <Label Text="Items List Page" FontSize="Small" />
+            <Label Text="Items List Page" FontSize="Large" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
                 
             <!-- Dataset of Items that is binded with a listview-->
             <ListView x:Name="ItemsListView" 

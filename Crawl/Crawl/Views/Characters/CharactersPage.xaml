@@ -10,7 +10,11 @@
     <ContentPage.Content>
         <StackLayout>
             <!-- Title for Characters List page-->
-            <Label Text="Characters List Page" FontSize="Small" />
+            <Label Text="Characters List Page" FontSize="Large" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
                 <!-- Listview of Characters binded from the dataset in characterviewmodel-->
             <ListView x:Name="CharactersListView" 
                 ItemsSource="{Binding Dataset}"
@@ -30,8 +34,8 @@
                                          VerticalOptions="Start"
                                          HorizontalOptions="Start">
                                 <Image Source="{Binding ImageURI}"
-                                       WidthRequest="75"
-                                       HeightRequest="75" 
+                                       WidthRequest="70"
+                                       HeightRequest="70" 
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"/>
                                 <StackLayout>

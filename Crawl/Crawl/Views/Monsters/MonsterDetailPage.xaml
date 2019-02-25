@@ -11,97 +11,97 @@
     </ContentPage.ToolbarItems>
 
     <ScrollView>
-        <StackLayout 
-            x:Name="DetailsRoot"
-            Orientation="Vertical"
-            Spacing="20"
-            Padding="15" BackgroundColor="Green">
-            <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="200"
-                HeightRequest="200" 
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"/>
-            <!-- Monster Detail Page Attributes-->
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="0" Grid.Column="0">
-                <Label Text="Name : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Name}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="1" Grid.Column="0">
-                <Label Text="PreferGreen Item: " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Item}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="3" Grid.Column="0">
-                <Label Text="XP : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.ExperienceTotal}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="3" Grid.Column="0">
-                <Label Text="HP : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.HealthPoints}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="5" Grid.Column="0">
-                <Label Text="Speed : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Speed}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="6" Grid.Column="0">
-                <Label Text="Attack : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Attack}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="7" Grid.Column="0">
-                <Label Text="Defense : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Defense}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="MediumSpringGreen" Grid.Row="9" Grid.Column="0">
-                <Label Text="Description : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Description}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
+      <StackLayout
+          x:Name="DetailsRoot"
+          Orientation="Vertical"
+          Spacing="10"
+          Padding="10" BackgroundColor="DarkGreen">
+        <Image Source="{Binding Data.ImageURI}"
+            WidthRequest="140"
+            HeightRequest="140"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"/>
+        <!-- Monster Detail Page Attributes-->
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="Green" Grid.Row="0" Grid.Column="0">
+          <Label Text="Name : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Name}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
         </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="DarkGreen" Grid.Row="1" Grid.Column="0">
+          <Label Text="PreferGreen Item: "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Item}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="Green" Grid.Row="3" Grid.Column="0">
+          <Label Text="XP : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.ExperienceTotal}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="DarkGreen" Grid.Row="3" Grid.Column="0">
+          <Label Text="HP : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.HealthPoints}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="Green" Grid.Row="5" Grid.Column="0">
+          <Label Text="Speed : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Speed}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="DarkGreen" Grid.Row="6" Grid.Column="0">
+          <Label Text="Attack : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Attack}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="Green" Grid.Row="7" Grid.Column="0">
+          <Label Text="Defense : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Defense}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout
+            Orientation="Horizontal"
+            BackgroundColor="DarkGreen" Grid.Row="9" Grid.Column="0">
+          <Label Text="Description : "
+             FontSize="Medium"
+             HorizontalOptions="Start"/>
+          <Label Text="{Binding Data.Description}"
+              FontSize="Medium"
+              HorizontalOptions="Center"/>
+        </StackLayout>
+      </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -15,12 +15,16 @@
         <StackLayout 
             x:Name="DetailsRoot"
             Orientation="Vertical"
-            Spacing="20"
-            Padding="15" BackgroundColor="Green">
+            Spacing="10"
+            Padding="10" BackgroundColor="RoyalBlue">
 
             <!-- Score detail page title-->
 
-            <Label Text="Scores Detail Page" FontSize="Medium" />
+            <Label Text="Scores Detail Page" FontSize="Large" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
 
             <!--  attributes for score details-->
             <StackLayout

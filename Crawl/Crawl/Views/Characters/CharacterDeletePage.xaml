@@ -8,21 +8,25 @@
         <StackLayout 
             x:Name="DetailsRoot"
             Orientation="Vertical"
-            Spacing="20"
-            Padding="15"
-            BackgroundColor="Red">
+            Spacing="10"
+            Padding="10"
+            BackgroundColor="DarkRed">
             <!-- Character Delete Page Title-->
-            <Label Text="Character Delete Page" FontSize="Medium" />
+            <Label Text="Character Delete Page" FontSize="Large" 
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"/>
             
             <!-- What to display for the character delete page-->
             <Image Source="{Binding Data.ImageURI}"
-                WidthRequest="200"
-                HeightRequest="200" 
+                WidthRequest="150"
+                HeightRequest="150" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -32,7 +36,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="1" Grid.Column="0">
+                BackgroundColor="DarkRed" Grid.Row="1" Grid.Column="0">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -42,7 +46,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="2" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="2" Grid.Column="0">
                 <Label Text="Level : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -52,7 +56,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Red" Grid.Row="3" Grid.Column="0">
+                BackgroundColor="DarkRed" Grid.Row="3" Grid.Column="0">
                 <Label Text="XP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -62,7 +66,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="MediumVioletRed" Grid.Row="4" Grid.Column="0">
+                BackgroundColor="IndianRed" Grid.Row="4" Grid.Column="0">
                 <Label Text="Preferred Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>

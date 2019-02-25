@@ -14,91 +14,97 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-                <StackLayout Spacing="20" Padding="16" BackgroundColor="Green">
-                    <!-- Monster New Page Title -->
-                    <Label Text="New Monster Page" FontSize="Small" />
-                    <Grid
-                    RowSpacing="1"
-                    ColumnSpacing="2"
-                    VerticalOptions="Center">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="1"/>
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <!-- Monster New Page Attributes inside of grid -->
-                        <StackLayout Grid.Row="0" Grid.Column="0">
-                            <Label 
-                            Text="Name" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout BackgroundColor="MediumSpringGreen" Grid.Row="0" Grid.Column="1">
-                            <Entry 
-                            Text="{Binding Data.Name}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="1" Grid.Column="0">
-                            <Label 
-                            Text="Description" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="1" Grid.Column="1">
-                            <Entry 
-                            Text="{Binding Data.Description}" 
-                            FontSize="Small" 
-                            Margin="0" 
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="3" Grid.Column="0">
-                            <Label 
-                            Text="Picture URI"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="3" Grid.Column="1">
-                            <Entry 
-                            Text="{Binding Data.ImageURI}" 
-                            FontSize="Small" 
-                            HorizontalOptions="FillAndExpand"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="4" Grid.Column="0">
-                            <Label 
-                            Text="Preferred Item"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="4" Grid.Column="1">
-                            <Picker 
-                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
-                            SelectedItem="{Binding Data.Item, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="ItemPicker" 
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                    </Grid>
-                    <!-- buttons for save and cancel-->
-                    <StackLayout Orientation="Horizontal">
-                        <Button Text="Save"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" 
-                        Clicked="Save_Clicked"/>
+              <StackLayout Spacing="10" Padding="10" BackgroundColor="DarkGreen">
+                <!-- Monster New Page Title -->
+                <Label Text="New Monster Page" FontSize="Large" 
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <Grid
+                RowSpacing="1"
+                ColumnSpacing="2"
+                VerticalOptions="Center">
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="1"/>
+                  </Grid.RowDefinitions>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                  </Grid.ColumnDefinitions>
+                  <!-- Monster New Page Attributes inside of grid -->
+                  <StackLayout Grid.Row="0" Grid.Column="0">
+                    <Label
+                    Text="Name"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout BackgroundColor="Green" Grid.Row="0" Grid.Column="1">
+                    <Entry
+                    Text="{Binding Data.Name}"
+                    FontSize="Small"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout Grid.Row="1" Grid.Column="0">
+                    <Label
+                    Text="Description"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout Grid.Row="1" Grid.Column="1">
+                    <Entry
+                    Text="{Binding Data.Description}"
+                    FontSize="Small"
+                    Margin="0"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout Grid.Row="3" Grid.Column="0">
+                    <Label
+                    Text="Picture URI"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout Grid.Row="3" Grid.Column="1">
+                    <Entry
+                    Text="{Binding Data.ImageURI}"
+                    FontSize="Small"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout Grid.Row="4" Grid.Column="0">
+                    <Label
+                    Text="Preferred Item"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                  <StackLayout Grid.Row="4" Grid.Column="1">
+                    <Picker
+                    ItemsSource="{x:Static local:ItemList.GetListItem}"
+                    SelectedItem="{Binding Data.Item, Converter={StaticResource StringEnum}, Mode=TwoWay}"
+                    x:Name="ItemPicker"
+                    VerticalOptions="Center"/>
+                  </StackLayout>
+                </Grid>
+                <!-- buttons for save and cancel-->
+                <StackLayout Orientation="Horizontal">
+                  <Button Text="Save"
+                  VerticalOptions="CenterAndExpand"
+                  HorizontalOptions="CenterAndExpand"
+                  Clicked="Save_Clicked"
+                  BackgroundColor="LightGray"/>
 
-                        <Button Text="Cancel"
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" 
-                        Clicked="Cancel_Clicked"/>
-                    </StackLayout>
+                  <Button Text="Cancel"
+                  VerticalOptions="CenterAndExpand"
+                  HorizontalOptions="CenterAndExpand"
+                  Clicked="Cancel_Clicked"
+                  BackgroundColor="LightGray"/>
                 </StackLayout>
+              </StackLayout>
             </ScrollView>
         </StackLayout>
     </ContentPage.Content>
