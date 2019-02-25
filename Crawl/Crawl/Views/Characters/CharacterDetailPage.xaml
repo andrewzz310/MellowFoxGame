@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.CharacterDetailPage"
              Title="{Binding Title}">
-
+        <!-- toolbar with editing, deleting, or cancel clicked of that character-->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Edit" Clicked="Edit_Clicked" />
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" />
@@ -22,6 +22,7 @@
                 HeightRequest="200" 
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="FillAndExpand"/>
+            <!-- Attributes for the character-->
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="MediumVioletRed" Grid.Row="0" Grid.Column="0">

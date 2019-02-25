@@ -9,9 +9,9 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-
+            <!-- Title for Characters List page-->
             <Label Text="Characters List Page" FontSize="Small" />
-
+                <!-- Listview of Characters binded from the dataset in characterviewmodel-->
             <ListView x:Name="CharactersListView" 
                 ItemsSource="{Binding Dataset}"
                 VerticalOptions="FillAndExpand"
@@ -24,6 +24,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <!-- Attributes from the character data set-->
                             <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"

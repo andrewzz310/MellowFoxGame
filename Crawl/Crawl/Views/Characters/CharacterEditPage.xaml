@@ -16,6 +16,7 @@
         <StackLayout>
             <ScrollView>
                 <StackLayout Spacing="20" Padding="15" BackgroundColor="Red">
+                    <!-- Title for character edit page -->
                     <Label Text="Character Edit Page" FontSize="Small" />
                     <Image Source="{Binding Data.ImageURI}"
                     WidthRequest="200"
@@ -33,7 +34,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
                         </Grid.ColumnDefinitions>
-                        
+                        <!-- Attributes for the character to edit-->
                         <StackLayout Grid.Row="0" Grid.Column="0">
                             <Label 
                             Text="Name" 

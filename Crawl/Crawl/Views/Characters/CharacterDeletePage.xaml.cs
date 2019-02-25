@@ -11,7 +11,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterDeletePage : ContentPage
     {
-        // ReSharper disable once NotAccessedField.Local
+        // character detail view model
         private CharacterDetailViewModel _viewModel;
 
         //used to pass character data

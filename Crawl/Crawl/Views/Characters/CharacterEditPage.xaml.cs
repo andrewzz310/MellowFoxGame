@@ -10,7 +10,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterEditPage : ContentPage
     {
-        // ReSharper disable once NotAccessedField.Local
+        // character detail view model
         private CharacterDetailViewModel _viewModel;
 
         // The data returned from the edit.
@@ -37,7 +37,7 @@ namespace Crawl.Views
         // Save on the Tool bar
         private async void Save_Clicked(object sender, EventArgs e)
         {
-            // If the image in teh data box is empty, use the default one..
+            // If the image in the data box is empty, use the default one..
             if (string.IsNullOrEmpty(Data.ImageURI))
             {
                 Data.ImageURI = ItemsController.DefaultImageURI;

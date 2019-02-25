@@ -11,7 +11,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterDetailPage : ContentPage
     {
-        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        // characterdetail view model
         private CharacterDetailViewModel _viewModel;
 
         public CharacterDetailPage(CharacterDetailViewModel viewModel)
@@ -21,6 +21,7 @@ namespace Crawl.Views
             BindingContext = _viewModel = viewModel;
         }
 
+        // Data attribute Details of that character
         public CharacterDetailPage()
         {
             InitializeComponent();

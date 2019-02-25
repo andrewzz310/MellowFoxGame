@@ -11,9 +11,10 @@
             Spacing="20"
             Padding="15"
             BackgroundColor="Red">
-
+            <!-- Character Delete Page Title-->
             <Label Text="Character Delete Page" FontSize="Medium" />
-
+            
+            <!-- What to display for the character delete page-->
             <Image Source="{Binding Data.ImageURI}"
                 WidthRequest="200"
                 HeightRequest="200" 
@@ -69,6 +70,7 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
+            <!--confirm deletion of the character buttons-->
             <StackLayout Orientation="Horizontal">
                 <Button Text="Confirm Delete"
                 VerticalOptions="CenterAndExpand" 

@@ -12,7 +12,7 @@ namespace Crawl.Views
     {
         public Character Data { get; set; }
 
-        // Constructor for the page, will create a new black character that can tehn get updated
+        // Constructor for the page, will create a new black character that can then get updated
         public CharacterNewPage()
         {
             InitializeComponent();
