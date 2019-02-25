@@ -70,7 +70,7 @@ namespace Crawl.GameEngine
 
             // TODO, determine the character strength
             // add monsters up to that strength...
-            var ScaleLevelMax = 2;
+            var ScaleLevelMax = 3;
             var ScaleLevelMin = 1;
 
             // Make Sure Monster List exists and is loaded...
