@@ -95,20 +95,20 @@ namespace Crawl.Services
 
 
             //characters
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock First Character", Description = "This is an Character description.", Level = 1, ImageURI = "ninja.png" });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock Second Character", Description = "This is an Character description.", Level = 1 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock Third Character", Description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock Fourth Character", Description = "This is an Character description.", Level = 2 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock Fifth Character", Description = "This is an Character description.", Level = 3 });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock Sixth Character", Description = "This is an Character description.", Level = 3 });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock elf Character", Description = "This is an Character description.", Level = 1, ImageURI = "elf.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock dwarf Character", Description = "This is an Character description.", Level = 1, ImageURI = "Dwarf.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock magician Character", Description = "This is an Character description.", Level = 2, ImageURI = "magician.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock knight Character", Description = "This is an Character description.", Level = 2, ImageURI = "knight.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock ninja Character", Description = "This is an Character description.", Level = 3, ImageURI = "ninja.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock fox Character", Description = "This is an Character description.", Level = 3, ImageURI = "fox.png" });
 
             // Monsters
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock First Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock Second Monster", Description = "This is an Monster description.", ImageURI = "100giant.png" });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock Third Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock Fourth Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock Fifth Monster", Description = "This is an Monster description." });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock Sixth Monster", Description = "This is an Monster description." });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock dragon Monster", Description = "This is an Monster description.", ImageURI = "dragon1.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock ork Monster", Description = "This is an Monster description.", ImageURI = "ork.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock ogre Monster", Description = "This is an Monster description.", ImageURI = "ogre.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock 100 handed giant Monster", Description = "This is an Monster description.", ImageURI = "100giant.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock zombie Monster", Description = "This is an Monster description.", ImageURI = "zombie.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock hellraiser Monster", Description = "This is an Monster description.", ImageURI = "hellraiser.png" });
 
             //scores
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "SQLMock  First Score", ScoreTotal = 111 });
