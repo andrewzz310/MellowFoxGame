@@ -23,7 +23,7 @@
             <ListView.ItemTemplate>
               <DataTemplate>
                 <ViewCell>
-                  <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">-->
+                  
                   <StackLayout Padding="10"
                                Orientation="Vertical"
                                VerticalOptions="Start"
@@ -65,7 +65,7 @@
             <ListView.ItemTemplate>
               <DataTemplate>
                 <ViewCell>
-                  <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">-->
+                 
                   <StackLayout Padding="10"
                            Orientation="Vertical"
                            VerticalOptions="Start"

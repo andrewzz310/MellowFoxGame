@@ -30,7 +30,9 @@ namespace Crawl.ViewModels
 
         //List of characters displayed to user
         public ObservableCollection<Character> DatasetChars { get; set; }
+        //List of monsters displayed to user
         public ObservableCollection<Monster> DatasetMons { get; set; }
+        //List of Items displayed to user
         public ObservableCollection<Item> DatasetItems { get; set; }
 
         //Gets data all ListViews (3x) from data store
@@ -42,7 +44,7 @@ namespace Crawl.ViewModels
         public BattleViewModel()
         {
 
-            Title = "Characters"; //Not showing up on the screen
+            //Title = "Characters"; //Not showing up on the screen
             DatasetChars = new ObservableCollection<Character>();
             DatasetMons = new ObservableCollection<Monster>();
             DatasetItems = new ObservableCollection<Item>();

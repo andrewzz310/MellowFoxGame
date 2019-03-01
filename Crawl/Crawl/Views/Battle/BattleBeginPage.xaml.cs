@@ -74,22 +74,6 @@ namespace Crawl.Views.Battle
 
             BindingContext = null;
 
-            //#region HorizontalListView
-            //if (!hasAppearedOnce)
-            //{
-
-            //    hasAppearedOnce = true;
-            //    var padding = (BattleScene.Width - MessagesListView.Height) / 2;
-
-            //    MessagesListView.HeightRequest = MessagesLayoutFrame.Width;
-            //    MessagesLayoutFrameInner.WidthRequest = MessagesLayoutFrame.Width;
-            //    MessagesLayoutFrameInner.Padding = new Thickness(0);
-            //    MessagesLayoutFrame.Padding = new Thickness(0);
-            //    MessagesLayoutFrame.IsClippedToBounds = true;
-            //    Xamarin.Forms.AbsoluteLayout.SetLayoutBounds(MessagesLayoutFrameInner, new Rectangle(0, 0 - padding, AbsoluteLayout.AutoSize, MessagesListView.Height - padding));
-            //    MessagesLayoutFrameInner.IsClippedToBounds = true;
-            //    #endregion
-
 
             if (ToolbarItems.Count > 0)
             {
