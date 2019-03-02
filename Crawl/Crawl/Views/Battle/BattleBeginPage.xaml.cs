@@ -11,14 +11,18 @@ using Xamarin.Forms.Xaml;
 using Crawl.Models;
 using Crawl.ViewModels;
 using Crawl.Views;
+using Crawl.GameEngine;
 
 namespace Crawl.Views.Battle
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class BattleBeginPage : ContentPage
 	{
+
         //viewmodel of battle with character and monster data for binding
        private BattleViewModel _instance;
+
+      
 
         public BattleBeginPage ()
 		{
@@ -27,8 +31,34 @@ namespace Crawl.Views.Battle
             BindingContext = _instance = BattleViewModel.Instance;
 
         }
+        
+        // For now use this to begin the battle for testing purposes
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
+            var myBattleEngine = new BattleEngine();
+            // picks 6 characters
+            myBattleEngine.AddCharactersToBattle();
+            //init console message and characters
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Total Characters :" + myBattleEngine.CharacterList.Count);
+            Debug.WriteLine("Characters are Below :");
+            for (var i = 0; i < 6; i++)
+            {
+                Debug.WriteLine(myBattleEngine.CharacterList[i].FormatOutput());
+            }
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+
+            var outputString = "Battle Has added these characters";
+            // the pop up for either cancel or see the score details
+            var action = await DisplayActionSheet(outputString,
+                "Cancel",
+                null,
+                "View Score Results");
+
+
+            /*
             var data = args.SelectedItem as Character;
             if (data == null)
                 return;
@@ -38,6 +68,7 @@ namespace Crawl.Views.Battle
 
             // Manually deselect item.
             CharactersBattle.SelectedItem = null;
+            */
         }
 
         private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
