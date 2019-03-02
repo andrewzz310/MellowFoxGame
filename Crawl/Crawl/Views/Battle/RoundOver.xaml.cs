@@ -39,7 +39,7 @@ namespace Crawl.Views.Battle
             // Manually deselect item.
             CharactersBattle.SelectedItem = null;
         }
-
+        /*
         private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Monster;
@@ -52,7 +52,7 @@ namespace Crawl.Views.Battle
             //Manually deselect item.
             MonstersBattle.SelectedItem = null;
         }
-
+        */
 
         //Move to the next round by going back to the battle page
         private async void NextRound_Command(object sender, EventArgs e)

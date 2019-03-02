@@ -9,7 +9,7 @@
 
             <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-                    <Label Text="Character" FontSize="Small" BackgroundColor="DarkRed" HorizontalTextAlignment="Center" />
+                    <Label Text="Character" FontSize="Medium" BackgroundColor="Red" HorizontalTextAlignment="Center" />
                     <ListView x:Name="CharactersBattle"
             ItemsSource="{Binding DatasetChars}"
             VerticalOptions="FillAndExpand"
@@ -44,58 +44,17 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-                <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
-                    <Label Text="Messages" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
-                    <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" />
-                </StackLayout>
-                <StackLayout Orientation="Vertical"  HorizontalOptions="End">
-
-                    <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" HorizontalOptions="Center"/>
-                    <ListView x:Name="MonstersBattle"
-              ItemsSource="{Binding DatasetMons}"
-              VerticalOptions="FillAndExpand"
-               HasUnevenRows="true"
-               RefreshCommand="{Binding LoadItemsCommand}"
-               IsPullToRefreshEnabled="true"
-               IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-               CachingStrategy="RecycleElement"
-               ItemSelected="OnMonsterSelected">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">-->
-                                    <StackLayout Padding="10"
-                           Orientation="Vertical"
-                           VerticalOptions="Start"
-                           HorizontalOptions="Start">
-                                        <Image Source="{Binding ImageURI}"
-                       WidthRequest="45"
-                       HeightRequest="45"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="{Binding Name}"
-                  LineBreakMode="NoWrap"
-                  Style="{DynamicResource ListItemTextStyle}"
-                  FontSize="12" />
-                                        </StackLayout>
-                                    </StackLayout>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
-            </StackLayout>
-            <Label Text="Items" FontSize="Small" BackgroundColor="Aqua" HorizontalOptions="Start"/>
+            
+            <Label Text="Select Items for characters Above!" BackgroundColor="aqua" FontSize="Medium" HorizontalOptions="FillAndExpand" />
             <AbsoluteLayout x:Name="ItemsTray" Padding="0" HorizontalOptions="FillAndExpand" 
                       AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All">
                 <ContentView x:Name="ItemsTrayInner"  Padding="0"  HorizontalOptions="FillAndExpand">
                     <ListView x:Name="ItemTrayListView"
               ItemsSource="{Binding DatasetItems}"
-              RowHeight="120"
+              RowHeight="220"
               VerticalOptions="Start"
-              HeightRequest="120"
-              WidthRequest="120"
+              HeightRequest="220"
+              WidthRequest="220"
               SeparatorVisibility="None"
               Rotation="270"
               HorizontalOptions="Center">
@@ -116,7 +75,7 @@
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="NextRound_Command"/>
-
-        </StackLayout>
+         </StackLayout>
+      </StackLayout>
     </ContentPage.Content>
 </ContentPage>
