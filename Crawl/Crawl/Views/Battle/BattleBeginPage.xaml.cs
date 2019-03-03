@@ -20,10 +20,14 @@ namespace Crawl.Views.Battle
 	{
 
         //viewmodel of battle with character and monster data for binding
-        //private BattleViewModel _instance;
         private BattleViewModel _instanceC;
 
+        // battle engine
         BattleEngine mbattleEngine = new BattleEngine();
+
+        //round engine
+        RoundEngine mRoundEngine = new RoundEngine();
+
         //  think about passing characters or something else instead of game engines
         public BattleBeginPage ()
 		{
@@ -61,7 +65,8 @@ namespace Crawl.Views.Battle
             }
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
-
+            Debug.WriteLine("########################################");
+            Debug.WriteLine("Round has now started");
 
             string outputString = "Battle Has added these characters" +
           mbattleEngine.CharacterList[0].FormatOutput() + Environment.NewLine +

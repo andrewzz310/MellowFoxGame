@@ -9,7 +9,7 @@
 
       <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-          <Label Text="Character" FontSize="Small" BackgroundColor="DarkRed" HorizontalTextAlignment="Center" />
+          <Label Text="Character" FontSize="Small" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" />
                     <Label Text="Select a character go begin battle" FontSize="Small" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" />
                     <!-- Listview of character dataset to display on left screen-->
           <ListView x:Name="CharactersBattle"
@@ -47,7 +47,7 @@
           </ListView>
         </StackLayout>
         <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
-        <Label Text="Messages" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
+        <Label Text="Messages for Round Over and Game Over" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
         <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
           </StackLayout>
         <StackLayout Orientation="Vertical"  HorizontalOptions="End">
