@@ -81,7 +81,7 @@ namespace Crawl.Services
             BattleViewModel.Instance.ForceDataRefresh();
             //Score
             ScoresViewModel.Instance.ForceDataRefresh();
-          //  BattleViewModel.Instance.ForceDataRefreshM();
+          
         }
     }
 }
