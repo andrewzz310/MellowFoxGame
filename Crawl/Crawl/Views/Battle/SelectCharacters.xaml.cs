@@ -46,6 +46,7 @@ namespace Crawl.Views
         // Once characters selected, go to the battle page
         private async void Battle_Command(object sender, EventArgs e)
         {
+
             await Navigation.PushAsync(new BattleBeginPage());
         }
 

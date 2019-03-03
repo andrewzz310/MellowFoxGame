@@ -11,6 +11,7 @@ using Xamarin.Forms.Xaml;
 using Crawl.Models;
 using Crawl.ViewModels;
 using Crawl.Views;
+using Crawl.GameEngine;
 
 namespace Crawl.Views.Battle
 {
@@ -19,16 +20,33 @@ namespace Crawl.Views.Battle
     {
         //viewmodel of battle with character and monster
         private BattleViewModel _instance;
+        Character test = new Character();
 
-        public RoundOver()
+        
+
+        public RoundOver(Character attack)
         {
-
+            test = attack;
             InitializeComponent();
             BindingContext = _instance = BattleViewModel.Instance;
 
         }
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
+
+           string outputString = "Battle Has added these characters" +
+         test.FormatOutput();
+            var action = await DisplayActionSheet(outputString,
+             "Cancel",
+              null,
+                 "View Score Results");
+
+            /*
+            // the pop up for either cancel or see the score details
+            var action = await DisplayActionSheet(outputString,
+                "Cancel",
+                null,
+                "View Score Results");
             var data = args.SelectedItem as Character;
             if (data == null)
                 return;
@@ -38,6 +56,7 @@ namespace Crawl.Views.Battle
 
             // Manually deselect item.
             CharactersBattle.SelectedItem = null;
+            */
         }
         /*
         private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
