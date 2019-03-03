@@ -11,9 +11,9 @@
         <StackLayout>
 
             <Label Text="Select Characters for Battle" FontSize="Small" />
-            
-            <ListView x:Name="SelectCharactersListView" 
-                ItemsSource="{Binding Dataset}"
+
+            <ListView x:Name="CharactersBattle" 
+                ItemsSource="{Binding DatasetChars}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
                  RefreshCommand="{Binding LoadItemsCommand}"

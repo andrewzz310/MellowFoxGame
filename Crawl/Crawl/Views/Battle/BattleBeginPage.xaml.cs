@@ -20,16 +20,24 @@ namespace Crawl.Views.Battle
 	{
 
         //viewmodel of battle with character and monster data for binding
-       private BattleViewModel _instance;
+        //private BattleViewModel _instance;
+        private BattleViewModel _instanceC;
 
-         BattleEngine a = new BattleEngine();
+        BattleEngine a = new BattleEngine();
         //  think about passing characters or something else instead of game engines
         public BattleBeginPage ()
 		{
 
             InitializeComponent();
-            BindingContext = _instance = BattleViewModel.Instance;
+            BindingContext = _instanceC = BattleViewModel.Instance;
 
+        }
+
+        public BattleBeginPage(BattleViewModel a)
+        {
+            InitializeComponent();
+
+            _instanceC = a;
         }
         
         // For now use this to begin the battle for testing purposes
@@ -121,17 +129,17 @@ namespace Crawl.Views.Battle
 
             InitializeComponent();
 
-            if (_instance.DatasetChars.Count == 0 || _instance.DatasetMons.Count == 0 || 
-                _instance.DatasetItems.Count == 0)
+            if (_instanceC.DatasetChars.Count == 0 || _instanceC.DatasetMons.Count == 0 || 
+                _instanceC.DatasetItems.Count == 0)
             {
-                _instance.LoadDataCommand.Execute(null);
+                _instanceC.LoadDataCommand.Execute(null);
             }
-            else if (_instance.NeedsRefresh())
+            else if (_instanceC.NeedsRefresh())
             {
-                _instance.LoadDataCommand.Execute(null);
+                _instanceC.LoadDataCommand.Execute(null);
             }
 
-            BindingContext = _instance;
+            BindingContext = _instanceC;
         }
     }
 }

@@ -16,12 +16,12 @@ namespace Crawl.Views
     public partial class SelectCharacters : ContentPage
     {
         // charactersviewmodel for binding
-        private CharactersViewModel _instancea;
+        private BattleViewModel _instanceC;
 
         public SelectCharacters()
         {
             InitializeComponent();
-            BindingContext = _instancea = CharactersViewModel.Instance;
+            BindingContext = _instanceC = BattleViewModel.Instance;
         }
 
         private async void OnItemSelectedc(object sender, SelectedItemChangedEventArgs args)
@@ -34,7 +34,7 @@ namespace Crawl.Views
             await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
 
             // Manually deselect item.
-            SelectCharactersListView.SelectedItem = null;
+            CharactersBattle.SelectedItem = null;
         }
 
         // Create a character
@@ -47,7 +47,7 @@ namespace Crawl.Views
         private async void Battle_Command(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new BattleBeginPage());
+            await Navigation.PushAsync(new BattleBeginPage(_instanceC));
         }
 
         // cancel the selected characters by refreshing a new select characters page
@@ -69,16 +69,16 @@ namespace Crawl.Views
 
             InitializeComponent();
 
-            if (_instancea.Dataset.Count == 0)
+            if (_instanceC.DatasetChars.Count == 0)
             {
-                _instancea.LoadDataCommand.Execute(null);
+                _instanceC.LoadDataCommand.Execute(null);
             }
-            else if (_instancea.NeedsRefresh())
+            else if (_instanceC.NeedsRefresh())
             {
-                _instancea.LoadDataCommand.Execute(null);
+                _instanceC.LoadDataCommand.Execute(null);
             }
 
-            BindingContext = _instancea;
+            BindingContext = _instanceC;
         }
     }
 }

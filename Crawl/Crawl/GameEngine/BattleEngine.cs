@@ -15,12 +15,15 @@ namespace Crawl.GameEngine
     {
         // The status of the actual battle, running or not (over)
         private bool isBattleRunning = false;
+       
 
         // Constructor calls Init
         public BattleEngine()
         {
             BattleEngineInit();
         }
+
+        
 
         // Sets the new state for the variables for Battle
         private void BattleEngineInit()
