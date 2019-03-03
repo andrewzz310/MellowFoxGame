@@ -23,7 +23,7 @@ namespace Crawl.Views.Battle
         //private BattleViewModel _instance;
         private BattleViewModel _instanceC;
 
-        BattleEngine a = new BattleEngine();
+        BattleEngine mbattleEngine = new BattleEngine();
         //  think about passing characters or something else instead of game engines
         public BattleBeginPage ()
 		{
@@ -32,37 +32,40 @@ namespace Crawl.Views.Battle
             BindingContext = _instanceC = BattleViewModel.Instance;
 
         }
-
-        public BattleBeginPage(BattleViewModel a)
+        // Passing in the battleviewmodel 
+        public BattleBeginPage(BattleViewModel _instance)
         {
             InitializeComponent();
 
-            _instanceC = a;
+            _instanceC = _instance;
         }
         
         // For now use this to begin the battle for testing purposes
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
-           // var myBattleEngine = new BattleEngine();
+            // var myBattleEngine = new BattleEngine();
             // picks 6 characters
-            a.AddCharactersToBattle();
+            // a.AddCharactersToBattle();
+
+            // Put the 6 characters into a list
+            mbattleEngine.AddCharactersToBattle(_instanceC);
             //init console message and characters
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
-            Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Total Characters :" + a.CharacterList.Count);
+          //  Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Total Characters :" + a.CharacterList.Count);
             Debug.WriteLine("Characters are Below :");
             
             for (var i = 0; i < 6; i++)
             {
-                Debug.WriteLine(a.CharacterList[i].FormatOutput());
+                Debug.WriteLine(mbattleEngine.CharacterList[i].FormatOutput());
             }
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
 
 
             string outputString = "Battle Has added these characters" +
-          a.CharacterList[0].FormatOutput() + Environment.NewLine +
-          a.CharacterList[1].FormatOutput() + "sadf";
+          mbattleEngine.CharacterList[0].FormatOutput() + Environment.NewLine +
+          mbattleEngine.CharacterList[1].FormatOutput() + "sadf";
 
 
 
@@ -104,7 +107,7 @@ namespace Crawl.Views.Battle
         //When message says round is over, display round over page
         private async void RoundOver_Command(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RoundOver(a.CharacterList[0]));
+            await Navigation.PushAsync(new RoundOver());
         }
 
         // when game over, display game over page

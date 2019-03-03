@@ -15,7 +15,7 @@ namespace Crawl.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SelectCharacters : ContentPage
     {
-        // charactersviewmodel for binding
+        // BattleviewModel for binding
         private BattleViewModel _instanceC;
 
         public SelectCharacters()
