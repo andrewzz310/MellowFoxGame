@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Crawl.Models;
 using Crawl.Views;
 using System.Linq;
+using Crawl.GameEngine;
+using Crawl.Views.Battle;
 
 namespace Crawl.ViewModels
 {
@@ -27,6 +29,8 @@ namespace Crawl.ViewModels
                 return _instance;
             }
         }
+        // Hold a copy of the Battle Engine
+        public BattleEngine BattleEngine;
 
         //List of characters displayed to user
         public ObservableCollection<Character> DatasetChars { get; set; }
@@ -34,6 +38,10 @@ namespace Crawl.ViewModels
         public ObservableCollection<Monster> DatasetMons { get; set; }
         //List of Items displayed to user
         public ObservableCollection<Item> DatasetItems { get; set; }
+
+        //list of selected characters for battle
+        public ObservableCollection<Character> SelectedCharacters { get; set; }
+
 
         //Gets data all ListViews (3x) from data store
         public Command LoadDataCommand { get; set; }
@@ -43,14 +51,157 @@ namespace Crawl.ViewModels
 
         public BattleViewModel()
         {
+            Title = "MellowFoxBattle";
+
+            SelectedCharacters = new ObservableCollection<Character>();
 
             //Title = "Characters"; //Not showing up on the screen
             DatasetChars = new ObservableCollection<Character>();
             DatasetMons = new ObservableCollection<Monster>();
             DatasetItems = new ObservableCollection<Item>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
+            //battle engine
+            BattleEngine = new BattleEngine();
+
+
+
+            // Load Data
+            ExecuteLoadDataCommand().GetAwaiter().GetResult();
+
+            MessagingCenter.Subscribe<SelectCharacters, Character>(this, "AddSelectedCharacter", async (obj, data) =>
+            {
+                SelectedListAdd(data);
+            });
+
+            MessagingCenter.Subscribe<SelectCharacters, Character>(this, "RemoveSelectedCharacter", async (obj, data) =>
+            {
+                SelectedListRemove(data);
+            });
+
+            MessagingCenter.Subscribe<BattleBeginPage>(this, "StartBattle", async (obj) =>
+            {
+                StartBattle();
+            });
+
+            MessagingCenter.Subscribe<BattleBeginPage>(this, "EndBattle", async (obj) =>
+            {
+                EndBattle();
+            });
+
+            MessagingCenter.Subscribe<BattleBeginPage>(this, "StartRound", async (obj) =>
+            {
+                StartRound();
+            });
+
+            MessagingCenter.Subscribe<BattleBeginPage>(this, "LoadCharacters", async (obj) =>
+            {
+                LoadCharacters();
+            });
+
+
+            MessagingCenter.Subscribe<BattleBeginPage>(this, "RoundNextTurn", async (obj) =>
+            {
+                RoundNextTurn();
+            });
+
+            MessagingCenter.Subscribe<BattleBeginPage>(this, "NewRound", async (obj) =>
+            {
+                NewRound();
+            });
+        }
+        /// <summary>
+        /// Call to the Engine to Start the Battle
+        /// </summary>
+        public void StartBattle()
+        {
+            BattleViewModel.Instance.BattleEngine.StartBattle(false);
+        }
+
+        /// <summary>
+        /// Call to the Engine to End the Battle
+        /// </summary>
+        public void EndBattle()
+        {
+            BattleViewModel.Instance.BattleEngine.EndBattle();
+        }
+
+        /// <summary>
+        /// Call to the Engine to Start the First Round
+        /// </summary>
+        public void StartRound()
+        {
+            BattleViewModel.Instance.BattleEngine.StartRound();
+        }
+
+        /// <summary>
+        /// Load the Characters from the Selected List into the Battle Engine
+        /// Making a copy of the character.
+        /// </summary>
+        public void LoadCharacters()
+        {
+            foreach (var data in SelectedCharacters)
+            {
+                BattleViewModel.Instance.BattleEngine.CharacterList.Add(new Character(data));
+            }
 
         }
+
+        /// <summary>
+        /// Call to the engine for the NextRound to Happen
+        /// </summary>
+        public void RoundNextTurn()
+        {
+            BattleViewModel.Instance.BattleEngine.RoundNextTurn();
+        }
+
+        /// <summary>
+        /// Call to the Engine for a New Round to Happen
+        /// </summary>
+        public void NewRound()
+        {
+            BattleViewModel.Instance.BattleEngine.NewRound();
+        }
+
+
+        #region DataOperations
+        // Call to database operation for delete
+        public bool SelectedListRemove(Character data)
+        {
+            SelectedCharacters.Remove(data);
+            return true;
+        }
+
+        // Call to database operation for add
+        public bool SelectedListAdd(Character data)
+        {
+            SelectedCharacters.Add(data);
+            return true;
+        }
+
+        // Call to database to ensure most recent
+        public Character Get(string id)
+        {
+            var myData = SelectedCharacters.FirstOrDefault(arg => arg.Id == id);
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData;
+
+        }
+        #endregion DataOperations
+
+
+        // Clear current lists so they can get rebuilt
+        public void ClearCharacterLists()
+        {
+            DatasetChars.Clear();
+            SelectedCharacters.Clear();
+
+            ExecuteLoadDataCommand();
+        }
+
 
         // Return True if a refresh is needed
         // It sets the refresh flag to false

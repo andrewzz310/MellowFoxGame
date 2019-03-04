@@ -11,7 +11,7 @@ namespace Crawl.GameEngine
     // Battle is the top structure
 
 
-    class BattleEngine : RoundEngine
+    public class BattleEngine : RoundEngine
     {
         // The status of the actual battle, running or not (over)
         private bool isBattleRunning = false;
