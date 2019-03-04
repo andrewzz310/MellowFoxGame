@@ -8,11 +8,28 @@
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
+        <ScrollView
+            VerticalScrollBarVisibility="Never">
+            <StackLayout>
+                <StackLayout>
+                    <Label Text="Select Characters for Battle" HorizontalOptions="CenterAndExpand" FontSize="Medium" />
+                </StackLayout>
+                <StackLayout
+                VerticalOptions="Start"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical">
+                    <StackLayout
+                        Orientation="Horizontal"
+                        VerticalOptions="Start"
+                        HorizontalOptions="CenterAndExpand ">
 
-            <Label Text="Select Characters for Battle" FontSize="Small" />
+                        <StackLayout 
+                                    HorizontalOptions="StartAndExpand ">
 
-            <ListView x:Name="CharactersBattle" 
+                            <Label Text="Available Characters "
+                                    HorizontalOptions="CenterAndExpand "/>
+
+                            <ListView x:Name="CharactersBattle" 
                 ItemsSource="{Binding DatasetChars}"
                 VerticalOptions="FillAndExpand"
                  HasUnevenRows="true"
@@ -20,74 +37,162 @@
                  IsPullToRefreshEnabled="true"
                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
-                 ItemSelected="OnItemSelectedc">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="10"
+                 ItemSelected="OnAvailableCharacterItemSelected">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"
                                          HorizontalOptions="Start">
-                                <Image Source="{Binding ImageURI}"
+                                                <Image Source="{Binding ImageURI}"
                                        WidthRequest="75"
                                        HeightRequest="75" 
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"/>
-                                <StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Name:" 
+                                                <StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Name:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
-                                        <Label Text="{Binding Name}" 
+                                                        <Label Text="{Binding Name}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
 
-                                        <Label Text=" Level:" 
+                                                        <Label Text=" Level:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
-                                        <Label Text="{Binding Level}" 
+                                                        <Label Text="{Binding Level}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
                                            FontSize="16" />
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="{Binding Description}" 
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding Description}" 
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" />
-                                        <Label Text="XP: " 
+                                                        <Label Text="XP: " 
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" />
-                                        <Label Text="{Binding ExperienceTotal}" 
+                                                        <Label Text="{Binding ExperienceTotal}" 
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" />
-                                    </StackLayout>
-                                </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
 
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <StackLayout>
-                <!-- Once characters are selected, buttons for the battle page or cancel to reselect-->
-                <Button Text="Next for Battle"
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackLayout>
+                        <StackLayout
+                HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Start">
+                            <!-- Once characters are selected, buttons for the battle page or cancel to reselect-->
+                            <Button Text="Next for Battle"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Battle_Command"/>
 
-                <Button Text="Cancel to reselect"
+                            <Button Text="Cancel to reselect"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
                     Clicked="Cancel_Command"/>
+                            <Label 
+                                MinimumWidthRequest="100"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="Party Count"/>
+                            <Label 
+                                Text="0"
+                                HorizontalOptions="CenterAndExpand"
+                                x:Name="PartyCountLabel"/>
+                            <Button 
+                                x:Name="NextButton"
+                                HorizontalOptions="CenterAndExpand"
+                                Clicked="OnNextClicked" 
+                                Text="Next"
+                                IsEnabled="False"
+                                />
 
+                        </StackLayout>
+
+                        <StackLayout HorizontalOptions="EndAndExpand">
+                            <Label Text="Charactesr who are selected for Battle" FontSize="Small" />
+
+                            <ListView x:Name="SelectedCharactersBattle" 
+                ItemsSource="{Binding SelectedCharacters}"
+                VerticalOptions="FillAndExpand"
+                 HasUnevenRows="true"
+                 RefreshCommand="{Binding LoadItemsCommand}"
+                 IsPullToRefreshEnabled="true"
+                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                 CachingStrategy="RecycleElement"
+                 ItemSelected="OnSelectedCharacterItemSelected">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <StackLayout Padding="10"
+                                         Orientation="Horizontal"
+                                         VerticalOptions="Start"
+                                         HorizontalOptions="Start">
+                                                <Image Source="{Binding ImageURI}"
+                                       WidthRequest="75"
+                                       HeightRequest="75" 
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"/>
+                                                <StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Name:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                                        <Label Text="{Binding Name}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+
+                                                        <Label Text=" Level:" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                                        <Label Text="{Binding Level}" 
+                                           LineBreakMode="NoWrap" 
+                                           Style="{DynamicResource ListItemTextStyle}" 
+                                           FontSize="16" />
+                                                    </StackLayout>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="{Binding Description}" 
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13" />
+                                                        <Label Text="XP: " 
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13" />
+                                                        <Label Text="{Binding ExperienceTotal}" 
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13" />
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>
-
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

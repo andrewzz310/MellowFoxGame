@@ -17,6 +17,11 @@ namespace Crawl.Models
             get => _ForcedRandomValue;
         }
 
+
+        // Max number of Players in a Party
+        public static int MaxNumberPartyPlayers = 6;
+
+
         // What number to use for ToHit values (1,2, 19, 20)
         public static int ForceToHitValue = 20;
 

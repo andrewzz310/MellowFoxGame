@@ -22,9 +22,25 @@ namespace Crawl.Views
         {
             InitializeComponent();
             BindingContext = _instanceC = BattleViewModel.Instance;
+            //clear character list
+            BattleViewModel.Instance.ClearCharacterLists();
+            // Start with Next button disabled
+            NextButton.IsEnabled = false;
         }
 
-        private async void OnItemSelectedc(object sender, SelectedItemChangedEventArgs args)
+        // Close this page
+        async void OnNextClicked(object sender, EventArgs args)
+        {
+
+            // Jump to Main Battle Page
+            await Navigation.PushAsync(new BattleBeginPage(_instanceC));
+
+            // Last, remove this page
+            Navigation.RemovePage(this);
+        }
+
+        /*
+        private async void OnCharSelectedc(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Character;
             if (data == null)
@@ -36,6 +52,64 @@ namespace Crawl.Views
             // Manually deselect item.
             CharactersBattle.SelectedItem = null;
         }
+        */
+
+
+        private async void OnAvailableCharacterItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var data = args.SelectedItem as Character;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Manually deselect item.
+            CharactersBattle.SelectedItem = null;
+
+            var currentCount = _instanceC.SelectedCharacters.Count();
+            // Don't add more than the party max
+            if (currentCount < GameGlobals.MaxNumberPartyPlayers)
+            {
+                MessagingCenter.Send(this, "AddSelectedCharacter", data);
+            }
+
+            // refresh the count
+            currentCount = _instanceC.SelectedCharacters.Count();
+
+            // Set the Button to be enabled or disabled if no characters in the party
+            NextButton.IsEnabled = true;
+            if (currentCount == 0)
+            {
+                NextButton.IsEnabled = false;
+            }
+
+            PartyCountLabel.Text = currentCount.ToString();
+        }
+
+
+        private async void OnSelectedCharacterItemSelected(object sender, SelectedItemChangedEventArgs args)
+        {
+            var data = args.SelectedItem as Character;
+            if (data == null)
+            {
+                return;
+            }
+
+            // Manually deselect item.
+            SelectedCharactersBattle.SelectedItem = null;
+
+            MessagingCenter.Send(this, "RemoveSelectedCharacter", data);
+
+            // If no characters disable Next button
+            var currentCount = _instanceC.SelectedCharacters.Count();
+            if (currentCount == 0)
+            {
+                NextButton.IsEnabled = false;
+            }
+
+            PartyCountLabel.Text = currentCount.ToString();
+        }
+
 
         // Create a character
         private async void AddItem_Clicked(object sender, EventArgs e)
@@ -46,6 +120,7 @@ namespace Crawl.Views
         // Once characters selected, go to the battle page
         private async void Battle_Command(object sender, EventArgs e)
         {
+           
 
             await Navigation.PushAsync(new BattleBeginPage(_instanceC));
         }
