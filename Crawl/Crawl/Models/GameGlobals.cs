@@ -5,6 +5,9 @@ namespace Crawl.Models
 {
     public static class GameGlobals
     {
+        //Set the Max Number of character playters
+        public static int MaxNumberPartyPlayers = 6;
+
         // Turn on to force Rolls to be non random
         public static bool ForceRollsToNotRandom = false;
 

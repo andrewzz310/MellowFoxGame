@@ -26,7 +26,8 @@ namespace Crawl.Views
         // This is the Battle button that is selected which starts by player choosing characters
         private async void ManualBattleButton_Command(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new SelectCharacters());
+            //await Navigation.PushAsync(new SelectCharacters());
+            await Navigation.PushAsync(new BattleCharacterSelectPage());
         }
 
         

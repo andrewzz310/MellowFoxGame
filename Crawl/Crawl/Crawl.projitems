@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Attribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseCharacter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BattleMessages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Converter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\DataStore.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BasePlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BasePlayerItemSlots.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AttributeBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Enums\BattleMessageHitEnum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GameGlobals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ItemList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\LevelTable.cs" />
@@ -88,6 +90,18 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleBeginPage.xaml.cs">
       <DependentUpon>BattleBeginPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleCharacterSelectPage.xaml.cs">
+      <DependentUpon>BattleCharacterSelectPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMainPage.xaml.cs">
+      <DependentUpon>BattleMainPage.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMonsterListPage.xaml.cs">
+      <DependentUpon>BattleMonsterListPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Views\Battle\GameOver.xaml.cs">
@@ -281,6 +295,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\GameOver.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMonsterListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleCharacterSelectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\Battle\BattleMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

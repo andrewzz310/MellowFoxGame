@@ -19,7 +19,7 @@ namespace Crawl.GameEngine
     // * Manage Round...
     // * /
 
-    class TurnEngine
+ public class TurnEngine
     {
         // Holds the official score
         public Score BattleScore = new Score();
@@ -34,6 +34,8 @@ namespace Crawl.GameEngine
 
         public int DamageAmount = 0;
         public HitStatusEnum HitStatus = HitStatusEnum.Unknown;
+
+        public BattleMessages BattleMessages = new BattleMessages();
 
         public List<Item> ItemPool = new List<Item>();
 

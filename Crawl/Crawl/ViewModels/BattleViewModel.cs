@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Crawl.Models;
 using Crawl.Views;
 using System.Linq;
+using Crawl.GameEngine;
+using Crawl.Views.Battle;
 
 namespace Crawl.ViewModels
 {
@@ -35,8 +37,18 @@ namespace Crawl.ViewModels
         //List of Items displayed to user
         public ObservableCollection<Item> DatasetItems { get; set; }
 
+        //Class for Selected Characters
+        public ObservableCollection<Character> SelectedCharacters { get; set; }
+
+        // Class for the AvailableCharacters
+        public ObservableCollection<Character> AvailableCharacters { get; set; }
+
+
         //Gets data all ListViews (3x) from data store
         public Command LoadDataCommand { get; set; }
+
+        // Make a copy of the BattleEngine
+        public BattleEngine BattleEngine;
 
         //new char added/deleted require refresh
         private bool _needsRefresh;
@@ -50,6 +62,148 @@ namespace Crawl.ViewModels
             DatasetItems = new ObservableCollection<Item>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
 
+            Title = "Battle";
+
+            SelectedCharacters = new ObservableCollection<Character>();
+            AvailableCharacters = new ObservableCollection<Character>();
+
+            LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
+
+            BattleEngine = new BattleEngine();
+
+            // Load Data
+            ExecuteLoadDataCommand().GetAwaiter().GetResult();
+
+            MessagingCenter.Subscribe<BattleCharacterSelectPage, Character>(this, "AddSelectedCharacter", async (obj, data) =>
+            {
+                SelectedListAdd(data);
+            });
+
+            MessagingCenter.Subscribe<BattleCharacterSelectPage, Character>(this, "RemoveSelectedCharacter", async (obj, data) =>
+            {
+                SelectedListRemove(data);
+            });
+
+            MessagingCenter.Subscribe<BattleMainPage>(this, "StartBattle", async (obj) =>
+            {
+                StartBattle();
+            });
+
+            MessagingCenter.Subscribe<BattleMainPage>(this, "EndBattle", async (obj) =>
+            {
+                EndBattle();
+            });
+
+            MessagingCenter.Subscribe<BattleMainPage>(this, "StartRound", async (obj) =>
+            {
+                StartRound();
+            });
+
+            MessagingCenter.Subscribe<BattleMainPage>(this, "LoadCharacters", async (obj) =>
+            {
+                LoadCharacters();
+            });
+
+
+            MessagingCenter.Subscribe<BattleMainPage>(this, "RoundNextTurn", async (obj) =>
+            {
+                RoundNextTurn();
+            });
+
+            MessagingCenter.Subscribe<BattleMainPage>(this, "NewRound", async (obj) =>
+            {
+                NewRound();
+            });
+
+        }
+        public void StartBattle()
+        {
+            BattleViewModel.Instance.BattleEngine.StartBattle(false);
+        }
+
+        /// <summary>
+        /// Call to the Engine to End the Battle
+        /// </summary>
+        public void EndBattle()
+        {
+            BattleViewModel.Instance.BattleEngine.EndBattle();
+        }
+
+        /// <summary>
+        /// Call to the Engine to Start the First Round
+        /// </summary>
+        public void StartRound()
+        {
+            BattleViewModel.Instance.BattleEngine.StartRound();
+        }
+
+        /// <summary>
+        /// Load the Characters from the Selected List into the Battle Engine
+        /// Making a copy of the character.
+        /// </summary>
+        public void LoadCharacters()
+        {
+            foreach (var data in SelectedCharacters)
+            {
+                BattleViewModel.Instance.BattleEngine.CharacterList.Add(new Character(data));
+            }
+
+        }
+
+        /// <summary>
+        /// Call to the engine for the NextRound to Happen
+        /// </summary>
+        public void RoundNextTurn()
+        {
+            BattleViewModel.Instance.BattleEngine.RoundNextTurn();
+        }
+
+        /// <summary>
+        /// Call to the Engine for a New Round to Happen
+        /// </summary>
+        public void NewRound()
+        {
+            BattleViewModel.Instance.BattleEngine.NewRound();
+        }
+
+        #region DataOperations
+        // Call to database operation for delete
+        public bool SelectedListRemove(Character data)
+        {
+            SelectedCharacters.Remove(data);
+            return true;
+        }
+
+        // Call to database operation for add
+        public bool SelectedListAdd(Character data)
+        {
+            SelectedCharacters.Add(data);
+            return true;
+        }
+
+        // Call to database to ensure most recent
+        public Character Get(string id)
+        {
+            var myData = SelectedCharacters.FirstOrDefault(arg => arg.Id == id);
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData;
+
+        }
+        #endregion DataOperations
+
+
+
+
+        public void ClearCharacterLists()
+        {
+            AvailableCharacters.Clear();
+            SelectedCharacters.Clear();
+
+            EexecutingLoadDataCommand();
         }
 
         // Return True if a refresh is needed
@@ -143,6 +297,40 @@ namespace Crawl.ViewModels
                 IsBusy = false;
             }
         }
+
+        private async Task EexecutingLoadDataCommand()
+        {
+            if (IsBusy)
+            {
+                return;
+            }
+
+            IsBusy = true;
+
+            try
+            {
+                // SelectedCharacters, no need to change them.
+
+                // Reload the Character List from the Character View Moel
+                AvailableCharacters.Clear();
+                var availableCharacters = CharactersViewModel.Instance.Dataset;
+               foreach (var data in availableCharacters)
+                {
+                    AvailableCharacters.Add(data);
+                }
+            }
+
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
 
         public void ForceDataRefresh()
         {

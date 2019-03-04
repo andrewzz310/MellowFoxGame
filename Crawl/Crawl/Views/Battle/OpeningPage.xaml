@@ -1,62 +1,83 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.OpeningPage">
     <ContentPage.Content>
         <StackLayout>
-        <StackLayout 
-            HorizontalOptions="Center" 
-            VerticalOptions="Start"
-            Orientation="Vertical">
-
-            <Label 
-                FontSize="Large"
-                Text="Mellow Fox Game"
-                VerticalOptions="Center" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-
+            <StackLayout HorizontalOptions="Center" VerticalOptions="Start" Orientation="Vertical">
+                <Label 
+					FontSize="Large" 
+					Text="Mellow Fox Game" 
+					VerticalOptions="Center" 
+					HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
             <Image 
-                Source="mellowfoxgamelogo1.png" 
-                VerticalOptions="Center" 
-                HeightRequest="150"
-                HorizontalOptions="Fill"/>
-
-
-            <StackLayout>
-            <Label Text="Battle Begins Here"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-
-            <Button Text="AutoBattle"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="AutoBattleButton_Command"/>
-
-            <Button Text="Battle"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="ManualBattleButton_Command"/>
-            
-            
-            <Button Text="Characters"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Characters_Command"/>
-                <Button Text="Monsters"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Monsters_Command"/>
-
-                <Button Text="Items"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Items_Command"/>
-
-              <Button Text="Scores"
-              VerticalOptions="CenterAndExpand"
-              HorizontalOptions="CenterAndExpand"
-              Clicked="Scores_Command"/>
+				Source="mellowfoxgamelogo1.png" 
+				VerticalOptions="Center" 
+				HeightRequest="150" 
+				HorizontalOptions="Fill"/>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout
+					VerticalOptions="CenterAndExpand"
+					HorizontalOptions="CenterAndExpand">
+                    <Label 
+						Text="Options"
+						VerticalOptions="CenterAndExpand"
+						HorizontalOptions="CenterAndExpand"/>
+                    <Button 
+						Text="Characters"
+                        Clicked="Characters_Command"
+                        BackgroundColor="LightGray"/>
+                    <Button 
+						Text="Monsters"
+						Clicked="Monsters_Command"
+                        BackgroundColor="LightGray"/>
+                    <Button 
+						Text="Items"
+						Clicked="Items_Command"
+                        BackgroundColor="LightGray"/>
+                </StackLayout>
+                <StackLayout
+				VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand"    >
+                    <Label 
+					Text="Battle Begins Here"
+                    VerticalOptions="CenterAndExpand" 
+					HorizontalOptions="CenterAndExpand"/>
+                    <Button 
+					Text="AutoBattle"
+                    Clicked="AutoBattleButton_Command"
+                    BackgroundColor="LightGray"/>
+                    <Button 
+					Text="Battle"
+                    Clicked="ManualBattleButton_Command"
+                    BackgroundColor="LightGray"/>
+                    <Label 
+					Text=""
+					VerticalOptions="CenterAndExpand"
+					HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+                <StackLayout
+				VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+                    <Label 
+					Text="Scores"
+					VerticalOptions="CenterAndExpand"
+					HorizontalOptions="CenterAndExpand" />
+                    <Button 
+					Text="Scores"
+					Clicked="Scores_Command"
+					BackgroundColor="LightGray"/>
+                    <Label 
+					Text=""
+					VerticalOptions="CenterAndExpand"
+					HorizontalOptions="CenterAndExpand" />
+                    <Label 
+					Text=""
+					VerticalOptions="CenterAndExpand"
+					HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

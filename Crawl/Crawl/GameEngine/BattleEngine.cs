@@ -11,7 +11,7 @@ namespace Crawl.GameEngine
     // Battle is the top structure
 
 
-    class BattleEngine : RoundEngine
+ public class BattleEngine : RoundEngine
     {
         // The status of the actual battle, running or not (over)
         private bool isBattleRunning = false;
@@ -163,6 +163,22 @@ namespace Crawl.GameEngine
             myData.Feet = ItemsViewModel.Instance.ChooseRandomItemString(ItemLocationEnum.Feet, AttributeEnum.Unknown);
 
             return myData;
+        }
+
+        public string GetResultsOutput()
+        {
+
+            string myResult = "" +
+                    " Battle Ended" + BattleScore.ScoreTotal +
+                    " Total Score :" + BattleScore.ExperienceGainedTotal +
+                    " Total Experience :" + BattleScore.ExperienceGainedTotal +
+                    " Rounds :" + BattleScore.RoundCount +
+                    " Turns :" + BattleScore.TurnCount +
+                    " Monster Kills :" + BattleScore.MonstersKilledList;
+
+            Debug.WriteLine(myResult);
+
+            return myResult;
         }
 
 
