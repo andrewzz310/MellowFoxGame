@@ -62,20 +62,20 @@ namespace Crawl.Services
 
 
             //characters
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock elf character", Description = "This is an Character description.", Level = 1, ImageURI = "elf.png" });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock dwarf Character", Description = "This is an Character description.", Level = 1, ImageURI = "Dwarf.png" });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock magician Character", Description = "This is an Character description.", Level = 2, ImageURI = "magician.png" });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock knight Character", Description = "This is an Character description.", Level = 2, ImageURI = "knight.png" });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock ninja Character", Description = "This is an Character description.", Level = 3, ImageURI = "ninja.png" });
-            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock fox Character", Description = "This is an Character description.", Level = 3, ImageURI = "fox.png" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock elf character", Description = "This is an Character description.", Level = 1, ImageURI = "https://66.media.tumblr.com/caee322a79f0cff2365a03b12ab8b8a6/tumblr_p4s334rGiB1x16ui8o1_400.gif" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock dwarf Character", Description = "This is an Character description.", Level = 1, ImageURI = "http://www.darkquest2.com/images/Dwarf.gif" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock magician Character", Description = "This is an Character description.", Level = 2, ImageURI = "https://i.imgur.com/ua6urzL.gif" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock knight Character", Description = "This is an Character description.", Level = 2, ImageURI = "https://thumbs.gfycat.com/CalmSeriousBuckeyebutterfly-size_restricted.gif" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock ninja Character", Description = "This is an Character description.", Level = 3, ImageURI = "https://orig00.deviantart.net/bc53/f/2017/234/5/3/ryu_hayabusa_standing_stance__2d__by_larsmasters-dbkq3vo.gif" });
+            await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "Mock fox Character", Description = "This is an Character description.", Level = 3, ImageURI = "https://i.pinimg.com/originals/33/ec/d2/33ecd27262385a3e03e4c2e573119364.gif" });
 
             // Monsters
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock dragon Monster", Description = "This is an Monster description.", ImageURI = "dragon1.png" });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock ork Monster", Description = "This is an Monster description.", ImageURI = "ork.png" });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock ogre Monster", Description = "This is an Monster description." , ImageURI = "ogre.png" });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock 100 handed giant Monster", Description = "This is an Monster description." , ImageURI = "100giant.png" });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock zombie Monster", Description = "This is an Monster description.", ImageURI = "zombie.png" });
-            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock hellraiser Monster", Description = "This is an Monster description.", ImageURI = "hellraiser.png" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock dragon Monster", Description = "This is an Monster description.", ImageURI = "http://bestanimations.com/Fantasy/Dragons/dragon-animated-gif-60.gif" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock ork Monster", Description = "This is an Monster description.", ImageURI = "http://www.darkquest2.com/images/orcWarrior.gif" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock ogre Monster", Description = "This is an Monster description.", ImageURI = "https://www.arelitecore.com/images/ogre.gif" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock 100 handed giant Monster", Description = "This is an Monster description.", ImageURI = "http://img3.wikia.nocookie.net/__cb20091108190157/mkwikia/images/6/66/GordanceYEA!.gif" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock zombie Monster", Description = "This is an Monster description.", ImageURI = "https://cdna.artstation.com/p/assets/images/images/005/518/386/original/craig-mullins-zombie-boss-03-idle.gif?1491619273" });
+            await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "Mock hellraiser Monster", Description = "This is an Monster description.", ImageURI = "http://www.ece.ubc.ca/~fengx/pics/Heroes4/death/devil.gif" });
 
             //scores
             await AddAsync_Score(new Score { Id = Guid.NewGuid().ToString(), Name = "Mock  First Score", ScoreTotal = 111 });
@@ -403,7 +403,7 @@ namespace Crawl.Services
             return await Task.FromResult(true);
         }
 
-            public async Task<Score> GetAsync_Score(string id)
+        public async Task<Score> GetAsync_Score(string id)
         {
             return await Task.FromResult(_scoreDataset.FirstOrDefault(s => s.Id == id));
         }
