@@ -5,7 +5,7 @@
 
   <ContentPage.Content>
     <StackLayout x:Name="BattleScene" Orientation="Vertical">
-      <Label Text="Welcome to Battle Page!" FontSize="Small" HorizontalOptions="Center" />
+      <Label Text="Mellow Fox Main Battle Page!" FontSize="Small" HorizontalOptions="Center" />
 
       <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
@@ -13,7 +13,7 @@
                     <Label Text="Select a character go begin battle" FontSize="Small" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" />
                     <!-- Listview of character dataset to display on left screen-->
           <ListView x:Name="CharactersBattle"
-            ItemsSource="{Binding DatasetChars}"
+            ItemsSource="{Binding SelectedCharacters}"
             VerticalOptions="FillAndExpand"
              HasUnevenRows="true"
              RefreshCommand="{Binding LoadItemsCommand}"

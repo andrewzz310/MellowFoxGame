@@ -22,8 +22,7 @@ namespace Crawl.Views.Battle
         private BattleViewModel _instance;
         
 
-        
-
+       
         public RoundOver()
         {
             

@@ -119,7 +119,7 @@ namespace Crawl.GameEngine
             var ScaleLevelMax = 2;
             var ScaleLevelMin = 1;
 
-            if (BattleViewModel.Instance.DatasetChars.Count < 1)
+            if (BattleViewModel.Instance.SelectedCharacters.Count < 1)
             {
                 return false;
             }
@@ -144,7 +144,7 @@ namespace Crawl.GameEngine
             //var myData = new Character(_instanceC.DatasetChars[number]);
 
             //this helps us keep the characterlist as the battleviewmodel characters
-            var myData = _instanceC.DatasetChars[number];
+            var myData = _instanceC.SelectedCharacters[number];
 
             // Help identify which Character it is...
             myData.Name += " " + (1 + CharacterList.Count).ToString();

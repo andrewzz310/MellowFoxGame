@@ -51,7 +51,7 @@ namespace Crawl.Views.Battle
             // picks 6 characters
             // a.AddCharactersToBattle();
 
-            // Put the 6 characters into a list
+            // Put the 6 characters into a list based on the characters that are selected
             mbattleEngine.AddCharactersToBattle(_instanceC);
             //init console message and characters
             Debug.WriteLine("########################################");
@@ -71,6 +71,9 @@ namespace Crawl.Views.Battle
             string outputString = "Battle Has added these characters" +
           mbattleEngine.CharacterList[0].FormatOutput() + Environment.NewLine +
           mbattleEngine.CharacterList[1].FormatOutput() + "sadf";
+
+            // start round is the next step in here 3/4/ 6:07 pm
+            mbattleEngine.StartRound();
 
 
 

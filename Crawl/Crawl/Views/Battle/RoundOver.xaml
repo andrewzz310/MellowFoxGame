@@ -5,7 +5,7 @@
 
     <ContentPage.Content>
         <StackLayout x:Name="BattleScene" Orientation="Vertical">
-            <Label Text="Round Over!" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
+            <Label Text="Round Over! Select Items for Next Round" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
 
             <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Vertical"  HorizontalOptions="Start">

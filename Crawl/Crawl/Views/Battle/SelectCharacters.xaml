@@ -12,7 +12,7 @@
             VerticalScrollBarVisibility="Never">
             <StackLayout>
                 <StackLayout>
-                    <Label Text="Select Characters for Battle" HorizontalOptions="CenterAndExpand" FontSize="Medium" />
+                    <Label Text="Select Characters for Mellow Fox Battle" HorizontalOptions="CenterAndExpand" FontSize="Medium" />
                 </StackLayout>
                 <StackLayout
                 VerticalOptions="Start"
@@ -119,8 +119,8 @@
                                 HorizontalOptions="CenterAndExpand"
                                 Clicked="OnNextClicked" 
                                 Text="Next"
-                                IsEnabled="False"
-                                />
+                                IsEnabled="False"/>
+                            
 
                         </StackLayout>
 
