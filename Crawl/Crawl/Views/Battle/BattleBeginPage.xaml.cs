@@ -44,13 +44,11 @@ namespace Crawl.Views.Battle
             _instanceC = _instance;
         }
         
-        // For now use this to begin the battle for testing purposes
+        // For now use this to begin the battle for testing purposes once a character is selected
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            // var myBattleEngine = new BattleEngine();
-            // picks 6 characters
-            // a.AddCharactersToBattle();
-
+            
+        
             // Put the 6 characters into a list based on the characters that are selected
             mbattleEngine.AddCharactersToBattle(_instanceC);
             //init console message and characters
@@ -73,31 +71,21 @@ namespace Crawl.Views.Battle
           mbattleEngine.CharacterList[1].FormatOutput() + "sadf";
 
             // start round is the next step in here 3/4/ 6:07 pm
-            mbattleEngine.StartRound();
+            //mbattleEngine.StartRound();
 
 
 
-
+  
             // the pop up for either cancel or see the score details
             var action = await DisplayActionSheet(outputString,
                 "Cancel",
                 null,
                 "View Score Results");
 
-
-            /*
-            var data = args.SelectedItem as Character;
-            if (data == null)
-                return;
-
-            //do something for click like attack or something
-           await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
-
-            // Manually deselect item.
-            CharactersBattle.SelectedItem = null;
-            */
+            
         }
 
+        //Shows monster that was selected
         private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Monster;
@@ -122,6 +110,13 @@ namespace Crawl.Views.Battle
         private async void GameOver_Command(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GameOver());
+        }
+
+        // when game over, display game over page
+        private async void Turn_Command(object sender, EventArgs e)
+        {
+            // change this TODO this is just a place holder
+            await Navigation.PushAsync(new BattleBeginPage());
         }
 
 

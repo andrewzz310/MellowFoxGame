@@ -5,7 +5,7 @@
 
   <ContentPage.Content>
     <StackLayout x:Name="BattleScene" Orientation="Vertical">
-      <Label Text="Mellow Fox Main Battle Page!" FontSize="Small" HorizontalOptions="Center" />
+            <Label Text="Mellow Fox Main Battle Page!" FontSize="Medium" BackgroundColor="LightBlue" HorizontalOptions="Center" />
 
       <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
@@ -52,7 +52,7 @@
           </StackLayout>
         <StackLayout Orientation="Vertical"  HorizontalOptions="End">
 
-          <Label Text="Monsters" FontSize="Small" BackgroundColor="Blue" HorizontalOptions="Center"/>
+          <Label Text="Monsters" FontSize="Small" BackgroundColor="LightBlue" HorizontalOptions="Center"/>
           <!-- Listview of Monster dataset to display on right screen-->
           <ListView x:Name="MonstersBattle"
               ItemsSource="{Binding DatasetMons}"
@@ -114,8 +114,12 @@
       </ListView.ItemTemplate>
     </ListView>
   </ContentView>
-     <!-- Buttons for next round if the round is over or game over-->
+     <!-- Buttons for next round if the round is over or game over or to play the game TODO next turn!-->
      </AbsoluteLayout>
+       <Button Text="NextTurnHere"
+       VerticalOptions="CenterAndExpand"
+      HorizontalOptions="CenterAndExpand"
+      Clicked="Turn_Command"/>        
       <Button Text="ClickIfRoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"

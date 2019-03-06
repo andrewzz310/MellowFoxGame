@@ -6,12 +6,12 @@
     <ContentPage.Content>
         <StackLayout x:Name="BattleScene" Orientation="Vertical">
             <Label Text="Round Over! Select Items for Next Round" FontSize="Medium" HorizontalOptions="CenterAndExpand" />
-
+             <!-- todo update the list of selected characters for characters that have died and modify their attributes such as health--> 
             <StackLayout Orientation="Horizontal">
                 <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
                     <Label Text="Character" FontSize="Medium" BackgroundColor="Red" HorizontalTextAlignment="Center" />
                     <ListView x:Name="CharactersBattle"
-            ItemsSource="{Binding DatasetChars}"
+            ItemsSource="{Binding SelectedCharacters}"
             VerticalOptions="FillAndExpand"
              HasUnevenRows="true"
              RefreshCommand="{Binding LoadItemsCommand}"
@@ -44,7 +44,7 @@
                         </ListView.ItemTemplate>
                     </ListView>
                 </StackLayout>
-            
+            <!-- Select items for characters after round is over-->
             <Label Text="Select Items for characters Above!" BackgroundColor="aqua" FontSize="Medium" HorizontalOptions="FillAndExpand" />
             <AbsoluteLayout x:Name="ItemsTray" Padding="0" HorizontalOptions="FillAndExpand" 
                       AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All">
@@ -70,7 +70,7 @@
                     </ListView>
                 </ContentView>
             </AbsoluteLayout>
-            <!-- Buttons for next round -->
+            <!-- Buttons for next round to go back to main battle screen -->
             <Button Text="MoveToNextRound"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"

@@ -26,6 +26,7 @@ namespace Crawl.Views.Battle
             BindingContext = _viewModel = viewModel;
         }
 
+        // show score details when game is over
         public GameOver()
         {
             InitializeComponent();

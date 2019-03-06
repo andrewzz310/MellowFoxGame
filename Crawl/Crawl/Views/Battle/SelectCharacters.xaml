@@ -25,7 +25,7 @@
 
                         <StackLayout 
                                     HorizontalOptions="StartAndExpand ">
-
+                        <!-- Showing Available Characters-->
                             <Label Text="Available Characters "
                                     HorizontalOptions="CenterAndExpand "/>
 
@@ -97,11 +97,13 @@
                 HorizontalOptions="CenterAndExpand"
                             VerticalOptions="Start">
                             <!-- Once characters are selected, buttons for the battle page or cancel to reselect-->
-                            <Button Text="Next for Battle"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Battle_Command"/>
-
+                            <!-- Button that takes us to battle begin page-->
+                            <Button 
+                                x:Name="NextButton"
+                                HorizontalOptions="CenterAndExpand"
+                                Clicked="OnNextClicked" 
+                                Text="Battle Start"
+                                IsEnabled="False"/>
                             <Button Text="Cancel to reselect"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" 
@@ -109,21 +111,16 @@
                             <Label 
                                 MinimumWidthRequest="100"
                                 HorizontalOptions="CenterAndExpand"
-                                Text="Party Count"/>
+                                Text="Character Count"/>
                             <Label 
                                 Text="0"
                                 HorizontalOptions="CenterAndExpand"
                                 x:Name="PartyCountLabel"/>
-                            <Button 
-                                x:Name="NextButton"
-                                HorizontalOptions="CenterAndExpand"
-                                Clicked="OnNextClicked" 
-                                Text="Next"
-                                IsEnabled="False"/>
+                          
                             
 
                         </StackLayout>
-
+            <!-- Selected Characters for Battle -->
                         <StackLayout HorizontalOptions="EndAndExpand">
                             <Label Text="Charactesr who are selected for Battle" FontSize="Small" />
 

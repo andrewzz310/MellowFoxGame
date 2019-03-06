@@ -39,22 +39,7 @@ namespace Crawl.Views
             Navigation.RemovePage(this);
         }
 
-        /*
-        private async void OnCharSelectedc(object sender, SelectedItemChangedEventArgs args)
-        {
-            var data = args.SelectedItem as Character;
-            if (data == null)
-                return;
-
-            // show details of the character
-            await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
-
-            // Manually deselect item.
-            CharactersBattle.SelectedItem = null;
-        }
-        */
-
-
+        // This shows available characters based on characterlist page which can also be modified
         private async void OnAvailableCharacterItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Character;
@@ -82,11 +67,11 @@ namespace Crawl.Views
             {
                 NextButton.IsEnabled = false;
             }
-
+            // add the current count of total characters
             PartyCountLabel.Text = currentCount.ToString();
         }
 
-
+        // this shows the characters that are selected from the characterlist page
         private async void OnSelectedCharacterItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Character;
@@ -117,13 +102,8 @@ namespace Crawl.Views
             await Navigation.PushAsync(new CharacterNewPage());
         }
 
-        // Once characters selected, go to the battle page
-        private async void Battle_Command(object sender, EventArgs e)
-        {
-           
-
-            await Navigation.PushAsync(new BattleBeginPage(_instanceC));
-        }
+       
+     
 
         // cancel the selected characters by refreshing a new select characters page
         private async void Cancel_Command(object sender, EventArgs e)
