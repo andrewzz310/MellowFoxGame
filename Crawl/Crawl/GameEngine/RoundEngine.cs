@@ -41,6 +41,18 @@ namespace Crawl.GameEngine
             Debug.WriteLine("Starting the Round # :" + BattleScore.RoundCount);
         }
 
+        // new stuff with the battleviewmodel characters in here
+        public void StartRound(BattleViewModel _instanceC)
+        {
+            BattleScore.RoundCount = 0;
+
+            //new stuff
+            int number = 0;
+            var myData = _instanceC.SelectedCharacters[number];
+            
+            Debug.WriteLine("debug here to see if character is passed " + myData.Name);
+        }
+
         // Call to make a new set of monsters and initialize for roundnextturn()
         public void NewRound()
         {

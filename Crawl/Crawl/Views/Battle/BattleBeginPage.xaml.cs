@@ -71,9 +71,9 @@ namespace Crawl.Views.Battle
           mbattleEngine.CharacterList[1].FormatOutput() + "sadf";
 
             // start round is the next step in here 3/4/ 6:07 pm
-            //mbattleEngine.StartRound();
+            mbattleEngine.StartRound(_instanceC);
 
-
+            // maybe use battlengine inside of viewmodel and just pass viewmodel
 
   
             // the pop up for either cancel or see the score details
