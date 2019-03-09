@@ -95,30 +95,30 @@ namespace Crawl.GameEngine
             // Scale monsters based on round count.. higher round higher and stronger monsters
             if (BattleScore.RoundCount <= 10)
             {
-                ScaleLevelMax = 1;
+                ScaleLevelMax = 2;
                 ScaleLevelMin = 1;
             }
 
             if (BattleScore.RoundCount > 10 && BattleScore.RoundCount <= 30 )
             {
-                ScaleLevelMax = 2;
-                ScaleLevelMin = 1;
+                ScaleLevelMax = 5;
+                ScaleLevelMin = 3;
             }
 
             if (BattleScore.RoundCount > 30 && BattleScore.RoundCount <= 50)
             {
-                ScaleLevelMax = 3;
-                ScaleLevelMin = 2;
+                ScaleLevelMax = 15;
+                ScaleLevelMin = 8;
             }
             if (BattleScore.RoundCount > 50 && BattleScore.RoundCount <= 100)
             {
-                ScaleLevelMax = 4;
-                ScaleLevelMin = 2;
+                ScaleLevelMax = 20;
+                ScaleLevelMin = 10;
             }
             if (BattleScore.RoundCount > 100)
             {
-                ScaleLevelMax = 10;
-                ScaleLevelMin = 5;
+                ScaleLevelMax = 20;
+                ScaleLevelMin = 20;
             }
 
 
@@ -187,6 +187,7 @@ namespace Crawl.GameEngine
             if (CharacterList.Count < 1)
             {
                 // Game Over and exit do while loop from auto battle engine
+                RoundStateEnum = RoundEnum.GameOver;
                 return RoundEnum.GameOver;
             }
 
@@ -194,6 +195,7 @@ namespace Crawl.GameEngine
             if (MonsterList.Count < 1)
             {
                 // If over, New Round which loops back to main auto battle engine
+                RoundStateEnum = RoundEnum.NewRound;
                 return RoundEnum.NewRound;
             }
 
@@ -222,6 +224,7 @@ namespace Crawl.GameEngine
                 TakeTurn(myPlayer);
             }
 
+            RoundStateEnum = RoundEnum.NextTurn;
             return RoundEnum.NextTurn;
         }
 
