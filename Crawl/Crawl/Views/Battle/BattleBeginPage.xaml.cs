@@ -49,6 +49,19 @@ namespace Crawl.Views.Battle
             Debug.WriteLine("Battle Start" + " Characters :" + _instanceC.BattleEngine.CharacterList.Count);
             _instanceC.StartRound();
             Debug.WriteLine("Round Start" + " Monsters:" + _instanceC.BattleEngine.MonsterList.Count);
+
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+           
+            Debug.WriteLine("Monsters are Below :");
+
+            for (var i = 0; i < 6; i++)
+            {
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].FormatOutput());
+            }
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine("########################################");
         }
 
         // For now use this to begin the battle for testing purposes once a character is selected

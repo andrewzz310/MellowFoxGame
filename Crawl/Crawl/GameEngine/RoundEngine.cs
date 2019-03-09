@@ -132,14 +132,14 @@ namespace Crawl.GameEngine
                 {
                     var rnd = HelperEngine.RollDice(1, myMonsterViewModel.Dataset.Count);
                     {
-                        var item = new Monster(myMonsterViewModel.Dataset[rnd - 1]);
+                        var mons = new Monster(myMonsterViewModel.Dataset[rnd - 1]);
 
                         // Help identify which monster it is...
-                        item.Name += " " + (1 + MonsterList.Count()).ToString();
+                        mons.Name += " " + (1 + MonsterList.Count()).ToString();
 
                         var rndScale = HelperEngine.RollDice(ScaleLevelMin, ScaleLevelMax);
-                        item.ScaleLevel(rndScale);
-                        MonsterList.Add(item);
+                        mons.ScaleLevel(rndScale);
+                        MonsterList.Add(mons);
                     }
 
                 } while (MonsterList.Count() < 6);
