@@ -42,8 +42,14 @@ namespace Crawl.Views.Battle
             InitializeComponent();
 
             _instanceC = _instance;
+
+            _instanceC.StartBattle();
+            // Load the Characters into the Battle Engine
+            _instanceC.LoadCharacters();
+            Debug.WriteLine("Battle Start" + " Characters :" + _instanceC.BattleEngine.CharacterList.Count);
+
         }
-        
+
         // For now use this to begin the battle for testing purposes once a character is selected
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {

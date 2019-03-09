@@ -50,7 +50,12 @@ namespace Crawl.GameEngine
             int number = 0;
             var myData = _instanceC.SelectedCharacters[number];
             
+
             Debug.WriteLine("debug here to see if character is passed " + myData.Name);
+
+            NewRound();
+            Debug.WriteLine("Starting the Round # :" + BattleScore.RoundCount);
+
         }
 
         // Call to make a new set of monsters and initialize for roundnextturn()
