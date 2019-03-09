@@ -62,6 +62,18 @@ namespace Crawl.Views.Battle
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
             Debug.WriteLine("########################################");
+
+
+
+            Debug.WriteLine("Charcters are Below :");
+
+            for (var i = 0; i < 6; i++)
+            {
+                Debug.WriteLine(_instanceC.BattleEngine.CharacterList[i].FormatOutput());
+            }
+            Debug.WriteLine("########################################");
+            Debug.WriteLine(Environment.NewLine);
+            Debug.WriteLine("########################################");
         }
 
         // For now use this to begin the battle for testing purposes once a character is selected
