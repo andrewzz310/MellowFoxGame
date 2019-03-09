@@ -195,6 +195,27 @@ namespace Crawl.GameEngine
 
             return myData;
         }
+
+
+        /// <summary>
+        /// Retruns a formated String of the Results of the Battle
+        /// </summary>
+        /// <returns></returns>
+        public string GetResultsOutput()
+        {
+
+            string myResult = "" +
+                    " Battle Ended" + BattleScore.ScoreTotal +
+                    " Total Score :" + BattleScore.ExperienceGainedTotal +
+                    " Total Experience :" + BattleScore.ExperienceGainedTotal +
+                    " Rounds :" + BattleScore.RoundCount +
+                    " Turns :" + BattleScore.TurnCount +
+                    " Monster Kills :" + BattleScore.MonstersKilledList;
+
+            Debug.WriteLine(myResult);
+
+            return myResult;
+        }
         /*
         public bool AutoBattle()
         {

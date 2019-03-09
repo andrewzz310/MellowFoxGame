@@ -16,6 +16,7 @@ namespace Crawl.GameEngine
 
         // Player currently engaged
         public PlayerInfo PlayerCurrent;
+        public RoundEnum RoundStateEnum = RoundEnum.Unknown;
 
         public RoundEngine()
         {

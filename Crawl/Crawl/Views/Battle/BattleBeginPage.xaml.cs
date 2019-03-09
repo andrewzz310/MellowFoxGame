@@ -144,13 +144,80 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new GameOver());
         }
 
-        // when game over, display game over page
-        private async void Turn_Command(object sender, EventArgs e)
+        //do this to display next turn button 
+        public async void Turn_Command(object sender, EventArgs e)
         {
+            //MessagingCenter.Send(this, "RoundNextTurn");
+
+            // Hold the current state
+            var CurrentRoundState = _instanceC.BattleEngine.RoundStateEnum;
+
+            // If the round is over start a new one...
+            if (CurrentRoundState == RoundEnum.NewRound)
+            {
+                _instanceC.NewRound();
+                // MessagingCenter.Send(this, "NewRound");
+
+                Debug.WriteLine("!!!!!!!!!!!!!!New Round :" + _instanceC.BattleEngine.BattleScore.RoundCount);
+
+                //ShowModalPageMonsterList();
+            }
+
+            // Check for Game Over
+            if (CurrentRoundState == RoundEnum.GameOver)
+            {
+                _instanceC.EndBattle();
+                //MessagingCenter.Send(this, "EndBattle");
+                Debug.WriteLine("End Battle!!!!!!!!!!!!!!!!!!!");
+
+                // Output Formatted Results 
+                var myResult = _instanceC.BattleEngine.GetResultsOutput();
+                Debug.Write(myResult);
+
+                // Let the user know the game is over
+             //   ClearMessages();    // Clear message
+              //  AppendMessage("Game Over\n"); // Show Game Over
+
+                // Clear the players from the center of the board
+                //DrawGameBoardClear();
+
+                // Change to the Game Over Button
+               // GameNextButton.IsVisible = false;
+                //GameOverButton.IsVisible = true;
+
+                return;
+            }
+
+            // Output the Game Board
+            //DrawGameBoardAttackerDefender();
+
+            // Output The Message that happened.
+          //  GameMessage();
+
+            _instanceC.RoundNextTurn();
             // change this TODO this is just a place holder
-            await Navigation.PushAsync(new BattleBeginPage());
+            //await Navigation.PushAsync(new BattleBeginPage());
         }
 
+        /*
+        /// <summary>
+        /// Append new message in front of old message (makes it a stack from top down)
+        /// </summary>
+        /// <param name="message"></param>
+        public void AppendMessage(string message)
+        {
+            MessageText.Text = message + "\n" + MessageText.Text;
+        }
+
+
+
+        public void ClearMessages()
+        {
+            MessageText.Text = "";
+            htmlSource.Html = _viewModel.BattleEngine.BattleMessages.GetHTMLBlankMessage();
+            HtmlBox.Source = htmlSource;
+        }
+        */
 
         bool hasAppearedOnce = false;
         protected override void OnAppearing()
