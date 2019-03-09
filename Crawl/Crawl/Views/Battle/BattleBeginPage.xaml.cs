@@ -47,7 +47,8 @@ namespace Crawl.Views.Battle
             // Load the Characters into the Battle Engine
             _instanceC.LoadCharacters();
             Debug.WriteLine("Battle Start" + " Characters :" + _instanceC.BattleEngine.CharacterList.Count);
-
+            _instanceC.StartRound();
+            Debug.WriteLine("Round Start" + " Monsters:" + _instanceC.BattleEngine.MonsterList.Count);
         }
 
         // For now use this to begin the battle for testing purposes once a character is selected
