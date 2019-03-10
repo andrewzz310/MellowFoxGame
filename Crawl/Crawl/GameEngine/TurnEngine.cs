@@ -189,6 +189,8 @@ namespace Crawl.GameEngine
         // Character attacks Monster
         public bool TurnAsAttack(Character Attacker, int AttackScore, Monster Target, int DefenseScore)
         {
+
+
             TurnMessage = string.Empty;
             TurnMessageSpecial = string.Empty;
             AttackStatus = string.Empty;
@@ -213,6 +215,15 @@ namespace Crawl.GameEngine
             // Determine whether hit or miss based on character attack total and monster defense total
             var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
 
+
+            Debug.WriteLine("#############");
+            Debug.WriteLine(" Characteritem: " + Attacker.Head);
+            Debug.WriteLine(" Characteritem: " + Attacker.Feet);
+            Debug.WriteLine(" Characteritem: " + Attacker.Necklass);
+            Debug.WriteLine(" Characteritem: " + Attacker.PrimaryHand);
+            Debug.WriteLine(" Characteritem: " + Attacker.OffHand);
+            Debug.WriteLine(" Characteritem: " + Attacker.RightFinger);
+            Debug.WriteLine(" Characteritem: " + Attacker.LeftFinger);
             //miss based on attack and roll being less than defence
             if (HitStatus == HitStatusEnum.Miss)
             {

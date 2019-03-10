@@ -144,6 +144,12 @@ namespace Crawl.Models
             myReturn += " , Level : " + Level.ToString();
             myReturn += " , Total Experience : " + ExperienceTotal;
             myReturn += " , Unique Item : " + UniqueOutput;
+            myReturn += " , Unique Item : " + Head;
+            myReturn += " , Unique Item : " + Feet;
+            myReturn += " , Unique Item : " + Necklass;
+            myReturn += " , Unique Item : " + RightFinger;
+            myReturn += " , Unique Item : " + LeftFinger;
+            myReturn += " , Unique Item : " + UniqueItem;
 
             return myReturn;
         }
