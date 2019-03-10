@@ -135,7 +135,8 @@ namespace Crawl.Services
             //Scores
             ScoresViewModel.Instance.SetNeedsRefresh(true);
 
-            //  BattleViewModel.Instance.SetNeedsRefresh(true);
+            //battleviewmodel
+              BattleViewModel.Instance.SetNeedsRefresh(true);
         }
 
         public void InitializeDatabaseNewTables()

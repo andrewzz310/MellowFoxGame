@@ -181,18 +181,42 @@ namespace Crawl.Views.Battle
                 Debug.WriteLine("End Battle!!!!!!!!!!!!!!!!!!!");
 
                 // Output Formatted Results 
+               // var myResult = _instanceC.BattleEngine.GetResultsOutput();
+                //Debug.Write(myResult);
+
+                // output results of the game after battle is over
                 var myResult = _instanceC.BattleEngine.GetResultsOutput();
+                var myScore = _instanceC.BattleEngine.GetScoreValue();
                 Debug.Write(myResult);
 
+
+                var outputString = "Mellow Fox Battle Over!";
+
+                // the pop up for either cancel or see the score details
+                var action = await DisplayActionSheet(outputString,
+                    "Cancel",
+                    null,
+                    "View Score Results");
+
+                // Show the results
+                if (action == "View Score Results")
+                {
+                    var myScoreObject = _instanceC.BattleEngine.GetScoreObject();
+                    await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
+                }
+
+
+
+
                 // Let the user know the game is over
-             //   ClearMessages();    // Clear message
-              //  AppendMessage("Game Over\n"); // Show Game Over
+                //   ClearMessages();    // Clear message
+                //  AppendMessage("Game Over\n"); // Show Game Over
 
                 // Clear the players from the center of the board
                 //DrawGameBoardClear();
 
                 // Change to the Game Over Button
-               // GameNextButton.IsVisible = false;
+                // GameNextButton.IsVisible = false;
                 //GameOverButton.IsVisible = true;
 
                 return;

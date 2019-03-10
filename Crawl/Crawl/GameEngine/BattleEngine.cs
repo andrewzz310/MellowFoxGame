@@ -45,6 +45,19 @@ namespace Crawl.GameEngine
         {
             return isBattleRunning;
         }
+        /// <summary>
+        /// Returns the Score from the current Battle Instance
+        /// </summary>
+        /// <returns>the score value</returns>
+        public int GetScoreValue()
+        {
+            return BattleScore.ScoreTotal;
+        }
+        //returns the current score object
+        public Score GetScoreObject()
+        {
+            return BattleScore;
+        }
 
         // Battle is over
         // Update Battle State, Log Score to Database
