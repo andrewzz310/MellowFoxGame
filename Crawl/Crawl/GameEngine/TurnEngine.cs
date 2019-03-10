@@ -24,6 +24,9 @@ namespace Crawl.GameEngine
         // Holds the official score
         public Score BattleScore = new Score();
 
+        // battle messages
+        public BattleMessages BattleMessages = new BattleMessages();
+
         public string AttackerName = string.Empty;
         public string TargetName = string.Empty;
         public string AttackStatus = string.Empty;

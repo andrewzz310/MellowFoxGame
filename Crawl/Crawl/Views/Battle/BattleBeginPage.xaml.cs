@@ -28,6 +28,9 @@ namespace Crawl.Views.Battle
         //round engine
         RoundEngine mRoundEngine = new RoundEngine();
 
+        // HTML Formatting for message output box
+        HtmlWebViewSource htmlSource = new HtmlWebViewSource();
+
         //  think about passing characters or something else instead of game engines
         public BattleBeginPage ()
 		{
@@ -59,13 +62,7 @@ namespace Crawl.Views.Battle
             for (var i = 0; i < 6; i++)
             {
                 Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].FormatOutput());
-                Debug.WriteLine("asdasfasdfasfsafsdfasdfsfa");
-                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Head);
-                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Feet);
-                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Necklass);
-                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].RightFinger);
-                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].LeftFinger);
-                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Feet);
+
                
 
             }
@@ -180,10 +177,7 @@ namespace Crawl.Views.Battle
                 //MessagingCenter.Send(this, "EndBattle");
                 Debug.WriteLine("End Battle!!!!!!!!!!!!!!!!!!!");
 
-                // Output Formatted Results 
-               // var myResult = _instanceC.BattleEngine.GetResultsOutput();
-                //Debug.Write(myResult);
-
+            
                 // output results of the game after battle is over
                 var myResult = _instanceC.BattleEngine.GetResultsOutput();
                 var myScore = _instanceC.BattleEngine.GetScoreValue();
@@ -202,12 +196,9 @@ namespace Crawl.Views.Battle
                 if (action == "View Score Results")
                 {
                     var myScoreObject = _instanceC.BattleEngine.GetScoreObject();
-                    await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
+                    await Navigation.PushAsync(new GameOver(new ScoreDetailViewModel(myScoreObject)));
+                    //await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
                 }
-
-
-
-
                 // Let the user know the game is over
                 //   ClearMessages();    // Clear message
                 //  AppendMessage("Game Over\n"); // Show Game Over
@@ -233,7 +224,11 @@ namespace Crawl.Views.Battle
             //await Navigation.PushAsync(new BattleBeginPage());
         }
 
-        /*
+
+
+
+
+        
         /// <summary>
         /// Append new message in front of old message (makes it a stack from top down)
         /// </summary>
@@ -243,15 +238,30 @@ namespace Crawl.Views.Battle
             MessageText.Text = message + "\n" + MessageText.Text;
         }
 
+        /// <summary>
+        /// Builds up the output message
+        /// </summary>
+        /// <param name="message"></param>
+        public void GameMessage()
+        {
 
+            var message = _instanceC.BattleEngine.BattleMessages.TurnMessage;
+            Debug.WriteLine("The Message: " + message);
 
+            AppendMessage(message);
+
+           htmlSource.Html = _instanceC.BattleEngine.BattleMessages.GetHTMLFormattedTurnMessage();
+            HtmlBox.Source = HtmlBox.Source = htmlSource;
+
+        }
+        /*
         public void ClearMessages()
         {
             MessageText.Text = "";
             htmlSource.Html = _viewModel.BattleEngine.BattleMessages.GetHTMLBlankMessage();
             HtmlBox.Source = htmlSource;
-        }
-        */
+        }*/
+
 
         bool hasAppearedOnce = false;
         protected override void OnAppearing()
