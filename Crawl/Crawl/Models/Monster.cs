@@ -42,6 +42,7 @@ namespace Crawl.Models
             RightFinger = newData.RightFinger;
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
+            UniqueItem = newData.UniqueItem;
 
             Name = newData.Name;
             Description = newData.Description;

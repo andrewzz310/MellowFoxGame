@@ -53,18 +53,28 @@ namespace Crawl.Views.Battle
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
            
+            //debug for monsters
             Debug.WriteLine("Monsters are Below :");
 
             for (var i = 0; i < 6; i++)
             {
                 Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].FormatOutput());
+                Debug.WriteLine("asdasfasdfasfsafsdfasdfsfa");
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Head);
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Feet);
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Necklass);
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].RightFinger);
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].LeftFinger);
+                Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].Feet);
+               
+
             }
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
             Debug.WriteLine("########################################");
 
 
-
+            //debug for characters
             Debug.WriteLine("Charcters are Below :");
 
             for (var i = 0; i < 6; i++)
