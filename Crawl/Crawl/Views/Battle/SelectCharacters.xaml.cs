@@ -28,9 +28,13 @@ namespace Crawl.Views
             NextButton.IsEnabled = false;
         }
 
-        // Close this page
+        // go to the battle page
         async void OnNextClicked(object sender, EventArgs args)
         {
+            //load characters and start battle
+            //_instanceC.StartBattle();
+            //_instanceC.LoadCharacters();
+
 
             // Jump to Main Battle Page
             await Navigation.PushAsync(new BattleBeginPage(_instanceC));

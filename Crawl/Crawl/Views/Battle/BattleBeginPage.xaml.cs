@@ -23,7 +23,7 @@ namespace Crawl.Views.Battle
         private BattleViewModel _instanceC;
 
         // battle engine
-        BattleEngine mbattleEngine = new BattleEngine();
+        //BattleEngine mbattleEngine = new BattleEngine();
 
         //round engine
         RoundEngine mRoundEngine = new RoundEngine();
@@ -90,42 +90,17 @@ namespace Crawl.Views.Battle
         // For now use this to begin the battle for testing purposes once a character is selected
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            
-            
-            // Put the 6 characters into a list based on the characters that are selected
-            mbattleEngine.AddCharactersToBattle(_instanceC);
-            //init console message and characters
-            Debug.WriteLine("########################################");
-            Debug.WriteLine(Environment.NewLine);
-          //  Debug.WriteLine("The Mellow Fox Game Battle has Started" + " Total Characters :" + a.CharacterList.Count);
-            Debug.WriteLine("Characters are Below :");
-            
-            for (var i = 0; i < 6; i++)
-            {
-                Debug.WriteLine(mbattleEngine.CharacterList[i].FormatOutput());
-            }
-            Debug.WriteLine("########################################");
-            Debug.WriteLine(Environment.NewLine);
-            Debug.WriteLine("########################################");
-            Debug.WriteLine("Round has now started");
 
-            string outputString = "Battle Has added these characters" +
-          mbattleEngine.CharacterList[0].FormatOutput() + Environment.NewLine +
-          mbattleEngine.CharacterList[1].FormatOutput() + "sadf";
+            var data = args.SelectedItem as Character;
+            if (data == null)
+                return;
 
-            // start round is the next step in here 3/4/ 6:07 pm
-            mbattleEngine.StartRound(_instanceC);
+            //do something for click like attack or something
+            await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
 
-            // maybe use battlengine inside of viewmodel and just pass viewmodel
+            //Manually deselect item.
+           // SelectCharacters.SelectedItem = null;
 
-  
-            // the pop up for either cancel or see the score details
-            var action = await DisplayActionSheet(outputString,
-                "Cancel",
-                null,
-                "View Score Results");
-                
-            
         }
 
         //Shows monster that was selected
@@ -256,7 +231,8 @@ namespace Crawl.Views.Battle
         {
 
             var message = _instanceC.BattleEngine.BattleMessages.TurnMessage;
-            Debug.WriteLine("The Message: " + message);
+            var messages = "test test est";
+            Debug.WriteLine("#####The Message###: " + message + messages);
 
             AppendMessage(message);
 

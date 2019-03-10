@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+
 
 
 using Crawl.Models;
 using Crawl.ViewModels;
 using System.Linq;
+using Crawl.GameEngine;
+using Crawl.Views.Battle;
+
 
 namespace Crawl.GameEngine
 {
@@ -21,6 +27,8 @@ namespace Crawl.GameEngine
 
     public class TurnEngine
     {
+
+
         // Holds the official score
         public Score BattleScore = new Score();
 
@@ -44,6 +52,7 @@ namespace Crawl.GameEngine
 
         public List<Monster> MonsterList = new List<Monster>();
         public List<Character> CharacterList = new List<Character>();
+        
 
         // Attack or Move
         // Roll To Hit
@@ -220,13 +229,8 @@ namespace Crawl.GameEngine
 
 
             Debug.WriteLine("#############");
-            Debug.WriteLine(" Characteritem: " + Attacker.Head);
-            Debug.WriteLine(" Characteritem: " + Attacker.Feet);
-            Debug.WriteLine(" Characteritem: " + Attacker.Necklass);
-            Debug.WriteLine(" Characteritem: " + Attacker.PrimaryHand);
-            Debug.WriteLine(" Characteritem: " + Attacker.OffHand);
-            Debug.WriteLine(" Characteritem: " + Attacker.RightFinger);
-            Debug.WriteLine(" Characteritem: " + Attacker.LeftFinger);
+      
+         
             //miss based on attack and roll being less than defence
             if (HitStatus == HitStatusEnum.Miss)
             {
