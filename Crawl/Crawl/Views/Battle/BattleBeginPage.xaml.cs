@@ -55,7 +55,10 @@ namespace Crawl.Views.Battle
 
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
+
            
+      
+
             //debug for monsters
             Debug.WriteLine("Monsters are Below :");
 
@@ -83,11 +86,12 @@ namespace Crawl.Views.Battle
             Debug.WriteLine("########################################");
         }
 
+        
         // For now use this to begin the battle for testing purposes once a character is selected
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             
-        
+            
             // Put the 6 characters into a list based on the characters that are selected
             mbattleEngine.AddCharactersToBattle(_instanceC);
             //init console message and characters
@@ -120,7 +124,7 @@ namespace Crawl.Views.Battle
                 "Cancel",
                 null,
                 "View Score Results");
-
+                
             
         }
 
@@ -183,6 +187,9 @@ namespace Crawl.Views.Battle
                 var myScore = _instanceC.BattleEngine.GetScoreValue();
                 Debug.Write(myResult);
 
+                // Let the user know the game is over
+                ClearMessages();    // Clear message
+                AppendMessage("Game Over\n"); // Show Game Over
 
                 var outputString = "Mellow Fox Battle Over!";
 
@@ -199,9 +206,7 @@ namespace Crawl.Views.Battle
                     await Navigation.PushAsync(new GameOver(new ScoreDetailViewModel(myScoreObject)));
                     //await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
                 }
-                // Let the user know the game is over
-                //   ClearMessages();    // Clear message
-                //  AppendMessage("Game Over\n"); // Show Game Over
+               
 
                 // Clear the players from the center of the board
                 //DrawGameBoardClear();
@@ -216,9 +221,9 @@ namespace Crawl.Views.Battle
             // Output the Game Board
             //DrawGameBoardAttackerDefender();
 
+            
             // Output The Message that happened.
-          //  GameMessage();
-
+            GameMessage();
             _instanceC.RoundNextTurn();
             // change this TODO this is just a place holder
             //await Navigation.PushAsync(new BattleBeginPage());
@@ -226,9 +231,14 @@ namespace Crawl.Views.Battle
 
 
 
+        public void ClearMessages()
+        {
+            MessageText.Text = "";
+            htmlSource.Html = _instanceC.BattleEngine.BattleMessages.GetHTMLBlankMessage();
+            HtmlBox.Source = htmlSource;
+        }
 
 
-        
         /// <summary>
         /// Append new message in front of old message (makes it a stack from top down)
         /// </summary>
