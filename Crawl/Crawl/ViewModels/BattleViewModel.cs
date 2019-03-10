@@ -251,7 +251,7 @@ namespace Crawl.ViewModels
               
                 //Monsters
                 DatasetMons.Clear();
-                var dataset_mons = await DataStore.GetAllAsync_Monster(true);
+                var dataset_mons = BattleViewModel._instance.BattleEngine.MonsterList;
 
                 //Sort the list
                 dataset_mons = dataset_mons
