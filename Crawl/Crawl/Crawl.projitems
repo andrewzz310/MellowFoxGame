@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Attribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseEntity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BaseCharacter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\BattleMessageHitEnum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BattleMessages.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Converter.cs" />
@@ -52,7 +53,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\BasePlayer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\BasePlayerItemSlots.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\AttributeBase.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Enums\BattleMessageHitEnum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\GameGlobals.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\ItemList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\LevelTable.cs" />

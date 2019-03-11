@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Crawl.Models.Enums
+namespace Crawl.Models
 {
 
     /// <summary>
@@ -54,8 +54,8 @@ namespace Crawl.Models.Enums
             MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.Unknown, Message = "Unknown" });
             MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.Hit, Message = " hits " });
             MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.Miss, Message = " misses " });
-            MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.CriticalMiss, Message = " critically misses!!" });
-            MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.CriticalHit, Message = " critically hits!! " });
+            MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.CriticalMiss, Message = " misses really badly" });
+            MessageList.Add(new MessageDetailHitEnum { HitStatus = HitStatusEnum.CriticalHit, Message = " hits really hard " });
         }
 
         // Level details for each level
@@ -72,3 +72,4 @@ namespace Crawl.Models.Enums
         }
     }
 }
+

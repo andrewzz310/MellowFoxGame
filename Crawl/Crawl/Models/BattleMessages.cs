@@ -1,4 +1,4 @@
-﻿using Crawl.Models.Enums;
+﻿using Crawl.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;

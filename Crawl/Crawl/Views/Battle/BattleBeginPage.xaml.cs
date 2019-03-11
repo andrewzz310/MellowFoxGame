@@ -133,7 +133,8 @@ namespace Crawl.Views.Battle
         //do this to display next turn button 
         public async void Turn_Command(object sender, EventArgs e)
         {
-            //MessagingCenter.Send(this, "RoundNextTurn");
+            MessagingCenter.Send(this, "RoundNextTurn");
+            _instanceC.RoundNextTurn();
 
             // Hold the current state
             var CurrentRoundState = _instanceC.BattleEngine.RoundStateEnum;
@@ -196,10 +197,10 @@ namespace Crawl.Views.Battle
             // Output the Game Board
             //DrawGameBoardAttackerDefender();
 
-            
+            _instanceC.LoadDataCommand.Execute(null);
             // Output The Message that happened.
             GameMessage();
-            _instanceC.RoundNextTurn();
+         
             // change this TODO this is just a place holder
             //await Navigation.PushAsync(new BattleBeginPage());
         }
