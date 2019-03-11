@@ -22,29 +22,17 @@ namespace Crawl.Views.Battle
         //viewmodel of battle with character and monster data for binding
         private BattleViewModel _instanceC;
 
-        // battle engine
-        //BattleEngine mbattleEngine = new BattleEngine();
-
-        //round engine
-        RoundEngine mRoundEngine = new RoundEngine();
 
         // HTML Formatting for message output box
         HtmlWebViewSource htmlSource = new HtmlWebViewSource();
 
         //  think about passing characters or something else instead of game engines
-        public BattleBeginPage ()
+        public BattleBeginPage()
 		{
 
-            InitializeComponent();
-            BindingContext = _instanceC = BattleViewModel.Instance;
-
-        }
-        // Passing in the battleviewmodel 
-        public BattleBeginPage(BattleViewModel _instance)
-        {
+            _instanceC = BattleViewModel.Instance;
             InitializeComponent();
 
-            _instanceC = _instance;
 
             _instanceC.StartBattle();
             // Load the Characters into the Battle Engine
@@ -56,8 +44,9 @@ namespace Crawl.Views.Battle
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
 
-           
-      
+            BindingContext = _instanceC;
+            // Clear the Screen
+           // ClearMessages();
 
             //debug for monsters
             Debug.WriteLine("Monsters are Below :");
@@ -66,7 +55,7 @@ namespace Crawl.Views.Battle
             {
                 Debug.WriteLine(_instanceC.BattleEngine.MonsterList[i].FormatOutput());
 
-               
+
 
             }
             Debug.WriteLine("########################################");
@@ -85,7 +74,7 @@ namespace Crawl.Views.Battle
             Debug.WriteLine(Environment.NewLine);
             Debug.WriteLine("########################################");
         }
-
+       
         
         // For now use this to begin the battle for testing purposes once a character is selected
         private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
@@ -133,8 +122,10 @@ namespace Crawl.Views.Battle
         //do this to display next turn button 
         public async void Turn_Command(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "RoundNextTurn");
+
+            // go to the next turn
             _instanceC.RoundNextTurn();
+            //MessagingCenter.Send(this, "RoundNextTurn");
 
             // Hold the current state
             var CurrentRoundState = _instanceC.BattleEngine.RoundStateEnum;
@@ -194,11 +185,10 @@ namespace Crawl.Views.Battle
                 return;
             }
 
-            // Output the Game Board
-            //DrawGameBoardAttackerDefender();
-
+      
+            //updates the data
             _instanceC.LoadDataCommand.Execute(null);
-            // Output The Message that happened.
+            // game message
             GameMessage();
          
             // change this TODO this is just a place holder

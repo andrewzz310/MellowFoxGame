@@ -72,11 +72,26 @@ namespace Crawl.GameEngine
             // Save the Score to the DataStore
             ScoresViewModel.Instance.AddAsync(BattleScore).GetAwaiter().GetResult();
         }
+        // Sets the new state for the variables for Battle
+        private void BattleEngineClearData()
+        {
+            BattleScore = new Score();
+            BattleMessages = new BattleMessages();
+
+            ItemPool.Clear();
+            MonsterList.Clear();
+            CharacterList.Clear();
+
+            // Reset current player
+            PlayerCurrent = null;
+        }
 
         // Initializes the Battle to begin
         public bool StartBattle(bool isAutoBattle)
         {
             // New Battle
+           // BattleEngineClearData();
+            
             // Load the Characters
             BattleScore.AutoBattle = isAutoBattle;
             isBattleRunning = true;
@@ -118,7 +133,7 @@ namespace Crawl.GameEngine
 
             return true;
         }
-
+        /*
         // add characters based on the battleviewmodel for our battle
         public bool AddCharactersToBattle(BattleViewModel _instanceC)
         {
@@ -177,7 +192,7 @@ namespace Crawl.GameEngine
             myData.Feet = ItemsViewModel.Instance.ChooseRandomItemString(ItemLocationEnum.Feet, AttributeEnum.Unknown);
 
             return myData;
-        }
+        }*/
 
 
         // get random characters and attach neccesary items and level

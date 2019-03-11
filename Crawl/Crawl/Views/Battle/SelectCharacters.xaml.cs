@@ -37,7 +37,7 @@ namespace Crawl.Views
 
 
             // Jump to Main Battle Page
-            await Navigation.PushAsync(new BattleBeginPage(_instanceC));
+            await Navigation.PushAsync(new BattleBeginPage());
 
             // Last, remove this page
             Navigation.RemovePage(this);
@@ -121,6 +121,33 @@ namespace Crawl.Views
 
             BindingContext = null;
 
+
+            InitializeComponent();
+
+            // Clear the Selected Ones, start over.
+            _instanceC.SelectedCharacters.Clear();
+
+            // If the Available Character List is empty fill it and then show it
+            if (_instanceC.DatasetChars.Count == 0)
+            {
+                _instanceC.LoadDataCommand.Execute(null);
+            }
+            else if (_instanceC.NeedsRefresh())
+            {
+                _instanceC.LoadDataCommand.Execute(null);
+            }
+
+            BindingContext = _instanceC;
+
+            PartyCountLabel.Text = _instanceC.SelectedCharacters.Count().ToString();
+            /*
+            base.OnAppearing();
+
+            BindingContext = null;
+
+            InitializeComponent();
+
+
             if (ToolbarItems.Count > 0)
             {
                 ToolbarItems.RemoveAt(0);
@@ -138,6 +165,7 @@ namespace Crawl.Views
             }
 
             BindingContext = _instanceC;
+            */
         }
     }
 }

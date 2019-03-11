@@ -41,7 +41,7 @@ namespace Crawl.GameEngine
 
             Debug.WriteLine("Starting the Round # :" + BattleScore.RoundCount);
         }
-
+        /*
         // new stuff with the battleviewmodel characters in here
         public void StartRound(BattleViewModel _instanceC)
         {
@@ -57,7 +57,7 @@ namespace Crawl.GameEngine
             NewRound();
             Debug.WriteLine("Starting the Round # :" + BattleScore.RoundCount);
 
-        }
+        }*/
 
         // Call to make a new set of monsters and initialize for roundnextturn()
         public void NewRound()
@@ -93,19 +93,26 @@ namespace Crawl.GameEngine
 
 
             // Scale monsters based on round count.. higher round higher and stronger monsters
-            if (BattleScore.RoundCount <= 10)
+            if (BattleScore.RoundCount <= 5)
             {
                 ScaleLevelMax = 2;
                 ScaleLevelMin = 1;
             }
 
-            if (BattleScore.RoundCount > 10 && BattleScore.RoundCount <= 30 )
+            if (BattleScore.RoundCount > 5 && BattleScore.RoundCount <= 10 )
             {
-                ScaleLevelMax = 5;
-                ScaleLevelMin = 3;
+                ScaleLevelMax = 2;
+                ScaleLevelMin = 4;
             }
 
-            if (BattleScore.RoundCount > 30 && BattleScore.RoundCount <= 50)
+            if (BattleScore.RoundCount > 10 && BattleScore.RoundCount <= 15)
+            {
+                ScaleLevelMax = 10;
+                ScaleLevelMin = 6;
+            }
+
+
+            if (BattleScore.RoundCount > 15 && BattleScore.RoundCount <= 50)
             {
                 ScaleLevelMax = 15;
                 ScaleLevelMin = 8;
