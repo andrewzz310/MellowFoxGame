@@ -74,16 +74,7 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-            <StackLayout
-                Orientation="Horizontal"
-                BackgroundColor="DarkRed" Grid.Row="5" Grid.Column="0">
-                <Label Text="Speed : " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Speed}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>
+ 
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="IndianRed" Grid.Row="6" Grid.Column="0">
