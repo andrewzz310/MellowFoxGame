@@ -8,33 +8,6 @@
             <Label Text="Mellow Fox Main Battle Page!" FontSize="Medium" BackgroundColor="LightBlue" HorizontalOptions="Center" />
 
 
-
-            <!-- Battle Messages-->
-            <Label Text="Messages" Style="{DynamicResource DebugSwitchLabel}"/>
-
-            <StackLayout x:Name="MessageBox">
-                <Label x:Name ="MessageText"
-                       LineBreakMode="WordWrap"
-                       MaxLines="5"
-                       HeightRequest="50">
-                </Label>
-
-                <WebView
-                    WidthRequest="100"
-                    MinimumWidthRequest="100"
-                    HeightRequest="100"
-                    MinimumHeightRequest="100"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Start"
-                    BackgroundColor="Transparent"
-                    x:Name="HtmlBox">
-                </WebView>
-
-            </StackLayout>
-
-
-
-
             <StackLayout Orientation="Horizontal">
         <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
           <Label Text="Character" FontSize="Small" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" />
@@ -74,10 +47,36 @@
             </ListView.ItemTemplate>
           </ListView>
         </StackLayout>
-        <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
+
+
+                <!-- Battle Messages-->
+                
+
+                <StackLayout Orientation="Vertical"  HorizontalOptions="Center" x:Name="MessageBox">
+                    <Label Text="MellowFox Game Messages" Style="{DynamicResource DebugSwitchLabel}"/>
+                    <Label x:Name ="MessageText"
+                       LineBreakMode="WordWrap"
+                       MaxLines="10"
+                       HeightRequest="50">
+                    </Label>
+
+                    <WebView
+                    WidthRequest="150"
+                    MinimumWidthRequest="150"
+                    HeightRequest="100"
+                    MinimumHeightRequest="150"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    BackgroundColor="Transparent"
+                    x:Name="HtmlBox">
+                    </WebView>
+
+                </StackLayout>
+                <!--
+                <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
         <Label Text="Messages for Round Over and Game Over" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
         <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
-          </StackLayout>
+          </StackLayout>-->
         <StackLayout Orientation="Vertical"  HorizontalOptions="End">
 
           <Label Text="Monsters" FontSize="Small" BackgroundColor="LightBlue" HorizontalOptions="Center"/>
