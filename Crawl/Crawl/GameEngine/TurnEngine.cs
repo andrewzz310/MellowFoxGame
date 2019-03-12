@@ -39,9 +39,9 @@ namespace Crawl.GameEngine
         public string TargetName = string.Empty;
         public string AttackStatus = string.Empty;
 
-        public string TurnMessage = string.Empty;
-        public string TurnMessageSpecial = string.Empty;
-        public string LevelUpMessage = string.Empty;
+       // public string TurnMessage = string.Empty;
+       // public string TurnMessageSpecial = string.Empty;
+      //  public string LevelUpMessage = string.Empty;
 
         public int DamageAmount = 0;
         public HitStatusEnum HitStatus = HitStatusEnum.Unknown;
@@ -99,9 +99,11 @@ namespace Crawl.GameEngine
         // Monster Attacks Character (monsters don't get xp earned and their level is scaled based on instantiation)
         public bool TurnAsAttack(Monster Attacker, int AttackScore, Character Target, int DefenseScore)
         {
-            TurnMessage = string.Empty;
-            TurnMessageSpecial = string.Empty;
-            AttackStatus = string.Empty;
+            BattleMessages.TurnMessage = string.Empty;
+            BattleMessages.TurnMessageSpecial = string.Empty;
+            BattleMessages.AttackStatus = string.Empty;
+
+            BattleMessages.PlayerType = PlayerTypeEnum.Monster;
 
             if (Attacker == null)
             {
@@ -116,56 +118,56 @@ namespace Crawl.GameEngine
             BattleScore.TurnCount++;
 
             //Names for attacker and target
-            TargetName = Target.Name;
-            AttackerName = Attacker.Name;
+            BattleMessages.TargetName = Target.Name;
+            BattleMessages.AttackerName = Attacker.Name;
 
             var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
 
             // Miss
-            if (HitStatus == HitStatusEnum.Miss)
+            if (BattleMessages.HitStatus == HitStatusEnum.Miss)
             {
-                TurnMessage = Attacker.Name + " misses " + Target.Name;
-                Debug.WriteLine(TurnMessage);
+                BattleMessages.TurnMessage = Attacker.Name + " misses " + Target.Name;
+                Debug.WriteLine(BattleMessages.TurnMessage);
                 return true;
             }
 
             //Force a miss if it's a critical miss rolls a 1 or 2
-            if (HitStatus == HitStatusEnum.CriticalMiss)
+            if (BattleMessages.HitStatus == HitStatusEnum.CriticalMiss)
             {
                 Debug.WriteLine("#########################");
                 Debug.WriteLine("Great Luck, Monster rolled 1 or 2 so the monster critically MISSED!!!");
-                TurnMessage = Attacker.Name + " bad roll of 1 or 2 so the monster  critically misses " + Target.Name;
-                Debug.WriteLine(TurnMessage);
+                BattleMessages.TurnMessage = Attacker.Name + " bad roll of 1 or 2 so the monster  critically misses " + Target.Name;
+                Debug.WriteLine(BattleMessages.TurnMessage);
                 return true;
             }
 
             // It's a Hit or a Critical Hit (rolls 20 or 19)
             //Calculate Damage
-            DamageAmount = Attacker.GetDamageRollValue();
+            BattleMessages.DamageAmount = Attacker.GetDamageRollValue();
 
-            DamageAmount += GameGlobals.ForceMonsterDamangeBonusValue;  // Add The forced damage bonus
+            BattleMessages.DamageAmount += GameGlobals.ForceMonsterDamangeBonusValue;  // Add The forced damage bonus
 
-            if (HitStatus == HitStatusEnum.Hit)
+            if (BattleMessages.HitStatus == HitStatusEnum.Hit)
             {
-                Target.TakeDamage(DamageAmount);
-                AttackStatus = string.Format(" hits for {0} damage on ", DamageAmount);
+                Target.TakeDamage(BattleMessages.DamageAmount);
+                AttackStatus = string.Format(" hits for {0} damage on ", BattleMessages.DamageAmount);
             }
 
             // double damage
-            if (HitStatus == HitStatusEnum.CriticalHit)
+            if (BattleMessages.HitStatus == HitStatusEnum.CriticalHit)
             {
                 //2x damage
-                DamageAmount += DamageAmount;
+                BattleMessages.DamageAmount += BattleMessages.DamageAmount;
                 Debug.WriteLine("#########################");
                 Debug.WriteLine("Unfortunately Monster rolled a 19 or 20 so it critically HIT your character!!!");
-                Target.TakeDamage(DamageAmount);
-                AttackStatus = string.Format(" hits critically hard for {0} damage on ", DamageAmount);
+                Target.TakeDamage(BattleMessages.DamageAmount);
+                AttackStatus = string.Format(" hits critically hard for {0} damage on ", BattleMessages.DamageAmount);
             }
 
             //Display if character is still alive
             if (Target.Attribute.CurrentHealth > 0)
             {
-                TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
+                BattleMessages.TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
             }
 
             // Check for alive
@@ -175,7 +177,7 @@ namespace Crawl.GameEngine
                 CharacterList.Remove(Target);
 
                 // Mark Status in output
-                TurnMessageSpecial = " and causes death";
+                BattleMessages.TurnMessageSpecial = " and causes death";
 
                 // Add the monster to the killed list
                 BattleScore.CharacterAtDeathList += Target.FormatOutput() + "\n";
@@ -187,14 +189,14 @@ namespace Crawl.GameEngine
                 foreach (var item in myItemList)
                 {
                     BattleScore.ItemsDroppedList += item.FormatOutput() + "\n";
-                    TurnMessageSpecial += " Item " + item.Name + " dropped";
+                    BattleMessages.TurnMessageSpecial += " Item " + item.Name + " dropped";
                 }
 
                 ItemPool.AddRange(myItemList);
             }
 
-            TurnMessage = Attacker.Name + AttackStatus + Target.Name + TurnMessageSpecial;
-            Debug.WriteLine(TurnMessage);
+            BattleMessages.TurnMessage = Attacker.Name + AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
+            Debug.WriteLine(BattleMessages.TurnMessage);
             return true;
         }
 
@@ -203,10 +205,10 @@ namespace Crawl.GameEngine
         {
 
 
-            TurnMessage = string.Empty;
-            TurnMessageSpecial = string.Empty;
-            AttackStatus = string.Empty;
-            LevelUpMessage = string.Empty;
+            BattleMessages.TurnMessage = string.Empty;
+            BattleMessages.TurnMessageSpecial = string.Empty;
+            BattleMessages.AttackStatus = string.Empty;
+            BattleMessages.LevelUpMessage = string.Empty;
 
             if (Attacker == null)
             {
@@ -221,8 +223,8 @@ namespace Crawl.GameEngine
             BattleScore.TurnCount++;
 
             //Names for attacker and target
-            TargetName = Target.Name;
-            AttackerName = Attacker.Name;
+            BattleMessages.TargetName = Target.Name;
+            BattleMessages.AttackerName = Attacker.Name;
 
             // Determine whether hit or miss based on character attack total and monster defense total
             var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
@@ -232,62 +234,62 @@ namespace Crawl.GameEngine
       
          
             //miss based on attack and roll being less than defence
-            if (HitStatus == HitStatusEnum.Miss)
+            if (BattleMessages.HitStatus == HitStatusEnum.Miss)
             {
-                TurnMessage = Attacker.Name + " misses " + Target.Name;
-                Debug.WriteLine(TurnMessage);
+                BattleMessages.TurnMessage = Attacker.Name + " misses " + Target.Name;
+                Debug.WriteLine(BattleMessages.TurnMessage);
 
                 return true;
             }
 
             // force a miss if you roll a 1 or 2 no matter what the attack is
-            if (HitStatus == HitStatusEnum.CriticalMiss)
+            if (BattleMessages.HitStatus == HitStatusEnum.CriticalMiss)
             {
                 Debug.WriteLine("#########################");
                 Debug.WriteLine("Unfortunately Character rolled 1 or 2 so you critically MISSED!!!");
-                TurnMessage = Attacker.Name + " rolls 1 or 2 and the character critically misses " + Target.Name;
-                Debug.WriteLine(TurnMessage);
+                BattleMessages.TurnMessage = Attacker.Name + " rolls 1 or 2 and the character critically misses " + Target.Name;
+                Debug.WriteLine(BattleMessages.TurnMessage);
 
                 return true;
             }
 
             // It's a Hit if your attack and roll is greater than the defence
-            if (HitStatus == HitStatusEnum.Hit || HitStatus == HitStatusEnum.CriticalHit)
+            if (BattleMessages.HitStatus == HitStatusEnum.Hit || BattleMessages.HitStatus == HitStatusEnum.CriticalHit)
             {
                 //Calculate Damage
-                DamageAmount = Attacker.GetDamageRollValue();
+                BattleMessages.DamageAmount = Attacker.GetDamageRollValue();
 
-                DamageAmount += GameGlobals.ForceCharacterDamangeBonusValue;   // Add the Forced Damage Bonus (used for testing...)
+                BattleMessages.DamageAmount += GameGlobals.ForceCharacterDamangeBonusValue;   // Add the Forced Damage Bonus (used for testing...)
 
-                AttackStatus = string.Format(" hits for {0} damage on ", DamageAmount);
+                BattleMessages.AttackStatus = string.Format(" hits for {0} damage on ", BattleMessages.DamageAmount);
 
 
                 // double the damage if critical hit and character rolls 20 or 19
                 if (GameGlobals.EnableCriticalHitDamage)
                 {
-                    if (HitStatus == HitStatusEnum.CriticalHit)
+                    if (BattleMessages.HitStatus == HitStatusEnum.CriticalHit)
                     {
                         Debug.WriteLine("#########################");
                         Debug.WriteLine("Amazing Roll, Character rolled 19 or 20 so critically HIT!!!");
                         //2x damage
-                        DamageAmount += DamageAmount;
-                        AttackStatus = string.Format(" hits critically hard for {0} damage on ", DamageAmount);
+                        BattleMessages.DamageAmount += BattleMessages.DamageAmount;
+                        BattleMessages.AttackStatus = string.Format(" hits critically hard for {0} damage on ", BattleMessages.DamageAmount);
                     }
                 }
 
                 //the monster takes the damage
-                Target.TakeDamage(DamageAmount);
+                Target.TakeDamage(BattleMessages.DamageAmount);
 
                 // calculate experience earned
-                var experienceEarned = Target.CalculateExperienceEarned(DamageAmount);
+                var experienceEarned = Target.CalculateExperienceEarned(BattleMessages.DamageAmount);
 
                 
                 // check whether enough xp is given to level up
                 var LevelUp = Attacker.AddExperience(experienceEarned);
                 if (LevelUp)
                 {
-                    LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetHealthMax();
-                    Debug.WriteLine(LevelUpMessage);
+                    BattleMessages.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetHealthMax();
+                    Debug.WriteLine(BattleMessages.LevelUpMessage);
                 }
 
                 BattleScore.ExperienceGainedTotal += experienceEarned;
@@ -296,7 +298,7 @@ namespace Crawl.GameEngine
             //display health of Monster if still alive
             if (Target.Attribute.CurrentHealth > 0)
             {
-                TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
+                BattleMessages.TurnMessageSpecial = " remaining health is " + Target.Attribute.CurrentHealth;
             }
 
             // Check for alive
@@ -306,7 +308,7 @@ namespace Crawl.GameEngine
                 MonsterList.Remove(Target);
 
                 // Mark Status in output
-                TurnMessageSpecial = " and causes death";
+                BattleMessages.TurnMessageSpecial = " and causes death";
 
                 // Add one to the monsters killd count...
                 BattleScore.MonsterSlainNumber++;
@@ -324,14 +326,14 @@ namespace Crawl.GameEngine
                 foreach (var item in myItemList)
                 {
                     BattleScore.ItemsDroppedList += item.FormatOutput() + "\n";
-                    TurnMessageSpecial += " Item " + item.Name + " dropped";
+                    BattleMessages.TurnMessageSpecial += " Item " + item.Name + " dropped";
                 }
 
                 ItemPool.AddRange(myItemList);
             }
 
-            TurnMessage = Attacker.Name + AttackStatus + Target.Name + TurnMessageSpecial;
-            Debug.WriteLine(TurnMessage);
+            BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
+            Debug.WriteLine(BattleMessages.TurnMessage);
             return true;
         }
 
@@ -357,16 +359,16 @@ namespace Crawl.GameEngine
             if (d20 == 1 || d20 == 2)
             {
                 // Force Miss
-                HitStatus = HitStatusEnum.CriticalMiss;
-                return HitStatus;
+                BattleMessages.HitStatus = HitStatusEnum.CriticalMiss;
+                return BattleMessages.HitStatus;
             }
 
             //critical hit if 20 or 19 is rolled then force a hit
             if (d20 == 20 || d20 ==19)
             {
                 // Force Hit
-                HitStatus = HitStatusEnum.CriticalHit;
-                return HitStatus;
+                BattleMessages.HitStatus = HitStatusEnum.CriticalHit;
+                return BattleMessages.HitStatus;
             }
 
             //total hitscore is based on attack and the dice.
@@ -375,18 +377,18 @@ namespace Crawl.GameEngine
             // if the attack with the dice roll is less than defence score then its a miss
             if (ToHitScore < DefenseScore)
             {
-                AttackStatus = " misses ";
+                BattleMessages.AttackStatus = " misses ";
                 // Miss
-                HitStatus = HitStatusEnum.Miss;
-                DamageAmount = 0;
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                BattleMessages.DamageAmount = 0;
             }
             else // if attack and dice is more than defence then its a hit
             {
                 // Hit
-                HitStatus = HitStatusEnum.Hit;
+                BattleMessages.HitStatus = HitStatusEnum.Hit;
             }
 
-            return HitStatus;
+            return BattleMessages.HitStatus;
         }
 
         //For now choose first monster in list to get attacked

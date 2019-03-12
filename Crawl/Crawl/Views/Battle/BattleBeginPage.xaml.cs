@@ -222,8 +222,7 @@ namespace Crawl.Views.Battle
         {
 
             var message = _instanceC.BattleEngine.BattleMessages.TurnMessage;
-            var messages = "test test est";
-            Debug.WriteLine("#####The Message###: " + message + messages);
+            Debug.WriteLine("#####The Message###: " + message);
 
             AppendMessage(message);
 

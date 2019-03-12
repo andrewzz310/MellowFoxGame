@@ -93,10 +93,15 @@ namespace Crawl.GameEngine
 
 
             // Scale monsters based on round count.. higher round higher and stronger monsters
-            if (BattleScore.RoundCount <= 5)
+            if (BattleScore.RoundCount <= 1)
             {
-                ScaleLevelMax = 2;
+                ScaleLevelMax = 1;
                 ScaleLevelMin = 1;
+            }
+            if (BattleScore.RoundCount > 1 && BattleScore.RoundCount <= 5)
+            {
+                ScaleLevelMax = 3;
+                ScaleLevelMin = 2;
             }
 
             if (BattleScore.RoundCount > 5 && BattleScore.RoundCount <= 10 )
