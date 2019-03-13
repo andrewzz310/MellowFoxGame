@@ -20,7 +20,7 @@ namespace Crawl.Models
         public int DamageAmount = 0;
         public int CurrentHealth = 0;
 
-        private string htmlHead = @"<html><body bgcolor=""#E8D0B6""><p>";
+        private string htmlHead = @"<html><body bgcolor=""#9C5AC7""><p>";
         private string htmlTail = @"</p></body></html>";
 
         public HitStatusEnum HitStatus = HitStatusEnum.Unknown;

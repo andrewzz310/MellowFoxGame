@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+﻿<ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.OpeningPage">
@@ -15,7 +14,7 @@
             <Image 
 				Source="mellowfoxgamelogo1.png" 
 				VerticalOptions="Center" 
-				HeightRequest="150" 
+				HeightRequest="250" 
 				HorizontalOptions="Fill"/>
             <StackLayout Orientation="Horizontal">
                 <StackLayout
@@ -28,15 +27,15 @@
                     <Button 
 						Text="Characters"
                         Clicked="Characters_Command"
-                        BackgroundColor="LightGray"/>
+                        BackgroundColor="#8FACE3"/>
                     <Button 
 						Text="Monsters"
 						Clicked="Monsters_Command"
-                        BackgroundColor="LightGray"/>
+                        BackgroundColor="#8FACE3"/>
                     <Button 
 						Text="Items"
 						Clicked="Items_Command"
-                        BackgroundColor="LightGray"/>
+                        BackgroundColor="#8FACE3"/>
                 </StackLayout>
                 <StackLayout
 				VerticalOptions="CenterAndExpand" 
@@ -48,11 +47,11 @@
                     <Button 
 					Text="AutoBattle"
                     Clicked="AutoBattleButton_Command"
-                    BackgroundColor="LightGray"/>
+                    BackgroundColor="#8FACE3"/>
                     <Button 
 					Text="Battle"
                     Clicked="ManualBattleButton_Command"
-                    BackgroundColor="LightGray"/>
+                    BackgroundColor="#8FACE3"/>
                     <Label 
 					Text=""
 					VerticalOptions="CenterAndExpand"
@@ -68,7 +67,7 @@
                     <Button 
 					Text="Scores"
 					Clicked="Scores_Command"
-					BackgroundColor="LightGray"/>
+					BackgroundColor="#8FACE3"/>
                     <Label 
 					Text=""
 					VerticalOptions="CenterAndExpand"

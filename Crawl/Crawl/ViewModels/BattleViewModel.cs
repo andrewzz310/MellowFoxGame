@@ -52,7 +52,7 @@ namespace Crawl.ViewModels
 
         public BattleViewModel()
         {
-            Title = "MellowFoxBattle";
+            //Title = "MellowFoxBattle";
 
             SelectedCharacters = new ObservableCollection<Character>();
 

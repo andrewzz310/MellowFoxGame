@@ -3,17 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.Battle.BattleBeginPage">
 
-  <ContentPage.Content>
-    <StackLayout x:Name="BattleScene" Orientation="Vertical">
-            <Label Text="Mellow Fox Main Battle Page!" FontSize="Medium" BackgroundColor="LightBlue" HorizontalOptions="Center" />
+    <ContentPage.Content>
+        <StackLayout x:Name="BattleScene" Orientation="Vertical">
+            <Label Text="Mellow Fox Main Battle Page!" FontSize="Medium" BackgroundColor="Transparent" HorizontalOptions="Center" />
 
 
             <StackLayout Orientation="Horizontal">
-        <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
-          <Label Text="Character" FontSize="Small" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" />
-                    <Label Text="Select a character go begin battle" FontSize="Small" BackgroundColor="LightBlue" HorizontalTextAlignment="Center" />
+                <StackLayout Orientation="Vertical"  HorizontalOptions="Start">
+                    <Label Text="Character" FontSize="Small" BackgroundColor="Transparent" HorizontalTextAlignment="Center" />
                     <!-- Listview of character dataset to display on left screen-->
-          <ListView x:Name="CharactersBattle"
+                    <ListView x:Name="CharactersBattle"
             ItemsSource="{Binding SelectedCharacters}"
             VerticalOptions="FillAndExpand"
              HasUnevenRows="true"
@@ -21,107 +20,43 @@
              IsPullToRefreshEnabled="true"
              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
              CachingStrategy="RecycleElement"
-             ItemSelected="OnCharacterSelected">
-            <ListView.ItemTemplate>
-              <DataTemplate>
-                <ViewCell>
-                  
-                  <StackLayout Padding="10"
+             ItemSelected="OnCharacterSelected"
+             BackgroundColor="Transparent">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Padding="5"
                                Orientation="Vertical"
                                VerticalOptions="Start"
-                               HorizontalOptions="Start">
-                    <Image Source="{Binding ImageURI}"
-                           WidthRequest="45"
-                           HeightRequest="45"
+                               HorizontalOptions="Start"
+                               BackgroundColor="Transparent">
+                                        <Image Source="{Binding ImageURI}"
+                           WidthRequest="40"
+                           HeightRequest="40"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
-                    <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Name}"
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"
                       LineBreakMode="NoWrap"
                       Style="{DynamicResource ListItemTextStyle}"
                       FontSize="12" />
-                    </StackLayout>
-                  </StackLayout>
-                </ViewCell>
-              </DataTemplate>
-            </ListView.ItemTemplate>
-          </ListView>
-        </StackLayout>
-
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
 
                 <!-- Battle Messages-->
-                
-
-                <StackLayout Orientation="Vertical"  HorizontalOptions="Center" x:Name="MessageBox">
-                    <Label Text="MellowFox Game Messages" Style="{DynamicResource DebugSwitchLabel}"/>
-                    <Label x:Name ="MessageText"
-                       LineBreakMode="WordWrap"
-                       MaxLines="10"
-                       HeightRequest="50">
-                    </Label>
-
-                    <WebView
-                    WidthRequest="150"
-                    MinimumWidthRequest="150"
-                    HeightRequest="100"
-                    MinimumHeightRequest="150"
-                    HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Start"
-                    BackgroundColor="Transparent"
-                    x:Name="HtmlBox">
-                    </WebView>
-
-                </StackLayout>
-                <!--
-                <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
-        <Label Text="Messages for Round Over and Game Over" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
-        <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
-          </StackLayout>-->
-        <StackLayout Orientation="Vertical"  HorizontalOptions="End">
-
-          <Label Text="Monsters" FontSize="Small" BackgroundColor="LightBlue" HorizontalOptions="Center"/>
-          <!-- Listview of Monster dataset to display on right screen-->
-          <ListView x:Name="MonstersBattle"
-              ItemsSource="{Binding DatasetMons}"
-              VerticalOptions="FillAndExpand"
-               HasUnevenRows="true"
-               RefreshCommand="{Binding LoadItemsCommand}"
-               IsPullToRefreshEnabled="true"
-               IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-               CachingStrategy="RecycleElement"
-               ItemSelected="OnMonsterSelected">
-            <ListView.ItemTemplate>
-              <DataTemplate>
-                <ViewCell>
-                 
-                  <StackLayout Padding="10"
-                           Orientation="Vertical"
-                           VerticalOptions="Start"
-                           HorizontalOptions="Start">
-                    <Image Source="{Binding ImageURI}"
-                       WidthRequest="45"
-                       HeightRequest="45"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
                     <StackLayout Orientation="Horizontal">
-                      <Label Text="{Binding Name}"
-                  LineBreakMode="NoWrap"
-                  Style="{DynamicResource ListItemTextStyle}"
-                  FontSize="12" />
-                    </StackLayout>
-                  </StackLayout>
-                </ViewCell>
-              </DataTemplate>
-            </ListView.ItemTemplate>
-          </ListView>
-        </StackLayout>
-      </StackLayout>
-      <Label Text="Items" FontSize="Small" BackgroundColor="Aqua" HorizontalOptions="Start"/>
-      <AbsoluteLayout x:Name="ItemsTray" Padding="0" HorizontalOptions="FillAndExpand" 
-                      AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All">
-  <ContentView x:Name="ItemsTrayInner"  Padding="0"  HorizontalOptions="FillAndExpand">
-      <!-- Listview of Itemsdataset to display as items tray-->
-    <ListView x:Name="ItemTrayListView"
+                        <Label Text="Items" FontSize="Small" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                        <AbsoluteLayout x:Name="ItemsTray" Padding="0" HorizontalOptions="Center" 
+                      AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All" >
+                            <ContentView x:Name="ItemsTrayInner"  Padding="0"  HorizontalOptions="Center">
+                                <!-- Listview of Itemsdataset to display as items tray-->
+                                <ListView x:Name="ItemTrayListView"
               ItemsSource="{Binding DatasetItems}"
               RowHeight="120"
               VerticalOptions="Start"
@@ -130,37 +65,104 @@
               SeparatorVisibility="None"
               Rotation="270"
               HorizontalOptions="Center">
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <ContentView Rotation="90" Padding="12">
-              <Image Source="{Binding ImageURI}" Aspect="AspectFill" />
-            </ContentView>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-  </ContentView>
-   
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <ViewCell>
+                                                <ContentView Rotation="90" Padding="12">
+                                                    <Image Source="{Binding ImageURI}" Aspect="AspectFill" />
+                                                </ContentView>
+                                            </ViewCell>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </ContentView>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical"  HorizontalOptions="Center" x:Name="MessageBox">
+                        <Label Text="MellowFox Game Messages" Style="{DynamicResource DebugSwitchLabel}"/>
+                        <Label x:Name ="MessageText"
+                       LineBreakMode="WordWrap"
+                       MaxLines="10"
+                       HeightRequest="50">
+                        </Label>
 
+                        <WebView
+                    WidthRequest="150"
+                    MinimumWidthRequest="150"
+                    HeightRequest="100"
+                    MinimumHeightRequest="150"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Start"
+                    BackgroundColor="Transparent"
+                    x:Name="HtmlBox">
+                        </WebView>
 
+                    </StackLayout>
+                    <!--
+                <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
+        <Label Text="Messages for Round Over and Game Over" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
+        <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
+          </StackLayout>-->
+                </StackLayout>
+                <StackLayout Orientation="Vertical"  HorizontalOptions="End">
 
-                <!-- Buttons for next round if the round is over or game over or to play the game TODO next turn!-->
-     </AbsoluteLayout>
-       <Button Text="NextTurnHere"
-       VerticalOptions="CenterAndExpand"
-      HorizontalOptions="CenterAndExpand"
-      Clicked="Turn_Command"/>        
-      <Button Text="ClickIfRoundOver"
+                    <Label Text="Monsters" FontSize="Small" BackgroundColor="Transparent" HorizontalOptions="Center"/>
+                    <!-- Listview of Monster dataset to display on right screen-->
+                    <ListView x:Name="MonstersBattle"
+              ItemsSource="{Binding DatasetMons}"
+              VerticalOptions="FillAndExpand"
+               HasUnevenRows="true"
+               RefreshCommand="{Binding LoadItemsCommand}"
+               IsPullToRefreshEnabled="true"
+               IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+               CachingStrategy="RecycleElement"
+               ItemSelected="OnMonsterSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+
+                                    <StackLayout Padding="5"
+                           Orientation="Vertical"
+                           VerticalOptions="Start"
+                           HorizontalOptions="Start"
+                               BackgroundColor="Transparent">
+                                        <Image Source="{Binding ImageURI}"
+                       WidthRequest="40"
+                       HeightRequest="40"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding Name}"
+                  LineBreakMode="NoWrap"
+                  Style="{DynamicResource ListItemTextStyle}"
+                  FontSize="12" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+
+            <!-- Buttons for next round if the round is over or game over or to play the game TODO next turn!-->
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="ClickIfRoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="RoundOver_Command"/>
-      <Button Text="ClickIfGameOver"
+                <Button Text="NextTurnHere"
+       VerticalOptions="CenterAndExpand"
+      HorizontalOptions="CenterAndExpand"
+      Clicked="Turn_Command"/>
+                <Button Text="ClickIfGameOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
       Clicked="GameOver_Command"/>
+            </StackLayout>
 
 
         </StackLayout>
-  </ContentPage.Content>
+    </ContentPage.Content>
 </ContentPage>
