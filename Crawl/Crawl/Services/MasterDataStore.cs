@@ -33,7 +33,7 @@ namespace Crawl.Services
                     // Implement Score
                     ScoresViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
 
-      
+   
                     BattleViewModel.Instance.SetDataStore(DataStoreEnum.Mock);
 
                     break;

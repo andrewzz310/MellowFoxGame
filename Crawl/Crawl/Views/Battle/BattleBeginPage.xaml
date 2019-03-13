@@ -31,8 +31,8 @@
                                HorizontalOptions="Start"
                                BackgroundColor="Transparent">
                                         <Image Source="{Binding ImageURI}"
-                           WidthRequest="40"
-                           HeightRequest="40"
+                           WidthRequest="50"
+                           HeightRequest="50"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"/>
                                         <StackLayout Orientation="Horizontal">
@@ -100,7 +100,7 @@
                     </StackLayout>
                     <!--
                 <StackLayout Orientation="Vertical"  HorizontalOptions="Center">
-        <Label Text="Messages for Round Over and Game Over" FontSize="Small" BackgroundColor="Green" HorizontalTextAlignment="Center" />
+        <Label Text="Messages for Round Over and Game Over" FontSize="Small" BackgroundColor="#5D6FFA" HorizontalTextAlignment="Center" />
         <BoxView Color="Green" WidthRequest="200" HeightRequest="125" Opacity="0.75" /> 
           </StackLayout>-->
                 </StackLayout>
@@ -127,8 +127,8 @@
                            HorizontalOptions="Start"
                                BackgroundColor="Transparent">
                                         <Image Source="{Binding ImageURI}"
-                       WidthRequest="40"
-                       HeightRequest="40"
+                       WidthRequest="50"
+                       HeightRequest="50"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
                                         <StackLayout Orientation="Horizontal">

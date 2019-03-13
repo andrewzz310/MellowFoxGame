@@ -4,10 +4,11 @@
              x:Class="Crawl.Views.AboutPage"
              xmlns:vm="clr-namespace:Crawl.ViewModels;"
              xmlns:documents="clr-namespace:Windows.UI.Xaml.Documents;assembly=Windows.Foundation.UniversalApiContract"
+             xmlns:vm1="clr-namespace:Crawl.ViewModels"
              Title="{Binding Title}">
 
     <ContentPage.BindingContext>
-        <vm:AboutViewModel/>
+        <vm1:AboutViewModel/>
     </ContentPage.BindingContext>
 
     <ScrollView>

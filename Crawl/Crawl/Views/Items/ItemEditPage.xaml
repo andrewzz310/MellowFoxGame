@@ -14,7 +14,7 @@
     <ContentPage.Content>
 
         <ScrollView>
-          <StackLayout Spacing="10" Padding="10" BackgroundColor="Green">
+          <StackLayout Spacing="10" Padding="10" BackgroundColor="Transparent">
             <!-- Item Edit Page Title-->
             <Label Text="Item Edit Page" FontSize="Large" 
                    HorizontalTextAlignment="Center"
@@ -41,51 +41,57 @@
               </Grid.ColumnDefinitions>
 
               <!-- Item attributes to edit inside of the grid-->
-              <StackLayout Grid.Row="0" Grid.Column="0">
+                    <StackLayout Grid.Row="0" Grid.Column="0" BackgroundColor="#5D6FFA">
                 <Label
                     Text="Name"
                     FontSize="Medium"
                     HorizontalOptions="Start"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    BackgroundColor="#5D6FFA"/>
               </StackLayout>
               <StackLayout Grid.Row="0" Grid.Column="1">
                 <Entry
                     Text="{Binding Data.Name}"
                     FontSize="Small"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    BackgroundColor="#5D6FFA"/>
               </StackLayout>
 
-              <StackLayout Grid.Row="1" Grid.Column="0">
+                    <StackLayout Grid.Row="1" Grid.Column="0" BackgroundColor="#5D6FFA">
                 <Label
                     Text="Description"
                     FontSize="Medium"
                     HorizontalOptions="Start"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    BackgroundColor="#5D6FFA"/>
               </StackLayout>
               <StackLayout Grid.Row="1" Grid.Column="1">
                 <Entry
                     Text="{Binding Data.Description}"
                     FontSize="Small"
                     Margin="0"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    BackgroundColor="#5D6FFA"/>
               </StackLayout>
 
 
 
-              <StackLayout Grid.Row="2" Grid.Column="0">
+                    <StackLayout Grid.Row="2" Grid.Column="0" BackgroundColor="#5D6FFA">
                 <Label
                     Text="Image"
                     FontSize="Medium"
                     HorizontalOptions="Start"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    BackgroundColor="#5D6FFA"/>
               </StackLayout>
-              <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+              <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" >
                 <Image Source="{Binding Data.ImageURI}"
                     WidthRequest="25"
                     HeightRequest="25"
                     HorizontalOptions="Start"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                       BackgroundColor="#5D6FFA"/>
                 <Entry
                     Text="{Binding Data.ImageURI}"
                     FontSize="Small"

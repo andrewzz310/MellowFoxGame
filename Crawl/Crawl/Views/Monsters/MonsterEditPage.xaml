@@ -16,7 +16,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-              <StackLayout Spacing="10" Padding="10" BackgroundColor="DarkGreen">
+              <StackLayout Spacing="10" Padding="10" BackgroundColor="Transparent">
                 <!-- Monster Edit Page Title -->
                 <Label Text="Monster Edit Page" FontSize="Large" 
                        HorizontalTextAlignment="Center"

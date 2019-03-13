@@ -10,7 +10,7 @@
             Orientation="Vertical"
             Spacing="12"
             Padding="10"
-            BackgroundColor="DarkGreen">
+            BackgroundColor="Transparent">
             <!-- Monster Delete Page Title -->
             <Label Text="Monster Delete Page" FontSize="Large" 
                    HorizontalTextAlignment="Center"
@@ -26,7 +26,7 @@
             <!-- Monster Delete page attributes-->
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkGreen" Grid.Row="0" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -36,7 +36,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="1" Grid.Column="0">
+                 HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="1" Grid.Column="0">
                 <Label Text="Prefered Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -46,7 +46,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkGreen" Grid.Row="3" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="3" Grid.Column="0">
                 <Label Text="XP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -56,7 +56,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="3" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="3" Grid.Column="0">
                 <Label Text="HP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -66,7 +66,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkGreen" Grid.Row="5" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="5" Grid.Column="0">
                 <Label Text="Speed : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -76,7 +76,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="6" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="6" Grid.Column="0">
                 <Label Text="Attack : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -86,7 +86,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkGreen" Grid.Row="7" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="7" Grid.Column="0">
                 <Label Text="Defense : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -96,7 +96,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="Green" Grid.Row="1" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="1" Grid.Column="0">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -107,7 +107,7 @@
 
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkGreen" Grid.Row="1" Grid.Column="0">
+                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="1" Grid.Column="0">
                 <Label Text="PreferGreen Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>

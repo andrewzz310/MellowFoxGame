@@ -32,7 +32,8 @@
                             <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"
-                                         HorizontalOptions="Start">
+                                         HorizontalOptions="Start"
+                                         BackgroundColor="Transparent">
                                 <Image Source="{Binding ImageURI}"
                                        WidthRequest="70"
                                        HeightRequest="70" 

@@ -16,7 +16,7 @@
           x:Name="DetailsRoot"
           Orientation="Vertical"
           Spacing="10"
-          Padding="10" BackgroundColor="Green">
+          Padding="10" BackgroundColor="Transparent">
         <!-- Title for the item details page-->
         <Label Text="Items Detail Page" FontSize="Large" 
                HorizontalTextAlignment="Center"
@@ -32,68 +32,74 @@
         <!-- Attributes for that specific item-->
         <StackLayout
             Orientation="Horizontal"
-            HorizontalOptions="Start">
+            HorizontalOptions="Start"
+            BackgroundColor="#5D6FFA">
           <Label Text="Name : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
           <Label Text="{Binding Data.Name}"
               FontSize="Medium"
-              HorizontalOptions="Center"/>
+              HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <StackLayout
             Orientation="Horizontal"
-            HorizontalOptions="Start">
+            HorizontalOptions="Start"
+            BackgroundColor="#5D6FFA">
           <Label Text="Attribute : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
           <Label Text="{Binding Data.Attribute}"
              FontSize="Medium"
-             HorizontalOptions="Center"/>
+             HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <StackLayout
             Orientation="Horizontal"
-            HorizontalOptions="Start">
+            HorizontalOptions="Start"
+            BackgroundColor="#5D6FFA">
           <Label Text="Value : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
           <Label Text="{Binding Data.Value}"
               FontSize="Medium"
-              HorizontalOptions="Center"/>
+              HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <StackLayout
             Orientation="Horizontal"
-            HorizontalOptions="Start">
+            HorizontalOptions="Start"
+            BackgroundColor="#5D6FFA">
           <Label Text="Location : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
           <Label Text="{Binding Data.Location}"
               FontSize="Medium"
-              HorizontalOptions="Center"/>
+              HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <StackLayout
             Orientation="Horizontal"
-            HorizontalOptions="Start">
+            HorizontalOptions="Start"
+            BackgroundColor="#5D6FFA">
           <Label Text="Range : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
           <Label Text="{Binding Data.Range}"
               FontSize="Medium"
-              HorizontalOptions="Center"/>
+              HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
         <StackLayout
             Orientation="Horizontal"
-            HorizontalOptions="Start">
+            HorizontalOptions="Start"
+            BackgroundColor="#5D6FFA">
           <Label Text="Description : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
           <Label Text="{Binding Data.Description}"
               FontSize="Medium"
-              HorizontalOptions="Center"/>
+              HorizontalOptions="FillAndExpand"/>
         </StackLayout>
 
       </StackLayout>

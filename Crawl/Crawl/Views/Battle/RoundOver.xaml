@@ -22,7 +22,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
-                                    <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="DarkRed">-->
+                                    <!--<StackLayout Spacing="10" Padding="10" BackgroundColor="Transparent">-->
                                     <StackLayout Padding="10"
                                Orientation="Vertical"
                                VerticalOptions="Start"

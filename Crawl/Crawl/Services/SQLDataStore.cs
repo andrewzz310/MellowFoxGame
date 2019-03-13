@@ -30,7 +30,9 @@ namespace Crawl.Services
 
         private SQLDataStore()
         {
-            CreateTables();
+            //CreateTables();
+            InitializeDatabaseNewTables();
+
         }
 
         public void InitializeDatabaseNewTables()
@@ -82,15 +84,27 @@ namespace Crawl.Services
         {
 
             //items
-            await AddAsync_Item(new Item("SQLShuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-            await AddAsync_Item(new Item("SQLArmor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-            await AddAsync_Item(new Item("SQLRing of Power", "This is a Ring of Power Item", "ringofpower.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-            await AddAsync_Item(new Item("SQLTwo-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
-            await AddAsync_Item(new Item("SQLBow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
-            await AddAsync_Item(new Item("SQLTurbo", "This is a Turbo Item", "turbo.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Speed));
-            await AddAsync_Item(new Item("SQLStaff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-            await AddAsync_Item(new Item("SQLPotion", "This is a Potion Item", "potion.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.CurrentHealth));
-
+            await AddAsync_Item(new Item("Shuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Knight' Sword", "Sword of Power. Gives the knight super strength", "https://66.media.tumblr.com/0a842748fd2d4007774d1046fb409665/tumblr_p3cp5dOgyY1si01xjo1_400.gif", 10, 3, 3, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Knight Sword", "Sword of Power. Gives the knight super strength", "https://66.media.tumblr.com/0a842748fd2d4007774d1046fb409665/tumblr_p3cp5dOgyY1si01xjo1_400.gif", 10, 3, 3, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Ninja's Shuriken", "Shuriken made of steel. Strikes far and true", "https://cdnb.artstation.com/p/assets/images/images/016/136/149/original/paulo-silva-shuriken.gif?1551046439", 3, 7, 7, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Shield of Justice", "Protects against the strongests strikes", "https://data.whicdn.com/images/278800576/original.gif", 0, 5, 5, ItemLocationEnum.OffHand, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("Ring of Power", "Gives Wearer incredible strngth", "https://thumbs.gfycat.com/AptUnkemptBernesemountaindog-small.gif", 1, 5, 5, ItemLocationEnum.Finger, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("Two-Sided Hammer", "Steel hammer, can dismemeber oponents", "https://vignette1.wikia.nocookie.net/fj-items-database/images/7/7a/Golden_Hammer.gif/revision/latest?cb=20151209190942", 2, 5, 5, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Bow and Arrow", "Bow and Arrow, accurately spears oponenets", "https://mir-s3-cdn-cf.behance.net/project_modules/disp/ee1e7118503601.562ca8bb847da.gif", 10, 6, 6, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Magician's Staff", "Blasts balls of fire and electricity", "https://media2.giphy.com/media/ZUEdlLMjM6M5q/source.gif", 10, 6, 6, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Potion", "Revitalizes health", "https://orig00.deviantart.net/deb3/f/2016/199/a/5/potion_by_saramfdraws-daaiys0.gif", 10, 6, 6, ItemLocationEnum.OffHand, AttributeEnum.MaxHealth));
+            await AddAsync_Item(new Item("club", "Club with spikes", "https://sites.google.com/site/pathfinderogc/_/rsrc/1487036772539/images/club.png", 9, 7, 7, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("chains", "Chains can mame and strangle", "http://www.rdpnorthernalbania.org/upload/2017/11/23/animation-of-a-bike-chain-3d-animation-with-pov-ray-bicycles-chain-l-5467439e05d6f754.gif", 8, 9, 9, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("two sided axe", "Two Sided Axe can dismember oponent", "http://www.clker.com/cliparts/7/9/a/8/12161799982075078511StefanvonHalenbach_Battle_axe_medieval.svg.hi.png", 7, 9, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("razor sharp claw", "Razor Sharp Claw can cut through metal", "https://banner2.kisspng.com/20180402/iwq/kisspng-claw-metal-paper-steel-claw-5ac27418af6031.7615608715226931447184.jpg", 8, 5, 5, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("cape of flight", "Cape Of Flight to fly", "https://assets.activedemand.com/content_images/81867/images/original/hero-cape-trans.gif?1497905919", 9, 4, 4, ItemLocationEnum.Necklass, AttributeEnum.Speed));
+            await AddAsync_Item(new Item("pharo's crown", "Pharo's Crown can protect and heal", "https://i.imgur.com/BeYNw1V.gif", 10, 7, 7, ItemLocationEnum.Head, AttributeEnum.CurrentHealth));
+            await AddAsync_Item(new Item("Raa's Evil Eye", "Raa's Evil Eye blasts laser from the eyes", "https://fabrika-antey.ru/images/eyeball-clipart-eye-check-4.png", 10, 8, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Bracelet of Thunder", "Defends against strikes", "https://gamepedia.cursecdn.com/skyrim_gamepedia/d/d1/HideBracersofAlchemy.png", 7, 9, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Defense));
+            await AddAsync_Item(new Item("The Tablet of Hamurabi", "The Tablet of Hamurabi, summons army of death", "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Stele_of_Vultures_detail_01-transparent.png/280px-Stele_of_Vultures_detail_01-transparent.png", 9, 10, 10, ItemLocationEnum.OffHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Capone's Gun", "Al Capone's Gun, shoots bullets", "http://pngimg.com/uploads/gangster/gangster_PNG3.png", 8, 9, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
+            await AddAsync_Item(new Item("Superman's Glasses", "Morphs the character and gives him strong abilities", "https://i.pinimg.com/originals/7c/fc/b1/7cfcb132a526835b69dd238f8a8d7e4f.png", 10, 3, 3, ItemLocationEnum.Head, AttributeEnum.Speed));
 
             //characters
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock elf Character", Description = "This is an Character description.", Level = 1, ImageURI = "https://66.media.tumblr.com/caee322a79f0cff2365a03b12ab8b8a6/tumblr_p4s334rGiB1x16ui8o1_400.gif" });
@@ -99,6 +113,7 @@ namespace Crawl.Services
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock knight Character", Description = "This is an Character description.", Level = 2, ImageURI = "https://thumbs.gfycat.com/CalmSeriousBuckeyebutterfly-size_restricted.gif" });
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock ninja Character", Description = "This is an Character description.", Level = 3, ImageURI = "https://orig00.deviantart.net/bc53/f/2017/234/5/3/ryu_hayabusa_standing_stance__2d__by_larsmasters-dbkq3vo.gif" });
             await AddAsync_Character(new Character { Id = Guid.NewGuid().ToString(), Name = "SQLMock fox Character", Description = "This is an Character description.", Level = 3, ImageURI = "https://i.pinimg.com/originals/33/ec/d2/33ecd27262385a3e03e4c2e573119364.gif" });
+
 
             // Monsters
             await AddAsync_Monster(new Monster { Id = Guid.NewGuid().ToString(), Name = "SQLMock dragon Monster", Description = "This is an Monster description.", ImageURI = "http://bestanimations.com/Fantasy/Dragons/dragon-animated-gif-60.gif" });

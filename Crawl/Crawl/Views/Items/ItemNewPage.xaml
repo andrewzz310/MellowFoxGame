@@ -14,7 +14,7 @@
     <ContentPage.Content>
         <StackLayout>
             <ScrollView>
-              <StackLayout Spacing="10" Padding="10" BackgroundColor="Green">
+              <StackLayout Spacing="10" Padding="10" BackgroundColor="#5D6FFA">
                 <!-- Title for a New Item Page-->
                 <Label Text="New Items Page" FontSize="Large"
                        HorizontalTextAlignment="Center"

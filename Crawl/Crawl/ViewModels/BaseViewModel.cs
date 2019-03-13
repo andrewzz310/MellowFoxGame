@@ -33,8 +33,8 @@ namespace Crawl.ViewModels
                     break;
 
                 case DataStoreEnum.Sql:
-                case DataStoreEnum.Unknown:
-                default:
+                //case DataStoreEnum.Unknown:
+                //default:
                     DataStore = DataStoreSql;
                     break;
             }

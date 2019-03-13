@@ -10,7 +10,7 @@
             Orientation="Vertical"
             Spacing="10"
             Padding="10"
-            BackgroundColor="DarkRed">
+            BackgroundColor="Transparent">
             <!-- Character Delete Page Title-->
             <Label Text="Character Delete Page" FontSize="Large" 
                    HorizontalTextAlignment="Center"
@@ -26,7 +26,7 @@
                 VerticalOptions="FillAndExpand"/>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="IndianRed" Grid.Row="0" Grid.Column="0">
+                BackgroundColor="#6FA5F0" Grid.Row="0" Grid.Column="0">
                 <Label Text="Name : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -36,7 +36,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkRed" Grid.Row="1" Grid.Column="0">
+                BackgroundColor="#6FA5F0" Grid.Row="1" Grid.Column="0">
                 <Label Text="Description : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -46,7 +46,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="IndianRed" Grid.Row="2" Grid.Column="0">
+                BackgroundColor="#6FA5F0" Grid.Row="2" Grid.Column="0">
                 <Label Text="Level : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -56,7 +56,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="DarkRed" Grid.Row="3" Grid.Column="0">
+                BackgroundColor="#6FA5F0" Grid.Row="3" Grid.Column="0">
                 <Label Text="XP : " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
@@ -66,7 +66,7 @@
             </StackLayout>
             <StackLayout
                 Orientation="Horizontal"
-                BackgroundColor="IndianRed" Grid.Row="4" Grid.Column="0">
+                BackgroundColor="#6FA5F0" Grid.Row="4" Grid.Column="0">
                 <Label Text="Preferred Item: " 
                    FontSize="Medium" 
                    HorizontalOptions="Start"/>
