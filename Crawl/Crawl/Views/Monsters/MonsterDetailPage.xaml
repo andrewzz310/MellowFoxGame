@@ -59,7 +59,7 @@
           <Label Text="HP : "
              FontSize="Medium"
              HorizontalOptions="Start"/>
-          <Label Text="{Binding Data.HealthPoints}"
+          <Label Text="{Binding Data.CurrentHealth}"
               FontSize="Medium"
               HorizontalOptions="Center"/>
         </StackLayout>

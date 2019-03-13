@@ -264,8 +264,6 @@ namespace Crawl.Services
 
             {
 
-                await AddAsync_Character(data);
-
                 return true;
 
             }
