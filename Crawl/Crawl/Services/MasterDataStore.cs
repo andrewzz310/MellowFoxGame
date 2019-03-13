@@ -78,7 +78,7 @@ namespace Crawl.Services
             //Character
             CharactersViewModel.Instance.ForceDataRefresh();
             //Battle
-            BattleViewModel.Instance.ForceDataRefresh();
+           // BattleViewModel.Instance.ForceDataRefresh();
             //Score
             ScoresViewModel.Instance.ForceDataRefresh();
           

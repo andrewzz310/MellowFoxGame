@@ -71,12 +71,14 @@ namespace Crawl.GameEngine
 
             // Save the Score to the DataStore
             ScoresViewModel.Instance.AddAsync(BattleScore).GetAwaiter().GetResult();
+
+            BattleEngineClearData();
         }
         // Sets the new state for the variables for Battle
         private void BattleEngineClearData()
         {
-            BattleScore = new Score();
-            BattleMessages = new BattleMessages();
+            //BattleScore = new Score();
+           // BattleMessages = new BattleMessages();
 
             ItemPool.Clear();
             MonsterList.Clear();
