@@ -88,7 +88,7 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
 
             //Manually deselect item.
-           // SelectCharacters.SelectedItem = null;
+            //SelectCharacters.SelectedItem = null;
 
         }
 
