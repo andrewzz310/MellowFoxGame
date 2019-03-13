@@ -52,14 +52,14 @@ namespace Crawl.ViewModels
 
         public BattleViewModel()
         {
-            //Title = "MellowFoxBattle";
+            Title = "MellowFoxBattle";
 
             SelectedCharacters = new ObservableCollection<Character>();
 
             //Title = "Characters"; //Not showing up on the screen
             DatasetChars = new ObservableCollection<Character>();
             DatasetMons = new ObservableCollection<Monster>();
-    
+
 
             DatasetItems = new ObservableCollection<Item>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
@@ -202,7 +202,7 @@ namespace Crawl.ViewModels
         {
             DatasetChars.Clear();
             SelectedCharacters.Clear();
-           
+
             ExecuteLoadDataCommand();
         }
 
@@ -302,7 +302,7 @@ namespace Crawl.ViewModels
                 {
                     DatasetMons.Add(data);
                 }*/
-                
+
                 var datasetmons = BattleViewModel._instance.BattleEngine.MonsterList;
 
                 //Sort the list
@@ -350,8 +350,8 @@ namespace Crawl.ViewModels
         public void ForceDataRefresh()
         {
 
-          var canExecute = LoadDataCommand.CanExecute(null);
-          LoadDataCommand.Execute(null);
+            var canExecute = LoadDataCommand.CanExecute(null);
+            LoadDataCommand.Execute(null);
         }
     }
 }

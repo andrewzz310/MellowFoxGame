@@ -27,6 +27,7 @@ namespace Crawl.GameEngine
         private void ClearLists()
         {
             ItemPool = new List<Item>();
+            MonsterList.Clear();
             MonsterList = new List<Monster>();
         }
 
@@ -106,21 +107,21 @@ namespace Crawl.GameEngine
 
             if (BattleScore.RoundCount > 5 && BattleScore.RoundCount <= 10 )
             {
-                ScaleLevelMax = 2;
-                ScaleLevelMin = 4;
+                ScaleLevelMax = 4;
+                ScaleLevelMin = 3;
             }
 
             if (BattleScore.RoundCount > 10 && BattleScore.RoundCount <= 15)
             {
-                ScaleLevelMax = 10;
-                ScaleLevelMin = 6;
+                ScaleLevelMax = 8;
+                ScaleLevelMin = 4;
             }
 
 
             if (BattleScore.RoundCount > 15 && BattleScore.RoundCount <= 50)
             {
-                ScaleLevelMax = 15;
-                ScaleLevelMin = 8;
+                ScaleLevelMax = 12;
+                ScaleLevelMin = 6;
             }
             if (BattleScore.RoundCount > 50 && BattleScore.RoundCount <= 100)
             {

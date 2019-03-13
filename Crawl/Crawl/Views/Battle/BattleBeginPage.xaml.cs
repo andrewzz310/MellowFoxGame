@@ -133,6 +133,7 @@ namespace Crawl.Views.Battle
             // If the round is over start a new one...
             if (CurrentRoundState == RoundEnum.NewRound)
             {
+                ClearMessages();
                 _instanceC.NewRound();
                 // MessagingCenter.Send(this, "NewRound");
 

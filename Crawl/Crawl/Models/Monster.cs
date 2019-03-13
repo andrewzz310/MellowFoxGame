@@ -72,9 +72,16 @@ namespace Crawl.Models
         // Upgrades a monster to a set level
         public void ScaleLevel(int level)
         {
-            // Calculate Experience Remaining based on Lookup...
-            Level = level;
-
+            if (level > 20)
+            {
+                level = 20;
+            }
+            else
+            {
+                // Calculate Experience Remaining based on Lookup...
+                Level = level;
+            }
+            
             // Get the number of points at the next level, and set it for Experience Total...
             ExperienceTotal = LevelTable.Instance.LevelDetailsList[Level + 1].Experience;
             ExperienceRemaining = ExperienceTotal;
