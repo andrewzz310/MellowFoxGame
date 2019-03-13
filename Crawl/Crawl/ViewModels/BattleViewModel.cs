@@ -317,7 +317,7 @@ namespace Crawl.ViewModels
                 {
                     DatasetMons.Add(datamons);
                 }
-                /*
+                
                 //Items
                 DatasetItems.Clear();
                 var dataset_items = await DataStore.GetAllAsync_Item(true);
@@ -333,7 +333,7 @@ namespace Crawl.ViewModels
                 foreach (var data_items in dataset_items)
                 {
                     DatasetItems.Add(data_items);
-                }*/
+                }
             }
 
             catch (Exception ex)
