@@ -379,7 +379,7 @@ namespace Crawl.Services
 
             {
 
-                await AddAsync_Monster(data);
+                
 
                 return true;
 
@@ -430,14 +430,29 @@ namespace Crawl.Services
         }
 
         public async Task<IEnumerable<Monster>> GetAllAsync_Monster(bool forceRefresh = false)
-        {
-            // Get list of BaseMonsters from BaseMonster table.
-            var result = await App.Database.Table<BaseMonster>().ToListAsync();
 
-            // Convert list of BaseMonsters to Monsters
-            var ret = result.Select(m => new Monster(m)).ToList();
-            return ret;
+        {
+            var tempResult = await App.Database.Table<BaseMonster>().ToListAsync();
+
+            var result = new List<Monster>();
+            foreach (var item in tempResult)
+            {
+                result.Add(new Monster(item));
+            }
+
+            return result;
         }
+
+
+        /*
+    {
+        // Get list of BaseMonsters from BaseMonster table.
+        var result = await App.Database.Table<BaseMonster>().ToListAsync();
+
+        // Convert list of BaseMonsters to Monsters
+        var ret = result.Select(m => new Monster(m)).ToList();
+        return ret;
+    }*/
 
         #endregion Monster
 
@@ -529,7 +544,7 @@ namespace Crawl.Services
             var UpdateResult = await UpdateAsync_Score(data);
             if (UpdateResult)
             {
-                await AddAsync_Score(data);
+                
                 return true;
             }
 
