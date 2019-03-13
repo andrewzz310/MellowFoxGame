@@ -43,6 +43,7 @@ namespace Crawl.ViewModels
         public ObservableCollection<Character> SelectedCharacters { get; set; }
 
 
+
         //Gets data all ListViews (3x) from data store
         public Command LoadDataCommand { get; set; }
 
@@ -58,6 +59,8 @@ namespace Crawl.ViewModels
             //Title = "Characters"; //Not showing up on the screen
             DatasetChars = new ObservableCollection<Character>();
             DatasetMons = new ObservableCollection<Monster>();
+    
+
             DatasetItems = new ObservableCollection<Item>();
             LoadDataCommand = new Command(async () => await ExecuteLoadDataCommand());
             //battle engine
@@ -77,7 +80,7 @@ namespace Crawl.ViewModels
             {
                 SelectedListRemove(data);
             });
-
+            /*
             MessagingCenter.Subscribe<BattleBeginPage>(this, "StartBattle", async (obj) =>
             {
                 StartBattle();
@@ -108,6 +111,7 @@ namespace Crawl.ViewModels
             {
                 NewRound();
             });
+            */
         }
         /// <summary>
         /// Call to the Engine to Start the Battle
@@ -198,7 +202,7 @@ namespace Crawl.ViewModels
         {
             DatasetChars.Clear();
             SelectedCharacters.Clear();
-
+           
             ExecuteLoadDataCommand();
         }
 
@@ -233,39 +237,87 @@ namespace Crawl.ViewModels
             try
             {
                 //Character
+
+
                 DatasetChars.Clear();
+
                 var dataset = await DataStore.GetAllAsync_Character(true);
 
+
+
                 //Sort the list
+
                 dataset = dataset
+
+                    .OrderBy(a => a.Name)
+
+                    .ThenBy(a => a.Description)
+
+                    .ThenByDescending(a => a.Level)
+
+                    .ToList();
+
+
+
+                // Then load the data structure
+
+                foreach (var data_char in dataset)
+
+                {
+
+                    DatasetChars.Add(data_char);
+
+                }
+                /*
+                var availableCharacters = CharactersViewModel.Instance.Dataset;
+                foreach (var data in availableCharacters)
+                {
+                    DatasetChars.Add(data);
+                }*/
+
+                //  var dataset = await DataStore.GetAllAsync_Character(true);
+
+                /*
+                //Sort the list
+              var battlesetchars =  BattleViewModel._instance.BattleEngine.CharacterList;
+                battlesetchars = battlesetchars
                     .OrderBy(a => a.Name)
                     .ThenBy(a => a.Description)
                     .ThenByDescending(a => a.Level)
                     .ToList();
 
                 // Then load the data structure
-                foreach (var data_char in dataset)
+                foreach (var battle_char in battlesetchars)
                 {
-                    DatasetChars.Add(data_char);
-                }
-              
+                    BattlesetChars.Add(battle_char);
+                }*/
+
+
+
                 //Monsters
                 DatasetMons.Clear();
-                var dataset_mons = BattleViewModel._instance.BattleEngine.MonsterList;
+                /*
+                var mons = MonstersViewModel.Instance.Dataset;
+                foreach (var data in mons)
+                {
+                    DatasetMons.Add(data);
+                }*/
+                
+                var datasetmons = BattleViewModel._instance.BattleEngine.MonsterList;
 
                 //Sort the list
-                dataset_mons = dataset_mons
+                datasetmons = datasetmons
                     .OrderBy(a => a.Name)
                     .ThenBy(a => a.Description)
                     .ThenByDescending(a => a.Level)
                     .ToList();
 
                 // Then load the data structure
-                foreach (var data_mons in dataset_mons)
+                foreach (var datamons in datasetmons)
                 {
-                    DatasetMons.Add(data_mons);
+                    DatasetMons.Add(datamons);
                 }
-
+                /*
                 //Items
                 DatasetItems.Clear();
                 var dataset_items = await DataStore.GetAllAsync_Item(true);
@@ -281,7 +333,7 @@ namespace Crawl.ViewModels
                 foreach (var data_items in dataset_items)
                 {
                     DatasetItems.Add(data_items);
-                }
+                }*/
             }
 
             catch (Exception ex)

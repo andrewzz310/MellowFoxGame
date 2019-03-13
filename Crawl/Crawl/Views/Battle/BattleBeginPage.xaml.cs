@@ -103,7 +103,7 @@ namespace Crawl.Views.Battle
             await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
 
             //Manually deselect item.
-            MonstersBattle.SelectedItem = null;
+            //MonstersBattle.SelectedItem = null;
         }
 
 
