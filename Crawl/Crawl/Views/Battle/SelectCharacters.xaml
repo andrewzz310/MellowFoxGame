@@ -25,7 +25,7 @@
 
                         <StackLayout 
                                     HorizontalOptions="StartAndExpand ">
-                        <!-- Showing Available Characters-->
+                            <!-- Showing Available Characters-->
                             <Label Text="Available Characters "
                                     HorizontalOptions="CenterAndExpand "/>
 
@@ -37,40 +37,44 @@
                  IsPullToRefreshEnabled="true"
                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
                  CachingStrategy="RecycleElement"
-                 ItemSelected="OnAvailableCharacterItemSelected">
+                 ItemSelected="OnAvailableCharacterItemSelected"
+                 BackgroundColor="Transparent">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"
-                                         HorizontalOptions="Start">
+                                         HorizontalOptions="Start"
+                                         BackgroundColor="Transparent">
                                                 <Image Source="{Binding ImageURI}"
-                                       WidthRequest="75"
-                                       HeightRequest="75" 
+                                       WidthRequest="55"
+                                       HeightRequest="55" 
                                        HorizontalOptions="Center"
                                        VerticalOptions="Center"/>
                                                 <StackLayout>
-                                                    <StackLayout Orientation="Horizontal">
+                                                    <StackLayout Orientation="Horizontal"
+                                                                 BackgroundColor="Transparent">
                                                         <Label Text="Name:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
                                                         <Label Text="{Binding Name}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
 
                                                         <Label Text=" Level:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
                                                         <Label Text="{Binding Level}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
                                                     </StackLayout>
-                                                    <StackLayout Orientation="Horizontal">
+                                                    <StackLayout Orientation="Horizontal"
+                                                                 BackgroundColor="Transparent">
                                                         <Label Text="{Binding Description}" 
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
@@ -94,7 +98,7 @@
 
                         </StackLayout>
                         <StackLayout
-                HorizontalOptions="CenterAndExpand"
+                            HorizontalOptions="CenterAndExpand"
                             VerticalOptions="Start">
                             <!-- Once characters are selected, buttons for the battle page or cancel to reselect-->
                             <!-- Button that takes us to battle begin page-->
@@ -103,11 +107,13 @@
                                 HorizontalOptions="CenterAndExpand"
                                 Clicked="OnNextClicked" 
                                 Text="Battle Start"
-                                IsEnabled="False"/>
+                                IsEnabled="False"
+                                BackgroundColor="#8FACE3"/>
                             <Button Text="Cancel to reselect"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                    Clicked="Cancel_Command"/>
+                                VerticalOptions="CenterAndExpand" 
+                                HorizontalOptions="CenterAndExpand" 
+                                Clicked="Cancel_Command"
+                                BackgroundColor="#8FACE3"/>
                             <Label 
                                 MinimumWidthRequest="100"
                                 HorizontalOptions="CenterAndExpand"
@@ -116,54 +122,54 @@
                                 Text="0"
                                 HorizontalOptions="CenterAndExpand"
                                 x:Name="PartyCountLabel"/>
-                          
-                            
-
                         </StackLayout>
-            <!-- Selected Characters for Battle -->
+                        <!-- Selected Characters for Battle -->
                         <StackLayout HorizontalOptions="EndAndExpand">
                             <Label Text="Charactesr who are selected for Battle" FontSize="Small" />
 
                             <ListView x:Name="SelectedCharactersBattle" 
-                ItemsSource="{Binding SelectedCharacters}"
-                VerticalOptions="FillAndExpand"
-                 HasUnevenRows="true"
-                 RefreshCommand="{Binding LoadItemsCommand}"
-                 IsPullToRefreshEnabled="true"
-                 IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                 CachingStrategy="RecycleElement"
-                 ItemSelected="OnSelectedCharacterItemSelected">
+                                      ItemsSource="{Binding SelectedCharacters}"
+                                      VerticalOptions="FillAndExpand"
+                                      HasUnevenRows="true"
+                                      RefreshCommand="{Binding LoadItemsCommand}"
+                                      IsPullToRefreshEnabled="true"
+                                      IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                                      CachingStrategy="RecycleElement"
+                                      ItemSelected="OnSelectedCharacterItemSelected"
+                                      BackgroundColor="Transparent">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <ViewCell>
                                             <StackLayout Padding="10"
                                          Orientation="Horizontal"
                                          VerticalOptions="Start"
-                                         HorizontalOptions="Start">
+                                         HorizontalOptions="Start"
+                                         BackgroundColor="Transparent">
                                                 <Image Source="{Binding ImageURI}"
-                                       WidthRequest="75"
-                                       HeightRequest="75" 
+                                       WidthRequest="55"
+                                       HeightRequest="55" 
                                        HorizontalOptions="Center"
-                                       VerticalOptions="Center"/>
+                                       VerticalOptions="Center"
+                                       BackgroundColor="Transparent"/>
                                                 <StackLayout>
                                                     <StackLayout Orientation="Horizontal">
                                                         <Label Text="Name:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
                                                         <Label Text="{Binding Name}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
 
                                                         <Label Text=" Level:" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
                                                         <Label Text="{Binding Level}" 
                                            LineBreakMode="NoWrap" 
                                            Style="{DynamicResource ListItemTextStyle}" 
-                                           FontSize="16" />
+                                           FontSize="15" />
                                                     </StackLayout>
                                                     <StackLayout Orientation="Horizontal">
                                                         <Label Text="{Binding Description}" 
