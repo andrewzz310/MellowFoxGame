@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Crawl.Views.MonsterEditPage"
              xmlns:local="using:Crawl.Models"
+             xmlns:local1="clr-namespace:Newtonsoft.Json.Converters;assembly=Newtonsoft.Json"
              Title="{Binding Title}"
              Icon="edit.png">
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local:StringEnumConverter x:Key="StringEnum"/>
+            <local1:StringEnumConverter x:Key="StringEnum"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     
