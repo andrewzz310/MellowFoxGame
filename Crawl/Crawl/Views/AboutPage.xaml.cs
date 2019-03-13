@@ -96,36 +96,55 @@ namespace Crawl.Views
             }
         }
 
-
-        // Add code for GetItems_Command
-        // add your code here
-
+        //Get Items call
         private async void GetItems_Command(object sender, EventArgs e)
         {
+            var myOutput = "No Results";
+            var myDataList = new List<Item>();
+
             var answer = await DisplayAlert("Get", "Sure you want to Get Items from the Server?", "Yes", "No");
             if (answer)
             {
                 // Call to the Item Service and have it Get the Items
-                
+                // The ServerItemValue Code stands for the batch of items to get
+                // as the group to request.  1, 2, 3, 100 (All), or if not specified All
+
+                var value = Convert.ToInt32(ItemValue.Text);
+                myDataList = await ItemsController.Instance.GetItemsFromServer(value);
+
+                if (myDataList != null && myDataList.Count > 0)
+                {
+                    // Reset the output
+                    myOutput = "";
+
+                    foreach (var item in myDataList)
+                    {
+                        // Add them line by one, use \n to force new line for output display.
+                        // Build up the output string by adding formatted Item Output
+                        myOutput += item.FormatOutput() + "\n";
+                    }
+                }
+
+                await DisplayAlert("Returned List", myOutput, "OK");
             }
         }
 
+        //Post call to get Items
         private async void GetItemsPost_Command(object sender, EventArgs e)
         {
-            //ItemsController.Instance.GetItemsFromGame(int number, int level, AttributeEnum attribute, ItemLocationEnum location, bool random, bool updateDataBase)
+            var myOutput = "No Results";
+            var myDataList = new List<Item>();
 
-            var number = 10;    // 10 items
-            var level = 6;  // Max Value of 6
+            var number = Convert.ToInt32(ItemValue.Text);
+            var value = 6;  // Max Value of 6
             var attribute = AttributeEnum.Unknown;  // Any Attribute
             var location = ItemLocationEnum.Unknown;    // Any Location
             var random = true;  // Random between 1 and Level
             var updateDataBase = true;  // Add them to the DB
 
-            // GetItemsFromGame(1,10,Speed,Feet,false,true) will return shoes value 10 of speed.
+            //Trigers post call to server
+            myDataList = await ItemsController.Instance.GetItemsFromGame(number, value, attribute, location, random, updateDataBase);
 
-            var myDataList = new List<Item>();
-
-            var myOutput = "No Results";
 
             if (myDataList != null && myDataList.Count > 0)
             {
@@ -139,7 +158,7 @@ namespace Crawl.Views
                 }
             }
 
-            var answer = await DisplayAlert("Returned List", myOutput, "Yes", "No");
+            await DisplayAlert("Returned List", myOutput, "OK");
         }
 
     }

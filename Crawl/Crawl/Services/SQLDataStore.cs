@@ -124,37 +124,30 @@ namespace Crawl.Services
         public async Task<bool> InsertUpdateAsync_Item(Item data)
         {
 
-            // Check to see if the item exist
+            // Check to see if the item exist if not added it to DB
 
             var oldData = await GetAsync_Item(data.Id);
 
             if (oldData == null)
-
             {
+                await AddAsync_Item(data);
+                return true;
+            }
 
+            // Compare the IDs, if different update in the DB. Ensures that items with same ID are not added. Maintains integrity of data
+            if (oldData.Id != data.Id)
+            {
                 await AddAsync_Item(data);
 
                 return true;
-
             }
+            //else update DB with new item
 
-
-
-            // Compare it, if different update in the DB
-
-            var UpdateResult = await UpdateAsync_Item(data);
-
-            if (UpdateResult)
-
+            else if (oldData.Id == data.Id)
             {
-
-                await AddAsync_Item(data);
-
+                var UpdateResult = await UpdateAsync_Item(data);
                 return true;
-
             }
-
-
 
             return false;
         }
@@ -196,9 +189,17 @@ namespace Crawl.Services
         public async Task<Item> GetAsync_Item(string id)
 
         {
-            var tempResult = await App.Database.GetAsync<Item>(id);
-            var result = tempResult;
-            return result;
+            try
+            {
+                var temp = await App.Database.GetAsync<Item>(id);
+                var ReturnItem = temp;
+                return ReturnItem;
+            }
+            catch (Exception Ex)
+            {
+                Console.WriteLine(Ex.ToString());
+                return null;
+            }
         }
 
         public async Task<IEnumerable<Item>> GetAllAsync_Item(bool forceRefresh = false)

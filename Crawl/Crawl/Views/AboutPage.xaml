@@ -117,11 +117,18 @@
                                 HorizontalOptions="FillAndExpand"
                                 Orientation="Horizontal">
 
-                                <Label 
-                                    FontSize="Small"
-                                    Text="Server Items"
-                                    HorizontalTextAlignment="Start"
-                                    HorizontalOptions="Start"/>
+                                <Label
+                                        FontSize="Small"
+                                        Text="Number of Items "
+                                        HorizontalTextAlignment="Start"
+                                        HorizontalOptions="Start"/>
+
+                                <Entry
+                                        x:Name="ItemValue"
+                                        Text="1" 
+                                        MaxLength="3"
+                                        CursorPosition="0" 
+                                        SelectionLength = "3" />
 
                                 <Button  
                                     Text="Get" 
