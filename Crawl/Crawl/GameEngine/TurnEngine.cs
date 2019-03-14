@@ -121,7 +121,7 @@ namespace Crawl.GameEngine
             BattleMessages.TargetName = Target.Name;
             BattleMessages.AttackerName = Attacker.Name;
 
-            var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
+            var HitSuccess = RollToHitTarget(AttackScore, DefenseScore, Attacker, Target);
 
             // Miss
             if (BattleMessages.HitStatus == HitStatusEnum.Miss)
@@ -227,7 +227,7 @@ namespace Crawl.GameEngine
             BattleMessages.AttackerName = Attacker.Name;
 
             // Determine whether hit or miss based on character attack total and monster defense total
-            var HitSuccess = RollToHitTarget(AttackScore, DefenseScore);
+            var HitSuccess = RollToHitTarget(AttackScore, DefenseScore, Target, Attacker);
 
 
             Debug.WriteLine("#############");
@@ -394,7 +394,7 @@ namespace Crawl.GameEngine
            
         }
 
-        public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
+        public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore, Monster Attacker, Character Target)
         {
 
             var d20 = HelperEngine.RollDice(1, 20);
@@ -415,6 +415,87 @@ namespace Crawl.GameEngine
             //critical miss then force a miss if 1 or 2 is rolled
             if (d20 == 1 || d20 == 2)
             {
+                //If Critical Miss Roll for item drop
+                if (d20 == 1)
+                {
+                    //Roll a dice roll of 10, then follow Hackathon request #4 to complete the below 
+                    var d10 = HelperEngine.RollDice(1, 10);
+
+                    // Turn On UnitTestingSetRoll
+                    if (GameGlobals.ForceRollsToNotRandom)
+                    {
+                        // Don't let it be 0, if it was not initialized...
+                        if (GameGlobals.ForceToHitValue < 1)
+                        {
+                            GameGlobals.ForceToHitValue = 1;
+                        }
+
+                        // result of the dice roll between 1 to 10
+                        d10 = GameGlobals.ForceToHitValue;
+                    }
+
+                    //critical miss then force a miss if 1 or 2 is rolled
+                    if (d10 == 1)
+                    {
+                        // Force an item drop
+                        var myItemList = Target.DropAllItems();
+
+                        // Add to Score
+                        foreach (var item in myItemList)
+                        {
+                            BattleScore.ItemsDroppedList += item.FormatOutput() + "\n";
+                            BattleMessages.TurnMessageSpecial += " Item " + item.Name + "dropped forever";
+                        }
+                        Debug.WriteLine("#########################");
+                        Debug.WriteLine("Tough Luck, the item was dropped forever!!!");
+                    }
+
+                    if (d10 > 1 && d10 < 5)
+                    {
+                        // Force an item drop
+                        // Drop Items to item Pool
+                        var myItemList = Target.DropAllItems();
+
+                        // Add to Score
+                        foreach (var item in myItemList)
+                        {
+                            BattleScore.ItemsDroppedList += item.FormatOutput() + "\n";
+                            BattleMessages.TurnMessageSpecial += " Item " + item.Name + "dropped to item pool";
+                        }
+                        Debug.WriteLine("#########################");
+                        Debug.WriteLine("Tough Luck, the item was dropped into the pool!!!");
+
+                    }
+
+                    if (d10 > 4 && d10 < 7)
+                    {
+                        // Force an item drop
+                        // Drop Items to item Pool
+                        var myItemList = Target.DropAllItems();
+
+                        // If Random drops are enabled, then add some....
+                        myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
+
+                        // Add to Score
+                        foreach (var item in myItemList)
+                        {
+                            BattleScore.ItemsDroppedList += item.FormatOutput() + "\n";
+                            BattleMessages.TurnMessageSpecial += " Item " + item.Name + "Random Item dropped in pool";
+                        }
+                        Debug.WriteLine("#########################");
+                        Debug.WriteLine("Tough Luck, a Random item was dropped in pool!!!");
+
+                    }
+
+                    if (d10 > 6)
+                    {
+
+                        Debug.WriteLine("#########################");
+                        Debug.WriteLine("GREAT LUCK Buddy, YOU Got Away this time!!!");
+
+                    }
+
+                }
                 // Force Miss
                 BattleMessages.HitStatus = HitStatusEnum.CriticalMiss;
                 return BattleMessages.HitStatus;
