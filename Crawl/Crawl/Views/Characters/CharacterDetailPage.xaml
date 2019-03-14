@@ -33,17 +33,7 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
-            <!--
-            <StackLayout
-                Orientation="Horizontal"
-                HorizontalOptions="FillAndExpand" BackgroundColor="#6FA5F0" Grid.Row="1" Grid.Column="0">
-                <Label Text="Preferred Item: " 
-                   FontSize="Medium" 
-                   HorizontalOptions="Start"/>
-                <Label Text="{Binding Data.Item}" 
-                    FontSize="Medium" 
-                    HorizontalOptions="Center"/>
-            </StackLayout>-->
+
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="#6FA5F0" Grid.Row="2" Grid.Column="0">
@@ -95,6 +85,17 @@
                     FontSize="Medium" 
                     HorizontalOptions="Center"/>
             </StackLayout>
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="#6FA5F0" Grid.Row="8" Grid.Column="0">
+                <Label Text="Speed : " 
+                   FontSize="Medium" 
+                   HorizontalOptions="Start"/>
+                <Label Text="{Binding Data.Speed}" 
+                    FontSize="Medium" 
+                    HorizontalOptions="Center"/>
+            </StackLayout>
+
             <StackLayout
                 Orientation="Horizontal"
                 BackgroundColor="#6FA5F0" Grid.Row="8" Grid.Column="0">

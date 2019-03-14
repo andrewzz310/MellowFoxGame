@@ -39,17 +39,6 @@ namespace Crawl.Services
         private async void InitilizeSeedData()
         {
 
-            // Load Items
-            //_itemDataset.Add(new Item("Shuriken", "This is a Shuriken  Item", "shuriken.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-            //_itemDataset.Add(new Item("Armor", "This is a Armor Item", "armors.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-            //_itemDataset.Add(new Item("Ring of Power", "This is a Ring of Power Item", "ringofpower.png", 1, 5, 0, ItemLocationEnum.OffHand, AttributeEnum.Defense));
-            //_itemDataset.Add(new Item("Two-Sided Hammer", "This is a Two-Sided Hammer Item", "hammer1.png", 2, 5, 8, ItemLocationEnum.Head, AttributeEnum.Attack));
-            //_itemDataset.Add(new Item("Bow and Arrow", "This is a Bow and Arrow Item", "bowandarrows.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Attack));
-            //_itemDataset.Add(new Item("Turbo", "This is a Turbo Item", "turbo.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.Speed));
-            //_itemDataset.Add(new Item("Staff Sword", "This is a Staff Sword Item", "sword.png", 3, 7, 9, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));
-            //_itemDataset.Add(new Item("Potion", "This is a Potion Item", "potion.png", 10, 6, 7, ItemLocationEnum.OffHand, AttributeEnum.CurrentHealth));
-
-
             //items
             await AddAsync_Item(new Item("Knight Sword", "Sword of Power. Gives the knight super strength", "https://66.media.tumblr.com/0a842748fd2d4007774d1046fb409665/tumblr_p3cp5dOgyY1si01xjo1_400.gif", 10, 3, 3, ItemLocationEnum.OffHand, AttributeEnum.Attack));
             await AddAsync_Item(new Item("Ninja's Shuriken", "Shuriken made of steel. Strikes far and true", "https://cdnb.artstation.com/p/assets/images/images/016/136/149/original/paulo-silva-shuriken.gif?1551046439", 3, 7, 7, ItemLocationEnum.PrimaryHand, AttributeEnum.Attack));

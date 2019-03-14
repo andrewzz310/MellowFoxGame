@@ -244,14 +244,49 @@ namespace Crawl.GameEngine
         // get the next monster/characters turn b
         public PlayerInfo GetNextPlayerTurn()
         {
-            // Recalculate Order based on speed first
-            OrderPlayerListByTurnOrder();
-
+            //check game global if reverse order is required
+            if (GameGlobals.ReverseOrder)
+            {
+                ReverseOrderPlayerListByTurnOrder();
+            }
+            else
+            {
+                // Recalculate Order based on speed first
+                OrderPlayerListByTurnOrder();
+            }
             var PlayerCurrent = GetNextPlayerInList();
             // Lookup CurrentPlayer in the list
             // Find the player next to Current Player in order
 
             return PlayerCurrent;
+        }
+
+        //initializes and orders the player list in reverse order
+
+        public void ReverseOrderPlayerListByTurnOrder()
+        {
+            var myReturn = new List<PlayerInfo>();
+
+            // Order is based by... 
+            // Order by Speed (Ascending)
+            // Then by Highest level (Descending)
+            // Then by Highest Experience Points (Descending)
+            // Then by Character before Monster (enum assending)
+            // Then by Alphabetic on Name (Assending)
+            // Then by First in list order (Assending
+
+            // initialize list
+
+            MakePlayerList();
+
+            // organize list based on speed, level,etc,etc
+            PlayerList = PlayerList.OrderBy(a => a.Speed)
+                .ThenByDescending(a => a.Level)
+                .ThenByDescending(a => a.ExperiencePoints)
+                .ThenByDescending(a => a.PlayerType)
+                .ThenBy(a => a.Name)
+                .ThenBy(a => a.ListOrder)
+                .ToList();
         }
 
         // initialize and then order the player list

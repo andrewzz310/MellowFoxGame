@@ -213,8 +213,27 @@
                     </StackLayout>
                 </StackLayout>
 
+                    <StackLayout>
+                        <StackLayout
+                          Orientation="Horizontal"
+                          VerticalOptions="Center"
+                          HorizontalOptions="StartAndExpand">
 
-<!-- Forced Random Numbers-->
+                        <Label
+                            Text="Reverse Initiative Speed"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center"
+                            Style="{DynamicResource DebugSwitchLabel}"/>
+
+                        <Switch
+                            x:Name="ReverseSpeed"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="ReverseInitiativeSpeed_OnToggled"
+                            IsToggled="False"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                            <!-- Forced Random Numbers-->
                     <StackLayout>
                         <StackLayout
                           Orientation="Horizontal"
@@ -234,6 +253,7 @@
                             IsToggled="False"/>
                         </StackLayout>
 
+                        
                         <StackLayout
                           x:Name="ForcedRandomValuesSettingsFrame"
                           IsVisible="True">

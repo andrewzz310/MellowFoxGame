@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 using Crawl.ViewModels;
 using Crawl.Models;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Crawl.Views
 {
@@ -101,6 +102,20 @@ namespace Crawl.Views
             }
         }
 
+        private void ReverseInitiativeSpeed_OnToggled(object sender, ToggledEventArgs e)
+        {
+            if (e.Value)
+            {
+                GameGlobals.EnableReverseOrder();
+                Debug.WriteLine("toggle worked");
+            }
+            else
+            {
+                Debug.WriteLine("toggle not");
+                GameGlobals.DisableReverseOrder();
+                //ForcedRandomValuesSettingsFrame.IsVisible = false;
+            }
+        }
         // The stepper function for Forced Value
         void ForcedValue_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
