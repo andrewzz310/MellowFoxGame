@@ -87,6 +87,6 @@ namespace Crawl.Models
         public static bool EnableCriticalHitDamage = true;
         public static bool EnableCriticalMissProblems = true;
         public static bool EnableGameHarder = true;
-        public static bool MonsterExtraDamage = true;
+        public static bool SleeplessZombies = true;
     }
 }

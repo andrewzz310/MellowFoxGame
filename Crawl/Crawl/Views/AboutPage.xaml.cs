@@ -43,7 +43,7 @@ namespace Crawl.Views
             EnableCriticalMissProblems.IsToggled = GameGlobals.EnableCriticalMissProblems;
 
             EnableGameHarder.IsToggled = GameGlobals.EnableGameHarder;
-            MonsterExtraDamage.IsToggled = GameGlobals.MonsterExtraDamage;
+            SleeplessZombies.IsToggled = GameGlobals.SleeplessZombies;
 
             // Turn off the Debug Frame
             DebugSettingsFrame.IsVisible = false;
@@ -143,10 +143,10 @@ namespace Crawl.Views
 
 
         //#23 monster extra damage
-        private void MonsterExtraDamage_OnToggled(object sender, ToggledEventArgs e)
+        private void SleeplessZombies_OnToggled(object sender, ToggledEventArgs e)
         {
             // check for monster extra damage
-            GameGlobals.MonsterExtraDamage = e.Value;
+            GameGlobals.SleeplessZombies = e.Value;
         }
 
         // Turn on Critical Misses
