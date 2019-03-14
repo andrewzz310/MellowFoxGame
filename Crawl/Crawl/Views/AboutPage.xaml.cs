@@ -41,6 +41,9 @@ namespace Crawl.Views
             EnableCriticalHitDamage.IsToggled = GameGlobals.EnableCriticalHitDamage;
             EnableCriticalMissProblems.IsToggled = GameGlobals.EnableCriticalMissProblems;
 
+            // Turn off the Debug Frame
+            DebugSettingsFrame.IsVisible = false;
+
             var myTestItem = new Item();
             var myTestCharacter = new Character();
             var myTestMonster = new Monster();
@@ -74,6 +77,41 @@ namespace Crawl.Views
         {
             // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
             SetDataSource(e.Value);
+        }
+
+
+        /// <summary>
+        /// Turn on Random Number Forced Values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void UseForcedRandomValuesSwitch_OnToggled(object sender, ToggledEventArgs e)
+        {
+            if (e.Value)
+            {
+                ForcedRandomValuesSettingsFrame.IsVisible = true;
+                GameGlobals.EnableRandomValues();
+
+                GameGlobals.SetForcedRandomNumbersValue(Convert.ToInt16(ForcedValue.Text));
+            }
+            else
+            {
+                GameGlobals.DisableRandomValues();
+                ForcedRandomValuesSettingsFrame.IsVisible = false;
+            }
+        }
+
+        // The stepper function for Forced Value
+        void ForcedValue_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            ForcedValue.Text = String.Format("{0}", e.NewValue);
+            GameGlobals.SetForcedRandomNumbersValue(Convert.ToInt16(ForcedValue.Text));
+        }
+
+        // The stepper function for To Force To Hit Value
+        void ForcedHitValue_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            ForcedHitValue.Text = String.Format("{0}", e.NewValue);
         }
 
         // Debug Switches
