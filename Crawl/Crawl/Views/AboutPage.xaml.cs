@@ -39,7 +39,7 @@ namespace Crawl.Views
             // Set debug settings
             
             EnableCriticalHitDamage.IsToggled = GameGlobals.EnableCriticalHitDamage;
-
+            EnableCriticalMissProblems.IsToggled = GameGlobals.EnableCriticalMissProblems;
 
             var myTestItem = new Item();
             var myTestCharacter = new Character();
@@ -78,7 +78,12 @@ namespace Crawl.Views
 
         // Debug Switches
 
-
+        // Turn on Critical Misses
+        private void EnableCriticalMissProblems_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
+            GameGlobals.EnableCriticalMissProblems = e.Value;
+        }
         // Turn on Critical Hit Damage
         private void EnableCriticalHitDamage_OnToggled(object sender, ToggledEventArgs e)
         {

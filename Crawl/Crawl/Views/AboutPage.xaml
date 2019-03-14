@@ -195,18 +195,21 @@
                             Toggled="EnableCriticalHitDamage_OnToggled"
                             IsToggled="False"/>
                         </StackLayout>
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
 
+                                <Label
+                                    Text="Critical Miss Bad Things"
+                                    Style="{DynamicResource DebugSwitchLabel}"/>
 
-                        <StackLayout
-                        HorizontalOptions="FillAndExpand"
-                        Orientation="Horizontal">
+                                <Switch
+                                    x:Name="EnableCriticalMissProblems"
+                                    HorizontalOptions="EndAndExpand"
+                                    Toggled="EnableCriticalMissProblems_OnToggled"
+                                    IsToggled="False"/>
+                            </StackLayout>
 
-                            <Label 
-                            Text="Critical Miss Bad Things"
-                            Style="{DynamicResource DebugSwitchLabel}"
-                            />
-
-                        </StackLayout>
                     </StackLayout>
                 </StackLayout>
 
