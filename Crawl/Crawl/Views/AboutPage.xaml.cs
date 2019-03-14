@@ -42,6 +42,7 @@ namespace Crawl.Views
             EnableCriticalMissProblems.IsToggled = GameGlobals.EnableCriticalMissProblems;
 
             EnableGameHarder.IsToggled = GameGlobals.EnableGameHarder;
+            MonsterExtraDamage.IsToggled = GameGlobals.MonsterExtraDamage;
 
             // Turn off the Debug Frame
             DebugSettingsFrame.IsVisible = false;
@@ -121,10 +122,17 @@ namespace Crawl.Views
         // Turn on #21 get game harder
         private void EnableGameHarder_OnToggled(object sender, ToggledEventArgs e)
         {
-            // This will change out the DataStore to be the Mock Store if toggled on, or the SQL if off.
+            // check if game harder
             GameGlobals.EnableGameHarder = e.Value;
         }
 
+
+        //#23 monster extra damage
+        private void MonsterExtraDamage_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // check for monster extra damage
+            GameGlobals.MonsterExtraDamage = e.Value;
+        }
 
         // Turn on Critical Misses
         private void EnableCriticalMissProblems_OnToggled(object sender, ToggledEventArgs e)
