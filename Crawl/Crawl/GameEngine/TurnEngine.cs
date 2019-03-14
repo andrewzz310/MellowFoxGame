@@ -241,11 +241,17 @@ namespace Crawl.GameEngine
                 Debug.WriteLine(BattleMessages.TurnMessage);
                 if (GameGlobals.Mulligan)
                 {
-                    //doing 50% damage for mulligan
-                    BattleMessages.DamageAmount = Attacker.GetDamageRollValue() / 2;
-                    Debug.WriteLine("#### Mulligan Alert #####");
-                    Debug.WriteLine("Mulligan was applied");
-                    BattleMessages.AttackStatus = string.Format(" hits for {0} damage on using Mulligan ", BattleMessages.DamageAmount);
+                    var d4 = HelperEngine.RollDice(1, 4);
+           
+                    // only happens sometimes
+                    if (d4 == 2 || d4 == 3)
+                    {
+                        //doing 50% damage for mulligan
+                        BattleMessages.DamageAmount = Attacker.GetDamageRollValue() / 2;
+                        Debug.WriteLine("#### Mulligan Alert #####");
+                        Debug.WriteLine("Mulligan was applied");
+                        BattleMessages.AttackStatus = string.Format(" hits for {0} damage on using Mulligan ", BattleMessages.DamageAmount);
+                    }
                 }
                 return true;
             }
