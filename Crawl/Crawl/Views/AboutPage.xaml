@@ -230,13 +230,13 @@
                                 Orientation="Horizontal">
 
                                 <Label
-                                    Text="23 Monster Extra Damage"
+                                    Text="16 SleeplessZombies"
                                     Style="{DynamicResource DebugSwitchLabel}"/>
 
                                 <Switch
-                                    x:Name="MonsterExtraDamage"
+                                    x:Name="SleeplessZombies"
                                     HorizontalOptions="EndAndExpand"
-                                    Toggled="MonsterExtraDamage_OnToggled"
+                                    Toggled="SleeplessZombies_OnToggled"
                                     IsToggled="False"/>
                             </StackLayout>
                         </StackLayout>
