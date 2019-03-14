@@ -236,9 +236,17 @@ namespace Crawl.GameEngine
             //miss based on attack and roll being less than defence
             if (BattleMessages.HitStatus == HitStatusEnum.Miss)
             {
+                
                 BattleMessages.TurnMessage = Attacker.Name + " misses " + Target.Name;
                 Debug.WriteLine(BattleMessages.TurnMessage);
-
+                if (GameGlobals.Mulligan)
+                {
+                    //doing 50% damage for mulligan
+                    BattleMessages.DamageAmount = Attacker.GetDamageRollValue() / 2;
+                    Debug.WriteLine("#### Mulligan Alert #####");
+                    Debug.WriteLine("Mulligan was applied");
+                    BattleMessages.AttackStatus = string.Format(" hits for {0} damage on using Mulligan ", BattleMessages.DamageAmount);
+                }
                 return true;
             }
 
