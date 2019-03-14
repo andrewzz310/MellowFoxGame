@@ -36,6 +36,9 @@ namespace Crawl.Models
         // Allow Random Items when monsters die...
         public static bool AllowMonsterDropItems = true;
 
+        //Reverse Initative order
+        public static bool ReverseOrder = false;
+
         // Turn Off Random Number Generation, and use the passed in values.
         public static void SetForcedRandomNumbersValueAndToHit(int value, int hit)
         {
@@ -69,6 +72,17 @@ namespace Crawl.Models
             ForceRollsToNotRandom = true;
         }
 
+        //turn off reverse order
+        public static void DisableReverseOrder()
+        {
+            ReverseOrder = false;
+        }
+
+        //turn on reverse order
+        public static void EnableReverseOrder()
+        {
+            ReverseOrder = true;
+        }
         // Debug Settings
         public static bool EnableCriticalHitDamage = true;
         public static bool EnableCriticalMissProblems = true;

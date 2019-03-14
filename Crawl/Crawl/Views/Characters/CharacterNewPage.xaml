@@ -131,7 +131,7 @@
                             Text="{Binding Data.Speed}" 
                             FontSize="Medium" 
                             HorizontalOptions="Start"
-                            x:Name="LevelValue"
+                            x:Name="SpeedValue"
                             VerticalOptions="Center"/>
                             <Stepper Value="{Binding Data.Speed, Mode=TwoWay}"
                             Minimum="0"
