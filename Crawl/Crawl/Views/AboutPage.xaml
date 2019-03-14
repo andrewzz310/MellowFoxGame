@@ -173,28 +173,28 @@
                             IsToggled="True"/>
                     </StackLayout>
 
-                    <StackLayout
+                        <StackLayout
                         x:Name="DebugSettingsFrame"
                         IsVisible="True"
                         BackgroundColor="WhiteSmoke"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="StartAndExpand">
-                        
-                        <StackLayout
+
+                            <StackLayout
                         HorizontalOptions="FillAndExpand"
                         Orientation="Horizontal">
 
-                            <Label 
+                                <Label 
                             Text="Critical Hit Double Damage"
                             Style="{DynamicResource DebugSwitchLabel}"
                             />
 
-                            <Switch 
+                                <Switch 
                             x:Name="EnableCriticalHitDamage"
                             HorizontalOptions="EndAndExpand"
                             Toggled="EnableCriticalHitDamage_OnToggled"
                             IsToggled="False"/>
-                        </StackLayout>
+                            </StackLayout>
                             <StackLayout
                                 HorizontalOptions="FillAndExpand"
                                 Orientation="Horizontal">
@@ -209,7 +209,7 @@
                                     Toggled="EnableCriticalMissProblems_OnToggled"
                                     IsToggled="False"/>
                             </StackLayout>
-                                   <StackLayout
+                            <StackLayout
                                 HorizontalOptions="FillAndExpand"
                                 Orientation="Horizontal">
 
@@ -239,16 +239,12 @@
                                     Toggled="MonsterExtraDamage_OnToggled"
                                     IsToggled="False"/>
                             </StackLayout>
-
-
                         </StackLayout>
-          
-
                     </StackLayout>
                 </StackLayout>
-
+                
                     <StackLayout>
-                        <StackLayout
+                    <StackLayout
                           Orientation="Horizontal"
                           VerticalOptions="Center"
                           HorizontalOptions="StartAndExpand">
@@ -264,10 +260,28 @@
                             HorizontalOptions="EndAndExpand"
                             Toggled="ReverseInitiativeSpeed_OnToggled"
                             IsToggled="False"/>
-                        </StackLayout>
-
                     </StackLayout>
-                            <!-- Forced Random Numbers-->
+                </StackLayout>
+                <StackLayout>
+                    <StackLayout
+                          Orientation="Horizontal"
+                          VerticalOptions="Center"
+                          HorizontalOptions="StartAndExpand">
+
+                        <Label
+                            Text="Enable Mulligan"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center"
+                            Style="{DynamicResource DebugSwitchLabel}"/>
+
+                        <Switch
+                            x:Name="Mulligan"
+                            HorizontalOptions="EndAndExpand"
+                            Toggled="EnableMulligan_OnToggled"
+                            IsToggled="False"/>
+                    </StackLayout>
+                </StackLayout>
+                <!-- Forced Random Numbers-->
                     <StackLayout>
                         <StackLayout
                           Orientation="Horizontal"

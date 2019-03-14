@@ -39,6 +39,9 @@ namespace Crawl.Models
         //Reverse Initative order
         public static bool ReverseOrder = false;
 
+        //Mulligan
+        public static bool Mulligan = false;
+
         // Turn Off Random Number Generation, and use the passed in values.
         public static void SetForcedRandomNumbersValueAndToHit(int value, int hit)
         {
@@ -82,6 +85,18 @@ namespace Crawl.Models
         public static void EnableReverseOrder()
         {
             ReverseOrder = true;
+        }
+
+        //turn off Mulligan
+        public static void DisableMulligan()
+        {
+            Mulligan = false;
+        }
+
+        //turn on Mulligan
+        public static void EnableMulligan()
+        {
+            Mulligan = true;
         }
         // Debug Settings
         public static bool EnableCriticalHitDamage = true;
