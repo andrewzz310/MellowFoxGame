@@ -48,6 +48,13 @@ namespace Crawl.Models
             MaxHealth = 1;
         }
 
+        public void setCurrentHealth(int curhealth)
+        {
+            CurrentHealth = curhealth;
+
+
+        }
+
         // Return attributebase based on a string as the constructor.
         public AttributeBase(string data)
         {

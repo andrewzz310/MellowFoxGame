@@ -306,5 +306,15 @@ namespace Crawl.Models
                 CauseDeath();
             }
         }
+
+        public void setAliveTrue(bool alive)
+        {
+            Alive = alive;
+        }
+
+        public void setName (string n)
+        {
+            Name = n;
+        }
     }
 }

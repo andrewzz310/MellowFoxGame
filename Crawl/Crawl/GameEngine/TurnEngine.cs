@@ -330,11 +330,54 @@ namespace Crawl.GameEngine
                 }
 
                 ItemPool.AddRange(myItemList);
+
+
+                // do #16
+                if (GameGlobals.SleeplessZombies)
+                {
+                    var d20 = HelperEngine.RollDice(1, 4);
+
+                    // only happens sometimes based on dice
+                    if (d20 == 2 || d20 == 3)
+                    {
+                        
+                        Target.Alive = true;
+                        int health = Target.GetHealthMax() / 2;
+                        Target.Attribute.setCurrentHealth(health);
+                        string newname = "ZOMBIE<MONSTER>";
+                        Target.setName(newname);
+                        MonsterList.Add(Target);
+                        Debug.WriteLine("SLEEPLESS ZOMBIES MONSTER BACK FROM THE DEAD!!!!!! ");
+                        Debug.WriteLine(Target.Name);
+                        BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
+                        Debug.WriteLine(BattleMessages.TurnMessage);
+                        return true;
+                    }
+                    else
+                    {
+                        BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
+                        Debug.WriteLine(BattleMessages.TurnMessage);
+                        Debug.WriteLine("sleepless zombies random chance missed");
+                        return true;
+                    }
+
+                }
+                else
+                {
+
+                    BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
+                    Debug.WriteLine(BattleMessages.TurnMessage);
+                    return true;
+                }
+
+
             }
 
             BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
             Debug.WriteLine(BattleMessages.TurnMessage);
             return true;
+
+           
         }
 
         public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
