@@ -209,6 +209,40 @@
                                     Toggled="EnableCriticalMissProblems_OnToggled"
                                     IsToggled="False"/>
                             </StackLayout>
+                                   <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
+
+                                <Label
+                                    Text="21 Harder Game"
+                                    Style="{DynamicResource DebugSwitchLabel}"/>
+
+                                <Switch
+                                    x:Name="EnableGameHarder"
+                                    HorizontalOptions="EndAndExpand"
+                                    Toggled="EnableGameHarder_OnToggled"
+                                    IsToggled="False"/>
+                            </StackLayout>
+
+
+                            <StackLayout
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
+
+                                <Label
+                                    Text="23 Monster Extra Damage"
+                                    Style="{DynamicResource DebugSwitchLabel}"/>
+
+                                <Switch
+                                    x:Name="MonsterExtraDamage"
+                                    HorizontalOptions="EndAndExpand"
+                                    Toggled="MonsterExtraDamage_OnToggled"
+                                    IsToggled="False"/>
+                            </StackLayout>
+
+
+                        </StackLayout>
+          
 
                     </StackLayout>
                 </StackLayout>
@@ -349,6 +383,6 @@
 
                 </StackLayout>
             </StackLayout>
-    </StackLayout>
+    
     </ScrollView>
 </ContentPage>

@@ -146,20 +146,34 @@
             </StackLayout>
 
             <!-- Buttons for next round if the round is over or game over or to play the game TODO next turn!-->
+            <Button Text="NextTurnHere"
+       VerticalOptions="CenterAndExpand"
+      HorizontalOptions="CenterAndExpand"
+      Clicked="Turn_Command"
+                        FontSize="Medium"
+                    BackgroundColor="#8FACE3"/>
+            <Button 
+					Text="AutoBattle"
+                    Clicked="AutoBattleButton_Command"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalOptions="CenterAndExpand"
+                    BackgroundColor="#8FACE3"
+                    FontSize="Medium"/>
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="ClickIfRoundOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
-      Clicked="RoundOver_Command"/>
-                <Button Text="NextTurnHere"
-       VerticalOptions="CenterAndExpand"
-      HorizontalOptions="CenterAndExpand"
-      Clicked="Turn_Command"/>
+      Clicked="RoundOver_Command"
+                        FontSize="Medium"
+                        BackgroundColor="#8FACE3"/>
+
                 <Button Text="ClickIfGameOver"
       VerticalOptions="CenterAndExpand"
       HorizontalOptions="CenterAndExpand"
-      Clicked="GameOver_Command"/>
+      Clicked="GameOver_Command"
+                        FontSize="Medium"
+                        BackgroundColor="#8FACE3"/>
             </StackLayout>
 
 

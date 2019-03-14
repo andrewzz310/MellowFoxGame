@@ -89,49 +89,53 @@ namespace Crawl.GameEngine
             // TODO, determine the character strength
             
             // init monster scaling
-            var ScaleLevelMax = 0;
-            var ScaleLevelMin = 0;
+            var ScaleLevelMax = 6;
+            var ScaleLevelMin = 6;
+
+            if (GameGlobals.EnableGameHarder)
+            {
+                // Scale monsters based on round count.. higher round higher and stronger monsters
+                if (BattleScore.RoundCount <= 1)
+                {
+                    ScaleLevelMax = 1;
+                    ScaleLevelMin = 1;
+                }
+                if (BattleScore.RoundCount > 0 && BattleScore.RoundCount <= 2)
+                {
+                    ScaleLevelMax = 2;
+                    ScaleLevelMin = 2;
+                }
+
+                if (BattleScore.RoundCount > 2 && BattleScore.RoundCount <= 4)
+                {
+                    ScaleLevelMax = 4;
+                    ScaleLevelMin = 4;
+                }
+
+                if (BattleScore.RoundCount > 4 && BattleScore.RoundCount <= 8)
+                {
+                    ScaleLevelMax = 8;
+                    ScaleLevelMin = 8;
+                }
 
 
-            // Scale monsters based on round count.. higher round higher and stronger monsters
-            if (BattleScore.RoundCount <= 1)
-            {
-                ScaleLevelMax = 1;
-                ScaleLevelMin = 1;
-            }
-            if (BattleScore.RoundCount > 1 && BattleScore.RoundCount <= 5)
-            {
-                ScaleLevelMax = 3;
-                ScaleLevelMin = 2;
-            }
-
-            if (BattleScore.RoundCount > 5 && BattleScore.RoundCount <= 10 )
-            {
-                ScaleLevelMax = 4;
-                ScaleLevelMin = 3;
+                if (BattleScore.RoundCount > 8 && BattleScore.RoundCount <= 16)
+                {
+                    ScaleLevelMax = 16;
+                    ScaleLevelMin = 16;
+                }
+                if (BattleScore.RoundCount > 50)
+                {
+                    ScaleLevelMax = 20;
+                    ScaleLevelMin = 20;
+                }
+              
             }
 
-            if (BattleScore.RoundCount > 10 && BattleScore.RoundCount <= 15)
+            else
             {
-                ScaleLevelMax = 8;
-                ScaleLevelMin = 4;
-            }
-
-
-            if (BattleScore.RoundCount > 15 && BattleScore.RoundCount <= 50)
-            {
-                ScaleLevelMax = 12;
-                ScaleLevelMin = 6;
-            }
-            if (BattleScore.RoundCount > 50 && BattleScore.RoundCount <= 100)
-            {
-                ScaleLevelMax = 20;
-                ScaleLevelMin = 10;
-            }
-            if (BattleScore.RoundCount > 100)
-            {
-                ScaleLevelMax = 20;
-                ScaleLevelMin = 20;
+                 ScaleLevelMax = 6;
+                 ScaleLevelMin = 6;
             }
 
 

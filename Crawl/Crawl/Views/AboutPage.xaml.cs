@@ -42,6 +42,9 @@ namespace Crawl.Views
             EnableCriticalHitDamage.IsToggled = GameGlobals.EnableCriticalHitDamage;
             EnableCriticalMissProblems.IsToggled = GameGlobals.EnableCriticalMissProblems;
 
+            EnableGameHarder.IsToggled = GameGlobals.EnableGameHarder;
+            MonsterExtraDamage.IsToggled = GameGlobals.MonsterExtraDamage;
+
             // Turn off the Debug Frame
             DebugSettingsFrame.IsVisible = false;
 
@@ -130,6 +133,21 @@ namespace Crawl.Views
         }
 
         // Debug Switches
+
+        // Turn on #21 get game harder
+        private void EnableGameHarder_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // check if game harder
+            GameGlobals.EnableGameHarder = e.Value;
+        }
+
+
+        //#23 monster extra damage
+        private void MonsterExtraDamage_OnToggled(object sender, ToggledEventArgs e)
+        {
+            // check for monster extra damage
+            GameGlobals.MonsterExtraDamage = e.Value;
+        }
 
         // Turn on Critical Misses
         private void EnableCriticalMissProblems_OnToggled(object sender, ToggledEventArgs e)
