@@ -104,7 +104,23 @@ namespace Crawl.Views
                 ForcedRandomValuesSettingsFrame.IsVisible = false;
             }
         }
+        //Mulligan
+        private void EnableMulligan_OnToggled(object sender, ToggledEventArgs e)
+        {
+            if (e.Value)
+            {
+                GameGlobals.EnableMulligan();
+                Debug.WriteLine("toggle worked");
+            }
+            else
+            {
+                Debug.WriteLine("toggle not");
+                GameGlobals.DisableMulligan();
+                
+            }
+        }
 
+        //Reverse order
         private void ReverseInitiativeSpeed_OnToggled(object sender, ToggledEventArgs e)
         {
             if (e.Value)
