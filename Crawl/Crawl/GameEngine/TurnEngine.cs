@@ -141,7 +141,7 @@ namespace Crawl.GameEngine
                 return true;
             }
 
-            // It's a Hit or a Critical Hit (rolls 20 or 19)
+            // It's a Hit or a Critical Hit (rolls 20)
             //Calculate Damage
             BattleMessages.DamageAmount = Attacker.GetDamageRollValue();
 
@@ -153,13 +153,13 @@ namespace Crawl.GameEngine
                 AttackStatus = string.Format(" hits for {0} damage on ", BattleMessages.DamageAmount);
             }
 
-            // double damage
+            // double damage (critical hit)
             if (BattleMessages.HitStatus == HitStatusEnum.CriticalHit)
             {
                 //2x damage
                 BattleMessages.DamageAmount += BattleMessages.DamageAmount;
                 Debug.WriteLine("#########################");
-                Debug.WriteLine("Unfortunately Monster rolled a 19 or 20 so it critically HIT your character!!!");
+                Debug.WriteLine("Unfortunately Monster rolled a 20 so it CRITICALLY HIT your character!!!");
                 Target.TakeDamage(BattleMessages.DamageAmount);
                 AttackStatus = string.Format(" hits critically hard for {0} damage on ", BattleMessages.DamageAmount);
             }
@@ -270,10 +270,10 @@ namespace Crawl.GameEngine
                     if (BattleMessages.HitStatus == HitStatusEnum.CriticalHit)
                     {
                         Debug.WriteLine("#########################");
-                        Debug.WriteLine("Amazing Roll, Character rolled 19 or 20 so critically HIT!!!");
+                        Debug.WriteLine("Amazing Roll, Character rolled 20 so CRITICALLY HIT!!!");
                         //2x damage
                         BattleMessages.DamageAmount += BattleMessages.DamageAmount;
-                        BattleMessages.AttackStatus = string.Format(" hits critically hard for {0} damage on ", BattleMessages.DamageAmount);
+                        BattleMessages.AttackStatus = string.Format(" hits CRITICALLY hard for {0} damage on ", BattleMessages.DamageAmount);
                     }
                 }
 
@@ -363,8 +363,8 @@ namespace Crawl.GameEngine
                 return BattleMessages.HitStatus;
             }
 
-            //critical hit if 20 or 19 is rolled then force a hit
-            if (d20 == 20 || d20 ==19)
+            //critical hit if 20  then force a hit
+            if (d20 == 20)
             {
                 // Force Hit
                 BattleMessages.HitStatus = HitStatusEnum.CriticalHit;
