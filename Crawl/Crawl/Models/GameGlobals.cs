@@ -1,6 +1,8 @@
 ﻿
 // Global switches for the overall game to use...
 
+using System;
+
 namespace Crawl.Models
 {
     public static class GameGlobals
@@ -41,6 +43,12 @@ namespace Crawl.Models
 
         //Mulligan
         public static bool Mulligan = false;
+
+        //Randome number generator
+        private static Random rnd = new Random();
+
+        public static int MulliganChance;
+        public static int ReverseChance;
 
         // Turn Off Random Number Generation, and use the passed in values.
         public static void SetForcedRandomNumbersValueAndToHit(int value, int hit)
@@ -98,10 +106,23 @@ namespace Crawl.Models
         {
             Mulligan = true;
         }
+
+        public static void SetReverseChance(int value)
+        {
+            ReverseChance = value;
+        }
+
+        public static void SetMulliganChance(int value)
+        {
+            MulliganChance = value;
+        }
+
         // Debug Settings
         public static bool EnableCriticalHitDamage = true;
         public static bool EnableCriticalMissProblems = true;
         public static bool EnableGameHarder = true;
         public static bool SleeplessZombies = true;
+
+        
     }
 }
