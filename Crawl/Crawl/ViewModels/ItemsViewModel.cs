@@ -178,6 +178,16 @@ namespace Crawl.ViewModels
             var myReturn = await DataStore.InsertUpdateAsync_Item(data);
             return myReturn;
         }
+        //
+
+        public bool AddItem_Sync(Item data)
+        {
+            Dataset.Add(data);
+            SetNeedsRefresh(true);
+            return true;
+        }
+
+
 
         public Item CheckIfItemExists(Item data)
         {

@@ -301,7 +301,6 @@ namespace Crawl.Models
             Attribute.CurrentHealth = Attribute.CurrentHealth - damage;
             if (Attribute.CurrentHealth <= 0)
             {
-                Attribute.CurrentHealth = 0;
                 // Death...
                 CauseDeath();
             }
