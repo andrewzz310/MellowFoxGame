@@ -80,45 +80,14 @@ namespace Crawl.ViewModels
             {
                 SelectedListRemove(data);
             });
-            /*
-            MessagingCenter.Subscribe<BattleBeginPage>(this, "StartBattle", async (obj) =>
-            {
-                StartBattle();
-            });
-
-            MessagingCenter.Subscribe<BattleBeginPage>(this, "EndBattle", async (obj) =>
-            {
-                EndBattle();
-            });
-
-            MessagingCenter.Subscribe<BattleBeginPage>(this, "StartRound", async (obj) =>
-            {
-                StartRound();
-            });
-
-            MessagingCenter.Subscribe<BattleBeginPage>(this, "LoadCharacters", async (obj) =>
-            {
-                LoadCharacters();
-            });
-
-
-            MessagingCenter.Subscribe<BattleBeginPage>(this, "RoundNextTurn", async (obj) =>
-            {
-                RoundNextTurn();
-            });
-
-            MessagingCenter.Subscribe<BattleBeginPage>(this, "NewRound", async (obj) =>
-            {
-                NewRound();
-            });
-            */
+            
         }
         /// <summary>
         /// Call to the Engine to Start the Battle
         /// </summary>
         public void StartBattle()
         {
-            BattleViewModel.Instance.BattleEngine.StartBattle(false);
+            BattleViewModel._instance.BattleEngine.StartBattle(false);
         }
 
         /// <summary>
@@ -126,7 +95,7 @@ namespace Crawl.ViewModels
         /// </summary>
         public void EndBattle()
         {
-            BattleViewModel.Instance.BattleEngine.EndBattle();
+            BattleViewModel._instance.BattleEngine.EndBattle();
         }
 
         /// <summary>
@@ -134,7 +103,7 @@ namespace Crawl.ViewModels
         /// </summary>
         public void StartRound()
         {
-            BattleViewModel.Instance.BattleEngine.StartRound();
+            BattleViewModel._instance.BattleEngine.StartRound();
         }
 
         /// <summary>
@@ -145,7 +114,7 @@ namespace Crawl.ViewModels
         {
             foreach (var data in SelectedCharacters)
             {
-                BattleViewModel.Instance.BattleEngine.CharacterList.Add(new Character(data));
+                BattleViewModel._instance.BattleEngine.CharacterList.Add(new Character(data));
             }
 
         }
@@ -155,7 +124,7 @@ namespace Crawl.ViewModels
         /// </summary>
         public void RoundNextTurn()
         {
-            BattleViewModel.Instance.BattleEngine.RoundNextTurn();
+            BattleViewModel._instance.BattleEngine.RoundNextTurn();
         }
 
         /// <summary>
@@ -163,7 +132,7 @@ namespace Crawl.ViewModels
         /// </summary>
         public void NewRound()
         {
-            BattleViewModel.Instance.BattleEngine.NewRound();
+            BattleViewModel._instance.BattleEngine.NewRound();
         }
 
 
@@ -350,8 +319,8 @@ namespace Crawl.ViewModels
         public void ForceDataRefresh()
         {
 
-            var canExecute = LoadDataCommand.CanExecute(null);
-            LoadDataCommand.Execute(null);
+            var canExecute = BattleViewModel._instance.LoadDataCommand.CanExecute(null);
+            BattleViewModel._instance.LoadDataCommand.Execute(null);
         }
     }
 }

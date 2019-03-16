@@ -331,7 +331,7 @@ namespace Crawl.GameEngine
                 BattleScore.MonstersKilledList += Target.FormatOutput() + "\n";
 
                 // Drop Items to item Pool
-                var myItemList = Target.DropAllItems();
+               var myItemList = Target.DropAllItems();
 
                 // If Random drops are enabled, then add some....
                 myItemList.AddRange(GetRandomMonsterItemDrops(BattleScore.RoundCount));
@@ -610,8 +610,6 @@ namespace Crawl.GameEngine
                     if (myItem == null)
                     {
                         // Item does not exist, so add it to the datstore
-
-                        // TODO:  Need way to not save the Item
                         ItemsViewModel.Instance.AddItem_Sync(item);
                     }
                     else

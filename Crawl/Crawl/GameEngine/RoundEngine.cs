@@ -148,7 +148,7 @@ namespace Crawl.GameEngine
                 for (var i = 0; i < 6; i++)
                 {
                     var item = new Item();
-                    // Help identify which monster it is...
+                    // Help identify Item
                     item.Name += " " + ItemPool.Count() + 1;
 
                     ItemPool.Add(item);
