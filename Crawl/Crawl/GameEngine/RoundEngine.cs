@@ -138,26 +138,12 @@ namespace Crawl.GameEngine
                  ScaleLevelMin = 6;
             }
 
-            //Assign unique items to Monsters
-            var myItemsViewModel = ItemsViewModel.Instance;
-            myItemsViewModel.ForceDataRefresh();
+          
 
-            if(myItemsViewModel.Dataset.Count() < 6)
-            {
-                // Not enough items in DB, add 6 new items
-                for (var i = 0; i < 6; i++)
-                {
-                    var item = new Item();
-                    // Help identify Item
-                    item.Name += " " + ItemPool.Count() + 1;
-
-                    ItemPool.Add(item);
-                }
-            }
-
+         
             // Make Sure Monster List exists and is loaded... 
             var myMonsterViewModel = MonstersViewModel.Instance;
-            myMonsterViewModel.ForceDataRefresh();
+            //myMonsterViewModel.ForceDataRefresh();
 
             if (myMonsterViewModel.Dataset.Count() > 0)
             {
@@ -165,18 +151,18 @@ namespace Crawl.GameEngine
                 do
                 {
                     var RndMon = HelperEngine.RollDice(1, myMonsterViewModel.Dataset.Count);
-                    var RndItm = HelperEngine.RollDice(1, myItemsViewModel.Dataset.Count);
+                    
                     {
                         var mons = new Monster(myMonsterViewModel.Dataset[RndMon - 1]);
-                        var item = new Item(myItemsViewModel.Dataset[RndItm - 1]);
+                      
                         // Help identify which monster it is...
                         mons.Name += " " + (1 + MonsterList.Count()).ToString();
-                        item.Name += " " + (1 + ItemPool.Count()).ToString();
+                   
 
                         var rndScale = HelperEngine.RollDice(ScaleLevelMin, ScaleLevelMax);
                         mons.ScaleLevel(rndScale);
-                        item.ScaleLevel(rndScale);
-                        mons.UniqueItem = item.Id.ToString();//assigning unique item to monster
+                     
+                      
                         MonsterList.Add(mons);
                     }
 
