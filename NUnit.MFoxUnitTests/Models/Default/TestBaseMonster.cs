@@ -1,24 +1,34 @@
 ﻿using Crawl.Models;
 using Newtonsoft.Json.Linq;
 
-namespace NUnit.MFoxUnitTests.Models.Default
+namespace UnitTests.Models.Default
 {
     public static partial class DefaultModels
     {
 
-        public static BaseCharacter BaseCharacterDefault()
+        public static BaseMonster BaseMonsterDefault()
         {
-            var myData = new BaseCharacter();
-            
+            var myData = new BaseMonster();
+
             myData.Alive = true;
 
             // Base information
             myData.Name = "Name";
             myData.Description = "Description";
             myData.Level = 1;
-            myData.ExperienceTotal = 0;
             myData.ImageURI = null;
 
+            myData.ExperienceTotal = 0;
+
+            // Set the strings for the items
+            myData.Head = null;
+            myData.Feet = null;
+            myData.Necklass = null;
+            myData.RightFinger = null;
+            myData.LeftFinger = null;
+            myData.Feet = null;
+
+            // Populate the Attributes
             var myAttributes = new AttributeBase();
             myAttributes.Attack = 1;
             myAttributes.Speed = 1;
@@ -28,7 +38,6 @@ namespace NUnit.MFoxUnitTests.Models.Default
 
             JObject myAttributesJson = (JObject)JToken.FromObject(myAttributes);
             var myAttibutesString = myAttributesJson.ToString();
-
             myData.AttributeString = myAttibutesString;
 
             return myData;

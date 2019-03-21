@@ -1162,302 +1162,302 @@ namespace UnitTests.GameEngine
 
         #endregion GetRandomMonsterItemDrops
 
-        #region DetermineCriticalMissProblem
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Null_Should_Return_Invalid()
-        {
-            MockForms.Init();
+        //#region DetermineCriticalMissProblem
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Null_Should_Return_Invalid()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            // Set random to 1, and to hit to 1
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(1);
+        //    // Turn off random numbers
+        //    // Set random to 1, and to hit to 1
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(1);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(null);
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(null);
 
-            // Should roll for 1 item, and return it...
-            var Expected = " Invalid Character ";
+        //    // Should roll for 1 item, and return it...
+        //    var Expected = " Invalid Character ";
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Null_Roll_1_Should_Return_Nothing_Broke()
-        {
-            MockForms.Init();
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Null_Roll_1_Should_Return_Nothing_Broke()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            // Set random to 1, and to hit to 1
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(1);
+        //    // Turn off random numbers
+        //    // Set random to 1, and to hit to 1
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(1);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            myCharacter.PrimaryHand = null; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.PrimaryHand = null; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
 
-            // Should roll for 1 item, and return it...
-            var Expected = " Luckly, nothing to drop from PrimaryHand";
+        //    // Should roll for 1 item, and return it...
+        //    var Expected = " Luckly, nothing to drop from PrimaryHand";
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_1_Should_Return_Sword_Broke()
-        {
-            MockForms.Init();
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_1_Should_Return_Sword_Broke()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            // Set random to 1, and to hit to 1
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(1);
+        //    // Turn off random numbers
+        //    // Set random to 1, and to hit to 1
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(1);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
 
-            var Expected = " Item " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand + " Broke, and lost forever";
+        //    var Expected = " Item " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand + " Broke, and lost forever";
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_2_Should_Return_Sword_Dropped()
-        {
-            MockForms.Init();
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_2_Should_Return_Sword_Dropped()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(2);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(2);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Dropped " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Dropped " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
 
-            // Check the ItemPool for the Item...
-            var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
-            Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
-        }
+        //    // Check the ItemPool for the Item...
+        //    var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
+        //    Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_3_Should_Return_Sword_Dropped()
-        {
-            MockForms.Init();
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_3_Should_Return_Sword_Dropped()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(3);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(3);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Dropped " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Dropped " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
 
-            // Check the ItemPool for the Item...
-            var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
-            Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
-        }
+        //    // Check the ItemPool for the Item...
+        //    var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
+        //    Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_4_Should_Return_Sword_Dropped()
-        {
-            MockForms.Init();
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Sword_Roll_4_Should_Return_Sword_Dropped()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(4);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(4);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.PrimaryHand = itemGuid; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Dropped " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Dropped " + myItem.Name + " from " + ItemLocationEnum.PrimaryHand;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
 
-            // Check the ItemPool for the Item...
-            var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
-            Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
-        }
+        //    // Check the ItemPool for the Item...
+        //    var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
+        //    Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_5_Empty_Slot_Should_Return_Lucky()
-        {
-            // RightFinger is slot 5...
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_5_Empty_Slot_Should_Return_Lucky()
+        //{
+        //    // RightFinger is slot 5...
 
-            MockForms.Init();
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(5);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(5);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.RightFinger = null; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.RightFinger = null; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Luckly, nothing to drop from " + ItemLocationEnum.RightFinger;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Luckly, nothing to drop from " + ItemLocationEnum.RightFinger;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_5_Full_Slot_Should_Return_Item()
-        {
-            // RightFinger is slot 5...
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_5_Full_Slot_Should_Return_Item()
+        //{
+        //    // RightFinger is slot 5...
 
-            MockForms.Init();
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(5);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(5);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.RightFinger = itemGuid; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.RightFinger = itemGuid; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Dropped Unknown from " + ItemLocationEnum.RightFinger;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Dropped Unknown from " + ItemLocationEnum.RightFinger;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
 
-            // Check the ItemPool for the Item...
-            var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
-            Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
-        }
+        //    // Check the ItemPool for the Item...
+        //    var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
+        //    Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_6_EmptySlot_Should_Return_Lucky()
-        {
-            MockForms.Init();
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_6_EmptySlot_Should_Return_Lucky()
+        //{
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(6);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(6);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.LeftFinger = null; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.LeftFinger = null; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Luckly, nothing to drop from " + ItemLocationEnum.LeftFinger;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Luckly, nothing to drop from " + ItemLocationEnum.LeftFinger;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
-        }
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //}
 
-        [Test]
-        public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_6_Full_Slot_Should_Return_Item()
-        {
-            // RightFinger is slot 5...
+        //[Test]
+        //public void TurnEngine_DetermineCriticalMissProblem_Attacker_Roll_6_Full_Slot_Should_Return_Item()
+        //{
+        //    // RightFinger is slot 5...
 
-            MockForms.Init();
+        //    MockForms.Init();
 
-            // Turn off random numbers
-            GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
-            GameGlobals.SetForcedRandomNumbersValue(6);
+        //    // Turn off random numbers
+        //    GameGlobals.SetForcedRandomNumbersValueAndToHit(1, 1);
+        //    GameGlobals.SetForcedRandomNumbersValue(6);
 
-            var myTurnEngine = new TurnEngine();
+        //    var myTurnEngine = new TurnEngine();
 
-            var myCharacter = new Character(DefaultModels.CharacterDefault());
+        //    var myCharacter = new Character(DefaultModels.CharacterDefault());
 
-            var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
-            var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
+        //    var itemGuid = ItemHelper.AddItemForAttribute(AttributeEnum.Attack, ItemLocationEnum.PrimaryHand, 1000).Guid;
+        //    var myItem = ItemsViewModel.Instance.GetItem(itemGuid);
 
-            myCharacter.LeftFinger = itemGuid; // Nothing in the hand, so nothing to drop...
+        //    myCharacter.LeftFinger = itemGuid; // Nothing in the hand, so nothing to drop...
 
-            var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
-            var Expected = " Dropped Unknown from " + ItemLocationEnum.LeftFinger;
+        //    var Actual = myTurnEngine.DetermineCriticalMissProblem(myCharacter);
+        //    var Expected = " Dropped Unknown from " + ItemLocationEnum.LeftFinger;
 
-            // Reset
-            GameGlobals.ToggleRandomState();
+        //    // Reset
+        //    GameGlobals.ToggleRandomState();
 
-            Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
+        //    Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
 
-            // Check the ItemPool for the Item...
-            var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
-            Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
-        }
+        //    // Check the ItemPool for the Item...
+        //    var ActualItemPool = myTurnEngine.ItemPool.Contains(myItem);
+        //    Assert.AreEqual(true, ActualItemPool, TestContext.CurrentContext.Test.Name);
+        //}
 
 
-        #endregion DetermineCriticalMissProblem
+        //#endregion DetermineCriticalMissProblem
     }
 }
