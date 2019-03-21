@@ -66,10 +66,12 @@ namespace Crawl.Views.Battle
             //debug for characters
             Debug.WriteLine("Charcters are Below :");
 
-            // must have 6 characters to write out
-            for (var i = 0; i < 6; i++)
+            //characters below 
+            for (var i = 0; i < _instanceC.BattleEngine.CharacterList.Count; i++)
             {
                 Debug.WriteLine(_instanceC.BattleEngine.CharacterList[i].FormatOutput());
+             
+                    
             }
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
