@@ -77,19 +77,16 @@ namespace Crawl.Views.Battle
         }
        
         
-        // For now use this to begin the battle for testing purposes once a character is selected
-        private async void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
+        // this method just for displaying characters selected for battle
+        private void OnCharacterSelected(object sender, SelectedItemChangedEventArgs args)
         {
 
             var data = args.SelectedItem as Character;
             if (data == null)
                 return;
+            //await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
 
-            //do something for click like attack or something
-            await Navigation.PushAsync(new CharacterDetailPage(new CharacterDetailViewModel(data)));
-
-            //Manually deselect item.
-            //SelectCharacters.SelectedItem = null;
+           
 
         }
 
