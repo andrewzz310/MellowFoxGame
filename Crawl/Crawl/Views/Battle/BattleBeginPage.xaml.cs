@@ -66,10 +66,12 @@ namespace Crawl.Views.Battle
             //debug for characters
             Debug.WriteLine("Charcters are Below :");
 
-            // must have 6 characters to write out
-            for (var i = 0; i < 6; i++)
+            //characters below 
+            for (var i = 0; i < _instanceC.BattleEngine.CharacterList.Count; i++)
             {
                 Debug.WriteLine(_instanceC.BattleEngine.CharacterList[i].FormatOutput());
+             
+                    
             }
             Debug.WriteLine("########################################");
             Debug.WriteLine(Environment.NewLine);
@@ -193,53 +195,6 @@ namespace Crawl.Views.Battle
             // change this TODO this is just a place holder
             //await Navigation.PushAsync(new BattleBeginPage());
         }
-
-        //Trigger the AutoBattle while in the middle of battle mode
-        private async void AutoBattleButton_Command(object sender, EventArgs e)
-        {
-            // Can create a new battle engine...
-            var myBattleEngine = new AutoBattleEngine();
-
-            // run auto battle
-            var result = myBattleEngine.RunAutoBattle();
-
-            if (result == false)
-            {
-                await DisplayAlert("Error", "No Characters Available", "OK");
-                return;
-            }
-
-            if (myBattleEngine.GetRoundsValue() < 1)
-            {
-                await DisplayAlert("Error", "No Rounds Fought", "OK");
-                return;
-            }
-
-            // output results of the game after battle is over
-            var myResult = myBattleEngine.GetResultsOutput();
-            var myScore = myBattleEngine.GetScoreValue();
-
-
-
-            var outputString = "Mellow Fox Battle Over!";
-
-            // the pop up for either cancel or see the score details
-            var action = await DisplayActionSheet(outputString,
-                "Cancel",
-                null,
-                "View Score Results");
-
-            // Show the results
-            if (action == "View Score Results")
-            {
-                var myScoreObject = myBattleEngine.GetScoreObject();
-                await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
-            }
-
-
-        }
-
-
 
 
         public void ClearMessages()
