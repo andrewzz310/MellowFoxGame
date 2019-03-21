@@ -158,7 +158,7 @@ namespace Crawl.Views
         }
 
 
-        //#23 monster extra damage
+        //enhanced feature of reincarnation based on zombies
         private void SleeplessZombies_OnToggled(object sender, ToggledEventArgs e)
         {
             // check for monster extra damage

@@ -346,22 +346,24 @@ namespace Crawl.GameEngine
                 ItemPool.AddRange(myItemList);
 
 
-                // do #16
+                //Implementation of Enhanced Feature Reincarnation
                 if (GameGlobals.SleeplessZombies)
                 {
                     var d20 = HelperEngine.RollDice(1, 4);
 
-                    // only happens sometimes based on dice
+                    // only happens sometimes based on dice for a randomized chance of reincarnation
                     if (d20 == 2 || d20 == 3)
                     {
                         
                         Target.Alive = true;
+                        // health is set to half
                         int health = Target.GetHealthMax() / 2;
                         Target.Attribute.setCurrentHealth(health);
-                        string newname = "ZOMBIE<MONSTER>";
+                        string newname = "REINCARNATED<MONSTER>";
                         Target.setName(newname);
+                        // add reincarnated monster back to the monster list for this round
                         MonsterList.Add(Target);
-                        Debug.WriteLine("SLEEPLESS ZOMBIES MONSTER BACK FROM THE DEAD!!!!!! ");
+                        Debug.WriteLine("REINCARNATED ZOMBIES MONSTER BACK FROM THE DEAD!!!!!! ");
                         Debug.WriteLine(Target.Name);
                         BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
                         Debug.WriteLine(BattleMessages.TurnMessage);
@@ -369,6 +371,7 @@ namespace Crawl.GameEngine
                     }
                     else
                     {
+                        // had a chance for reincarnation, but reincarnation did not happen
                         BattleMessages.TurnMessage = Attacker.Name + BattleMessages.AttackStatus + Target.Name + BattleMessages.TurnMessageSpecial;
                         Debug.WriteLine(BattleMessages.TurnMessage);
                         Debug.WriteLine("sleepless zombies random chance missed");

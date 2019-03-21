@@ -230,7 +230,7 @@
                                 Orientation="Horizontal">
 
                                 <Label
-                                    Text="16 SleeplessZombies"
+                                    Text="ReincarnationFeature"
                                     Style="{DynamicResource DebugSwitchLabel}"/>
 
                                 <Switch
