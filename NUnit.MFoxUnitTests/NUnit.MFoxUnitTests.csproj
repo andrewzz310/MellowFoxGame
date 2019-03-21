@@ -102,12 +102,15 @@
     <Compile Include="GameEngine\HelperEngineUnitTests.cs" />
     <Compile Include="GameEngine\RoundEngineTests.cs" />
     <Compile Include="GameEngine\TurnEngineTests.cs" />
+    <Compile Include="Models\AttributeListModelTest.cs" />
+    <Compile Include="Models\CharacterModelTests.cs" />
     <Compile Include="Models\Default\TestBaseCharacter.cs" />
     <Compile Include="Models\Default\TestBaseMonster.cs" />
     <Compile Include="Models\Default\TestCharacter.cs" />
     <Compile Include="Models\Default\TestItems.cs" />
     <Compile Include="Models\Default\TestMonster.cs" />
     <Compile Include="Models\Default\TestScore.cs" />
+    <Compile Include="Models\ItemHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

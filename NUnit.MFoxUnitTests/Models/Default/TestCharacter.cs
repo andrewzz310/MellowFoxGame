@@ -1,4 +1,5 @@
-﻿using Crawl.Models;
+﻿using System;
+using Crawl.Models;
 using Newtonsoft.Json.Linq;
 
 namespace UnitTests.Models.Default
@@ -38,5 +39,9 @@ namespace UnitTests.Models.Default
             return myData;
         }
 
+        internal static object BaseCharacterDefault()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
