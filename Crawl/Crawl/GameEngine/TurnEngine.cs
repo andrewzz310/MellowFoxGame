@@ -531,6 +531,55 @@ namespace Crawl.GameEngine
 
             return BattleMessages.HitStatus;
         }
+        
+        //For unit testing
+        public HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
+        {
+
+            var d20 = HelperEngine.RollDice(1, 20);
+
+            // Turn On UnitTestingSetRoll
+            if (GameGlobals.ForceRollsToNotRandom)
+            {
+                // Don't let it be 0, if it was not initialized...
+                if (GameGlobals.ForceToHitValue < 1)
+                {
+                    GameGlobals.ForceToHitValue = 1;
+                }
+
+                d20 = GameGlobals.ForceToHitValue;
+            }
+
+            if (d20 == 1)
+            {
+                // Force Miss
+                BattleMessages.HitStatus = HitStatusEnum.CriticalMiss;
+                return BattleMessages.HitStatus;
+            }
+
+            if (d20 == 20)
+            {
+                // Force Hit
+                BattleMessages.HitStatus = HitStatusEnum.CriticalHit;
+                return BattleMessages.HitStatus;
+            }
+
+            var ToHitScore = d20 + AttackScore;
+            if (ToHitScore < DefenseScore)
+            {
+                BattleMessages.AttackStatus = " misses ";
+                // Miss
+                BattleMessages.HitStatus = HitStatusEnum.Miss;
+                BattleMessages.DamageAmount = 0;
+            }
+            else
+            {
+                // Hit
+                BattleMessages.HitStatus = HitStatusEnum.Hit;
+            }
+
+            return BattleMessages.HitStatus;
+        }
 
         //For now choose first monster in list to get attacked
         public Monster AttackChoice(Character data)
