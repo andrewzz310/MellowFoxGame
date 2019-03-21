@@ -78,7 +78,7 @@ namespace Crawl.GameEngine
 
         // Add Monsters
         // Scale them to meet Character Strength...
-        private void AddMonstersToRound()
+        public void AddMonstersToRound()
         {
 
             // Check to see if the monster list is full, if so, no need to add more...
