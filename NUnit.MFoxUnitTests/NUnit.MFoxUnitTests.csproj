@@ -112,6 +112,7 @@
     <Compile Include="Models\Default\TestMonster.cs" />
     <Compile Include="Models\Default\TestScore.cs" />
     <Compile Include="Models\ItemHelper.cs" />
+    <Compile Include="Models\SocreModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
