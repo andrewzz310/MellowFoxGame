@@ -98,7 +98,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemModelTests.cs" />
+    <Compile Include="Models\ConverterTest.cs" />
+    <Compile Include="Models\ItemModelTests.cs" />
     <Compile Include="Models\AttributeBaseModelTests.cs" />
     <Compile Include="Models\CharacterUnitTests.cs" />
     <Compile Include="GameEngine\AutoBattleEngineTesting.cs" />
