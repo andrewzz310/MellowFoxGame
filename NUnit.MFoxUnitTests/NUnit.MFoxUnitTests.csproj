@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ItemModelTests.cs" />
+    <Compile Include="Models\AttributeBaseModelTests.cs" />
     <Compile Include="Models\CharacterUnitTests.cs" />
     <Compile Include="GameEngine\AutoBattleEngineTesting.cs" />
     <Compile Include="GameEngine\HelperEngineUnitTests.cs" />
@@ -113,9 +114,11 @@
     <Compile Include="Models\Default\TestMonster.cs" />
     <Compile Include="Models\Default\TestScore.cs" />
     <Compile Include="Models\ItemHelper.cs" />
+    <Compile Include="Models\ItemLocationModelTests.cs" />
     <Compile Include="Models\MonsterModelTests.cs" />
     <Compile Include="Models\PlayerInfoModelTests.cs" />
     <Compile Include="Models\SocreModelTests.cs" />
+    <Compile Include="Models\VersionGlobalsModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
