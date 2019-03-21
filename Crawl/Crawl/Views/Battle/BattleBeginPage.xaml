@@ -152,13 +152,7 @@
       Clicked="Turn_Command"
                         FontSize="Medium"
                     BackgroundColor="#8FACE3"/>
-            <Button 
-					Text="AutoBattle"
-                    Clicked="AutoBattleButton_Command"
-                    VerticalOptions="CenterAndExpand"
-                    HorizontalOptions="CenterAndExpand"
-                    BackgroundColor="#8FACE3"
-                    FontSize="Medium"/>
+  
 
             <StackLayout Orientation="Horizontal">
                 <Button Text="ClickIfRoundOver"
