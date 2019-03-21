@@ -150,10 +150,10 @@ namespace Crawl.Views
 
         // Debug Switches
 
-        // Turn on #21 get game harder
+        // Turn on monster scaling or game harder
         private void EnableGameHarder_OnToggled(object sender, ToggledEventArgs e)
         {
-            // check if game harder
+            // check if monster scaling or game harder
             GameGlobals.EnableGameHarder = e.Value;
         }
 

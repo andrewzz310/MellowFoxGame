@@ -214,7 +214,7 @@
                                 Orientation="Horizontal">
 
                                 <Label
-                                    Text="21 Harder Game"
+                                    Text="MonsterScalingGameHarder"
                                     Style="{DynamicResource DebugSwitchLabel}"/>
 
                                 <Switch
