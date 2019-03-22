@@ -65,7 +65,7 @@ namespace Crawl.Services
             ScoresViewModel.Instance.ForceDataRefresh();
 
             BattleViewModel.Instance.ForceDataRefresh();
-         //   BattleViewModel.Instance.ForceDataRefreshM();
+       
         }
 
         // Force all modes to load data...
@@ -77,8 +77,6 @@ namespace Crawl.Services
             MonstersViewModel.Instance.ForceDataRefresh();
             //Character
             CharactersViewModel.Instance.ForceDataRefresh();
-            //Battle
-           // BattleViewModel.Instance.ForceDataRefresh();
             //Score
             ScoresViewModel.Instance.ForceDataRefresh();
           

@@ -30,9 +30,8 @@ namespace Crawl.Services
 
         private SQLDataStore()
         {
-            //CreateTables();
-            InitializeDatabaseNewTables();
-
+            CreateTables();
+          
         }
 
         public void InitializeDatabaseNewTables()

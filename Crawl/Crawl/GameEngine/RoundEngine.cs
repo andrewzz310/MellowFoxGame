@@ -86,12 +86,13 @@ namespace Crawl.GameEngine
             {
                 return;
             }
-            // TODO, determine the character strength
+            
             
             // init monster scaling
             var ScaleLevelMax = 6;
             var ScaleLevelMin = 6;
 
+            // scale based on game harder which is enabled by default
             if (GameGlobals.EnableGameHarder)
             {
                 // Scale monsters based on round count.. higher round higher and stronger monsters
