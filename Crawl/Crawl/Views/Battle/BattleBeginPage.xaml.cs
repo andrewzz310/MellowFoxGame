@@ -45,8 +45,7 @@ namespace Crawl.Views.Battle
             Debug.WriteLine(Environment.NewLine);
 
             BindingContext = _instanceC;
-            // Clear the Screen
-           // ClearMessages();
+       
 
             //debug for monsters
             Debug.WriteLine("Monsters are Below :");
@@ -174,14 +173,7 @@ namespace Crawl.Views.Battle
                     await Navigation.PushAsync(new GameOver(new ScoreDetailViewModel(myScoreObject)));
                     //await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
                 }
-               
-
-                // Clear the players from the center of the board
-                //DrawGameBoardClear();
-
-                // Change to the Game Over Button
-                // GameNextButton.IsVisible = false;
-                //GameOverButton.IsVisible = true;
+      
 
                 return;
             }
@@ -191,9 +183,7 @@ namespace Crawl.Views.Battle
             _instanceC.LoadDataCommand.Execute(null);
             // game message
             GameMessage();
-         
-            // change this TODO this is just a place holder
-            //await Navigation.PushAsync(new BattleBeginPage());
+
         }
 
 
@@ -224,20 +214,12 @@ namespace Crawl.Views.Battle
             var message = _instanceC.BattleEngine.BattleMessages.TurnMessage;
             Debug.WriteLine("#####The Message###: " + message);
 
-            AppendMessage(message);
-
+           // game messages
            htmlSource.Html = _instanceC.BattleEngine.BattleMessages.GetHTMLFormattedTurnMessage();
             HtmlBox.Source = HtmlBox.Source = htmlSource;
 
         }
-        /*
-        public void ClearMessages()
-        {
-            MessageText.Text = "";
-            htmlSource.Html = _viewModel.BattleEngine.BattleMessages.GetHTMLBlankMessage();
-            HtmlBox.Source = htmlSource;
-        }*/
-
+    
 
         bool hasAppearedOnce = false;
         protected override void OnAppearing()

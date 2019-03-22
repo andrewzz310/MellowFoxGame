@@ -237,40 +237,12 @@ namespace Crawl.ViewModels
                     DatasetChars.Add(data_char);
 
                 }
-                /*
-                var availableCharacters = CharactersViewModel.Instance.Dataset;
-                foreach (var data in availableCharacters)
-                {
-                    DatasetChars.Add(data);
-                }*/
-
-                //  var dataset = await DataStore.GetAllAsync_Character(true);
-
-                /*
-                //Sort the list
-              var battlesetchars =  BattleViewModel._instance.BattleEngine.CharacterList;
-                battlesetchars = battlesetchars
-                    .OrderBy(a => a.Name)
-                    .ThenBy(a => a.Description)
-                    .ThenByDescending(a => a.Level)
-                    .ToList();
-
-                // Then load the data structure
-                foreach (var battle_char in battlesetchars)
-                {
-                    BattlesetChars.Add(battle_char);
-                }*/
-
+      
 
 
                 //Monsters
                 DatasetMons.Clear();
-                /*
-                var mons = MonstersViewModel.Instance.Dataset;
-                foreach (var data in mons)
-                {
-                    DatasetMons.Add(data);
-                }*/
+         
 
                 var datasetmons = BattleViewModel._instance.BattleEngine.MonsterList;
 
