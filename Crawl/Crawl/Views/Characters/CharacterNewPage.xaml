@@ -5,11 +5,7 @@
 		     Title="New Charater Page"
              xmlns:local="using:Crawl.Models">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <local:StringEnumConverter x:Key="StringEnum"/>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+
 
     <ContentPage.Content>
         <StackLayout>
@@ -104,28 +100,7 @@
                             HorizontalOptions="Start"
                             VerticalOptions="Center"/>
                         </StackLayout>
-                        <StackLayout Grid.Row="6" Grid.Column="0" BackgroundColor="#6FA5F0">
-                            <Label 
-                            Text="Speed"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
-                        <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="#6FA5F0">
-                            <Label 
-                            Text="{Binding Data.Speed}" 
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            x:Name="SpeedValue"
-                            VerticalOptions="Center"/>
-                            <Stepper Value="{Binding Data.Speed, Mode=TwoWay}"
-                            Minimum="0"
-                            Maximum="20"
-                            Increment="1"
-                            ValueChanged="LevelValue_OnStepperValueChanged"
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"/>
-                        </StackLayout>
+        
                     </Grid>
                     <!-- Buttons to save the new character-->
                     <StackLayout Orientation="Horizontal">
