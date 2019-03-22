@@ -58,7 +58,7 @@ namespace Crawl.Views.Battle
             if (action == "View Score Results")
             {
                 var myScoreObject = myBattleEngine.GetScoreObject();
-                await Navigation.PushAsync(new ScoreDetailPage(new ScoreDetailViewModel(myScoreObject)));
+                await Navigation.PushAsync(new GameOver(new ScoreDetailViewModel(myScoreObject)));
             }
             
             

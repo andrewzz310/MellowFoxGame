@@ -92,17 +92,16 @@ namespace Crawl.Views.Battle
         }
 
         //Shows monster that was selected
-        private async void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
+        private  void OnMonsterSelected(object sender, SelectedItemChangedEventArgs args)
         {
             var data = args.SelectedItem as Monster;
             if (data == null)
                 return;
 
-            //do something for click like attack or something
-            await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
+           
+           // await Navigation.PushAsync(new MonsterDetailPage(new MonsterDetailViewModel(data)));
 
-            //Manually deselect item.
-            //MonstersBattle.SelectedItem = null;
+         
         }
 
 

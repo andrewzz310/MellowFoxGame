@@ -89,22 +89,7 @@
                             BackgroundColor="#6FA5F0"/>
                         </StackLayout>
 
-                        <StackLayout Grid.Row="4" Grid.Column="0" BackgroundColor="#6FA5F0">
-                            <Label 
-                            Text="Preferred Item"
-                            FontSize="Medium" 
-                            HorizontalOptions="Start"
-                            VerticalOptions="Center"
-                            BackgroundColor="#6FA5F0" />
-                        </StackLayout>
-                        <StackLayout Grid.Row="4" Grid.Column="1">
-                            <Picker 
-                            ItemsSource="{x:Static local:ItemList.GetListItem}" 
-                            SelectedItem="{Binding Data.Item, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                            x:Name="ItemPicker" 
-                            VerticalOptions="Center"
-                            BackgroundColor="#6FA5F0"/>
-                        </StackLayout>
+                
                         <StackLayout Grid.Row="5" Grid.Column="0" BackgroundColor="#6FA5F0">
                             <Label 
                             Text="Level"
